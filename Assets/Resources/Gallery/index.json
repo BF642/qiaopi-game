@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "updated": "2026-09-25",
+  "indexUrl": "",
+  "repo": "",
+  "contributors": [],
+  "notes": [],
+  "entries": [
+    {
+      "id": "sample-letter",
+      "title": "平安批 · 泉州寄新加坡（示意样张）",
+      "category": "侨批信",
+      "year": "1906",
+      "place": "泉州晋江 → 新加坡",
+      "contributor": "侨批图集示例",
+      "contributorId": "",
+      "description": "一封报平安并附银的家书：出洋者在石叻落脚后，把工钱随批寄回，写明收用与勿念。此件为示意样张，用来演示图集的浏览与投稿流程。",
+      "source": "本作美术绘制的示意样张，不是历史档案原件，也不代表任何真实家族。",
+      "image": "Gallery/sample-letter",
+      "imageUrl": "",
+      "submittedAt": "2026-09-25",
+      "sample": "示意样张 · 非史料",
+      "visible": true
+    },
+    {
+      "id": "sample-reply",
+      "title": "回批 · 款已收到（示意样张）",
+      "category": "回批",
+      "year": "1906",
+      "place": "新加坡 → 泉州晋江",
+      "contributor": "侨批图集示例",
+      "contributorId": "",
+      "description": "家中收到银信后写回的回批：报平安、说农事，让海外的人安心。回批与去批一来一往，构成侨批最完整的往返。",
+      "source": "本作美术绘制的示意样张，不是历史档案原件。",
+      "image": "Gallery/sample-reply",
+      "imageUrl": "",
+      "submittedAt": "2026-09-25",
+      "sample": "示意样张 · 非史料",
+      "visible": true
+    },
+    {
+      "id": "sample-document",
+      "title": "信局汇票存根（示意样张）",
+      "category": "汇票与单据",
+      "year": "1906",
+      "place": "厦门",
+      "contributor": "侨批图集示例",
+      "contributorId": "",
+      "description": "信局收寄银信时留下的存根：批号、银额、收批人与寄批人、经手人与日期。核对凭据的玩法就来自这样的记录习惯。",
+      "source": "本作美术绘制的示意样张，不是历史档案原件。",
+      "image": "Gallery/sample-document",
+      "imageUrl": "",
+      "submittedAt": "2026-09-25",
+      "sample": "示意样张 · 非史料",
+      "visible": true
+    }
+  ]
+}

@@ -1,0 +1,962 @@
+{
+  "title": "纸短情长 · 海路南洋",
+  "bpm": 50,
+  "meter": "4/4",
+  "bars": 16,
+  "scale": "D F G A C — original modal theme, not a traditional qupai",
+  "seed": 1831,
+  "events": [
+    {
+      "instrument": "flute",
+      "pitch": 62,
+      "beat": 0.1,
+      "duration_beats": 1.42,
+      "expression": 0.83
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 1.85,
+      "duration_beats": 0.56,
+      "expression": 0.7
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 2.65,
+      "duration_beats": 0.99,
+      "expression": 0.78
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 4.1,
+      "duration_beats": 1.8,
+      "expression": 0.93
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 6.369999999999999,
+      "duration_beats": 0.5,
+      "expression": 0.7
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 7.1,
+      "duration_beats": 0.67,
+      "expression": 0.68
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 50,
+      "beat": 0.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 57,
+      "beat": 4.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 62,
+      "beat": 0.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 1.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 3.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 6.02,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 7.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 2.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 5.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "clap",
+      "pitch": 76,
+      "beat": 0.015,
+      "duration_beats": 0.12,
+      "expression": 0.72
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 8.1,
+      "duration_beats": 0.95,
+      "expression": 0.79
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 9.4,
+      "duration_beats": 0.76,
+      "expression": 0.69
+    },
+    {
+      "instrument": "flute",
+      "pitch": 62,
+      "beat": 10.45,
+      "duration_beats": 2.17,
+      "expression": 0.86
+    },
+    {
+      "instrument": "flute",
+      "pitch": 60,
+      "beat": 13.229999999999999,
+      "duration_beats": 0.67,
+      "expression": 0.63
+    },
+    {
+      "instrument": "flute",
+      "pitch": 62,
+      "beat": 14.35,
+      "duration_beats": 1.49,
+      "expression": 0.73
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 48,
+      "beat": 8.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 55,
+      "beat": 12.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 60,
+      "beat": 8.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 60,
+      "beat": 9.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 11.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 14.02,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 60,
+      "beat": 15.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 14.64,
+      "duration_beats": 0.45,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 57,
+      "beat": 15.14,
+      "duration_beats": 0.42,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 10.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 13.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 14.67,
+      "duration_beats": 0.15,
+      "expression": 0.24
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 14.785,
+      "duration_beats": 0.15,
+      "expression": 0.3107106781186547
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 14.9,
+      "duration_beats": 0.15,
+      "expression": 0.33999999999999997
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 15.015,
+      "duration_beats": 0.15,
+      "expression": 0.31071067811865477
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 15.13,
+      "duration_beats": 0.15,
+      "expression": 0.24
+    },
+    {
+      "instrument": "clap",
+      "pitch": 76,
+      "beat": 12.059999999999999,
+      "duration_beats": 0.12,
+      "expression": 0.45
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 16.1,
+      "duration_beats": 1.22,
+      "expression": 0.78
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 17.68,
+      "duration_beats": 0.73,
+      "expression": 0.72
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 18.66,
+      "duration_beats": 1.51,
+      "expression": 0.89
+    },
+    {
+      "instrument": "flute",
+      "pitch": 72,
+      "beat": 20.650000000000002,
+      "duration_beats": 1.26,
+      "expression": 0.87
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 22.37,
+      "duration_beats": 1.43,
+      "expression": 0.74
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 53,
+      "beat": 16.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 60,
+      "beat": 20.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 65,
+      "beat": 16.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "bow",
+      "pitch": 72,
+      "beat": 17.16,
+      "duration_beats": 4.26,
+      "expression": 0.38
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 17.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 72,
+      "beat": 19.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 22.02,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 23.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 72,
+      "beat": 18.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 72,
+      "beat": 21.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "clap",
+      "pitch": 76,
+      "beat": 16.015,
+      "duration_beats": 0.12,
+      "expression": 0.72
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 24.1,
+      "duration_beats": 1.52,
+      "expression": 0.8
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 26.130000000000003,
+      "duration_beats": 0.83,
+      "expression": 0.71
+    },
+    {
+      "instrument": "flute",
+      "pitch": 62,
+      "beat": 27.37,
+      "duration_beats": 2.58,
+      "expression": 0.85
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 50,
+      "beat": 24.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 57,
+      "beat": 28.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 62,
+      "beat": 24.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 25.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 27.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 30.02,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 31.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 30.64,
+      "duration_beats": 0.45,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 57,
+      "beat": 31.14,
+      "duration_beats": 0.42,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 26.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 29.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "flute",
+      "pitch": 62,
+      "beat": 32.1,
+      "duration_beats": 1.39,
+      "expression": 0.85
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 33.72,
+      "duration_beats": 0.7,
+      "expression": 0.74
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 34.81,
+      "duration_beats": 0.82,
+      "expression": 0.8
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 36.12,
+      "duration_beats": 1.48,
+      "expression": 0.94
+    },
+    {
+      "instrument": "flute",
+      "pitch": 72,
+      "beat": 38.2,
+      "duration_beats": 0.56,
+      "expression": 0.73
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 39.13,
+      "duration_beats": 0.61,
+      "expression": 0.69
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 50,
+      "beat": 32.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 57,
+      "beat": 36.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 62,
+      "beat": 32.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 33.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 35.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 38.019999999999996,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 39.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 34.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 37.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "clap",
+      "pitch": 76,
+      "beat": 32.015,
+      "duration_beats": 0.12,
+      "expression": 0.72
+    },
+    {
+      "instrument": "flute",
+      "pitch": 74,
+      "beat": 40.1,
+      "duration_beats": 1.65,
+      "expression": 0.85
+    },
+    {
+      "instrument": "flute",
+      "pitch": 72,
+      "beat": 42.2,
+      "duration_beats": 0.76,
+      "expression": 0.76
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 43.35,
+      "duration_beats": 1.32,
+      "expression": 0.89
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 45.330000000000005,
+      "duration_beats": 0.76,
+      "expression": 0.7
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 46.580000000000005,
+      "duration_beats": 1.02,
+      "expression": 0.73
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 53,
+      "beat": 40.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 60,
+      "beat": 44.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 65,
+      "beat": 40.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "bow",
+      "pitch": 72,
+      "beat": 41.16,
+      "duration_beats": 4.26,
+      "expression": 0.38
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 41.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 72,
+      "beat": 43.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 46.019999999999996,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 47.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 72,
+      "beat": 42.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 72,
+      "beat": 45.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 46.67,
+      "duration_beats": 0.15,
+      "expression": 0.24
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 46.785000000000004,
+      "duration_beats": 0.15,
+      "expression": 0.3107106781186547
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 46.9,
+      "duration_beats": 0.15,
+      "expression": 0.33999999999999997
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 47.015,
+      "duration_beats": 0.15,
+      "expression": 0.31071067811865477
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 65,
+      "beat": 47.13,
+      "duration_beats": 0.15,
+      "expression": 0.24
+    },
+    {
+      "instrument": "clap",
+      "pitch": 76,
+      "beat": 44.06,
+      "duration_beats": 0.12,
+      "expression": 0.45
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 48.1,
+      "duration_beats": 1.34,
+      "expression": 0.83
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 49.870000000000005,
+      "duration_beats": 0.76,
+      "expression": 0.78
+    },
+    {
+      "instrument": "flute",
+      "pitch": 72,
+      "beat": 51.160000000000004,
+      "duration_beats": 1.33,
+      "expression": 0.86
+    },
+    {
+      "instrument": "flute",
+      "pitch": 69,
+      "beat": 53.2,
+      "duration_beats": 0.73,
+      "expression": 0.76
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 54.34,
+      "duration_beats": 1.43,
+      "expression": 0.75
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 48,
+      "beat": 48.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 55,
+      "beat": 52.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 60,
+      "beat": 48.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "bow",
+      "pitch": 67,
+      "beat": 49.16,
+      "duration_beats": 4.26,
+      "expression": 0.38
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 60,
+      "beat": 49.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 51.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 54.019999999999996,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 60,
+      "beat": 55.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 50.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 67,
+      "beat": 53.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "clap",
+      "pitch": 76,
+      "beat": 48.015,
+      "duration_beats": 0.12,
+      "expression": 0.72
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 56.1,
+      "duration_beats": 1.47,
+      "expression": 0.77
+    },
+    {
+      "instrument": "flute",
+      "pitch": 67,
+      "beat": 58.11,
+      "duration_beats": 0.61,
+      "expression": 0.7
+    },
+    {
+      "instrument": "flute",
+      "pitch": 65,
+      "beat": 59.120000000000005,
+      "duration_beats": 0.73,
+      "expression": 0.68
+    },
+    {
+      "instrument": "flute",
+      "pitch": 62,
+      "beat": 60.36,
+      "duration_beats": 2.77,
+      "expression": 0.86
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 50,
+      "beat": 56.05,
+      "duration_beats": 1.0,
+      "expression": 0.8
+    },
+    {
+      "instrument": "sanxian",
+      "pitch": 57,
+      "beat": 60.35,
+      "duration_beats": 0.6,
+      "expression": 0.48
+    },
+    {
+      "instrument": "bow",
+      "pitch": 62,
+      "beat": 56.47,
+      "duration_beats": 5.72,
+      "expression": 0.78
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 57.03,
+      "duration_beats": 0.36,
+      "expression": 0.64
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 59.68,
+      "duration_beats": 0.36,
+      "expression": 0.6
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 62.019999999999996,
+      "duration_beats": 0.36,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 63.46,
+      "duration_beats": 0.36,
+      "expression": 0.55
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 62,
+      "beat": 62.64,
+      "duration_beats": 0.45,
+      "expression": 0.63
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 57,
+      "beat": 63.14,
+      "duration_beats": 0.42,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 58.18,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    },
+    {
+      "instrument": "pipa",
+      "pitch": 69,
+      "beat": 61.43,
+      "duration_beats": 0.27,
+      "expression": 0.42
+    }
+  ]
+}

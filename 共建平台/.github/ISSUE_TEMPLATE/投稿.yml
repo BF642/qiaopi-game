@@ -1,0 +1,77 @@
+name: 侨批投稿
+description: 上传侨批、批封、汇票、信局器物或老照片，经审核后收入游戏内图集
+title: "[投稿] "
+labels: ["投稿"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你把家里的材料拿出来共建。提交前请确认：你有权公开这些材料，并同意在图集中署名。
+        每份投稿会按独立编号审核；准备其他材料不必等待上一份通过。审核结果发布后，可回游戏刷新查看。
+        请先在游戏里生成投稿包（侨批图集 → 准备投稿 → 生成投稿包），把包含 entry.json、投稿说明和图片的整个文件夹压缩后附在本表单的说明栏。仅贴图片无法关联游戏内投稿记录。
+        生成投稿包或打开此页面都不会自动递交。请附上完整包并提交本表单，再回游戏登记投稿链接；登记不代表维护者已确认收件。
+  - type: input
+    id: title
+    attributes:
+      label: 题名
+      description: 2 至 40 个字，例如「光绪三十二年 泉州寄石叻 平安批」
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 类别
+      options:
+        - 侨批信
+        - 回批
+        - 批封
+        - 汇票与单据
+        - 信局与器物
+        - 老照片
+        - 口述与文字
+        - 其他
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: 年代
+      description: 不确定可以留空
+  - type: input
+    id: place
+    attributes:
+      label: 地点
+      description: 例如「泉州晋江 → 新加坡」
+  - type: input
+    id: contributor
+    attributes:
+      label: 署名
+      description: 图集里显示的提供者名字
+    validations:
+      required: true
+  - type: input
+    id: contributor_id
+    attributes:
+      label: 提供者编号
+      description: 完整投稿包的「投稿说明.txt」或 entry.json 内的提供者编号（形如 QZ-XXXXXXXX）；GJ- 开头的是投稿编号，请勿混填
+  - type: textarea
+    id: description
+    attributes:
+      label: 说明
+      description: 这一件是什么、哪里来、给谁、有什么细节。至少 8 个字，并在这里附上完整投稿包压缩文件
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 来源与授权
+      description: 例如「家中旧物，已获家人同意公开」
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 授权确认
+      options:
+        - label: 我确认可以公开这些材料，并同意在图集中署名展示
+          required: true

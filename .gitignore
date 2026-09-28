@@ -1,0 +1,39 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Bb]uild/
+[Bb]uilds/
+MemoryCaptures/
+Recordings/
+.vs/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.booproj
+*.opendb
+*.VC.db
+.DS_Store
+__pycache__/
+*.pyc
+# Local credentials, signing and player data
+.env
+.env.*
+*.p12
+*.p8
+*.key
+*.mobileprovision
+*.provisionprofile
+qiaopi-world-v1.json*
+gallery-config.json
+# Optional voice recordings: review distribution rights before tracking explicitly
+Assets/Resources/Voice/*.wav
+Assets/Resources/Voice/*.wav.meta
+Assets/Resources/Voice/*.aiff*
+Assets/Resources/Voice/*.mp3*
+Assets/Resources/Voice/*.ogg*

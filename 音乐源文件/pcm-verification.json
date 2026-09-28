@@ -1,0 +1,47 @@
+[
+  {
+    "name": "HomeLetter",
+    "sha256": "7c52d155b01312b0a4faeca872ad2cc74628831934bd1eb620cd70aae7fe1ce5",
+    "channels": 2,
+    "sample_width_bytes": 2,
+    "sample_rate": 44100,
+    "frames": 3528000,
+    "compression": "NONE",
+    "clipped_sample_count": 0,
+    "dc_mean_per_channel": [
+      -3.382191906710601e-09,
+      -8.165701176303855e-09
+    ],
+    "stereo_correlation": 0.9605616737250858
+  },
+  {
+    "name": "SeaLetter",
+    "sha256": "fb84519653d375fc0cd8c2023e7876f5e3f5c542f366c2d06299574d871cd1f0",
+    "channels": 2,
+    "sample_width_bytes": 2,
+    "sample_rate": 44100,
+    "frames": 3386880,
+    "compression": "NONE",
+    "clipped_sample_count": 0,
+    "dc_mean_per_channel": [
+      -4.937769514272723e-09,
+      7.3886332147876515e-09
+    ],
+    "stereo_correlation": 0.9294590550242042
+  },
+  {
+    "name": "ReturnLetter",
+    "sha256": "1956c5130422eedf6eea484773d298b451f9d84512f2ce3cf613bb5506ac561b",
+    "channels": 2,
+    "sample_width_bytes": 2,
+    "sample_rate": 44100,
+    "frames": 3681391,
+    "compression": "NONE",
+    "clipped_sample_count": 0,
+    "dc_mean_per_channel": [
+      -3.69720028210804e-09,
+      2.5863822601293914e-09
+    ],
+    "stereo_correlation": 0.9600665006354682
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "file": "Assets/Resources/Music/HomeLetter.wav",
+    "seconds": 80.0,
+    "sample_rate": 44100,
+    "channels": 2,
+    "bit_depth": 16,
+    "integrated_lufs": -22.0,
+    "true_peak_dbtp": -14.2,
+    "loudness_range_lu": 3.9,
+    "seam_sample_delta": 0.003021240234375,
+    "seam_delta_dbfs": -50.39629480724336,
+    "normal_adjacent_step_99pct": 0.012359619140625,
+    "first_audible_seconds": 0.0,
+    "quietest_one_second_rms_dbfs": -32.47778897539311,
+    "peak_one_second_rms_dbfs": -21.341154880870704,
+    "notes_by_instrument": {
+      "flute": 39,
+      "pipa": 48,
+      "sanxian": 16,
+      "bow": 11,
+      "clap": 4
+    }
+  },
+  {
+    "file": "Assets/Resources/Music/SeaLetter.wav",
+    "seconds": 76.8,
+    "sample_rate": 44100,
+    "channels": 2,
+    "bit_depth": 16,
+    "integrated_lufs": -22.0,
+    "true_peak_dbtp": -13.53,
+    "loudness_range_lu": 3.1,
+    "seam_sample_delta": 0.0029296875,
+    "seam_delta_dbfs": -50.66357403840299,
+    "normal_adjacent_step_99pct": 0.012603759765625,
+    "first_audible_seconds": 0.0,
+    "quietest_one_second_rms_dbfs": -33.188915519480695,
+    "peak_one_second_rms_dbfs": -20.88129971124205,
+    "notes_by_instrument": {
+      "flute": 39,
+      "pipa": 64,
+      "sanxian": 16,
+      "bow": 11,
+      "clap": 6
+    }
+  },
+  {
+    "file": "Assets/Resources/Music/ReturnLetter.wav",
+    "seconds": 83.47825396825397,
+    "sample_rate": 44100,
+    "channels": 2,
+    "bit_depth": 16,
+    "integrated_lufs": -21.97,
+    "true_peak_dbtp": -14.6,
+    "loudness_range_lu": 4.0,
+    "seam_sample_delta": 0.00079345703125,
+    "seam_delta_dbfs": -62.009531739778005,
+    "normal_adjacent_step_99pct": 0.012420654296875,
+    "first_audible_seconds": 0.0,
+    "quietest_one_second_rms_dbfs": -35.15471488758961,
+    "peak_one_second_rms_dbfs": -21.049635117792125,
+    "notes_by_instrument": {
+      "flute": 39,
+      "pipa": 53,
+      "sanxian": 16,
+      "bow": 16,
+      "clap": 5
+    }
+  }
+]
