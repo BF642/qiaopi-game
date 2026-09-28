@@ -74,6 +74,7 @@ namespace Qiaopi
 
         string ShortObjective()
         {
+            if(writingRequested)return WritingObjective;
             if (sideCarrying) return "送交帮工货物";
             if (LifeJourney.IsActive(state) && string.IsNullOrEmpty(state.journey.pendingJob)) return "安排下一轮生活";
             if (state.nodeId == "passage" && loadedWorld == "harbor") return "到栈桥登船";
@@ -86,7 +87,7 @@ namespace Qiaopi
 
         string ShortProgress()
         {
-            if (sideCarrying) return "";
+            if (sideCarrying || writingRequested) return "";
             return mission.activity == "inspect" || mission.activity == "deliver"
                 ? Mathf.Min(progress, mission.required) + " / " + mission.required : "";
         }
@@ -94,6 +95,7 @@ namespace Qiaopi
         string ContextActionName(string prompt)
         {
             if (string.IsNullOrEmpty(prompt)) return "互动";
+            if (prompt.Contains("落座")) return "落座";
             if (prompt.Contains("安排生活")) return "安排";
             if (prompt.Contains("领取工钱")) return "领工钱";
             if (prompt.Contains("登船")) return "登船";

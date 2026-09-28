@@ -20,6 +20,8 @@
 | `WorldLivelihood.cs` | 自主谋生界面与场景任务衔接 |
 | `PersonalLetters.cs` | 自写侨批、附银与回批规则 |
 | `WorldPersonalLetters.cs` | 写信、输入与信件收藏界面 |
+| `WorldWritingDesk.cs` | 前往书桌、落座写信与起身流程 |
+| `WorldWritingPlaceArt.cs` | 六处写批空间、桌椅与笔墨陈设 |
 | `DestinationWorld.cs` | 新加坡、槟榔屿、仰光的场景差异 |
 | `WorldLetterTheme.cs` | 侨批纸张、按钮与配色 |
 

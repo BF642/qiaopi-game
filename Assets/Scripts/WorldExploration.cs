@@ -125,7 +125,7 @@ namespace Qiaopi
             DrawRegionPlan(plan,true);
             float x=plan.xMax+32,width=content.xMax-x;
             Label(new Rect(x,top,width,mobile?41:30),"当前任务",mobile?28:19,red,true);
-            Label(new Rect(x,top+(mobile?48:38),width,mobile?96:78),mission.objective,mobile?34:25,ink,true);
+            Label(new Rect(x,top+(mobile?48:38),width,mobile?96:78),writingRequested?WritingObjective:mission.objective,mobile?34:25,ink,true);
             Label(new Rect(x,top+(mobile?151:125),width,48),NavigationHint(),body,ink,true);
             float legendY=top+(mobile?213:190),lineHeight=mobile?49:41;
             MapLegend(new Rect(x,legendY,width,lineHeight),C("294D42"),"你的位置与朝向",body);

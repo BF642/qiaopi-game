@@ -17,10 +17,14 @@ namespace Qiaopi
         // While the letter is open, none of its typed letters become game shortcuts.
         bool PersonalLetterTyping { get { return letterEditor; } }
 
-        void OpenPersonalLetter()
+        void OpenPersonalLetter() { RequestWritingDesk(); }
+
+        void BeginPersonalLetterAtDesk()
         {
+            if (!NearWritingDesk) return;
             PersonalLetters.EnsureDraft(state);
-            letterEditor = true; journal = map = help = gallery = fieldNote = false;
+            letterEditor = true; journal = map = help = gallery = fieldNote = lifePanel = dialogue = false;
+            BeginWritingSeat();
             personalLetterPreview = false; personalLetterScroll = personalLetterBodyScroll = Vector2.zero; personalLetterNotice = "";
             personalLetterSnapshot = JsonUtility.ToJson(state.personalLetterDraft); personalLetterDirty = false;
             walkRoute.Clear(); ResetMobileControls(); CancelCameraPointer();
@@ -33,6 +37,7 @@ namespace Qiaopi
             if (personalLetterKeyboard != null) { personalLetterKeyboard.active = false; personalLetterKeyboard = null; }
             Save(); personalLetterDirty = false; letterEditor = false; if (Event.current != null) GUI.FocusControl(null);
             Input.imeCompositionMode = IMECompositionMode.Auto;
+            EndWritingSeat();
         }
 
         void UpdatePersonalLetterKeyboard()
@@ -56,29 +61,33 @@ namespace Qiaopi
             UpdatePersonalLetterKeyboard();
             var draft = PersonalLetters.EnsureDraft(state);
             Rect safe = MobileControls ? MobileUiBounds() : new Rect(0, 0, 1600, 1000);
-            Rect panel = MobileControls ? new Rect(safe.xMin + 30, 148, safe.width - 60, 814) : new Rect(125, 125, 1350, 820);
-            Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .34f));
-            PaperPanel(panel); DrawIllustratedIcon(new Rect(panel.x + 30, panel.y + 23, 64, 64), "write");
-            Label(new Rect(panel.x + 114, panel.y + 18, panel.width - 360, 60), personalLetterPreview ? "封批确认" : "写给泉州", 35, ink, true);
-            if (LetterButton(new Rect(panel.xMax - 180, panel.y + 23, 148, 64), "存稿收起", false, 25)) { ClosePersonalLetter(); return; }
-            Label(new Rect(panel.x + 32, panel.y + 101, panel.width - 64, 44), "已寄 " + state.personalLettersSent + " / 3 封 · 盘缠 " + state.money + " · 草稿自动保存", 23, sub);
-            Rect content = new Rect(panel.x + 34, panel.y + 158, panel.width - 68, panel.height - 300);
+            float panelWidth = Mathf.Clamp(safe.width * .66f, 1000, 1240);
+            Rect panel = MobileControls ? new Rect(safe.xMax - 30 - panelWidth, 100, panelWidth, 860) : new Rect(580, 100, 980, 860);
+            // The uncovered left side keeps the real desk and room in view while writing.
+            float captionWidth = Mathf.Max(200, panel.x - safe.xMin - 76);
+            HudText(new Rect(safe.xMin + 40, 117, captionWidth, 43), writingPlace == null ? "写批处" : writingPlace.title, 28, hudGold, true);
+            HudText(new Rect(safe.xMin + 40, 163, captionWidth, 35), "落座 · 写给家里", 22, hudText);
+            PaperPanel(panel); DrawIllustratedIcon(new Rect(panel.x + 28, panel.y + 23, 48, 48), "write");
+            Label(new Rect(panel.x + 94, panel.y + 20, panel.width - 314, 51), personalLetterPreview ? "封批确认" : "写给泉州", 30, ink, true);
+            if (LetterButton(new Rect(panel.xMax - 192, panel.y + 23, 164, 54), "存稿起身", false, 25)) { ClosePersonalLetter(); return; }
+            Label(new Rect(panel.x + 30, panel.y + 85, panel.width - 60, 34), "已寄 " + state.personalLettersSent + " / 3 封 · 盘缠 " + state.money + " · 草稿自动保存", 23, sub);
+            Rect content = new Rect(panel.x + 30, panel.y + 132, panel.width - 60, panel.height - 284);
             if (personalLetterPreview) DrawPersonalLetterReview(content, draft);
             else DrawPersonalLetterDraft(content, draft);
+            string reason = "";
+            bool canSend = !personalLetterPreview || PersonalLetters.CanSend(state, out reason);
             string notice = personalLetterNotice;
-            if (string.IsNullOrEmpty(notice)) notice = "原文仅存本机；回批依据所选心意与附银生成。";
-            Label(new Rect(panel.x + 34, panel.yMax - 133, panel.width - 68, 60), notice, 23, sub);
+            if (string.IsNullOrEmpty(notice)) notice = !canSend ? reason : "原文仅存本机；回批依据所选心意与附银生成。";
+            Label(new Rect(panel.x + 30, panel.yMax - 143, panel.width - 60, 62), notice, 23, sub);
             if (!personalLetterPreview) {
-                if (LetterButton(new Rect(panel.xMax - 312, panel.yMax - 73, 278, 56), "检查信封", true, 25)) {
+                if (LetterButton(new Rect(panel.xMax - 300, panel.yMax - 73, 270, 56), "检查信封", true, 25)) {
                     UpdatePersonalLetterKeyboard(); if (personalLetterKeyboard != null) { personalLetterKeyboard.active = false; personalLetterKeyboard = null; }
                     Save(); personalLetterPreview = true; personalLetterScroll = Vector2.zero; GUI.FocusControl(null);
                 }
             } else {
-                if (LetterButton(new Rect(panel.x + 34, panel.yMax - 73, 205, 56), "修改", false, 25)) { personalLetterPreview = false; personalLetterNotice = ""; personalLetterScroll = Vector2.zero; }
-                string reason; bool canSend = PersonalLetters.CanSend(state, out reason);
-                if (!canSend && string.IsNullOrEmpty(personalLetterNotice)) Label(new Rect(panel.x + 265, panel.yMax - 73, panel.width - 610, 57), reason, 22, sub);
+                if (LetterButton(new Rect(panel.x + 30, panel.yMax - 73, 180, 56), "修改", false, 25)) { personalLetterPreview = false; personalLetterNotice = ""; personalLetterScroll = Vector2.zero; }
                 bool enabled = GUI.enabled; GUI.enabled = enabled && canSend;
-                if (LetterButton(new Rect(panel.xMax - 312, panel.yMax - 73, 278, 56), "寄出 · 附银 " + draft.amount, true, 25)) {
+                if (LetterButton(new Rect(panel.xMax - 300, panel.yMax - 73, 270, 56), "寄出 · 附银 " + draft.amount, true, 25)) {
                     string result;
                     if (PersonalLetters.TrySend(state, draft.token, out result)) {
                         Save(); personalLetterDirty = false; ClosePersonalLetter(); journal = true; journalScroll = Vector2.zero; Toast(result);
@@ -90,25 +99,26 @@ namespace Qiaopi
 
         void DrawPersonalLetterDraft(Rect viewport, PersonalLetterDraft draft)
         {
-            // All envelope choices occupy two rows. The writing paper and character
-            // count are visible immediately, including on a landscape iPhone.
+            // A row for each envelope field keeps the narrower sheet readable.
             float x = viewport.x, y = viewport.y, width = viewport.width;
-            Label(new Rect(x, y + 10, 90, 40), "写给", 27, ink, true);
-            if (LetterButton(new Rect(x + 95, y, 122, 58), "母亲", draft.recipient == "mother", 26)) draft.recipient = "mother";
-            if (LetterButton(new Rect(x + 230, y, 150, 58), "妹妹阿满", draft.recipient == "sister", 26)) draft.recipient = "sister";
-            float silverX = Mathf.Max(416, width * .43f), amountWidth = (width - silverX - 91 - 24) / 4;
-            Label(new Rect(x + silverX, y + 10, 90, 40), "附银", 27, ink, true);
+            const float fieldWidth = 82, gap = 10, rowHeight = 54;
+            float choicesX = x + fieldWidth, choicesWidth = width - fieldWidth;
+            Label(new Rect(x, y + 8, 72, 40), "写给", 27, ink, true);
+            if (LetterButton(new Rect(choicesX, y, 136, rowHeight), "母亲", draft.recipient == "mother", 26)) draft.recipient = "mother";
+            if (LetterButton(new Rect(choicesX + 150, y, 176, rowHeight), "妹妹阿满", draft.recipient == "sister", 26)) draft.recipient = "sister";
+            float amountWidth = (choicesWidth - gap * 3) / 4;
+            Label(new Rect(x, y + 72, 72, 40), "附银", 27, ink, true);
             for (int i = 0; i < PersonalLetters.Amounts.Length; i++) {
                 int amount = PersonalLetters.Amounts[i];
-                if (LetterButton(new Rect(x + silverX + 91 + i * (amountWidth + 8), y, amountWidth, 58), amount == 0 ? "不附银" : amount + " 盘缠", draft.amount == amount, 25)) draft.amount = amount;
+                if (LetterButton(new Rect(choicesX + i * (amountWidth + gap), y + 64, amountWidth, rowHeight), amount == 0 ? "不附银" : amount + " 盘缠", draft.amount == amount, 25)) draft.amount = amount;
             }
-            Label(new Rect(x, y + 86, 92, 42), "心意", 27, ink, true);
-            string[] intents = { "truth", "reassure", "study" }; float chipWidth = (width - 119) / 3;
-            for (int i = 0; i < intents.Length; i++) if (LetterButton(new Rect(x + 95 + i * (chipWidth + 12), y + 74, chipWidth, 58), PersonalLetters.IntentName(intents[i]), draft.intent == intents[i], 25)) draft.intent = intents[i];
-            Label(new Rect(x, y + 146, width, 41), PersonalLetters.IntentEffect(draft.intent), 23, sub);
-            Label(new Rect(x, y + 192, width - 375, 38), "正文", 26, ink, true);
-            Label(new Rect(x + width - 375, y + 194, 375, 36), draft.body.Length + " / " + PersonalLetters.MaxBodyCharacters + " 字", 23, sub, false, TextAnchor.MiddleRight);
-            Rect body = new Rect(x, y + 241, width, viewport.height - 241);
+            Label(new Rect(x, y + 136, 72, 42), "心意", 27, ink, true);
+            string[] intents = { "truth", "reassure", "study" }; float chipWidth = (choicesWidth - gap * 2) / 3;
+            for (int i = 0; i < intents.Length; i++) if (LetterButton(new Rect(choicesX + i * (chipWidth + gap), y + 128, chipWidth, 58), PersonalLetters.IntentName(intents[i]), draft.intent == intents[i], 25)) draft.intent = intents[i];
+            Label(new Rect(x, y + 195, width, 46), PersonalLetters.IntentEffect(draft.intent), 23, sub);
+            Label(new Rect(x, y + 249, width - 280, 32), "正文", 26, ink, true);
+            Label(new Rect(x + width - 280, y + 249, 280, 32), draft.body.Length + " / " + PersonalLetters.MaxBodyCharacters + " 字", 23, sub, false, TextAnchor.MiddleRight);
+            Rect body = new Rect(x, y + 286, width, viewport.height - 286);
             Box(body, new Color(.98f, .95f, .87f, .40f)); Stroke(body, line);
             if (MobileControls && Application.isMobilePlatform) {
                 string shown = string.IsNullOrEmpty(draft.body) ? "点此写信……" : draft.body;
@@ -156,7 +166,7 @@ namespace Qiaopi
             Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .34f));
             PaperPanel(panel); DrawIllustratedIcon(new Rect(panel.x + 30, panel.y + 23, 64, 64), "letter");
             Label(new Rect(panel.x + 112, panel.y + 25, panel.width - 560, 57), "侨批匣", mobile ? 36 : 34, ink, true);
-            string writeLabel = state.personalLetterDraft != null && !string.IsNullOrEmpty(state.personalLetterDraft.body) ? "续写草稿" : "写侨批";
+            string writeLabel = state.personalLetterDraft != null && !string.IsNullOrEmpty(state.personalLetterDraft.body) ? "到桌前续写" : "去写批处";
             if (LetterButton(new Rect(panel.xMax - 426, panel.y + 23, 238, 65), writeLabel, true, 27)) { OpenPersonalLetter(); return; }
             if (LetterButton(new Rect(panel.xMax - 174, panel.y + 23, 142, 65), "收起", false, 26)) { journal = false; return; }
             string journeyNote = LifeJourney.HasReachedOverseas(state) ? "已寄自写侨批 " + state.personalLettersSent + " / " + PersonalLetters.MaxLetters + " 封" : "抵埠后可寄出 · 现在可存稿";
@@ -164,7 +174,7 @@ namespace Qiaopi
             Rect viewport = new Rect(panel.x + 32, panel.y + 163, panel.width - 64, panel.height - 195);
             if (state.letters.Count == 0) {
                 Label(new Rect(viewport.x + 45, viewport.y + 85, viewport.width - 90, 130), "尚无侨批\n写给家里的第一句话，从这里开始。", mobile ? 31 : 29, sub, true, TextAnchor.MiddleCenter);
-                if (LetterButton(new Rect(viewport.center.x - 175, viewport.y + 256, 350, 72), "开始写信", true, 28)) OpenPersonalLetter();
+                if (LetterButton(new Rect(viewport.center.x - 175, viewport.y + 256, 350, 72), "到桌前写信", true, 28)) OpenPersonalLetter();
                 return;
             }
             float width = viewport.width - 30, bodyWidth = width - 52;

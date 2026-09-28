@@ -85,6 +85,7 @@ namespace Qiaopi
         void PositionControlledCamera(bool immediate)
         {
             if(!cam)return;
+            if(PositionWritingCamera())return;
             cam.orthographic=false;
             cam.fieldOfView=immediate?firstPersonFov:Mathf.Lerp(cam.fieldOfView,firstPersonFov,1-Mathf.Exp(-Time.unscaledDeltaTime*10));
             cam.nearClipPlane=.035f;

@@ -20,14 +20,14 @@ namespace Qiaopi.Editor
             try {
                 if(!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.iOS,BuildTarget.iOS))throw new Exception("Unity iOS Build Support is required.");
                 BuildGame.Configure();
-                PlayerSettings.bundleVersion="2.0.3";
+                PlayerSettings.bundleVersion="2.0.4";
                 PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.iOS,BundleId);
                 PlayerSettings.SetScriptingBackend(NamedBuildTarget.iOS,ScriptingImplementation.IL2CPP);
                 PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.iOS,ManagedStrippingLevel.Low);
                 PlayerSettings.iOS.sdkVersion=iOSSdkVersion.DeviceSDK;
                 PlayerSettings.iOS.targetDevice=iOSTargetDevice.iPhoneOnly;
                 PlayerSettings.iOS.targetOSVersionString="16.0";
-                PlayerSettings.iOS.buildNumber="20004";
+                PlayerSettings.iOS.buildNumber="20005";
                 PlayerSettings.iOS.appleEnableAutomaticSigning=true;
                 string team=Environment.GetEnvironmentVariable("QIAOPI_TEAM_ID");
                 if(!string.IsNullOrEmpty(team))PlayerSettings.iOS.appleDeveloperTeamID=team;

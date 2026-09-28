@@ -42,7 +42,8 @@ namespace Qiaopi
                 }
             }
             CameraRequire(LifeJourney.CanFinish(state),"LIFE_FINISH_AFTER_THREE");
-            lifePanel=false;OpenPersonalLetter();state.personalLetterDraft.body="母亲：\n街口的委屈还在心里，同乡陪我留了凭据。今天送到一封批，才知道每个门牌后面都有人等。\n我会留好饭钱，也记着家里的灯。";
+            lifePanel=false;CameraRequire(writingPlace!=null,"WRITING_DESK_AVAILABLE");
+            yield return WalkToWritingDeskForQA();CameraRequire(letterEditor&&writingSeated,"LETTER_AT_DESK");state.personalLetterDraft.body="母亲：\n街口的委屈还在心里，同乡陪我留了凭据。今天送到一封批，才知道每个门牌后面都有人等。\n我会留好饭钱，也记着家里的灯。";
             state.personalLetterDraft.intent="truth";state.personalLetterDraft.amount=2;personalLetterPreview=true;
             yield return CaptureWorld("2.0_自己的侨批");string ownText=state.personalLetterDraft.body;
             CameraRequire(PersonalLetters.TrySend(state,state.personalLetterDraft.token,out var message),"PERSONAL_LETTER_SENT");

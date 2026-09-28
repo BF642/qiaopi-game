@@ -32,9 +32,10 @@ namespace Qiaopi
         {
             if(!LifeJourney.HasReachedOverseas(state))return;
             var r=LifeEntryRect();
+            if(writingRequested){if(HudAction(r,"取消前往书桌",false,MobileControls?27:21))CancelWritingWalk();return;}
             if(LifeJourney.IsActive(state)){
                 if(HudAction(r,"安排生活 · "+state.journey.turns+" / 6",true,MobileControls?27:21)){lifePanel=true;lifeLog=false;walkRoute.Clear();}
-            }else if(HudAction(r,"写侨批",false,MobileControls?27:21))OpenPersonalLetter();
+            }else if(HudAction(r,WritingEntryTitle,false,MobileControls?27:21)){if(writingRequested)CancelWritingWalk();else OpenPersonalLetter();}
         }
         void StartLifeAction(string id)
         {
@@ -104,7 +105,7 @@ namespace Qiaopi
             GalleryTouchScroll(noticeRect,ref lifeNoticeScroll,noticeH);
             lifeNoticeScroll=GUI.BeginScrollView(noticeRect,lifeNoticeScroll,new Rect(0,0,noticeRect.width-26,Mathf.Max(86,noticeH)),false,false);
             Label(new Rect(0,0,noticeRect.width-26,noticeH+4),hint,mobile?25:22,sub);GUI.EndScrollView();
-            if(LetterButton(new Rect(r.x+30,r.yMax-81,300,57),"写侨批",false,fs)){lifePanel=false;OpenPersonalLetter();return;}
+            if(LetterButton(new Rect(r.x+30,r.yMax-81,300,57),"去写批处",false,fs)){OpenPersonalLetter();return;}
             bool enabled=GUI.enabled;GUI.enabled=enabled&&LifeJourney.CanFinish(state)&&!working;
             if(LetterButton(new Rect(r.xMax-450,r.yMax-81,420,57),LifeJourney.CanFinish(state)?"继续旅程":"再过 "+Mathf.Max(0,3-state.journey.turns)+" 轮可继续",true,fs))FinishLifePhase();GUI.enabled=enabled;
         }

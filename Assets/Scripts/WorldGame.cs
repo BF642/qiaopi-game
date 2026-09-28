@@ -49,7 +49,7 @@ namespace Qiaopi
         readonly Vector3[] inspectionPositions={new Vector3(-22,0,-4),new Vector3(21,0,7),new Vector3(0,0,28)};
         readonly Color paper=C("F4EAD3"),ink=C("294440"),sub=C("747363"),red=C("A34837"),line=C("CCBC9B");
         string savePath=>Path.Combine(Application.persistentDataPath,"qiaopi-world-v1.json");
-        bool DetailQA=>LifeQA||MobileQA||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-detail-test")>=0||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-camera-test")>=0;
+        bool DetailQA=>WritingQA||LifeQA||MobileQA||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-detail-test")>=0||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-camera-test")>=0;
         bool QA=>StoryDemo||DetailQA||GalleryQA||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-qa")>=0;
         bool Blocked=>dialogue||journal||map||help||resetAsk||puzzle||fieldNote||gallery||letterEditor||lifePanel;
         bool Complete=>progress>=mission.required;
@@ -85,7 +85,7 @@ namespace Qiaopi
             if(recovered)Toast("已从上一份备份恢复旅程。");
             else if(saved!=null&&saved.layoutVersion<2)Toast("街区已扩建：原有选择、物品和任务进度保留，已到达本区入口。");
             if(saved==null&&!QA)Toast(state.nodeId=="peace"?"先回陈家院看看家人。主线约 25～40 分钟，途中可随时保存。":MobileControls?"左侧摇杆行走，右侧滑动转头。到行囊旁点击「互动」。":"点击石板路，或按 WASD 走动。到行囊旁按 E。 ");
-            if(QA) StartCoroutine(LifeQA?RunLifeQA():MobileQA?RunMobileQA():StoryDemo?RunStoryDemo():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-camera-test")>=0?RunCameraQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-detail-test")>=0?RunDetailQA():(Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-landscape-test")>=0||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-landscape-review")>=0)?RunLandscapeQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-region-review")>=0?RunRegionReview():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-region-test")>=0?RunRegionQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-music-test")>=0?CheckMusic():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-dialogue-test")>=0?RunDialogueQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-world-test")>=0?RunWorldQA():GalleryQA?RunGalleryQA():QACapture());
+            if(QA) StartCoroutine(WritingQA?RunWritingDeskQA():LifeQA?RunLifeQA():MobileQA?RunMobileQA():StoryDemo?RunStoryDemo():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-camera-test")>=0?RunCameraQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-detail-test")>=0?RunDetailQA():(Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-landscape-test")>=0||Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-landscape-review")>=0)?RunLandscapeQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-region-review")>=0?RunRegionReview():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-region-test")>=0?RunRegionQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-music-test")>=0?CheckMusic():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-dialogue-test")>=0?RunDialogueQA():Array.IndexOf(Environment.GetCommandLineArgs(),"-qiaopi-world-test")>=0?RunWorldQA():GalleryQA?RunGalleryQA():QACapture());
         }
         IEnumerator QACapture(){yield return new WaitForSeconds(4); ScreenCapture.CaptureScreenshot(Path.Combine(Application.persistentDataPath,"qiaopi-world-qa.png"));Debug.Log("QIAOPI_3D_READY="+Application.persistentDataPath);}
         void ConfigureCamera()
@@ -114,6 +114,7 @@ namespace Qiaopi
         }
         void EnterNode(bool initial=false)
         {
+            ResetWritingDeskState();
             if(!QA&&state.nodeId=="first_pay"&&state.journey!=null&&state.journey.legacy&&!state.awaitingContinue){state.journey.legacy=false;state.journey.completed=false;}
             ResetConversation();
             mission=WorldMissions.Get(state);
@@ -125,7 +126,7 @@ namespace Qiaopi
             if(npcId=="mother"&&(state.nodeId=="farewell"||state.nodeId=="return_choice"||state.nodeId.StartsWith("end_")))mission.npcName="母亲与阿满";
             region=DestinationWorld.Describe(WorldRegions.Get(mission.world),LifeJourney.DestinationId(state));restPosition=region.rest;sidePosition=region.sidePickup;sideDestination=region.sideDrop;
             bool changed=loadedWorld!=mission.world||renderedDestination!=LifeJourney.DestinationId(state);
-            if(changed){if(world){world.SetActive(false);Destroy(world);}world=WorldFactory.Build(mission.world);DestinationWorld.Dress(world,mission.world,LifeJourney.DestinationId(state));renderedDestination=LifeJourney.DestinationId(state);loadedWorld=mission.world;ConfigureLandscape(loadedWorld);WalkPath.Invalidate();controller.enabled=false;player.transform.position=region.spawn+Vector3.up*.1f;controller.enabled=true;player.transform.rotation=Quaternion.identity;ResetCameraTracking();fade=1;arrivalTime=Time.time;}
+            if(changed){if(world){world.SetActive(false);Destroy(world);}world=WorldFactory.Build(mission.world);DestinationWorld.Dress(world,mission.world,LifeJourney.DestinationId(state));renderedDestination=LifeJourney.DestinationId(state);loadedWorld=mission.world;BuildWritingPlace();ConfigureLandscape(loadedWorld);WalkPath.Invalidate();controller.enabled=false;player.transform.position=region.spawn+Vector3.up*.1f;controller.enabled=true;player.transform.rotation=Quaternion.identity;ResetCameraTracking();fade=1;arrivalTime=Time.time;}
             if(actors){actors.SetActive(false);Destroy(actors);}actors=new GameObject("本段人物与任务物件");
             progress=0;carrying=false;sideCarrying=false;walkRoute.Clear();routeIndex=0;inspected.Clear();textScroll=Vector2.zero;puzzle=false;
             string npcModel=CharacterRoster.Get(npcId).model;
@@ -170,6 +171,7 @@ namespace Qiaopi
         }
         Vector3 Target()
         {
+            if(writingRequested&&writingPlace!=null)return writingPlace.approach;
             if(sideCarrying)return sideDestination;
             if(Complete||mission.activity=="talk"||mission.activity=="board")return mission.npcPosition;
             if(mission.activity=="inspect"){for(int i=0;i<Mathf.Min(inspectionPositions.Length,mission.required);i++)if(!inspected.Contains(i))return inspectionPositions[i];return mission.npcPosition;}
@@ -183,7 +185,7 @@ namespace Qiaopi
             musicDirector.SetSpeechActive(voiceSource&&voiceEnabled&&voiceSource.isPlaying);
             if(StoryDemo){UpdateConversation();AnimateWalk(0);return;}
             if(!DetailQA) {
-            if(Input.GetKeyDown(KeyCode.Escape)){if(letterEditor)ClosePersonalLetter();else if(lifePanel)lifePanel=false;else if(fieldNote)fieldNote=false;else if(resetAsk)resetAsk=false;else if(puzzle)puzzle=false;else if(help)help=false;else if(journal)journal=false;else if(map)map=false;else if(gallery)gallery=false;else if(dialogue){if(!StoryEngine.GetScene(state).isEnding)dialogue=false;}else help=true;}
+            if(Input.GetKeyDown(KeyCode.Escape)){if(letterEditor)ClosePersonalLetter();else if(lifePanel)lifePanel=false;else if(fieldNote)fieldNote=false;else if(resetAsk)resetAsk=false;else if(puzzle)puzzle=false;else if(help)help=false;else if(journal)journal=false;else if(map)map=false;else if(gallery)gallery=false;else if(dialogue){if(!StoryEngine.GetScene(state).isEnding)dialogue=false;}else if(writingRequested)CancelWritingWalk();else help=true;}
             if(Input.GetKeyDown(KeyCode.J)&&!dialogue&&!puzzle&&!resetAsk&&!fieldNote&&!GalleryTyping&&!PersonalLetterTyping&&!lifePanel){journal=!journal;map=help=gallery=false;journalScroll=Vector2.zero;}
             if(Input.GetKeyDown(KeyCode.M)&&!dialogue&&!puzzle&&!resetAsk&&!fieldNote&&!GalleryTyping&&!PersonalLetterTyping&&!lifePanel){map=!map;journal=help=gallery=false;journalScroll=Vector2.zero;}
             if(Input.GetKeyDown(KeyCode.G)&&!dialogue&&!puzzle&&!resetAsk&&!fieldNote&&!GalleryTyping&&!PersonalLetterTyping&&!lifePanel){if(gallery)gallery=false;else OpenGallery();}
@@ -192,14 +194,14 @@ namespace Qiaopi
             if(resetAsk && Input.GetKeyDown(KeyCode.Return))NewGame();
             }
             UpdateConversation();UpdateMobileInput();
-            if(Blocked){CancelCameraPointer();AnimateWalk(0);UpdateFirstPersonPresentation();return;}
+            if(Blocked){CancelCameraPointer();AnimateWalk(0);UpdateWritingDeskArrival();UpdateCamera(false);UpdateFirstPersonPresentation();return;}
             UpdateCameraInput();
             if(!DetailQA&&!MobileControls)PointNavigation();
             float horizontal=DetailQA?0:(Input.GetKey(KeyCode.D)?1:0)-(Input.GetKey(KeyCode.A)?1:0);
             float vertical=DetailQA?0:(Input.GetKey(KeyCode.W)?1:0)-(Input.GetKey(KeyCode.S)?1:0);
             horizontal+=mobileMove.x;vertical+=mobileMove.y;
             Vector3 forward=cam.transform.forward;forward.y=0;forward.Normalize();Vector3 right=cam.transform.right;right.y=0;right.Normalize();Vector3 move=Vector3.ClampMagnitude(right*horizontal+forward*vertical,1);
-            if(move.sqrMagnitude>.01f){walkRoute.Clear();routeIndex=0;}
+            if(move.sqrMagnitude>.01f){CancelWritingWalk();}
             else if(routeIndex<walkRoute.Count){
                 Vector3 toward=walkRoute[routeIndex]-player.transform.position;toward.y=0;
                 if(toward.magnitude<.24f){routeIndex++;if(routeIndex<walkRoute.Count)toward=walkRoute[routeIndex]-player.transform.position;toward.y=0;}
@@ -215,7 +217,7 @@ namespace Qiaopi
             if(!region.IsGround(pos)){controller.enabled=false;pos=region.Clamp(pos);pos.y=Mathf.Max(.05f,pos.y);player.transform.position=pos;controller.enabled=true;}
             AnimateWalk(move.magnitude*(run?1.5f:1));
             if(move.sqrMagnitude>.01f&&Time.time-lastStep>(run?.26f:.38f)){lastStep=Time.time;if(soundEnabled)sfx.PlayOneShot(stepSound,.17f);}
-            UpdateCamera(false);UpdateFirstPersonPresentation();
+            UpdateWritingDeskArrival();UpdateCamera(false);UpdateFirstPersonPresentation();
             if(npc&&Dist(mission.npcPosition)<4){Vector3 face=player.transform.position-npc.transform.position;face.y=0;if(face.sqrMagnitude>.1f)npc.transform.rotation=Quaternion.Slerp(npc.transform.rotation,Quaternion.LookRotation(face),Time.deltaTime*3);}
             if(targetMarker){targetMarker.transform.position=Target();var t=targetMarker.transform.GetChild(1);t.localPosition=new Vector3(0,2.7f+Mathf.Sin(Time.time*2)*.14f,0);t.Rotate(Vector3.up,Time.deltaTime*55,Space.World);}
 
@@ -225,6 +227,7 @@ namespace Qiaopi
         {
             if(!Input.GetMouseButtonDown(0)||cameraDragButton>=0||PointerOverWorldUI())return;
             if(Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition),out RaycastHit hit,180,~((1<<2)|(1<<29)|(1<<30)))) {
+                writingRequested=writingArrivalShown=false;
                 walkRoute=WalkPath.Find(player.transform.position,hit.point,loadedWorld);routeIndex=0;
                 if(walkRoute.Count==0)Toast("这里走不到，试试石板路或空地。");
             }
@@ -240,6 +243,7 @@ namespace Qiaopi
         float Dist(Vector3 p){var d=player.transform.position-p;d.y=0;return d.magnitude;}
         string Prompt()
         {
+            if(NearWritingDesk)return "E  落座写批";
             if(LifeJourney.IsActive(state)&&!carrying&&!sideCarrying&&Dist(mission.npcPosition)<2.5f){
                 if(string.IsNullOrEmpty(state.journey.pendingJob))return "E  安排生活";
                 if(Complete)return "E  领取工钱";
@@ -259,6 +263,8 @@ namespace Qiaopi
         }
         void Interact()
         {
+            if(InteractWithWritingDesk())return;
+            if(writingRequested)CancelWritingWalk();
             if(HandleLifeInteract())return;
             if(sideCarrying&&Dist(sideDestination)<2.2f){sideCarrying=false;state.money+=6;state.health=Mathf.Max(0,state.health-3);state.trust=Mathf.Min(100,state.trust+1);state.flags.Add("odd_job_"+loadedWorld);Toast("帮工完成：盘缠 +6，身体 −3，信任 +1");RefreshProps();Save();return;}
             if(sideCarrying)return;
@@ -304,7 +310,7 @@ namespace Qiaopi
             GUI.matrix=Matrix4x4.TRS(new Vector3(offsetX,offsetY,0),Quaternion.identity,Vector3.one*scale);
             SceneData scene=StoryEngine.GetScene(state);
             if(!Blocked)WorldLabels();
-            GUI.enabled=!(journal||map||help||resetAsk||puzzle||fieldNote||gallery||letterEditor||lifePanel);HUD(scene);GUI.enabled=true;
+            GUI.enabled=!(journal||map||help||resetAsk||puzzle||fieldNote||gallery||letterEditor||lifePanel);if(!letterEditor)HUD(scene);GUI.enabled=true;
             bool cover=journal||map||help||resetAsk||puzzle||fieldNote||gallery||letterEditor||lifePanel;
             GUI.enabled=!cover; if(dialogue)Dialogue(scene); GUI.enabled=true;
             if(journal)Journal();if(map)RegionMap();if(help)Help();if(resetAsk)Restart();if(puzzle)Puzzle();if(fieldNote)FieldNote();if(gallery)GalleryPanel();if(lifePanel&&!letterEditor&&!journal)DrawLifePanel();if(letterEditor)DrawPersonalLetter();
@@ -336,6 +342,7 @@ namespace Qiaopi
         }
         void WorldLabels()
         {
+            if(writingPlace!=null&&(writingRequested||Dist(writingPlace.approach)<9))Tag(writingPlace.approach+Vector3.up*1.7f,writingPlace.title,writingRequested);
             Tag(mission.npcPosition+Vector3.up*2.14f,mission.npcName,Complete||mission.activity=="talk"||mission.activity=="board");
             if(!Complete){if(mission.activity=="collect"||mission.activity=="deliver")Tag((carrying?mission.destination:mission.itemPosition)+Vector3.up*1.35f,carrying?"交付地点":mission.itemName,true);
                 else if(mission.activity=="inspect")for(int i=0;i<Mathf.Min(inspectionPositions.Length,mission.required);i++)if(!inspected.Contains(i))Tag(inspectionPositions[i]+Vector3.up*1.3f,"批封 "+(i+1),true);}
