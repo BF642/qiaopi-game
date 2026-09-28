@@ -42,7 +42,7 @@ namespace Qiaopi
             if(!npc||!cam)return;
             float height=ModelLibrary.CharacterHeight(CharacterRoster.Get(CharacterRoster.ForNode(state.nodeId)).model);
             if(height<1)height=1.65f;
-            Vector3 d=npc.transform.position+Vector3.up*(height*.52f)-CameraEyePoint();
+            Vector3 d=npc.transform.position+Vector3.up*(height*.90f)-CameraEyePoint();
             if(d.sqrMagnitude<.01f)return;
             cameraYaw=Mathf.Atan2(d.x,d.z)*Mathf.Rad2Deg;
             cameraPitch=-Mathf.Atan2(d.y,new Vector2(d.x,d.z).magnitude)*Mathf.Rad2Deg;
@@ -63,7 +63,7 @@ namespace Qiaopi
             if(k<=0)return true;
             float x=(Input.mousePosition.x-uiX)/k;
             float y=(Screen.height-Input.mousePosition.y-uiY)/k;
-            return y<100||y>882||(x<498&&y<262)||(x>1180&&y<148)||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(new Vector2(x,y)));
+            return new Rect(1019,29,533,51).Contains(new Vector2(x,y))||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(new Vector2(x,y)));
         }
 
         void UpdateCameraInput()

@@ -34,23 +34,21 @@ namespace Qiaopi
         {
             if(openedNote==null){fieldNote=false;return;}
             if(MobileControls){MobileFieldNote();return;}
-            Overlay("旅途见闻 · "+openedNote.title);
-            Label(new Rect(230,253,1090,36),region.title+"  /  已收进地图中的见闻册",18,red);
+            Overlay(openedNote.title);
+            Label(new Rect(230,253,1090,36),region.title+" · 已收入见闻册",18,sub);
             Label(new Rect(263,352,1050,240),openedNote.body,29,ink,true);
-            Label(new Rect(263,659,1050,61),"除了金色任务标记，沿路的木牌也记着离乡者的生活。",21,sub,true);
-            if(Button(new Rect(262,772,440,66),"收好见闻，继续走",true))fieldNote=false;
+            if(Button(new Rect(262,772,440,66),"继续行路",true))fieldNote=false;
         }
         void MobileFieldNote()
         {
-            Rect r=MapPanelBounds();Box(new Rect(MobileUiBounds().xMin-100,-100,MobileUiBounds().width+200,1200),new Color(.08f,.15f,.12f,.65f));PaperPanel(r);
+            Rect r=MapPanelBounds();Box(new Rect(MobileUiBounds().xMin-100,-100,MobileUiBounds().width+200,1200),new Color(.08f,.15f,.12f,.34f));PaperPanel(r);
             Stamp(new Rect(r.x+45,r.y+35,64,64),"见闻",29);
             Label(new Rect(r.x+132,r.y+41,r.width-200,60),openedNote.title,43,ink,true);
-            Label(new Rect(r.x+48,r.y+132,r.width-96,58),region.title+"  ·  已收入地图的「见闻册」",30,red);
+            Label(new Rect(r.x+48,r.y+132,r.width-96,58),region.title+" · 已收入见闻册",26,sub);
             float h=Height(MapTouchText(openedNote.body),38,r.width-128,true);
             journalScroll=GUI.BeginScrollView(new Rect(r.x+48,r.y+227,r.width-96,327),journalScroll,new Rect(0,0,r.width-126,Mathf.Max(h+20,322)),false,false);
             Label(new Rect(0,0,r.width-128,h+10),MapTouchText(openedNote.body),38,ink,true);GUI.EndScrollView();
-            Label(new Rect(r.x+48,r.yMax-217,r.width-96,52),"沿路的木牌，记着离乡者的生活。",29,sub);
-            if(LetterButton(new Rect(r.x+48,r.yMax-145,r.width-96,106),"收好见闻，继续走",true,34))fieldNote=false;
+            if(LetterButton(new Rect(r.x+48,r.yMax-145,r.width-96,106),"继续行路",true,34))fieldNote=false;
         }
         Rect PlanRect(Rect bounds,Rect panel)
         {
@@ -67,7 +65,7 @@ namespace Qiaopi
         {
             Rect r=MapPanelBounds();float gap=14,width=(r.width-96)/3;
             float top=r.y+(MobileControls?99:86),height=MobileControls?90:56;
-            string[] labels={"本区行路图","行路记","见闻册"};
+            string[] labels={"地图","行路记","见闻册"};
             for(int i=0;i<3;i++){
                 Rect tab=new Rect(r.x+34+i*(width+gap),top,width,height);
                 if(NavTab(tab,labels[i],i==0?"map":i==1?"letter":"album",mapTab==i,MobileControls?32:23)){
@@ -77,15 +75,44 @@ namespace Qiaopi
         }
         void GuideToMission()
         {
-            walkRoute=WalkPath.Find(player.transform.position,Target(),loadedWorld);routeIndex=0;map=false;dialogue=false;
+            Vector3 target=Target();
+            Vector3 fromNpc=target-mission.npcPosition;fromNpc.y=0;
+            bool approachNpc=!sideCarrying&&fromNpc.sqrMagnitude<.01f&&!(state.nodeId=="passage"&&loadedWorld=="harbor");
+            const float conversationDistance=1.7f;
+            routeIndex=0;map=false;dialogue=false;
+            if(approachNpc&&Dist(target)<=conversationDistance){walkRoute.Clear();return;}
+            walkRoute=WalkPath.Find(player.transform.position,target,loadedWorld);
+            if(approachNpc)TrimNpcApproachRoute(target,conversationDistance);
             if(walkRoute.Count==0)Toast("先走到附近的道路上，再试一次。");
+        }
+        void TrimNpcApproachRoute(Vector3 target,float distance)
+        {
+            if(walkRoute.Count==0)return;
+            Vector3 finalOffset=walkRoute[walkRoute.Count-1]-target;finalOffset.y=0;
+            if(finalOffset.sqrMagnitude>=distance*distance)return;
+            int outside=-1;
+            for(int i=walkRoute.Count-1;i>=0;i--){
+                Vector3 offset=walkRoute[i]-target;offset.y=0;
+                if(offset.sqrMagnitude>=distance*distance){outside=i;break;}
+            }
+            Vector3 from=outside>=0?walkRoute[outside]:player.transform.position;
+            Vector3 to=walkRoute[outside+1];
+            Vector3 step=to-from;step.y=0;
+            Vector3 relative=from-target;relative.y=0;
+            float a=step.sqrMagnitude;
+            if(a<.0001f)return;
+            float b=2*Vector3.Dot(relative,step),c=relative.sqrMagnitude-distance*distance;
+            float t=Mathf.Clamp01((-b-Mathf.Sqrt(Mathf.Max(0,b*b-4*a*c)))/(2*a));
+            // Stop on the final collision-checked path segment, never cut across scenery.
+            walkRoute.RemoveRange(outside+1,walkRoute.Count-outside-1);
+            walkRoute.Add(Vector3.Lerp(from,to,t));
         }
         void RegionMap()
         {
             Rect r=MapPanelBounds();bool mobile=MobileControls;int body=mobile?30:21;
-            Box(new Rect(MobileUiBounds().xMin-120,-100,MobileUiBounds().width+240,1200),new Color(.08f,.15f,.12f,.65f));
+            Box(new Rect(MobileUiBounds().xMin-120,-100,MobileUiBounds().width+240,1200),new Color(.08f,.15f,.12f,.34f));
             PaperPanel(r);Stamp(new Rect(r.x+34,r.y+23,mobile?56:46,mobile?56:46),"行路",mobile?25:21);
-            Label(new Rect(r.x+(mobile?109:96),r.y+23,r.width-330,56),"一程山海 · "+region.title,mobile?37:30,ink,true);
+            Label(new Rect(r.x+(mobile?109:96),r.y+23,r.width-330,56),region.title,mobile?37:30,ink,true);
             if(LetterButton(new Rect(r.xMax-(mobile?190:148),r.y+17,mobile?154:112,mobile?77:57),"收起",false,mobile?30:22)){map=false;return;}
             MapTabs();
             float top=r.y+(mobile?208:163),bottom=r.yMax-38;
@@ -97,15 +124,15 @@ namespace Qiaopi
             Rect plan=new Rect(content.x,content.y,planWidth,mapHeight);
             DrawRegionPlan(plan,true);
             float x=plan.xMax+32,width=content.xMax-x;
-            Label(new Rect(x,top,width,mobile?41:30),"此刻要办的事",mobile?28:19,red,true);
+            Label(new Rect(x,top,width,mobile?41:30),"当前任务",mobile?28:19,red,true);
             Label(new Rect(x,top+(mobile?48:38),width,mobile?96:78),mission.objective,mobile?34:25,ink,true);
             Label(new Rect(x,top+(mobile?151:125),width,48),NavigationHint(),body,ink,true);
             float legendY=top+(mobile?213:190),lineHeight=mobile?49:41;
-            MapLegend(new Rect(x,legendY,width,lineHeight),C("294D42"),"你的位置 · 箭头是朝向",body);
+            MapLegend(new Rect(x,legendY,width,lineHeight),C("294D42"),"你的位置与朝向",body);
             MapLegend(new Rect(x,legendY+lineHeight,width,lineHeight),C("B99141"),"当前任务",body);
-            MapLegend(new Rect(x,legendY+lineHeight*2,width,lineHeight),red,"沿路见闻 · 木牌前互动",body);
-            if(LetterButton(new Rect(x,plan.yMax-(mobile?102:74),width,mobile?102:74),"为当前任务引路",true,mobile?32:25))GuideToMission();
-            Label(new Rect(content.x,plan.yMax+15,content.width,footer-8),mobile?"旧纸记山海，脚下认归途。地图与真实街巷对应；摇杆可随时接手行走。":"旧纸记山海，脚下认归途。地图与真实街巷对应；WASD 可随时接手行走。",mobile?26:18,sub);
+            MapLegend(new Rect(x,legendY+lineHeight*2,width,lineHeight),red,"见闻木牌",body);
+            if(LetterButton(new Rect(x,plan.yMax-(mobile?102:74),width,mobile?102:74),"前往任务",true,mobile?32:25))GuideToMission();
+            Label(new Rect(content.x,plan.yMax+15,content.width,footer-8),mobile?"摇杆可随时接手行走。":"WASD 可随时接手行走。",mobile?26:18,sub);
         }
         void MapLegend(Rect r,Color color,string text,int size)
         {
@@ -115,7 +142,7 @@ namespace Qiaopi
         {
             var entries=FullJourneyHistory();
             int body=mobile?31:22,small=mobile?26:18,title=mobile?34:27;
-            Label(new Rect(content.x,content.y,content.width,48),"从泉州出发，选择与回响都留在这一程。",small,sub);
+            Label(new Rect(content.x,content.y,content.width,48),"旅程中的选择与回响",small,sub);
             if(entries.Count==0){Label(new Rect(content.x,content.y+150,content.width,120),"走出老厝，故事才刚开始。",title,sub,true,TextAnchor.MiddleCenter);return;}
             float width=content.width-32,total=0;
             foreach(var entry in entries)total+=Height(entry.outcome,body,width-44,true)+Height("你选择："+entry.choice,body,width-44,true)+(mobile?172:139);
@@ -136,10 +163,10 @@ namespace Qiaopi
         void MapNotebook(Rect content,bool mobile)
         {
             int count=0;foreach(string id in WorldRegions.All)foreach(var note in WorldRegions.Get(id).notes)if(state.flags.Contains("note_"+note.id))count++;
-            Label(new Rect(content.x,content.y,content.width,53),"已收集 "+count+" / 21 处见闻  ·  "+(mobile?"走近场景中的木牌，点击「互动」阅读。":"走近场景中的木牌，按 E 阅读。"),mobile?28:20,sub);
+            Label(new Rect(content.x,content.y,content.width,53),"见闻 "+count+" / 21 · "+(mobile?"木牌前点「互动」阅读":"木牌前按 E 阅读"),mobile?28:20,sub);
             if(count==0){
                 Stamp(new Rect(content.center.x-39,content.y+146,78,78),"见闻",31);
-                Label(new Rect(content.x,content.y+259,content.width,135),"旅途中的字迹，还等着你亲自发现。\n泉州老厝外的木牌，记着离乡时的行囊。",mobile?33:27,sub,true,TextAnchor.MiddleCenter);return;
+                Label(new Rect(content.x,content.y+259,content.width,135),"尚无见闻\n泉州老厝外的木牌，可以开始阅读。",mobile?33:27,sub,true,TextAnchor.MiddleCenter);return;
             }
             int body=mobile?31:22,title=mobile?33:26;float width=content.width-32,total=0;
             foreach(string id in WorldRegions.All)foreach(var note in WorldRegions.Get(id).notes)if(state.flags.Contains("note_"+note.id))

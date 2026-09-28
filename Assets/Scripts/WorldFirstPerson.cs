@@ -72,12 +72,19 @@ namespace Qiaopi
         {
             // A small centre mark gives a stable reference while looking around.
             Box(new Rect(797,497,6,6),new Color(.98f,.96f,.88f,.78f));
-            string prompt=MobileControls?MobilePrompt():Prompt();
-            Box(new Rect(340,898,920,MobileControls?66:55),new Color(.12f,.22f,.20f,.88f));
-            Label(new Rect(357,905,886,MobileControls?52:37),prompt,MobileControls?27:20,paper,false,TextAnchor.MiddleCenter);
-            Box(new Rect(0,964,1600,36),new Color(.10f,.17f,.15f,.76f));
-            Label(new Rect(35,972,1120,24),MobileControls?"左侧摇杆行走 · 右侧滑动转头 · 点击「互动」交谈与取放":"第一人称 · WASD 行走 · 按住右键转头 · E 互动 · M 地图 · J 侨批匣 · G 图集 · Esc 帮助",15,paper);
-            Label(new Rect(1240,972,312,25),saveHealthy?"自动存档 · 本机旅程":"存档未保存",14,saveHealthy?paper:red,false,TextAnchor.MiddleRight);
+            string prompt=Prompt();
+            if(!string.IsNullOrEmpty(prompt)){
+                string text=MobileControls?MobilePrompt():prompt.Substring(3);
+                style.fontSize=MobileControls?27:21;
+                float width=Mathf.Clamp(style.CalcSize(new GUIContent(text)).x+(MobileControls?56:103),230,900);
+                Rect r=new Rect(800-width*.5f,898,width,60);HudSurface(r,.62f);
+                if(!MobileControls){
+                    Rect key=new Rect(r.x+18,r.y+15,31,31);Stroke(key,new Color(hudGold.r,hudGold.g,hudGold.b,.7f));
+                    HudText(key,"E",18,hudGold,false,TextAnchor.MiddleCenter);
+                }
+                HudText(new Rect(r.x+(MobileControls?20:64),r.y+12,r.width-(MobileControls?40:82),40),text,MobileControls?27:21,hudText,false,TextAnchor.MiddleCenter);
+            }
+            if(!saveHealthy)HudText(new Rect(1170,954,385,34),"进度未保存",MobileControls?25:18,C("F4A38B"),false,TextAnchor.MiddleRight);
             DrawFirstPersonCompass();
             if(MobileControls)DrawMobileControls();
         }
@@ -89,8 +96,7 @@ namespace Qiaopi
             float difference=Mathf.DeltaAngle(cameraYaw,bearing);
             string direction=Mathf.Abs(difference)<18?"前方":Mathf.Abs(difference)>145?"身后":difference>0?"右侧":"左侧";
             float y=MobileControls?157:107;
-            Box(new Rect(MobileControls?570:648,y,MobileControls?460:304,MobileControls?57:36),new Color(.12f,.22f,.20f,.73f));
-            Label(new Rect(MobileControls?580:658,y+6,MobileControls?440:284,MobileControls?42:24),"目的地在"+direction+" · "+Mathf.CeilToInt(Dist(Target()))+" 米",MobileControls?27:17,paper,false,TextAnchor.MiddleCenter);
+            HudText(new Rect(680,y+6,240,MobileControls?42:27),direction+" · "+Mathf.CeilToInt(Dist(Target()))+" 米",MobileControls?25:17,hudMuted,false,TextAnchor.MiddleCenter);
         }
     }
 }

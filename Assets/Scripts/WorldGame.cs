@@ -240,18 +240,22 @@ namespace Qiaopi
         float Dist(Vector3 p){var d=player.transform.position-p;d.y=0;return d.magnitude;}
         string Prompt()
         {
-            if(state.nodeId=="passage"&&loadedWorld=="harbor"&&Dist(mission.npcPosition)<2.5f)return "E  登上南下客船 · 进入甲板";
-            if(sideCarrying)return Dist(sideDestination)<2.2f?"E  放下帮工货物，领取工钱":"把帮工货物送到金色标记处";
-            if(!Complete&&mission.activity=="inspect"){for(int i=0;i<Mathf.Min(inspectionPositions.Length,mission.required);i++)if(!inspected.Contains(i)&&Dist(inspectionPositions[i])<2.2f)return "E  核对这张批封";}
+            if(LifeJourney.IsActive(state)&&!carrying&&!sideCarrying&&Dist(mission.npcPosition)<2.5f){
+                if(string.IsNullOrEmpty(state.journey.pendingJob))return "E  安排生活";
+                if(Complete)return "E  领取工钱";
+            }
+            if(state.nodeId=="passage"&&loadedWorld=="harbor"&&Dist(mission.npcPosition)<2.5f)return "E  登船";
+            if(sideCarrying)return Dist(sideDestination)<2.2f?"E  放下货物 · 领取工钱":"";
+            if(!Complete&&mission.activity=="inspect"){for(int i=0;i<Mathf.Min(inspectionPositions.Length,mission.required);i++)if(!inspected.Contains(i)&&Dist(inspectionPositions[i])<2.2f)return "E  核对凭据";}
             if(!Complete&&(mission.activity=="collect"||mission.activity=="deliver")){
                 if(!carrying&&Dist(mission.itemPosition)<2.2f)return "E  拿起"+mission.itemName;
                 if(carrying&&Dist(mission.destination)<2.2f)return "E  交付"+mission.itemName;
             }
-            if(Dist(mission.npcPosition)<2.5f)return Complete||mission.activity=="talk"||mission.activity=="board"?"E  与"+mission.npcName+"交谈":"先完成眼前的事，再找"+mission.npcName;
-            if(Dist(restPosition)<1.8f)return state.flags.Contains("rested_at_"+loadedWorld)?"已经歇过脚了，继续这一程吧。":"E  歇脚饮茶：2 盘缠，恢复 8 身体";
-            if(!state.flags.Contains("odd_job_"+loadedWorld)&&Dist(sidePosition)<2.2f)return "E  接一趟帮工：搬货挣 6 盘缠";
-            var nearby=NearestNote();if(nearby!=null)return "E  查看旅途见闻 · "+nearby.title;
-            return (carrying?"抱着"+mission.itemName+" · ":"")+NavigationHint()+"   M 打开本区地图";
+            if(Dist(mission.npcPosition)<2.5f)return Complete||mission.activity=="talk"||mission.activity=="board"?"E  与"+mission.npcName+"交谈":"";
+            if(!carrying&&Dist(restPosition)<1.8f)return state.flags.Contains("rested_at_"+loadedWorld)?"":"E  歇脚 · 盘缠 −2 / 身体 +8";
+            if(!carrying&&!state.flags.Contains("odd_job_"+loadedWorld)&&Dist(sidePosition)<2.2f)return "E  帮工 · 报酬 6 盘缠";
+            var nearby=NearestNote();if(nearby!=null)return "E  见闻 · "+nearby.title;
+            return "";
         }
         void Interact()
         {
@@ -305,7 +309,7 @@ namespace Qiaopi
             GUI.enabled=!cover; if(dialogue)Dialogue(scene); GUI.enabled=true;
             if(journal)Journal();if(map)RegionMap();if(help)Help();if(resetAsk)Restart();if(puzzle)Puzzle();if(fieldNote)FieldNote();if(gallery)GalleryPanel();if(lifePanel&&!letterEditor&&!journal)DrawLifePanel();if(letterEditor)DrawPersonalLetter();
             if(!Blocked){FirstPersonOverlay();DrawLifeEntry();}
-            if(!Blocked&&toastUntil>Time.time){Box(new Rect(375,416,850,70),new Color(.16f,.28f,.22f,.95f));Label(new Rect(399,424,802,54),toast,19,paper,false,TextAnchor.MiddleCenter);}
+            if(!Blocked&&toastUntil>Time.time){HudSurface(new Rect(375,416,850,70),.64f);HudText(new Rect(399,424,802,54),toast,19,hudText,false,TextAnchor.MiddleCenter);}
             if(fade>0)Box(new Rect(-100,-100,1800,1200),new Color(.16f,.24f,.20f,fade));
             if(!DetailQA)KeyDialogue(scene);
             if(Blocked){CancelCameraPointer();ResetMobileControls();}
@@ -315,21 +319,20 @@ namespace Qiaopi
         {
             if(MobileControls){MobileHUD(scene);return;}
             LetterHeading(new Rect(28,22,1544,66),false);
-            Label(new Rect(372,30,108,23),"盘缠",16,sub);
-            Label(new Rect(372,49,108,31),state.money.ToString(),25,ink,true);
-            Box(new Rect(481,36,1,38),line);
+            HudText(new Rect(372,30,108,23),"盘缠",14,hudMuted);
+            HudText(new Rect(372,49,108,31),state.money.ToString(),25,hudText,true);
+
             AttributeBars(new Rect(504,31,496,46),false);
-            if(NavTab(new Rect(1019,29,167,51),"侨批匣","letter",journal,21)){journal=!journal;map=help=gallery=false;journalScroll=Vector2.zero;}
-            if(NavTab(new Rect(1190,29,141,51),"图集","album",gallery,21)){if(gallery)gallery=false;else OpenGallery();}
-            if(NavTab(new Rect(1335,29,131,51),"地图","map",map,21)){map=!map;journal=help=gallery=false;journalScroll=Vector2.zero;}
-            if(NavTab(new Rect(1470,29,82,51),"","help",help,21)){help=!help;gallery=false;}
+            if(HudNav(new Rect(1019,29,167,51),"侨批","letter",journal,19)){journal=!journal;map=help=gallery=false;journalScroll=Vector2.zero;}
+            if(HudNav(new Rect(1190,29,141,51),"图集","album",gallery,19)){if(gallery)gallery=false;else OpenGallery();}
+            if(HudNav(new Rect(1335,29,131,51),"地图","map",map,19)){map=!map;journal=help=gallery=false;journalScroll=Vector2.zero;}
+            if(HudNav(new Rect(1470,29,82,51),"","help",help,21)){help=!help;gallery=false;}
             if(Blocked)return;
-            PaperPanel(new Rect(30,108,458,144),false,.95f);Box(new Rect(30,108,3,144),letterSeal);
-            Label(new Rect(48,120,418,27),(scene.chapter+1).ToString("00")+" / "+new[]{"离乡","渡海","落脚","寄批","风浪","归途"}[scene.chapter]+" · "+scene.year+" · "+scene.title,18,red,true);
-            Label(new Rect(48,157,418,57),Complete?"事情办妥，去找"+mission.npcName+"。":mission.objective,20,ink);
-            Label(new Rect(48,220,418,24),mission.activity=="talk"||mission.activity=="board"?MobileControls?"走近人物，点击互动":"走近人物，按 E 交谈":"已完成 "+Mathf.Min(progress,mission.required)+" / "+mission.required+(MobileControls?" · 到标记处点击互动":" · 到标记处按 E"),15,sub);
-            PaperPanel(new Rect(1190,108,380,35),false,.88f);
-            Label(new Rect(1204,113,352,25),region.title,17,ink,true,TextAnchor.MiddleCenter);
+            HudSurface(new Rect(24,105,474,116),.44f);
+            HudText(new Rect(46,116,422,25),scene.year+" · "+new[]{"离乡","渡海","落脚","寄批","风浪","归途"}[scene.chapter],14,hudMuted);
+            HudText(new Rect(46,149,422,43),ShortObjective(),25,hudText,true);
+            HudText(new Rect(46,194,422,24),ShortProgress(),16,hudGold);
+            HudText(new Rect(1196,111,365,28),region.title,16,hudMuted,false,TextAnchor.MiddleRight);
         }
         void WorldLabels()
         {
@@ -348,11 +351,11 @@ namespace Qiaopi
             Vector3 s=cam.WorldToScreenPoint(p);if(s.z<0)return;float x=(s.x-offsetX)/scale,y=(Screen.height-s.y-offsetY)/scale;
             if(x<45||x>1555||y<275||y>872)return;
             float width=Mathf.Max(90,t.Length*18+26);Rect r=new Rect(x-width*.5f,y-19,width,36);
-            Box(r,target?new Color(.99f,.88f,.59f,.96f):new Color(.17f,.27f,.24f,.86f));Label(r,t,17,target?ink:paper,false,TextAnchor.MiddleCenter);
+            HudSurface(r,.28f);HudText(r,t,target?18:16,target?hudGold:hudMuted,false,TextAnchor.MiddleCenter);
         }
         void Overlay(string title)
         {
-            Box(new Rect(-600,-100,2800,1200),new Color(.09f,.18f,.15f,.63f));PaperPanel(new Rect(165,136,1270,753));Box(new Rect(165,136,1270,4),letterSeal);Label(new Rect(211,178,1000,58),title,34,ink,true);
+            Box(new Rect(-600,-100,2800,1200),new Color(.09f,.18f,.15f,.34f));PaperPanel(new Rect(165,136,1270,753));Box(new Rect(165,136,1270,4),letterSeal);Label(new Rect(211,178,1000,58),title,34,ink,true);
             if(SmallButton(new Rect(1310,168,80,48),"关闭")){journal=map=help=puzzle=resetAsk=fieldNote=gallery=false;}
         }
         void OldJournal()
@@ -385,8 +388,8 @@ namespace Qiaopi
             if(SmallButton(new Rect(978,239,370,45),soundEnabled?"环境声与音效：开启":"环境声与音效：关闭")){soundEnabled=!soundEnabled;WorldAtmosphere.SetSoundEnabled(soundEnabled);PlayerPrefs.SetInt("qiaopi-sound-enabled",soundEnabled?1:0);}
             Label(new Rect(230,289,1090,326),"WASD / 点击近处地面：走路    Shift：快走    E：交谈、拾取或交付\n按住右键移动鼠标：转头、抬头、低头；松开后恢复鼠标指针。\n从文生眼中看世界，镜头保持自然眼高。\n滚轮：调整视野宽窄    Home：面向当前目的地\nJ：侨批匣    G：侨批图集 · 共建    M：地图与见闻    Esc：收起面板或打开帮助\n\n跟随金色光圈完成任务，再找人物交谈。乡亲可提供一次帮工；茶桌可花2盘缠恢复8身体，每处一次。\n对话按 Enter / 空格继续，最后按 1 / 2 / 3 回答；互动后自动存档。",22,ink);
             Label(new Rect(230,629,1090,29),musicDirector.TrackTitle+"  ·  原创南音器乐意象配乐；交谈时自动放轻。",18,red);
-            Label(new Rect(230,671,1090,50),"图集里收的是玩家与乡亲提供的侨批、批封、汇票、信局器物与老照片；第一次投稿无需审核，通过后可以继续上传。",19,sub,true);
-            Label(new Rect(230,725,1090,30),"故事从1906年泉州晋江出发，经厦门去往南洋。人物与情节虚构；盘缠为游戏化数值。",17,sub,true);
+            Label(new Rect(230,671,1090,50),"图集：浏览示意资料，准备本机投稿包；材料须经授权与审核后收入。",19,sub,true);
+            Label(new Rect(230,725,1090,30),"故事从1905年泉州晋江出发，经厦门去往南洋。人物与情节虚构；盘缠为游戏化数值。",17,sub,true);
             if(Button(new Rect(230,788,370,61),"继续探索",true))help=false;if(Button(new Rect(970,788,385,61),"重新启程",false)){resetAsk=true;help=false;}
         }
         void Restart(){Overlay("让故事，重新从泉州开始。");Label(new Rect(245,327,1100,142),"当前这一程的选择、任务与信件会被新的旅程替换。\n\n你可以选择不同的谋生方式，亲手走向另一种结局。",25,ink,true);if(Button(new Rect(245,628,512,75),"重新启程  Enter",true))NewGame();if(Button(new Rect(825,628,510,75),"留在这一程",false))resetAsk=false;}

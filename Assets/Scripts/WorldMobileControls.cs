@@ -53,7 +53,7 @@ namespace Qiaopi
         Rect TouchInteractRect(){Rect r=MobileUiBounds();return new Rect(r.xMax-226,H-320,184,176);}
         Rect TouchRunRect(){Rect r=MobileUiBounds();return new Rect(r.xMin+65,H-413,220,72);}
         Rect TouchResetRect(){Rect r=MobileUiBounds();return new Rect(r.xMax-226,H-436,184,78);}
-        bool UiBlocksTouch(Vector2 p)=>p.y<145||p.y>965||(p.x<MobileUiBounds().xMin+710&&p.y<340)||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(p));
+        bool UiBlocksTouch(Vector2 p)=>new Rect(MobileUiBounds().xMax-820,22,800,112).Contains(p)||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(p));
 
         void ResetMobileControls()
         {
@@ -103,21 +103,21 @@ namespace Qiaopi
         void DrawMobileControls()
         {
             Vector2 center=moveFinger>=0?moveOrigin:StickHome();
-            TouchCircle(center,StickRadius+5,new Color(.96f,.93f,.84f,.38f));
-            TouchCircle(center,StickRadius,new Color(.12f,.24f,.20f,.40f));
+            TouchCircle(center,StickRadius+3,new Color(.96f,.93f,.84f,.21f));
+            TouchCircle(center,StickRadius,new Color(.10f,.20f,.17f,.16f));
             Vector2 knob=center+new Vector2(mobileMove.x,-mobileMove.y)*StickRadius*.70f;
-            TouchCircle(knob,39,new Color(.97f,.94f,.85f,.80f));
-            Label(new Rect(center.x-95,center.y+StickRadius+12,190,40),"移动",24,paper,false,TextAnchor.MiddleCenter);
-            Rect action=TouchInteractRect();Box(action,letterSeal);Stroke(new Rect(action.x+6,action.y+6,action.width-12,action.height-12),new Color(.98f,.88f,.69f,.64f));
-            Label(new Rect(action.x,action.y+24,action.width,50),"互动",34,paper,true,TextAnchor.MiddleCenter);
-            Label(new Rect(action.x+9,action.y+88,action.width-18,55),"交谈 · 取放",21,paper,false,TextAnchor.MiddleCenter);
-            Rect run=TouchRunRect();Box(run,new Color(.12f,.24f,.20f,.68f));Label(run,mobileRun?"快走中":"快走",24,paper,false,TextAnchor.MiddleCenter);
-            Rect reset=TouchResetRect();Box(reset,new Color(.12f,.24f,.20f,.68f));Label(reset,"看向目标",23,paper,false,TextAnchor.MiddleCenter);
-            Label(new Rect(930,585,340,45),"在右侧空白处滑动转头",22,paper,false,TextAnchor.MiddleCenter);
+            TouchCircle(knob,34,new Color(.97f,.94f,.85f,moveFinger>=0?.72f:.40f));
+            string prompt=Prompt();bool available=!string.IsNullOrEmpty(prompt);
+            Rect action=TouchInteractRect();float radius=Mathf.Min(action.width,action.height)*.46f;
+            TouchCircle(action.center,radius+2,new Color(hudGold.r,hudGold.g,hudGold.b,available?.62f:.22f));
+            TouchCircle(action.center,radius,available?new Color(.57f,.23f,.17f,.55f):new Color(.09f,.17f,.14f,.22f));
+            HudText(action,ContextActionName(prompt),available?33:28,available?hudText:hudMuted,true,TextAnchor.MiddleCenter);
+            Rect run=TouchRunRect();HudSurface(run,mobileRun?.5f:.2f);HudText(run,mobileRun?"快走中":"快走",23,mobileRun?hudGold:hudMuted,false,TextAnchor.MiddleCenter);
+            Rect reset=TouchResetRect();HudSurface(reset,.2f);HudText(reset,"朝向目标",22,hudMuted,false,TextAnchor.MiddleCenter);
         }
         string MobilePrompt()
         {
-            string prompt=Prompt();return prompt.StartsWith("E  ")?"点击「互动」 · "+prompt.Substring(3):prompt.Replace("M 打开本区地图","点上方「地图」查看");
+            string prompt=Prompt();return prompt.StartsWith("E  ")?prompt.Substring(3):prompt;
         }
     }
 }

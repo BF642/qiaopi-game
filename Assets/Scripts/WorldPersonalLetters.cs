@@ -57,28 +57,28 @@ namespace Qiaopi
             var draft = PersonalLetters.EnsureDraft(state);
             Rect safe = MobileControls ? MobileUiBounds() : new Rect(0, 0, 1600, 1000);
             Rect panel = MobileControls ? new Rect(safe.xMin + 30, 148, safe.width - 60, 814) : new Rect(125, 125, 1350, 820);
-            Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .70f));
+            Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .34f));
             PaperPanel(panel); Stamp(new Rect(panel.x + 30, panel.y + 23, 64, 64), "家书", 26);
-            Label(new Rect(panel.x + 114, panel.y + 18, panel.width - 360, 60), personalLetterPreview ? "封批前，再读一遍" : "给泉州写一封自己的侨批", 35, ink, true);
+            Label(new Rect(panel.x + 114, panel.y + 18, panel.width - 360, 60), personalLetterPreview ? "封批确认" : "写给泉州", 35, ink, true);
             if (LetterButton(new Rect(panel.xMax - 180, panel.y + 23, 148, 64), "存稿收起", false, 25)) { ClosePersonalLetter(); return; }
-            Label(new Rect(panel.x + 32, panel.y + 101, panel.width - 64, 44), "第 " + Mathf.Min(state.personalLettersSent + 1, 3) + " 封 / 一程可寄 3 封 · 剩余盘缠 " + state.money + " · 草稿随进度保存", 25, sub);
+            Label(new Rect(panel.x + 32, panel.y + 101, panel.width - 64, 44), "已寄 " + state.personalLettersSent + " / 3 封 · 盘缠 " + state.money + " · 草稿自动保存", 23, sub);
             Rect content = new Rect(panel.x + 34, panel.y + 158, panel.width - 68, panel.height - 300);
             if (personalLetterPreview) DrawPersonalLetterReview(content, draft);
             else DrawPersonalLetterDraft(content, draft);
             string notice = personalLetterNotice;
-            if (string.IsNullOrEmpty(notice)) notice = "你的原文会完整保留。家人的回音由所选心意与附银决定；信件仅存于本机游戏。";
+            if (string.IsNullOrEmpty(notice)) notice = "原文仅存本机；回批依据所选心意与附银生成。";
             Label(new Rect(panel.x + 34, panel.yMax - 133, panel.width - 68, 60), notice, 23, sub);
             if (!personalLetterPreview) {
-                if (LetterButton(new Rect(panel.xMax - 312, panel.yMax - 73, 278, 56), "写好了，检查信封", true, 25)) {
+                if (LetterButton(new Rect(panel.xMax - 312, panel.yMax - 73, 278, 56), "检查信封", true, 25)) {
                     UpdatePersonalLetterKeyboard(); if (personalLetterKeyboard != null) { personalLetterKeyboard.active = false; personalLetterKeyboard = null; }
                     Save(); personalLetterPreview = true; personalLetterScroll = Vector2.zero; GUI.FocusControl(null);
                 }
             } else {
-                if (LetterButton(new Rect(panel.x + 34, panel.yMax - 73, 205, 56), "回去修改", false, 25)) { personalLetterPreview = false; personalLetterNotice = ""; personalLetterScroll = Vector2.zero; }
+                if (LetterButton(new Rect(panel.x + 34, panel.yMax - 73, 205, 56), "修改", false, 25)) { personalLetterPreview = false; personalLetterNotice = ""; personalLetterScroll = Vector2.zero; }
                 string reason; bool canSend = PersonalLetters.CanSend(state, out reason);
                 if (!canSend && string.IsNullOrEmpty(personalLetterNotice)) Label(new Rect(panel.x + 265, panel.yMax - 73, panel.width - 610, 57), reason, 22, sub);
                 bool enabled = GUI.enabled; GUI.enabled = enabled && canSend;
-                if (LetterButton(new Rect(panel.xMax - 312, panel.yMax - 73, 278, 56), "封批寄出 · 附银 " + draft.amount, true, 25)) {
+                if (LetterButton(new Rect(panel.xMax - 312, panel.yMax - 73, 278, 56), "寄出 · 附银 " + draft.amount, true, 25)) {
                     string result;
                     if (PersonalLetters.TrySend(state, draft.token, out result)) {
                         Save(); personalLetterDirty = false; ClosePersonalLetter(); journal = true; journalScroll = Vector2.zero; Toast(result);
@@ -106,12 +106,12 @@ namespace Qiaopi
             string[] intents = { "truth", "reassure", "study" }; float chipWidth = (width - 119) / 3;
             for (int i = 0; i < intents.Length; i++) if (LetterButton(new Rect(x + 95 + i * (chipWidth + 12), y + 74, chipWidth, 58), PersonalLetters.IntentName(intents[i]), draft.intent == intents[i], 25)) draft.intent = intents[i];
             Label(new Rect(x, y + 146, width, 41), PersonalLetters.IntentEffect(draft.intent), 23, sub);
-            Label(new Rect(x, y + 192, width - 375, 38), MobileControls ? "点信纸写下自己的话 · 支持换行" : "把心里的话，写成自己的侨批", 26, ink, true);
-            Label(new Rect(x + width - 375, y + 194, 375, 36), draft.body.Length + " / " + PersonalLetters.MaxBodyCharacters + " 字符 · 自动存稿", 23, sub, false, TextAnchor.MiddleRight);
+            Label(new Rect(x, y + 192, width - 375, 38), "正文", 26, ink, true);
+            Label(new Rect(x + width - 375, y + 194, 375, 36), draft.body.Length + " / " + PersonalLetters.MaxBodyCharacters + " 字", 23, sub, false, TextAnchor.MiddleRight);
             Rect body = new Rect(x, y + 241, width, viewport.height - 241);
-            Box(body, C("F9F1DF")); Stroke(body, line);
+            Box(body, new Color(.98f, .95f, .87f, .40f)); Stroke(body, line);
             if (MobileControls && Application.isMobilePlatform) {
-                string shown = string.IsNullOrEmpty(draft.body) ? "点这里，用手机键盘写信……\n可以写见闻、委屈、愿望，或一件想告诉家人的小事。" : draft.body;
+                string shown = string.IsNullOrEmpty(draft.body) ? "点此写信……" : draft.body;
                 float textHeight = Mathf.Max(body.height - 24, Height(shown, 27, body.width - 58, false) + 28);
                 GalleryTouchScroll(body, ref personalLetterBodyScroll, textHeight);
                 personalLetterBodyScroll = GUI.BeginScrollView(new Rect(body.x + 5, body.y + 5, body.width - 10, body.height - 10), personalLetterBodyScroll, new Rect(0, 0, body.width - 33, textHeight), false, true);
@@ -142,9 +142,9 @@ namespace Qiaopi
             string origin = LifeJourney.HasReachedOverseas(state) ? LifeJourney.DestinationName(state) : "待抵埠后";
             Label(new Rect(0, 0, width, 45), origin + " → 泉州 · 收批人：" + PersonalLetters.RecipientName(draft.recipient), 29, ink, true);
             Label(new Rect(0, 58, width, 47), "心意：" + PersonalLetters.IntentName(draft.intent) + "    附银：" + draft.amount + "    寄出后盘缠：" + (state.money - draft.amount), 26, sub);
-            Box(new Rect(0, 125, width, bodyHeight + 66), C("F9F1DF"));
-            Label(new Rect(22, 148, width - 46, bodyHeight + 6), string.IsNullOrEmpty(draft.body) ? "（信纸还是空的，请回去写几句话。）" : draft.body, 28, ink, true);
-            Label(new Rect(0, bodyHeight + 205, width, 40), "文生 手书 · 家人的回批会随叙事时间收入侨批匣", 24, sub, true, TextAnchor.MiddleRight);
+            Box(new Rect(0, 125, width, bodyHeight + 66), new Color(.98f, .95f, .87f, .40f));
+            Label(new Rect(22, 148, width - 46, bodyHeight + 6), string.IsNullOrEmpty(draft.body) ? "（请先填写正文）" : draft.body, 28, ink, true);
+            Label(new Rect(0, bodyHeight + 205, width, 40), "文生 手书 · 回批随后收入侨批匣", 23, sub, false, TextAnchor.MiddleRight);
             GUI.EndScrollView();
         }
 
@@ -153,18 +153,18 @@ namespace Qiaopi
             bool mobile = MobileControls;
             Rect safe = mobile ? MobileUiBounds() : new Rect(0, 0, 1600, 1000);
             Rect panel = mobile ? new Rect(safe.xMin + 30, 148, safe.width - 60, 814) : new Rect(125, 125, 1350, 820);
-            Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .70f));
+            Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .34f));
             PaperPanel(panel); Stamp(new Rect(panel.x + 30, panel.y + 23, 64, 64), "银信", 26);
-            Label(new Rect(panel.x + 112, panel.y + 25, panel.width - 560, 57), "渡过海的银信 · 侨批匣", mobile ? 36 : 34, ink, true);
-            string writeLabel = state.personalLetterDraft != null && !string.IsNullOrEmpty(state.personalLetterDraft.body) ? "续写我的草稿" : "写一封侨批";
+            Label(new Rect(panel.x + 112, panel.y + 25, panel.width - 560, 57), "侨批匣", mobile ? 36 : 34, ink, true);
+            string writeLabel = state.personalLetterDraft != null && !string.IsNullOrEmpty(state.personalLetterDraft.body) ? "续写草稿" : "写侨批";
             if (LetterButton(new Rect(panel.xMax - 426, panel.y + 23, 238, 65), writeLabel, true, 27)) { OpenPersonalLetter(); return; }
             if (LetterButton(new Rect(panel.xMax - 174, panel.y + 23, 142, 65), "收起", false, 26)) { journal = false; return; }
-            string journeyNote = LifeJourney.HasReachedOverseas(state) ? "已寄自写侨批 " + state.personalLettersSent + " / " + PersonalLetters.MaxLetters + " 封" : "尚未出洋，也可以先写一份草稿";
-            Label(new Rect(panel.x + 33, panel.y + 107, panel.width - 66, 38), "寄出的字、收到的回音，都完整留在这里。  " + journeyNote, mobile ? 25 : 23, sub);
+            string journeyNote = LifeJourney.HasReachedOverseas(state) ? "已寄自写侨批 " + state.personalLettersSent + " / " + PersonalLetters.MaxLetters + " 封" : "抵埠后可寄出 · 现在可存稿";
+            Label(new Rect(panel.x + 33, panel.y + 107, panel.width - 66, 38), journeyNote, mobile ? 25 : 23, sub);
             Rect viewport = new Rect(panel.x + 32, panel.y + 163, panel.width - 64, panel.height - 195);
             if (state.letters.Count == 0) {
-                Label(new Rect(viewport.x + 45, viewport.y + 85, viewport.width - 90, 130), "第一封批，还在心里。\n可以先写下院里的笑声、家人的叮咛，等抵埠后再寄。", mobile ? 31 : 29, sub, true, TextAnchor.MiddleCenter);
-                if (LetterButton(new Rect(viewport.center.x - 175, viewport.y + 256, 350, 72), "铺开信纸，写给家里", true, 28)) OpenPersonalLetter();
+                Label(new Rect(viewport.x + 45, viewport.y + 85, viewport.width - 90, 130), "尚无侨批\n写给家里的第一句话，从这里开始。", mobile ? 31 : 29, sub, true, TextAnchor.MiddleCenter);
+                if (LetterButton(new Rect(viewport.center.x - 175, viewport.y + 256, 350, 72), "开始写信", true, 28)) OpenPersonalLetter();
                 return;
             }
             float width = viewport.width - 30, bodyWidth = width - 52;
@@ -181,7 +181,7 @@ namespace Qiaopi
                 float titleHeight = Height(letter.title, titleSize, bodyWidth, true) + 6;
                 float bodyHeight = Height(letter.body, bodySize, bodyWidth, true) + 12;
                 float height = PersonalJournalEntryHeight(letter, bodyWidth, bodySize, metaSize, titleSize);
-                Box(new Rect(0, y, width, height), letter.incoming ? C("EBE2CA") : C("FAF1DF"));
+                Box(new Rect(0, y, width, height), letter.incoming ? new Color(.92f, .89f, .79f, .34f) : new Color(.98f, .95f, .87f, .36f));
                 Box(new Rect(0, y, 4, height), letter.incoming ? letterInk : letterSeal);
                 Label(new Rect(26, y + 22, bodyWidth, metaHeight), metadata, metaSize, sub);
                 float titleY = y + 22 + metaHeight + 14;

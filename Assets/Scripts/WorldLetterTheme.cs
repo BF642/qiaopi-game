@@ -19,10 +19,10 @@ namespace Qiaopi
             }
             letterPaper.SetPixels(pixels);letterPaper.Apply(false,true);
         }
-        void PaperPanel(Rect r,bool framed=true,float opacity=1f)
+        void PaperPanel(Rect r,bool framed=true,float opacity=.93f)
         {
             EnsureLetterPaper();
-            Box(new Rect(r.x+3,r.y+5,r.width,r.height),new Color(.10f,.16f,.13f,.12f*opacity));
+            Box(new Rect(r.x+3,r.y+5,r.width,r.height),new Color(.10f,.16f,.13f,.08f*opacity));
             Color old=GUI.color;GUI.color=new Color(paper.r,paper.g,paper.b,opacity);
             GUI.DrawTextureWithTexCoords(r,letterPaper,new Rect(0,0,r.width/190f,r.height/190f));GUI.color=old;
             if(framed){
@@ -91,8 +91,7 @@ namespace Qiaopi
                 Box(r,hover?C("873C30"):letterSeal);
                 Stroke(new Rect(r.x+4,r.y+4,r.width-8,r.height-8),new Color(.98f,.87f,.67f,.42f));
             }else{
-                Box(r,hover?C("E4D5B8"):C("EADFCA"));
-                Box(new Rect(r.x,r.y,3,r.height),letterInk);
+                if(hover)Box(r,new Color(.18f,.30f,.25f,.09f));
                 Box(new Rect(r.x,r.yMax-1,r.width,1),new Color(.40f,.40f,.28f,.25f));
             }
             Label(new Rect(r.x+12,r.y+3,r.width-24,r.height-6),title,size,primary?paper:letterInk,true,TextAnchor.MiddleCenter);
@@ -100,10 +99,12 @@ namespace Qiaopi
         }
         void LetterHeading(Rect r,bool mobile)
         {
-            PaperPanel(r,false,.97f);Box(new Rect(r.x,r.y,Mathf.Min(440,r.width*.30f),3),letterSeal);
+            HudSurface(new Rect(r.x-12,r.y-10,r.width+24,r.height+20),.55f);
             float seal=mobile?63:42;float pad=mobile?23:14;
-            Stamp(new Rect(r.x+pad,r.y+(r.height-seal)*.5f,seal,seal),"侨批",mobile?27:18);
-            Label(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?220:248,mobile?49:42),"纸短情长",mobile?37:28,ink,true);
+            Rect mark=new Rect(r.x+pad,r.y+(r.height-seal)*.5f,seal,seal);
+            Stroke(mark,new Color(hudGold.r,hudGold.g,hudGold.b,.64f));
+            HudText(mark,"侨批",mobile?24:17,hudGold,true,TextAnchor.MiddleCenter);
+            HudText(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?220:248,mobile?49:42),"纸短情长",mobile?30:23,hudMuted,true);
         }
     }
 }
