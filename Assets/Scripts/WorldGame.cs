@@ -315,7 +315,10 @@ namespace Qiaopi
         {
             if(MobileControls){MobileHUD(scene);return;}
             LetterHeading(new Rect(28,22,1544,66),false);
-            Label(new Rect(410,43,620,28),"盘缠 "+state.money+"     身体 "+state.health+"     亲情 "+state.family+"     信用 "+state.trust,19,ink);
+            Label(new Rect(372,30,108,23),"盘缠",16,sub);
+            Label(new Rect(372,49,108,31),state.money.ToString(),25,ink,true);
+            Box(new Rect(481,36,1,38),line);
+            AttributeBars(new Rect(504,31,496,46),false);
             if(NavTab(new Rect(1019,29,167,51),"侨批匣","letter",journal,21)){journal=!journal;map=help=gallery=false;journalScroll=Vector2.zero;}
             if(NavTab(new Rect(1190,29,141,51),"图集","album",gallery,21)){if(gallery)gallery=false;else OpenGallery();}
             if(NavTab(new Rect(1335,29,131,51),"地图","map",map,21)){map=!map;journal=help=gallery=false;journalScroll=Vector2.zero;}
@@ -328,7 +331,6 @@ namespace Qiaopi
             PaperPanel(new Rect(1190,108,380,35),false,.88f);
             Label(new Rect(1204,113,352,25),region.title,17,ink,true,TextAnchor.MiddleCenter);
         }
-        void HUDStat(float x,string label,int value){Label(new Rect(x,43,130,23),label,15,sub);Label(new Rect(x,70,130,32),value.ToString(),25,ink,true);}
         void WorldLabels()
         {
             Tag(mission.npcPosition+Vector3.up*2.14f,mission.npcName,Complete||mission.activity=="talk"||mission.activity=="board");

@@ -11,7 +11,8 @@ namespace Qiaopi
         {
             Rect safe=MobileUiBounds();float x=safe.xMin+30,right=safe.xMax-30;
             LetterHeading(new Rect(x,22,safe.width-60,112),true);
-            Label(new Rect(x+106,84,850,37),"盘缠 "+state.money+"   身体 "+state.health+"   亲情 "+state.family+"   信用 "+state.trust,24,sub);
+            Label(new Rect(x+330,37,240,38),"盘缠  "+state.money,28,ink,true);
+            AttributeBars(new Rect(x+108,82,right-810-(x+108),47),true);
             if(NavTab(new Rect(right-790,30,195,96),"侨批匣","letter",journal,29)){journal=!journal;map=help=gallery=false;journalScroll=Vector2.zero;}
             if(NavTab(new Rect(right-585,30,180,96),"图集","album",gallery,29)){if(gallery)gallery=false;else OpenGallery();}
             if(NavTab(new Rect(right-390,30,180,96),"地图","map",map,29)){map=!map;journal=help=gallery=false;journalScroll=Vector2.zero;}

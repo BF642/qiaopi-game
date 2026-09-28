@@ -103,7 +103,7 @@ namespace Qiaopi
             PaperPanel(r,false,.97f);Box(new Rect(r.x,r.y,Mathf.Min(440,r.width*.30f),3),letterSeal);
             float seal=mobile?63:42;float pad=mobile?23:14;
             Stamp(new Rect(r.x+pad,r.y+(r.height-seal)*.5f,seal,seal),"侨批",mobile?27:18);
-            Label(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?590:290,mobile?49:42),"纸短情长",mobile?37:28,ink,true);
+            Label(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?220:248,mobile?49:42),"纸短情长",mobile?37:28,ink,true);
         }
     }
 }

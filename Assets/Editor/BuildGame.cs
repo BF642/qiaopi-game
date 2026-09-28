@@ -41,7 +41,7 @@ namespace Qiaopi.Editor
         {
             PlayerSettings.companyName="QuanzhouLetters";
             PlayerSettings.productName="侨批 · 纸短情长";
-            PlayerSettings.bundleVersion="2.0.0";
+            PlayerSettings.bundleVersion="2.0.1";
             PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Standalone,"studio.quanzhou.qiaopi");
             PlayerSettings.defaultScreenWidth=1440; PlayerSettings.defaultScreenHeight=900;
             PlayerSettings.fullScreenMode=FullScreenMode.Windowed;

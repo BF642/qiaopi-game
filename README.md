@@ -4,7 +4,9 @@
 
 **[下载游戏](https://github.com/BF642/qiaopi-game/releases/latest)** · **[下载 Unity 工程 ZIP](https://github.com/BF642/qiaopi-game/archive/refs/heads/main.zip)** · **[参与修改](CONTRIBUTING.md)** · **[路线与八种结局](2.0路线与游玩说明.md)**
 
-![安排生活：自主谋生](docs/images/livelihood.png)
+2.0.1：身体、亲情、信用以 **0～100 属性条**显示，带当前值、上限和刻度；身体低于或等于25时使用朱砂色提醒。盘缠仍显示实际金额，电脑与手机布局同步适配。
+
+![属性条](docs/images/attribute-bars.png)
 
 ## 这一版能玩什么
 
@@ -17,7 +19,7 @@
 
 ## 下载和运行
 
-**Mac**：到上方 Releases 下载 `qiaopi-v2.0.0-macOS.zip`，解压后打开应用。支持 Apple Silicon 与 Intel。公开下载版未做 Apple 公证；本项目不提供关闭系统安全保护的操作。也可以在自己的 Unity 环境从源码运行或构建。
+**Mac**：到上方 Releases 下载 `qiaopi-v2.0.1-macOS.zip`，解压后打开应用。支持 Apple Silicon 与 Intel。公开下载版未做 Apple 公证；本项目不提供关闭系统安全保护的操作。也可以在自己的 Unity 环境从源码运行或构建。
 
 **iPhone**：仓库包含 iOS 导出代码，需要在 Mac 上安装 Xcode、Unity iOS Build Support，使用自己的 Apple 开发签名构建安装。这里不发布绑定原测试设备的安装包。
 
