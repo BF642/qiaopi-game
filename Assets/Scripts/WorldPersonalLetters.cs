@@ -58,7 +58,7 @@ namespace Qiaopi
             Rect safe = MobileControls ? MobileUiBounds() : new Rect(0, 0, 1600, 1000);
             Rect panel = MobileControls ? new Rect(safe.xMin + 30, 148, safe.width - 60, 814) : new Rect(125, 125, 1350, 820);
             Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .34f));
-            PaperPanel(panel); Stamp(new Rect(panel.x + 30, panel.y + 23, 64, 64), "家书", 26);
+            PaperPanel(panel); DrawIllustratedIcon(new Rect(panel.x + 30, panel.y + 23, 64, 64), "write");
             Label(new Rect(panel.x + 114, panel.y + 18, panel.width - 360, 60), personalLetterPreview ? "封批确认" : "写给泉州", 35, ink, true);
             if (LetterButton(new Rect(panel.xMax - 180, panel.y + 23, 148, 64), "存稿收起", false, 25)) { ClosePersonalLetter(); return; }
             Label(new Rect(panel.x + 32, panel.y + 101, panel.width - 64, 44), "已寄 " + state.personalLettersSent + " / 3 封 · 盘缠 " + state.money + " · 草稿自动保存", 23, sub);
@@ -154,7 +154,7 @@ namespace Qiaopi
             Rect safe = mobile ? MobileUiBounds() : new Rect(0, 0, 1600, 1000);
             Rect panel = mobile ? new Rect(safe.xMin + 30, 148, safe.width - 60, 814) : new Rect(125, 125, 1350, 820);
             Box(new Rect(safe.xMin - 100, -100, safe.width + 200, 1200), new Color(.08f, .16f, .13f, .34f));
-            PaperPanel(panel); Stamp(new Rect(panel.x + 30, panel.y + 23, 64, 64), "银信", 26);
+            PaperPanel(panel); DrawIllustratedIcon(new Rect(panel.x + 30, panel.y + 23, 64, 64), "letter");
             Label(new Rect(panel.x + 112, panel.y + 25, panel.width - 560, 57), "侨批匣", mobile ? 36 : 34, ink, true);
             string writeLabel = state.personalLetterDraft != null && !string.IsNullOrEmpty(state.personalLetterDraft.body) ? "续写草稿" : "写侨批";
             if (LetterButton(new Rect(panel.xMax - 426, panel.y + 23, 238, 65), writeLabel, true, 27)) { OpenPersonalLetter(); return; }

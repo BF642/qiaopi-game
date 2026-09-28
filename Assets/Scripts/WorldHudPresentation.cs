@@ -41,10 +41,13 @@ namespace Qiaopi
             bool hover = GUI.enabled && r.Contains(Event.current.mousePosition);
             if (hover || selected) HudSurface(r, .38f);
             Color color = selected ? hudGold : hudText;
-            float side = Mathf.Min(30, r.height * .46f);
-            LetterIcon(new Rect(r.x + 12, r.center.y - side / 2, side, side), icon, color);
-            HudText(new Rect(r.x + side + 24, r.y, r.width - side - 29, r.height - 3),
-                text, size, color, false, TextAnchor.MiddleCenter);
+            float side = MobileControls ? 52 : 38;
+            bool hasText = !string.IsNullOrEmpty(text);
+            float iconX = hasText ? r.x + 12 : r.center.x - side / 2;
+            LetterIcon(new Rect(iconX, r.center.y - side / 2, side, side), icon, color);
+            if (hasText)
+                HudText(new Rect(r.x + side + 24, r.y, r.width - side - 36, r.height - 3),
+                    text, size, color, false, TextAnchor.MiddleLeft);
             if (selected) Box(new Rect(r.x + 14, r.yMax - 4, r.width - 28, 2), hudGold);
             return GUI.Button(r, GUIContent.none, blank);
         }
@@ -54,9 +57,18 @@ namespace Qiaopi
             bool hover = GUI.enabled && r.Contains(Event.current.mousePosition);
             HudSurface(r, hover ? .55f : .28f);
             Color color = primary ? hudGold : hudText;
-            HudText(new Rect(r.x + 15, r.y, r.width - 30, r.height), title, size,
-                color, false, TextAnchor.MiddleLeft);
-            Box(new Rect(r.x + 15, r.yMax - 8, r.width - 30, 1), new Color(color.r, color.g, color.b, .4f));
+            float side = MobileControls ? 42 : 32;
+            DrawIllustratedIcon(new Rect(r.x + 12, r.center.y - side / 2, side, side),
+                primary ? "livelihood" : "write");
+            Rect textArea = new Rect(r.x + side + 22, r.y, r.width - side - 36, r.height - 3);
+            bool wrap = style.wordWrap;
+            style.wordWrap = false;
+            style.fontSize = size;
+            float measured = style.CalcSize(new GUIContent(title)).x;
+            int fitted = Mathf.Min(size, Mathf.FloorToInt(size * textArea.width / Mathf.Max(1, measured)));
+            HudText(textArea, title, fitted, color, false, TextAnchor.MiddleLeft);
+            style.wordWrap = wrap;
+            Box(new Rect(textArea.x, r.yMax - 6, textArea.width, 1), new Color(color.r, color.g, color.b, .4f));
             return GUI.Button(r, GUIContent.none, blank);
         }
 

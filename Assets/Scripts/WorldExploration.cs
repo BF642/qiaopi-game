@@ -42,7 +42,7 @@ namespace Qiaopi
         void MobileFieldNote()
         {
             Rect r=MapPanelBounds();Box(new Rect(MobileUiBounds().xMin-100,-100,MobileUiBounds().width+200,1200),new Color(.08f,.15f,.12f,.34f));PaperPanel(r);
-            Stamp(new Rect(r.x+45,r.y+35,64,64),"见闻",29);
+            DrawIllustratedIcon(new Rect(r.x+45,r.y+35,64,64),"album");
             Label(new Rect(r.x+132,r.y+41,r.width-200,60),openedNote.title,43,ink,true);
             Label(new Rect(r.x+48,r.y+132,r.width-96,58),region.title+" · 已收入见闻册",26,sub);
             float h=Height(MapTouchText(openedNote.body),38,r.width-128,true);
@@ -111,7 +111,7 @@ namespace Qiaopi
         {
             Rect r=MapPanelBounds();bool mobile=MobileControls;int body=mobile?30:21;
             Box(new Rect(MobileUiBounds().xMin-120,-100,MobileUiBounds().width+240,1200),new Color(.08f,.15f,.12f,.34f));
-            PaperPanel(r);Stamp(new Rect(r.x+34,r.y+23,mobile?56:46,mobile?56:46),"行路",mobile?25:21);
+            PaperPanel(r);DrawIllustratedIcon(new Rect(r.x+34,r.y+23,mobile?56:46,mobile?56:46),"map");
             Label(new Rect(r.x+(mobile?109:96),r.y+23,r.width-330,56),region.title,mobile?37:30,ink,true);
             if(LetterButton(new Rect(r.xMax-(mobile?190:148),r.y+17,mobile?154:112,mobile?77:57),"收起",false,mobile?30:22)){map=false;return;}
             MapTabs();
@@ -165,7 +165,7 @@ namespace Qiaopi
             int count=0;foreach(string id in WorldRegions.All)foreach(var note in WorldRegions.Get(id).notes)if(state.flags.Contains("note_"+note.id))count++;
             Label(new Rect(content.x,content.y,content.width,53),"见闻 "+count+" / 21 · "+(mobile?"木牌前点「互动」阅读":"木牌前按 E 阅读"),mobile?28:20,sub);
             if(count==0){
-                Stamp(new Rect(content.center.x-39,content.y+146,78,78),"见闻",31);
+                DrawIllustratedIcon(new Rect(content.center.x-39,content.y+146,78,78),"album");
                 Label(new Rect(content.x,content.y+259,content.width,135),"尚无见闻\n泉州老厝外的木牌，可以开始阅读。",mobile?33:27,sub,true,TextAnchor.MiddleCenter);return;
             }
             int body=mobile?31:22,title=mobile?33:26;float width=content.width-32,total=0;

@@ -4,9 +4,9 @@
 
 **[下载游戏](https://github.com/BF642/qiaopi-game/releases/latest)** · **[下载 Unity 工程 ZIP](https://github.com/BF642/qiaopi-game/archive/refs/heads/main.zip)** · **[参与修改](CONTRIBUTING.md)** · **[路线与八种结局](2.0路线与游玩说明.md)**
 
-2.0.2：常驻界面改为**轻墨半透明 HUD**，附近提示随可互动对象动态出现，减少对场景的遮挡。身体、亲情、信用保留 **0～100 属性条**，盘缠显示实际金额；正文保持清晰，主按钮、次按钮与辅助文字通过字号、颜色和底色区分重要性，重复说明已精简。
+2.0.3：重新绘制七枚带实物造型的功能图标：朱印信封、线装册、折页地图、引路灯笼、帆船徽记、毛笔家书与货箱钱币。透明背景保持不变，手机图标加大；附SVG源文件供继续修改。0～100属性条和上一版通透界面保留。
 
-![轻墨半透明界面](docs/images/transparent-hud.png)
+![侨批风格图标](docs/images/illustrated-icons.png)
 
 ## 这一版能玩什么
 
@@ -19,7 +19,7 @@
 
 ## 下载和运行
 
-**Mac**：到上方 Releases 下载 `qiaopi-v2.0.2-macOS.zip`，解压后打开应用。支持 Apple Silicon 与 Intel。公开下载版未做 Apple 公证；本项目不提供关闭系统安全保护的操作。也可以在自己的 Unity 环境从源码运行或构建。
+**Mac**：到上方 Releases 下载 `qiaopi-v2.0.3-macOS.zip`，解压后打开应用。支持 Apple Silicon 与 Intel。公开下载版未做 Apple 公证；本项目不提供关闭系统安全保护的操作。也可以在自己的 Unity 环境从源码运行或构建。
 
 **iPhone**：仓库包含 iOS 导出代码，需要在 Mac 上安装 Xcode、Unity iOS Build Support，使用自己的 Apple 开发签名构建安装。这里不发布绑定原测试设备的安装包。
 

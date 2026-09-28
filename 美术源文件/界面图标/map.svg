@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+<defs>
+ <linearGradient id="paper" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#fff4d5"/><stop offset=".55" stop-color="#ecd6a5"/><stop offset="1" stop-color="#c8ab77"/></linearGradient>
+ <linearGradient id="lightPaper" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff8e4"/><stop offset="1" stop-color="#e5c998"/></linearGradient>
+ <linearGradient id="jade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5c897a"/><stop offset=".5" stop-color="#355f56"/><stop offset="1" stop-color="#183d38"/></linearGradient>
+ <linearGradient id="red" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#db7c59"/><stop offset=".55" stop-color="#b44f3d"/><stop offset="1" stop-color="#7c302b"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff0be"/><stop offset=".45" stop-color="#d3af68"/><stop offset="1" stop-color="#9d743c"/></linearGradient>
+</defs>
+
+<path d="M9 32L45 19 80 29 115 17 121 106 83 119 48 108 11 118Z" fill="#1a332b" opacity=".26"/>
+<path d="M10 25L44 13 78 25 113 13 117 101 81 114 47 102 12 114Z" fill="url(#paper)" stroke="#655439" stroke-width="3" stroke-linejoin="round"/>
+<path d="M44 15L78 27 81 111 47 101Z" fill="#fff3d1"/>
+<path d="M78 27L112 16 116 99 81 111Z" fill="#cbb583"/>
+<path d="M13 42q17-5 20 6t-9 15q2 12 12 16l1 19-23 8Z" fill="#658b78"/>
+<path d="M50 21q18 7 15 22t12 18l2 29-12-4q1-12-9-20t-8-22Z" fill="#84a08b"/>
+<path d="M100 30l11-5 2 46q-19 5-25-4t5-17Z" fill="#5f8676"/>
+<path d="M24 86Q43 66 59 70T90 48" fill="none" stroke="#b6533b" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="3 7"/>
+<path d="M44 18l3 78M78 30l3 75" stroke="#aa9366" stroke-width="2" opacity=".6"/>
+<path d="M77 42a13 13 0 1 1 25 0q-2 8-13 18-11-10-12-18Z" fill="url(#red)" stroke="#793b2e" stroke-width="2.4"/>
+<circle cx="89.5" cy="39.5" r="4.5" fill="#ffedc8"/>
+<circle cx="29" cy="93" r="18" fill="#6f6040" opacity=".3"/>
+<circle cx="28" cy="91" r="16" fill="url(#gold)" stroke="#5b5035" stroke-width="2.5"/>
+<circle cx="28" cy="91" r="12" fill="#f4dfab"/>
+<path d="M28 76l5 15-5 15-5-15Z" fill="#375c51"/>
+<path d="M28 76v15h-5Z" fill="#c26043"/>
+<path d="M13 91l15-4 15 4-15 4Z" fill="#57756a"/>
+<circle cx="28" cy="91" r="2.8" fill="#fff1c7"/>
+
+</svg>

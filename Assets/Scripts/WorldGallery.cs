@@ -99,7 +99,7 @@ namespace Qiaopi
             Rect safe=MobileControls?MobileUiBounds():new Rect(0,0,1600,1000);
             Rect panel=MobileControls?new Rect(safe.x+30,153,safe.width-60,808):new Rect(115,132,1370,808);
             Box(new Rect(safe.xMin-100,-100,safe.width+200,1200),new Color(.08f,.16f,.13f,.34f));
-            PaperPanel(panel);Stamp(new Rect(panel.x+32,panel.y+26,66,66),"共藏",26);
+            PaperPanel(panel);DrawIllustratedIcon(new Rect(panel.x+32,panel.y+26,66,66),"album");
             Label(new Rect(panel.x+118,panel.y+23,panel.width-300,65),"侨批图集 · 一纸共藏",38,ink,true);
             if(LetterButton(new Rect(panel.xMax-182,panel.y+25,148,70),"收起",false,28)){SaveGalleryDraft();gallery=false;GUI.FocusControl(null);return;}
             string[] tabs={"看图集","准备投稿","我的投稿"};float tabWidth=(panel.width-88)/3;

@@ -70,7 +70,7 @@ namespace Qiaopi
             bool mobile=MobileControls;Rect safe=mobile?MobileUiBounds():new Rect(0,0,W,H);
             Rect r=new Rect(safe.xMin+55,145,safe.width-110,810);int fs=mobile?28:24;
             Box(new Rect(safe.xMin-100,-100,safe.width+200,1200),new Color(.08f,.16f,.13f,.34f));PaperPanel(r);
-            Stamp(new Rect(r.x+28,r.y+22,62,62),"谋生",26);
+            DrawIllustratedIcon(new Rect(r.x+28,r.y+22,62,62),"livelihood");
             Label(new Rect(r.x+114,r.y+21,r.width-310,57),LifeJourney.DestinationName(state)+" · 谋生",34,ink,true);
             if(LetterButton(new Rect(r.xMax-155,r.y+24,127,60),"沿街走走",false,23)){lifePanel=false;return;}
             Label(new Rect(r.x+30,r.y+98,r.width-60,53),"谋生 "+state.journey.turns+" / 6 轮 · 满 3 轮可继续旅程 · 盘缠 "+state.money+" · 身体 "+state.health,mobile?25:22,sub);

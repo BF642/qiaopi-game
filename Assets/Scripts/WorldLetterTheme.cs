@@ -49,37 +49,16 @@ namespace Qiaopi
         }
         void LetterIcon(Rect r,string icon,Color color)
         {
-            float x=r.x,y=r.y,w=r.width,h=r.height;
-            if(icon=="letter"){
-                Stroke(new Rect(x,y+h*.15f,w,h*.70f),color);
-                InkLine(new Vector2(x,y+h*.16f),new Vector2(x+w*.5f,y+h*.56f),color);
-                InkLine(new Vector2(x+w,y+h*.16f),new Vector2(x+w*.5f,y+h*.56f),color);
-                InkLine(new Vector2(x,y+h*.85f),new Vector2(x+w*.31f,y+h*.52f),color);
-                InkLine(new Vector2(x+w,y+h*.85f),new Vector2(x+w*.69f,y+h*.52f),color);
-            }else if(icon=="album"){
-                Stroke(new Rect(x+w*.09f,y,w*.82f,h),color);Box(new Rect(x+w*.27f,y,1.7f,h),color);
-                Stroke(new Rect(x+w*.40f,y+h*.22f,w*.33f,h*.37f),color);
-                Box(new Rect(x+w*.4f,y+h*.74f,w*.35f,1.7f),color);
-            }else if(icon=="map"){
-                InkLine(new Vector2(x+w*.5f,y),new Vector2(x+w,y+h*.5f),color);
-                InkLine(new Vector2(x+w,y+h*.5f),new Vector2(x+w*.5f,y+h),color);
-                InkLine(new Vector2(x+w*.5f,y+h),new Vector2(x,y+h*.5f),color);
-                InkLine(new Vector2(x,y+h*.5f),new Vector2(x+w*.5f,y),color);
-                InkLine(new Vector2(x+w*.5f,y+h*.18f),new Vector2(x+w*.5f,y+h*.82f),color,2.7f);
-                InkLine(new Vector2(x+w*.23f,y+h*.5f),new Vector2(x+w*.77f,y+h*.5f),color);
-            }else{
-                Stroke(new Rect(x+w*.13f,y,w*.74f,h),color);
-                Label(r,"?",Mathf.RoundToInt(h*.8f),color,true,TextAnchor.MiddleCenter);
-            }
+            DrawIllustratedIcon(r,icon);
         }
         bool NavTab(Rect r,string text,string icon,bool selected,int size=25)
         {
             bool hover=GUI.enabled&&r.Contains(Event.current.mousePosition);
             if(selected||hover)Box(r,selected?new Color(.64f,.28f,.21f,.10f):new Color(.18f,.30f,.25f,.06f));
-            Color c=selected?letterSeal:letterInk;float side=Mathf.Min(34,r.height*.49f);
-            LetterIcon(new Rect(r.x+12,r.center.y-side*.5f,side,side),icon,c);
-            Label(new Rect(r.x+side+24,r.y,r.width-side-29,r.height-3),text,size,c,true,TextAnchor.MiddleCenter);
-            if(selected)Box(new Rect(r.x+10,r.yMax-4,r.width-20,3),letterSeal);
+            Color c=selected?letterSeal:letterInk;float side=MobileControls?52:40;
+            LetterIcon(new Rect(r.x+14,r.center.y-side*.5f,side,side),icon,c);
+            Label(new Rect(r.x+side+28,r.y,r.width-side-42,r.height-3),text,size,c,true,TextAnchor.MiddleLeft);
+            if(selected)Box(new Rect(r.x+14,r.yMax-4,r.width-28,3),letterSeal);
             return GUI.Button(r,GUIContent.none,blank);
         }
         bool LetterButton(Rect r,string title,bool primary=false,int size=22)
@@ -102,8 +81,7 @@ namespace Qiaopi
             HudSurface(new Rect(r.x-12,r.y-10,r.width+24,r.height+20),.55f);
             float seal=mobile?63:42;float pad=mobile?23:14;
             Rect mark=new Rect(r.x+pad,r.y+(r.height-seal)*.5f,seal,seal);
-            Stroke(mark,new Color(hudGold.r,hudGold.g,hudGold.b,.64f));
-            HudText(mark,"侨批",mobile?24:17,hudGold,true,TextAnchor.MiddleCenter);
+            DrawIllustratedIcon(mark,"brand");
             HudText(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?220:248,mobile?49:42),"纸短情长",mobile?30:23,hudMuted,true);
         }
     }
