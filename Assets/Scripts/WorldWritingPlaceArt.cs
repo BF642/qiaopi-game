@@ -25,13 +25,16 @@ namespace Qiaopi
             bool existingRoof = false, existingDesk = false;
             switch (loadedWorld)
             {
-                case "quanzhou": title = "陈家东厢"; centre = new Vector3(-17.25f, 0, -8); yaw = 90; break;
+                case "quanzhou": title = "陈家东厢"; centre = new Vector3(ChenCourtyardHouse.Ready ? -16.7f : -17.25f, 0, -8); yaw = 90; break;
                 case "harbor": title = "候船借写间"; centre = new Vector3(14, 0, 9); existingRoof = true; break;
                 case "port": title = "工班写批间"; centre = new Vector3(-11, 0, -6.5f); yaw = -90; break;
                 case "market": title = "陈记账房侧间"; centre = new Vector3(-25.6f, 0, 16.75f); break;
                 case "quarters": title = "住处写批间"; centre = new Vector3(28.1f, 0, 13.4f); yaw = 90; break;
                 default: title = "信局写批长廊"; centre = new Vector3(-28.4f, 0, 11.05f); existingRoof = true; existingDesk = true; break;
             }
+            bool nativePenangOffice = loadedWorld == "postoffice" && LifeJourney.DestinationId(state) == "penang"
+                && Resources.Load<GameObject>("EnvironmentArt/PenangRemittanceOffice/Model");
+            if (nativePenangOffice) title = "槟榔屿银信铺 · 写批间";
             var room = new GameObject(title + " · sheltered writing place");
             room.transform.SetParent(world.transform, false);
             room.transform.localPosition = centre;
@@ -39,11 +42,11 @@ namespace Qiaopi
             writingPlace = new WritingPlace
             {
                 title = title,
-                approach = room.transform.TransformPoint(new Vector3(.55f, 0, -1.3f)),
+                approach = room.transform.TransformPoint(new Vector3(.55f, 0, loadedWorld == "quanzhou" && ChenCourtyardHouse.Ready ? -.7f : -1.3f)),
                 seatEye = room.transform.TransformPoint(new Vector3(0, 1.20f, -.63f)),
                 lookAt = room.transform.TransformPoint(new Vector3(-.17f, .90f, .58f))
             };
-            WritingPlaceScenery.Build(room.transform, title, loadedWorld, existingRoof, existingDesk);
+            WritingPlaceScenery.Build(room.transform, title, loadedWorld, existingRoof, existingDesk, nativePenangOffice || (loadedWorld == "quanzhou" && ChenCourtyardHouse.Ready));
         }
     }
 
@@ -53,9 +56,15 @@ namespace Qiaopi
         static Mesh cube, cylinder;
         static readonly Dictionary<string, Material> materials = new Dictionary<string, Material>();
 
-        public static void Build(Transform root, string title, string place, bool existingRoof, bool existingDesk)
+        public static void Build(Transform root, string title, string place, bool existingRoof, bool existingDesk, bool nativeRoom = false)
         {
             var art = new Geometry(root);
+            string entryId = place == "quanzhou" ? EnvironmentModelLibrary.HomeEntry : place == "postoffice" ? EnvironmentModelLibrary.OfficeEntry : null;
+            bool modelEntry = !nativeRoom && entryId != null && EnvironmentModelLibrary.TrySpawn(entryId, root,
+                EnvironmentModelLibrary.EntryPosition, Quaternion.identity, out _);
+            bool modelDesk = !existingDesk && EnvironmentModelLibrary.TrySpawn(EnvironmentModelLibrary.WritingDesk, root,
+                EnvironmentModelLibrary.DeskPosition, Quaternion.identity, out _);
+            float frontJoin = modelEntry ? -2.07f + EnvironmentModelLibrary.ExpectedSize(entryId).z * .5f + .035f : float.NegativeInfinity;
             Material wood = Surface("writing aged timber", "796044"), dark = Surface("writing dark timber", "493C2D");
             Material plaster = Surface("writing lime plaster", place == "quarters" ? "B7B09A" : place == "port" ? "BAAE91" : "D3C7AC");
             Material baseWall = Surface(place == "quanzhou" ? "writing red brick" : "writing granite foundation", place == "quanzhou" ? "9E6047" : "999987");
@@ -64,6 +73,7 @@ namespace Qiaopi
             Material linen = Surface("writing woven linen", "AF9D78"), teal = Surface("writing book teal", "62796A");
             Material brass = Surface("writing lamp brass", "A48A56");
 
+            if (!nativeRoom) {
             // Flush paving does not alter the game's y=0 walking surface.
             art.Box("Stone floor", new Vector3(0, .014f, 0), new Vector3(4.2f, .028f, 4.2f), dark);
             for (int x = 0; x < 7; x++) for (int z = 0; z < 7; z++)
@@ -72,23 +82,25 @@ namespace Qiaopi
             // A 2.2m clear doorway opens toward the courtyard. Unlike a facade cube,
             // the room has separate walls and a traversable, fully empty interior.
             art.Box("Back wall", new Vector3(0, 1.30f, 2.07f), new Vector3(4.28f, 2.6f, .18f), plaster, true);
-            art.Box("East wall", new Vector3(2.07f, 1.30f, 0), new Vector3(.18f, 2.6f, 4.15f), plaster, true);
-            art.Box("West wall below window", new Vector3(-2.07f, .48f, 0), new Vector3(.18f, .96f, 4.15f), plaster, true);
-            art.Box("West window head", new Vector3(-2.07f, 2.37f, 0), new Vector3(.18f, .46f, 4.15f), plaster, true);
-            art.Box("West wall front return", new Vector3(-2.07f, 1.55f, -1.36f), new Vector3(.18f, 1.18f, 1.41f), plaster, true);
+            art.FrontClippedBox("East wall", new Vector3(2.07f, 1.30f, 0), new Vector3(.18f, 2.6f, 4.15f), plaster, frontJoin, true);
+            art.FrontClippedBox("West wall below window", new Vector3(-2.07f, .48f, 0), new Vector3(.18f, .96f, 4.15f), plaster, frontJoin, true);
+            art.FrontClippedBox("West window head", new Vector3(-2.07f, 2.37f, 0), new Vector3(.18f, .46f, 4.15f), plaster, frontJoin, true);
+            art.FrontClippedBox("West wall front return", new Vector3(-2.07f, 1.55f, -1.36f), new Vector3(.18f, 1.18f, 1.41f), plaster, frontJoin, true);
             art.Box("West wall rear return", new Vector3(-2.07f, 1.55f, 1.69f), new Vector3(.18f, 1.18f, .76f), plaster, true);
             foreach (float side in new[] { -1f, 1f })
             {
-                art.Box("Doorway masonry return", new Vector3(side * 1.64f, 1.3f, -2.07f), new Vector3(.86f, 2.6f, .18f), plaster, true);
-                art.Box("Door jamb", new Vector3(side * 1.14f, 1.15f, -2.08f), new Vector3(.11f, 2.3f, .23f), dark, true);
-                art.Box("Open timber door", new Vector3(side * 1.28f, 1.02f, -1.78f), new Vector3(.065f, 2.03f, .52f), wood);
-                art.Box("Wall granite footing", new Vector3(side * 2.07f, .19f, 0), new Vector3(.20f, .38f, 4.2f), baseWall);
+                art.Box("Doorway masonry return", new Vector3(side * 1.64f, 1.3f, -2.07f), new Vector3(.86f, 2.6f, .18f), plaster, true, null, !modelEntry);
+                art.Box("Door jamb", new Vector3(side * 1.14f, 1.15f, -2.08f), new Vector3(.11f, 2.3f, .23f), dark, true, null, !modelEntry);
+                if (!modelEntry) art.Box("Open timber door", new Vector3(side * 1.28f, 1.02f, -1.78f), new Vector3(.065f, 2.03f, .52f), wood);
+                art.FrontClippedBox("Wall granite footing", new Vector3(side * 2.07f, .19f, 0), new Vector3(.20f, .38f, 4.2f), baseWall, frontJoin);
                 art.Box("Rear corner post", new Vector3(side * 1.93f, 1.29f, 1.94f), new Vector3(.12f, 2.58f, .12f), dark);
             }
             art.Box("Rear wall footing", new Vector3(0, .19f, 1.975f), new Vector3(4.15f, .38f, .035f), baseWall);
-            art.Box("Entrance lintel", new Vector3(0, 2.33f, -2.08f), new Vector3(2.46f, .16f, .24f), dark);
-            art.Box("Door sign", new Vector3(0, 2.52f, -2.185f), new Vector3(1.63f, .31f, .055f), wood);
-            art.Sign(title, new Vector3(0, 2.52f, -2.22f), .065f, new Color(.88f, .80f, .61f));
+            if (!modelEntry) {
+                art.Box("Entrance lintel", new Vector3(0, 2.33f, -2.08f), new Vector3(2.46f, .16f, .24f), dark);
+                art.Box("Door sign", new Vector3(0, 2.52f, -2.185f), new Vector3(1.63f, .31f, .055f), wood);
+                art.Sign(title, new Vector3(0, 2.52f, -2.22f), .065f, new Color(.88f, .80f, .61f));
+            }
 
             // A real open lattice window admits daylight from the side, not an opaque
             // black rectangle. Slender mortised bars read correctly from the seat.
@@ -104,26 +116,35 @@ namespace Qiaopi
                 Material tile = Surface("writing roof tiles", "55574B");
                 foreach (float side in new[] { -1f, 1f })
                 {
-                    art.Box("Weathered tiled roof", new Vector3(0, 2.97f, side * 1.14f), new Vector3(4.68f, .14f, 2.45f), tile, false, Quaternion.Euler(side * 15, 0, 0));
-                    art.Box("Eave timber", new Vector3(0, 2.67f, side * 2.15f), new Vector3(4.55f, .16f, .17f), dark);
+                    // The reviewed facade owns its shallow front canopy. Stop the
+                    // old pitch behind it, while keeping a roof above the chair.
+                    bool join = modelEntry && side < 0;
+                    float end = join ? 1.70f : 2.30f;
+                    art.Box("Weathered tiled roof", join ? new Vector3(0, 3.048f, -.85f) : new Vector3(0, 2.97f, side * 1.14f),
+                        new Vector3(4.68f, .14f, join ? 1.76f : 2.45f), tile, false, Quaternion.Euler(side * 15, 0, 0));
+                    if (!join) art.Box("Eave timber", new Vector3(0, 2.67f, side * 2.15f), new Vector3(4.55f, .16f, .17f), dark);
                     for (int row = 0; row < 18; row++)
-                        art.Beam("Tile cover ridges", new Vector3(-2.18f + row * .256f, 3.335f, 0), new Vector3(-2.18f + row * .256f, 2.73f, side * 2.30f), .052f, tile);
+                        art.Beam("Tile cover ridges", new Vector3(-2.18f + row * .256f, 3.335f, 0), new Vector3(-2.18f + row * .256f, 3.335f - .605f * end / 2.30f, side * end), .052f, tile);
                 }
                 art.Beam("Roof ridge cap", new Vector3(-2.34f, 3.36f, 0), new Vector3(2.34f, 3.36f, 0), .13f, tile);
             }
             art.Box("Ceiling crossbeam", new Vector3(0, 2.61f, 1.45f), new Vector3(4.16f, .15f, .13f), dark);
-            art.Box("Front ceiling crossbeam", new Vector3(0, 2.61f, -1.55f), new Vector3(4.16f, .15f, .13f), dark);
+            if (!modelEntry || entryId != EnvironmentModelLibrary.OfficeEntry)
+                art.Box("Front ceiling crossbeam", new Vector3(0, 2.61f, -1.55f), new Vector3(4.16f, .15f, .13f), dark);
 
+            }
             if (!existingDesk)
             {
+                if (!modelDesk) {
                 for (int plank = 0; plank < 5; plank++)
                     art.Box("Writing desk top board", new Vector3(0, .749f, .002f + plank * .175f), new Vector3(1.75f, .062f, .170f), wood);
                 foreach (float x in new[] { -.73f, .73f }) foreach (float z in new[] { .04f, .66f })
                     art.Box("Desk leg", new Vector3(x, .357f, z), new Vector3(.078f, .714f, .078f), dark);
                 foreach (float z in new[] { -.023f, .72f })
                     art.Box("Desk apron", new Vector3(0, .65f, z), new Vector3(1.6f, .14f, .055f), dark);
-                art.Box("Desk solid top", new Vector3(0, .747f, .35f), new Vector3(1.70f, .067f, .80f), wood, true, null, false);
                 art.Box("Desk cross stretcher", new Vector3(0, .26f, .35f), new Vector3(1.48f, .055f, .055f), wood);
+                }
+                art.Box("Desk solid top", new Vector3(0, .747f, .35f), new Vector3(1.70f, .067f, .80f), wood, true, null, false);
                 art.Box("Woven chair seat", new Vector3(0, .437f, -.63f), new Vector3(.49f, .061f, .43f), linen);
                 foreach (float x in new[] { -.20f, .20f }) foreach (float z in new[] { -.80f, -.46f })
                     art.Box("Chair foot", new Vector3(x, .21f, z), new Vector3(.045f, .42f, .045f), dark);
@@ -152,30 +173,40 @@ namespace Qiaopi
             for (int pen = 0; pen < 3; pen++)
                 art.Beam("Upright spare brush", new Vector3(.67f + pen * .018f, .86f, .64f), new Vector3(.66f + pen * .026f, 1.16f - pen * .025f, .66f), .009f, wood);
 
+            float rearOffset = nativeRoom ? -.07f : 0;
             // Small shelves and tied remittance bundles give this room a distinct
             // purpose, rather than another blank wall around a generic table.
-            art.Box("Letter shelf backing", new Vector3(-1.36f, .96f, 1.62f), new Vector3(1.04f, 1.82f, .07f), dark);
+            art.Box("Letter shelf backing", new Vector3(-1.36f, .96f, 1.62f + rearOffset), new Vector3(1.04f, 1.82f, .07f), dark);
             foreach (float x in new[] { -1.89f, -.83f })
-                art.Box("Letter shelf upright", new Vector3(x, .97f, 1.43f), new Vector3(.055f, 1.88f, .44f), wood);
+                art.Box("Letter shelf upright", new Vector3(x, .97f, 1.43f + rearOffset), new Vector3(.055f, 1.88f, .44f), wood);
             for (int row = 0; row < 4; row++)
             {
                 float y = .23f + row * .46f;
-                art.Box("Letter shelf", new Vector3(-1.36f, y, 1.42f), new Vector3(1.06f, .048f, .48f), wood);
+                art.Box("Letter shelf", new Vector3(-1.36f, y, 1.42f + rearOffset), new Vector3(1.06f, .048f, .48f), wood);
                 for (int book = 0; book < 4; book++)
                 {
                     float x = -1.71f + book * .225f;
-                    art.Box("Bound qiaopi bundle", new Vector3(x, y + .078f, 1.40f), new Vector3(.19f, .11f, .32f), (book + row) % 3 == 0 ? teal : paper);
-                    art.Box("Bundle cotton tie", new Vector3(x, y + .137f, 1.40f), new Vector3(.010f, .007f, .33f), linen);
+                    art.Box("Bound qiaopi bundle", new Vector3(x, y + .078f, 1.40f + rearOffset), new Vector3(.19f, .11f, .32f), (book + row) % 3 == 0 ? teal : paper);
+                    art.Box("Bundle cotton tie", new Vector3(x, y + .137f, 1.40f + rearOffset), new Vector3(.010f, .007f, .33f), linen);
                 }
             }
-            art.Box("Framed address card", new Vector3(.47f, 1.50f, 1.96f), new Vector3(.88f, .76f, .034f), dark);
-            art.Box("Address card paper", new Vector3(.47f, 1.50f, 1.938f), new Vector3(.78f, .66f, .010f), paper);
-            art.Sign("泉州家书", new Vector3(.47f, 1.63f, 1.928f), .056f, new Color(.29f, .33f, .28f));
-            art.Sign("银信相伴", new Vector3(.47f, 1.37f, 1.928f), .043f, new Color(.42f, .39f, .32f));
+            art.Box("Framed address card", new Vector3(.47f, 1.50f, 1.96f + rearOffset), new Vector3(.88f, .76f, .034f), dark);
+            art.Box("Address card paper", new Vector3(.47f, 1.50f, 1.938f + rearOffset), new Vector3(.78f, .66f, .010f), paper);
+            art.Sign("泉州家书", new Vector3(.47f, 1.63f, 1.928f + rearOffset), .056f, new Color(.29f, .33f, .28f));
+            art.Sign("银信相伴", new Vector3(.47f, 1.37f, 1.928f + rearOffset), .043f, new Color(.42f, .39f, .32f));
             art.Cylinder("Oil lamp base", new Vector3(-.76f, .804f, .66f), .065f, .045f, brass);
             art.Cylinder("Oil lamp stem", new Vector3(-.76f, .886f, .66f), .023f, .13f, brass);
             art.Cylinder("Oil cup", new Vector3(-.76f, .96f, .66f), .064f, .032f, brass);
             art.Cylinder("Lamp wick", new Vector3(-.76f, .991f, .66f), .009f, .035f, ink);
+            var flame=GameObject.CreatePrimitive(PrimitiveType.Sphere);flame.name="Oil lamp flame";
+            flame.transform.SetParent(root,false);flame.transform.localPosition=new Vector3(-.76f,1.034f,.66f);
+            flame.transform.localScale=new Vector3(.026f,.066f,.026f);flame.layer=2;
+            Object.Destroy(flame.GetComponent<Collider>());
+            var glow=Surface("writing flame glow","FFE8A9");
+            var flameShader=Resources.Load<Shader>("OilFlame");if(flameShader)glow.shader=flameShader;
+            glow.color=new Color(1,.75f,.18f);
+            var flameRenderer=flame.GetComponent<Renderer>();flameRenderer.sharedMaterial=glow;
+            flameRenderer.shadowCastingMode=ShadowCastingMode.Off;flameRenderer.receiveShadows=false;
             var lamp = new GameObject("Warm oil-lamp light"); lamp.transform.SetParent(root, false); lamp.transform.localPosition = new Vector3(-.76f, 1.05f, .66f);
             var light = lamp.AddComponent<Light>(); light.type = LightType.Point; light.color = new Color(1, .83f, .61f); light.range = 3.6f; light.intensity = .75f; light.shadows = LightShadows.None;
             art.Flush();
@@ -193,6 +224,17 @@ namespace Qiaopi
             readonly Transform root;
             readonly Dictionary<Material, List<CombineInstance>> groups = new Dictionary<Material, List<CombineInstance>>();
             public Geometry(Transform root) { this.root = root; }
+            public void FrontClippedBox(string name, Vector3 position, Vector3 size, Material material, float join, bool solid = false)
+            {
+                if (float.IsNegativeInfinity(join)) { Box(name, position, size, material, solid); return; }
+                // Preserve the exact authored collider; only the wall's visible
+                // front portion is replaced by the reviewed entrance module.
+                if (solid) Box(name, position, size, material, true, null, false);
+                float back = position.z + size.z * .5f, front = Mathf.Max(join, position.z - size.z * .5f);
+                if (back <= front) return;
+                position.z = (front + back) * .5f; size.z = back - front;
+                Box(name, position, size, material);
+            }
             public void Box(string name, Vector3 position, Vector3 size, Material material, bool solid = false, Quaternion? rotation = null, bool visible = true)
             {
                 if (!cube) cube = CreateCube();

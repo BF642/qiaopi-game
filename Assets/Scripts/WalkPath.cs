@@ -7,6 +7,7 @@ namespace Qiaopi
     public static class WalkPath
     {
         private static int MinX,MaxX,MinZ,MaxZ,Width,Depth;
+        private static float spacing = 1f;
         private const int Mask = ~((1 << 2)|(1 << 30));
         private static Cell[] cachedGrid;
         private static string cachedWorld;
@@ -26,8 +27,11 @@ namespace Qiaopi
             var empty = new List<Vector3>();
             if (!Finite(start) || !Finite(goal)) return empty;
             var bounds=WorldRegions.Get(world).bounds;
-            MinX=Mathf.CeilToInt(bounds.xMin);MaxX=Mathf.FloorToInt(bounds.xMax-.01f);
-            MinZ=Mathf.CeilToInt(bounds.yMin);MaxZ=Mathf.FloorToInt(bounds.yMax-.01f);
+            // The furnished Chen house has real, metre-wide aisles; a one-metre
+            // grid can miss an entire aisle even when the capsule fits through it.
+            spacing=world=="quanzhou"?.5f:1f;
+            MinX=Mathf.CeilToInt(bounds.xMin/spacing);MaxX=Mathf.FloorToInt((bounds.xMax-.01f)/spacing);
+            MinZ=Mathf.CeilToInt(bounds.yMin/spacing);MaxZ=Mathf.FloorToInt((bounds.yMax-.01f)/spacing);
             Width=MaxX-MinX+1;Depth=MaxZ-MinZ+1;
             Physics.SyncTransforms();
             var grid = cachedWorld==world?cachedGrid:null;
@@ -37,7 +41,7 @@ namespace Qiaopi
                 for (int x = MinX; x <= MaxX; x++)
                 {
                     float ground;
-                    bool open = Walkable(x, z, world, out ground);
+                    bool open = Walkable(x*spacing, z*spacing, world, out ground);
                     grid[Index(x, z)] = new Cell { open = open, ground = ground };
                 }
             cachedGrid=grid;cachedWorld=world;
@@ -149,10 +153,13 @@ namespace Qiaopi
         private static bool Walkable(float x, float z, string world, out float ground)
         {
             ground = 0f;
-            if (x < MinX || x > MaxX || z < MinZ || z > MaxZ) return false;
+            if (x < MinX*spacing || x > MaxX*spacing || z < MinZ*spacing || z > MaxZ*spacing) return false;
             if (world == "harbor" && z > 21.3f && Mathf.Abs(x) > 5.65f) return false;
             RaycastHit hit;
-            if (!Physics.Raycast(new Vector3(x, 4f, z), Vector3.down, out hit, 8f, Mask, QueryTriggerInteraction.Ignore)) return false;
+            // Search only the accepted ground-height band. A ray from four metres
+            // hits a doorway lintel first and incorrectly seals a clear passage.
+            // The full-height capsule below still rejects walls and low ceilings.
+            if (!Physics.Raycast(new Vector3(x, .51f, z), Vector3.down, out hit, 4.51f, Mask, QueryTriggerInteraction.Ignore)) return false;
             if (hit.point.y > .5f || hit.normal.y < .65f) return false;
             ground = hit.point.y;
             return !Physics.CheckCapsule(new Vector3(x, .55f, z), new Vector3(x, 1.65f, z), Radius, Mask, QueryTriggerInteraction.Ignore);
@@ -171,7 +178,7 @@ namespace Qiaopi
         private static int Index(int x, int z) { return (z - MinZ) * Width + x - MinX; }
         private static int X(int index) { return index % Width + MinX; }
         private static int Z(int index) { return index / Width + MinZ; }
-        private static Vector3 Position(int index, Cell[] grid) { return new Vector3(X(index), grid[index].ground, Z(index)); }
+        private static Vector3 Position(int index, Cell[] grid) { return new Vector3(X(index)*spacing, grid[index].ground, Z(index)*spacing); }
         private static float FlatSquared(Vector3 a, Vector3 b) { float x = a.x - b.x, z = a.z - b.z; return x * x + z * z; }
         private static float Heuristic(int a, int b)
         {

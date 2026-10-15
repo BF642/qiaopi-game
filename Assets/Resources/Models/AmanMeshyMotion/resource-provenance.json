@@ -1,0 +1,45 @@
+{
+  "role": "Aman",
+  "merged_fbx_copied_byte_for_byte": true,
+  "basecolor_and_normal_copied_byte_for_byte": true,
+  "source_pixel_dimensions": {
+    "basecolor": [
+      4096,
+      4096
+    ],
+    "normal": [
+      4096,
+      4096
+    ],
+    "roughness": [
+      4096,
+      4096
+    ],
+    "metallic": [
+      4096,
+      4096
+    ]
+  },
+  "packed_map": {
+    "R": "255 (unoccluded)",
+    "G": "original scalar roughness at native data-map resolution",
+    "B": "original scalar metallic at native data-map resolution",
+    "width": 4096,
+    "height": 4096,
+    "A": "255",
+    "resampled": false
+  },
+  "sources": {
+    "Meshy_AI_Lavender_Little_Lotus_biped_Meshy_Merged_Animations.fbx": "937599498f554b544043c0c9c19dc3a5e3233aa10851ee6f5bdb4a40c04f2158",
+    "Meshy_AI_Lavender_Little_Lotus_biped_texture_0.png": "24bb55cb85274ee48be29b8615c59b51158c642d5671b0b5d8d2a9fae5929dc5",
+    "Meshy_AI_Lavender_Little_Lotus_biped_texture_0_normal.png": "7cb11b9d067e6db3f9fd7e9012e044eee65124495181e146e6d78cfee8f15f66",
+    "Meshy_AI_Lavender_Little_Lotus_biped_texture_0_roughness.png": "e4d70a7376dea8bc85c68e8b928eede43da049c31f3486a9cbb23f851fb25eee",
+    "Meshy_AI_Lavender_Little_Lotus_biped_texture_0_metallic.png": "854a118cfe62c2f6cea4b605bb424f9ab6cf767648f7e78580d07b88cfe3ae94"
+  },
+  "outputs": {
+    "Aman_metalrough.png": "43fd888c6961573a21af780ca2b448ea1b4b4bf422e13ffc6c082d7486719742",
+    "Aman_normal.png": "7cb11b9d067e6db3f9fd7e9012e044eee65124495181e146e6d78cfee8f15f66",
+    "AmanMeshyMotion.fbx": "937599498f554b544043c0c9c19dc3a5e3233aa10851ee6f5bdb4a40c04f2158",
+    "Aman_basecolor.png": "24bb55cb85274ee48be29b8615c59b51158c642d5671b0b5d8d2a9fae5929dc5"
+  }
+}

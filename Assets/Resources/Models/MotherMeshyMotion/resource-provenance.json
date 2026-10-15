@@ -1,0 +1,46 @@
+{
+  "role": "Mother",
+  "source_fbx_copied_byte_for_byte": true,
+  "source_fbx_kind": "explicit character FBX",
+  "basecolor_and_normal_copied_byte_for_byte": true,
+  "source_pixel_dimensions": {
+    "basecolor": [
+      8192,
+      8192
+    ],
+    "normal": [
+      4096,
+      4096
+    ],
+    "roughness": [
+      4096,
+      4096
+    ],
+    "metallic": [
+      4096,
+      4096
+    ]
+  },
+  "packed_map": {
+    "R": "255 (unoccluded)",
+    "G": "original scalar roughness at native data-map resolution",
+    "B": "original scalar metallic at native data-map resolution",
+    "width": 4096,
+    "height": 4096,
+    "A": "255",
+    "resampled": false
+  },
+  "sources": {
+    "Meshy_AI_Quiet_Tradition_biped_Animation_Casual_Walk_withSkin.fbx": "1b9d2fa27d1ca9e9f2b8916cae79c6a19d4f122e42f79fad6b3c719b2675fd9a",
+    "Meshy_AI_Quiet_Tradition_biped_texture_0.png": "b9c4d96c676b81b380a7cbd993390ed4605fbbff668617644dda0fbd6072f48d",
+    "Meshy_AI_Quiet_Tradition_biped_texture_0_normal.png": "1fe8aa5f857d93b75075d91a88b14dba9fb07b6933a969500ba480b8ca44505c",
+    "Meshy_AI_Quiet_Tradition_biped_texture_0_roughness.png": "606da460152462516f51966e79e5075ff3e7470ea56642fc59fa47f2101afb8e",
+    "Meshy_AI_Quiet_Tradition_biped_texture_0_metallic.png": "8bbe1a6ea40dc8b106004f70a1eefcf46eae89a5b6ffae20d9367a6f615cc55d"
+  },
+  "outputs": {
+    "MotherMeshyMotion.fbx": "1b9d2fa27d1ca9e9f2b8916cae79c6a19d4f122e42f79fad6b3c719b2675fd9a",
+    "Mother_metalrough.png": "084cac1d326e4217590b37654a7843e0959fbeadccb5828e1e2a89784a919a1a",
+    "Mother_basecolor.png": "b9c4d96c676b81b380a7cbd993390ed4605fbbff668617644dda0fbd6072f48d",
+    "Mother_normal.png": "1fe8aa5f857d93b75075d91a88b14dba9fb07b6933a969500ba480b8ca44505c"
+  }
+}

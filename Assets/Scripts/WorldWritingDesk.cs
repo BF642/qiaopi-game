@@ -12,7 +12,7 @@ namespace Qiaopi
         bool NearWritingDesk
         {
             get {
-                if (writingPlace == null || carrying || sideCarrying || Dist(writingPlace.approach) > 1.25f) return false;
+                if (writingPlace == null || carrying || sideCarrying || TradeHeldBox || TradeHeldLetter || Dist(writingPlace.approach) > 1.25f) return false;
                 Vector3 start = player.transform.position + Vector3.up * .85f;
                 Vector3 end = writingPlace.approach + Vector3.up * .85f;
                 return !Physics.Linecast(start, end, ~((1 << 2) | (1 << 29) | (1 << 30)), QueryTriggerInteraction.Ignore);
@@ -24,7 +24,7 @@ namespace Qiaopi
 
         void RequestWritingDesk()
         {
-            if (carrying || sideCarrying) { ExplainWritingDeskUnavailable("先交付手中的货物，再落座写批。草稿会保留。"); return; }
+            if (carrying || sideCarrying || TradeHeldBox || TradeHeldLetter) { ExplainWritingDeskUnavailable("先交付手中的货物，再落座写批。草稿会保留。"); return; }
             if (writingPlace == null) { ExplainWritingDeskUnavailable("船上没有写批桌。等上岸后，再找桌案写信；草稿仍会保留。"); return; }
             if (NearWritingDesk) { BeginPersonalLetterAtDesk(); return; }
             var route = WalkPath.Find(player.transform.position, writingPlace.approach, loadedWorld);

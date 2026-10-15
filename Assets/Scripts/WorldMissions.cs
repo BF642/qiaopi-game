@@ -32,20 +32,20 @@ namespace Qiaopi
         {
             var m=Legacy(nodeId);
             switch(nodeId){
-                case "peace":Set(m,"quanzhou",P(-23,-5),P(-23,-5),P(-23,-5));m.required=1;m.objective="走进陈家院，坐到家人身边，过一段不必急着离开的日子。";break;
-                case "pressure":Set(m,"quanzhou",P(-23,-5),P(-23,-5),P(-23,-5));m.required=1;m.objective="雨灾之后，回到家门前，和母亲商量催债人留下的难题。";break;
+                case "peace":Set(m,"quanzhou",P(-23,-5),P(-23,-5),P(-23,-5));m.npcName="家人";m.required=1;m.objective="走进陈家院，坐到家人身边，过一段不必急着离开的日子。";break;
+                case "pressure":Set(m,"quanzhou",P(-23,-5),P(-23,-5),P(-23,-5));m.required=1;m.objective="雨灾之后，回到家门前，和母亲、妻子商量催债人留下的难题。";break;
                 case "home":Set(m,"quanzhou",P(-23,-5),P(-26,-13),P(-23,-5));break;
                 case "funding":Set(m,"quanzhou",P(21,18),P(21,18),P(21,18));m.objective="穿过晒埕和东巷，到族亲堂屋商量盘缠。";break;
                 case "farewell":Set(m,"quanzhou",P(0,30),P(0,30),P(0,30));m.objective="沿村路走到北面的田埂村口，与家人道别。";break;
                 case "passage":Set(m,"harbor",P(0,30),P(0,30),P(0,30));m.npcName="登船处";m.objective="穿过厦门出洋街，沿栈桥走到船口按 E 登船。";break;
                 case "shore":Set(m,"port",P(-21,-7),P(-21,-7),P(-21,-7));m.objective="离开新加坡登岸路，到接应棚与同乡会面。";break;
                 case "dock":Set(m,"port",P(23,15),P(-23,-18),P(21,24));m.objective="从南侧货堆取两件货包，分次运到沿岸货栈，再找工头。";break;
-                case "shop":Set(m,"market",P(-20,19),P(-22,-4),P(21,7));m.objective="走访棚市、进货后院与北街的三份单据，再回陈记柜台。";break;
+                case "shop":Set(m,"market",P(-20,19),IndoorInspectionPlaces.Get("market",0).position,IndoorInspectionPlaces.Get("market",1).position);m.objective="走进陈记账房，核对核账台、货架与柜台留底的三份单据，再向掌柜回话。";break;
                 case "courier":Set(m,"postoffice",P(-21,10),P(-22,-16),P(21,13));m.objective="从收件处取批包，穿过批局院落送到留底柜台，再找何师傅。";break;
                 case "first_pay":Set(m,"quarters",P(-22,8),P(-22,8),P(-22,8));m.objective="回到客工住处，走进通铺院，与同住乡亲商量第一笔积蓄。";break;
                 case "first_letter":Set(m,"postoffice",P(-21,10),P(23,-15),P(-21,10));m.objective="在东南纸铺取纸笔，再穿过街口到批局写批台。";break;
                 case "reply":Set(m,"quarters",P(22,14),P(22,14),P(22,14));m.objective="到住处的晾衣后院，接过从故乡寄来的回批。";break;
-                case "records":case "trace_desk":Set(m,"postoffice",P(-21,10),P(-22,-4),P(21,7));m.objective=nodeId=="records"?"走访收寄处、留底柜台和封袋后院，核对三份记录。":"沿收寄柜台、账房和后院查单，再找何师傅核认。";break;
+                case "records":case "trace_desk":Set(m,"postoffice",P(-21,10),IndoorInspectionPlaces.Get("postoffice",0).position,IndoorInspectionPlaces.Get("postoffice",1).position);m.objective=nodeId=="records"?"走进核批室、留底账房与封袋后院，在各自台案核对三份记录。":"到核批室、留底账房和封袋后院查单，再找何师傅核认。";break;
                 case "missing":Set(m,"quarters",P(0,27),P(0,27),P(0,27));break;
                 case "trace_harbor":Set(m,"port",P(23,15),P(-18,7),P(24,23));break;
                 case "trace_family":Set(m,"quarters",P(22,14),P(22,14),P(22,14));break;
@@ -66,13 +66,35 @@ namespace Qiaopi
                 string job=state.journey.pendingJob;
                 if(!string.IsNullOrEmpty(job)){
                     m=Get(job);m.required=1;
-                    m.objective=job=="dock"?"把一件货包从货堆运到货栈，再到工头处结清工钱。":job=="shop"?"核清棚市的一张货单，再回陈记柜台结账。":"从收件处取批包，亲自送到留底柜台，再回信局结账。";
+                    m.objective=job=="dock"?"把一件货包从货堆运到货栈，再到工头处结清工钱。":job=="shop"?"走进陈记账房核清一张货单，再向掌柜结账。":"从收件处取批包，亲自送到留底柜台，再回信局结账。";
                 }else{m.activity="talk";m.required=0;m.objective="打开「安排生活」，决定下一轮接活、养身或寄钱。做满三轮后可继续家书主线。";}
             }
             if(state.nodeId=="passage"&&state.flags.Contains("aboard_passage")){
                 Set(m,"ship",P(0,18),P(0,18),P(0,18));m.npcName="许生";m.objective="走过货舱口和旅客甲板，到船首与同行的许生交谈。";m.activity="talk";
             }
             if(state.nodeId.StartsWith("end_")&&state.flags.Contains("return_ticket"))Set(m,"quanzhou",P(-23,-5),P(-23,-5),P(-23,-5));
+            // The 2.6 household table remains after the opening. Later family
+            // conversations gather on its open south side, not inside the table.
+            if(HomeChapter.IsEnrolled(state)&&m.world=="quanzhou"&&state.nodeId!="peace"&&m.npcPosition==P(-23,-5)) {
+                Vector3 old=m.npcPosition; m.npcPosition=P(-23,-7.3f);
+                if(m.itemPosition==old)m.itemPosition=m.npcPosition;
+                if(m.destination==old)m.destination=m.npcPosition;
+            }
+            if (HomeChapter.IsActive(state)) {
+                m.activity="home"; m.required=7; m.objective=HomeChapter.Objective(state);
+            }
+            FirstDayTasks.Apply(state, m);
+            NanyangTasks.Apply(state, m);
+            TradeMissions.Apply(state, m);
+            if(m.activity=="inspect") {
+                var stops=NanyangTasks.InspectionPositions(state);
+                m.itemPosition=stops[0];m.destination=stops[Mathf.Clamp(m.required-1,0,stops.Length-1)];
+            }
+            if(Investigation.IsCurrent(state)) {
+                m.world=InquiryPlaces.World(state.nodeId);m.activity="inquiry";m.required=3;
+                m.npcPosition=InquiryPlaces.Return(state.nodeId);m.itemPosition=InquiryPlaces.Evidence(state.nodeId,0);m.destination=InquiryPlaces.Evidence(state.nodeId,2);
+                m.objective="走访原件所在的三处地点，查清款额、经手日期与新旧地址，再回核认处商量。";
+            }
             m.objective=LifeJourney.Localize(state,m.objective);
             return m;
         }
@@ -88,7 +110,7 @@ namespace Qiaopi
                     return M("quanzhou", "族亲", "走到堂屋前，与族亲商量离乡的盘缠。", "talk", "旅费借据与介绍信", 1,
                         P(-8, 4), P(-8, 4), P(-8, 4));
                 case "farewell":
-                    return M("quanzhou", "母亲与阿满", "到村口与母亲、阿满道别，听完家里的叮嘱。", "talk", "临行的叮嘱", 1,
+                    return M("quanzhou", "母亲、妻子与阿满", "到村口与母亲、妻子、阿满道别，听完家里的叮嘱。", "talk", "临行的叮嘱", 1,
                         P(0, 12), P(7, 5), P(0, 12));
                 case "passage":
                     return M("harbor", "船上同乡许生", "沿码头走到登船口，与同行的许生交谈。", "board", "南下的船票", 1,
@@ -136,14 +158,14 @@ namespace Qiaopi
                     return M("singapore", "带来消息的同乡", "去街口与同乡会面，问清回乡与再远行的安排。", "talk", "下一程的消息", 1,
                         P(0, 12), P(7, 5), P(0, 12));
                 case "return_choice":
-                    return M("quanzhou", "母亲与阿满", "你已回到家门前，走近家人，说出往后的打算。", "talk", "归家的行囊", 0,
+                    return M("quanzhou", "母亲、妻子与阿满", "你已回到家门前，走近家人，说出往后的打算。", "talk", "归家的行囊", 0,
                         P(-8, 4), P(7, 5), P(-8, 4));
                 case "stay_choice":
                     return M("singapore", "熟识的乡亲", "走到写信的桌前，决定此后如何安顿生活。", "talk", "此后的家书", 0,
                         P(-8, 4), P(7, 5), P(-8, 4));
                 case "end_home_lamp":
                 case "end_home_scar":
-                    return End("quanzhou", "母亲与阿满", "回到家人身边，读这一程最后的家书。");
+                    return End("quanzhou", "母亲、妻子与阿满", "回到家人身边，读这一程最后的家书。");
                 case "end_new_harbor":
                     return End("harbor", "同行的乡亲", "站在下一程的船口，读写给家人的新地址。");
                 case "end_school_window":

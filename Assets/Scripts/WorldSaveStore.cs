@@ -20,6 +20,7 @@ namespace Qiaopi
             if(m.activity=="inspect"&&s.progress!=s.inspected.Count)return false;
             if(s.carrying&&(m.activity!="deliver"||s.progress>=m.required))return false;
             if(s.carrying&&s.sideCarrying)return false;
+            if(m.activity=="trade"&&(s.progress!=0||s.carrying||s.sideCarrying||s.inspected.Count!=0))return false;
             return true;
         }
         static bool Finite(float f)=>!float.IsNaN(f)&&!float.IsInfinity(f);

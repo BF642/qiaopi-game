@@ -14,13 +14,13 @@ namespace Qiaopi
             try {
                 switch(kind) {
                     case "quanzhou":
-                        DepthGallery("陈家西厢廊屋",new Vector3(-30.25f,0,-7.2f),17.5f,4.25f,2.88f,90);
+                        if (!ChenCourtyardHouse.Ready) DepthGallery("陈家西厢廊屋",new Vector3(-30.25f,0,-7.2f),17.5f,4.25f,2.88f,90);
                         DepthGallery("族亲堂屋侧廊",new Vector3(29.2f,0,20.2f),17.3f,3.2f,3.0f,90);
                         DepthRoadEdge(-4.05f,-30,33,true);DepthRoadEdge(4.05f,-30,33,true);
                         DepthDomesticDetails(new Vector3(-29.6f,0,-4.9f),false);
                         DepthDomesticDetails(new Vector3(28.5f,0,25.5f),false);
                         DepthEarthBank(new Vector3(-38.8f,0,-21),3.0f,14.0f,.62f);
-                        DepthEarthBank(new Vector3(37.9f,0,27),2.9f,12.0f,.78f);
+                        DepthEarthBank(new Vector3(57.9f,0,27),2.9f,12.0f,.78f);
                         break;
                     case "quarters":
                         DepthGallery("通铺西厢实顶",new Vector3(-30.1f,0,7.4f),14.7f,5.3f,2.94f,90);
@@ -30,7 +30,8 @@ namespace Qiaopi
                         DepthDomesticDetails(new Vector3(29.5f,0,22.2f),true);
                         break;
                     case "market":
-                        DepthGallery("陈记柜台实顶",new Vector3(-20,0,22.4f),17.8f,4.9f,3.10f,0);
+                        DepthGallery("陈记全屋账房实顶",new Vector3(-20,0,18),18.6f,14.6f,3.10f,0);
+                        DepthLedgerRoomGables();
                         DepthGallery("货院北廊",new Vector3(25,0,16.9f),17.4f,4.0f,3.08f,0);
                         DepthRoadEdge(-4.05f,-30,35,true);DepthRoadEdge(4.05f,-30,35,true);
                         DepthDomesticDetails(new Vector3(30,0,13.2f),true);
@@ -38,7 +39,9 @@ namespace Qiaopi
                     case "postoffice":
                         // Connected shaded galleries around open working courts. Real roofs
                         // create depth overhead, while the middle lanes remain sunlit.
-                        DepthGallery("写批长廊实顶",new Vector3(-28.1f,0,5.4f),29.8f,7.5f,3.15f,90);
+                        if (buildingDestination == "penang" && Resources.Load<GameObject>("EnvironmentArt/PenangRemittanceOffice/Model"))
+                            DepthGallery("写批南廊实顶",new Vector3(-28.1f,0,-3f),12f,7.5f,3.15f,90);
+                        else DepthGallery("写批长廊实顶",new Vector3(-28.1f,0,5.4f),29.8f,7.5f,3.15f,90);
                         DepthGallery("收寄柜台实顶",new Vector3(-10.2f,0,5.4f),29.8f,6.4f,3.15f,90);
                         DepthGallery("核批柜台实顶",new Vector3(11.0f,0,8),24.4f,5.8f,3.15f,90);
                         DepthGallery("封袋长廊实顶",new Vector3(29.1f,0,8),24.4f,5.6f,3.15f,90);
@@ -122,6 +125,21 @@ namespace Qiaopi
                 DetailMesh(label+" mortise-and-tenon tie beams",v,t,Vector3.zero,Dark);
             }
             finally { world=parent; }
+        }
+
+        static void DepthLedgerRoomGables()
+        {
+            const float low=2.80f,eave=3.008f,ridge=4.59f;
+            var b=new HBSBatch();
+            foreach(float z in new[]{11f,25f})b.Box(new Vector3(-20,(low+eave)*.5f,z),new Vector3(18,eave-low,.38f),Cream);
+            foreach(float side in new[]{-1f,1f})foreach(float face in new[]{-.19f,.19f}) {
+                float x=-20+side*9+face;
+                Vector3 a=new Vector3(x,low,11),c=new Vector3(x,eave,11),d=new Vector3(x,ridge,18),e=new Vector3(x,low,18);
+                b.Face(a,c,d,e,Cream);b.Face(e,d,c,a,Cream);
+                a=new Vector3(x,low,18);c=new Vector3(x,ridge,18);d=new Vector3(x,eave,25);e=new Vector3(x,low,25);
+                b.Face(a,c,d,e,Cream);b.Face(e,d,c,a,Cream);
+            }
+            b.Flush("陈记账房封闭山墙");
         }
 
         static void DepthRoadEdge(float x,float near,float far,bool settlement)

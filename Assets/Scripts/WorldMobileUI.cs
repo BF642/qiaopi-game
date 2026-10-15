@@ -11,7 +11,7 @@ namespace Qiaopi
         {
             Rect safe=MobileUiBounds();float x=safe.xMin+30,right=safe.xMax-30;
             LetterHeading(new Rect(x,22,safe.width-60,112),true);
-            HudText(new Rect(x+330,37,240,38),"盘缠  "+state.money,26,hudText,true);
+            FloatingHudText(new Rect(x+330,37,240,38),"盘缠  "+state.money,26,hudText,true);
             AttributeBars(new Rect(x+108,82,right-810-(x+108),47),true);
             if(HudNav(new Rect(right-790,30,195,96),"侨批","letter",journal,29)){journal=!journal;map=help=gallery=false;journalScroll=Vector2.zero;}
             if(HudNav(new Rect(right-585,30,180,96),"图集","album",gallery,29)){if(gallery)gallery=false;else OpenGallery();}
@@ -19,7 +19,7 @@ namespace Qiaopi
             if(HudNav(new Rect(right-195,30,185,96),"帮助","help",help,29)){help=!help;gallery=false;}
             if(Blocked)return;
             HudSurface(new Rect(x-8,148,646,153),.46f);
-            HudText(new Rect(x+18,165,604,34),scene.year,23,hudMuted);
+            HudText(new Rect(x+18,165,604,34),InFirstDay?FirstDayTimeLabel:scene.year,23,hudMuted);
             HudText(new Rect(x+18,207,604,56),ShortObjective(),33,hudText,true);
             HudText(new Rect(x+18,263,604,32),ShortProgress(),24,hudGold);
             HudText(new Rect(right-440,160,440,42),region.title,24,hudMuted,false,TextAnchor.MiddleRight);
@@ -75,9 +75,12 @@ namespace Qiaopi
             bool voiceControlsEnabled=GUI.enabled;GUI.enabled=voiceControlsEnabled&&voiceAvailable;
             if(TouchButton(new Rect(x+(width+20)*2,612,width,105),VoiceToggleTitle,false,30)){voiceEnabled=!voiceEnabled;PlayerPrefs.SetInt("qiaopi-voice-enabled",voiceEnabled?1:0);if(!voiceEnabled)voiceSource.Stop();}
             GUI.enabled=voiceControlsEnabled;
-            Label(new Rect(x,741,r.width-90,52),"1905 年，从泉州晋江启程。人物与情节虚构。",28,sub);
-            if(TouchButton(new Rect(x,817,(r.width-120)/2,104),"继续探索",true,34))help=false;
-            if(TouchButton(new Rect(r.center.x+15,817,(r.width-120)/2,104),"重新启程",false,34)){resetAsk=true;help=false;}
+            Label(new Rect(x,741,r.width-90,52),inquiryPreview?"调查试玩使用预设经历，原旅程与首章试玩分别保留。":chapterPreview?"首章试玩单独保存，可随时返回原旅程。":"1905 年，从泉州晋江启程。首章试玩使用独立存档。",28,sub);
+            float actionWidth=(r.width-150)/4;
+            if(TouchButton(new Rect(x,817,actionWidth,104),"继续探索",true,30))help=false;
+            if(TouchButton(new Rect(x+actionWidth+20,817,actionWidth,104),chapterPreview?"返回原旅程":"首章试玩",false,30))SwitchChapterSlot();
+            if(TouchButton(new Rect(x+(actionWidth+20)*2,817,actionWidth,104),inquiryPreview?"返回原旅程":"调查试玩",false,28))SwitchInquirySlot();
+            if(TouchButton(new Rect(x+(actionWidth+20)*3,817,actionWidth,104),inquiryPreview?"重玩调查":"重新启程",false,28)){resetAsk=true;help=false;}
         }
     }
 }

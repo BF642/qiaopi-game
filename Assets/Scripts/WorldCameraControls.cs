@@ -10,7 +10,7 @@ namespace Qiaopi
         public float ViewYaw=>cameraYaw;
         public float ViewPitch=>cameraPitch;
 
-        Vector3 CameraEyePoint()=>player?player.transform.position+Vector3.up*EyeHeight:Vector3.up*EyeHeight;
+        Vector3 CameraEyePoint()=>player?player.transform.position+Vector3.up*(EyeHeight-WorkEyeDip):Vector3.up*EyeHeight;
 
         public void RotateView(Vector2 degrees)
         {
@@ -63,7 +63,7 @@ namespace Qiaopi
             if(k<=0)return true;
             float x=(Input.mousePosition.x-uiX)/k;
             float y=(Screen.height-Input.mousePosition.y-uiY)/k;
-            return new Rect(1019,29,533,51).Contains(new Vector2(x,y))||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(new Vector2(x,y)));
+            return (InInquiryScene&&InquiryEntryRect().Contains(new Vector2(x,y)))||new Rect(1019,29,533,51).Contains(new Vector2(x,y))||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(new Vector2(x,y)));
         }
 
         void UpdateCameraInput()
@@ -91,7 +91,7 @@ namespace Qiaopi
             cam.nearClipPlane=.035f;
             targetCamera=CameraEyePoint();
             cam.transform.SetPositionAndRotation(targetCamera,Quaternion.Euler(cameraPitch,cameraYaw,0));
-            if(heldCamera){heldCamera.fieldOfView=cam.fieldOfView;heldCamera.enabled=!Blocked;}
+            if(heldCamera){heldCamera.fieldOfView=cam.fieldOfView;heldCamera.enabled=!Blocked||WorkPerformanceBusy||HomePerformanceBusy;}
         }
     }
 }

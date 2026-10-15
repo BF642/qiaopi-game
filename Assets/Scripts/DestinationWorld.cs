@@ -28,8 +28,8 @@ namespace Qiaopi
             materials.Clear();
         }
 
-        public static string Normalize(string destination) => destination == "penang" || destination == "rangoon" ? destination : "singapore";
-        public static string Name(string destination) => Normalize(destination) == "penang" ? "槟榔屿" : Normalize(destination) == "rangoon" ? "仰光" : "新加坡";
+        public static string Normalize(string destination) => destination == "penang" || destination == "rangoon" || destination == "semarang" ? destination : "singapore";
+        public static string Name(string destination) => Normalize(destination) == "semarang" ? "三宝垄" : Normalize(destination) == "penang" ? "槟榔屿" : Normalize(destination) == "rangoon" ? "仰光" : "新加坡";
         public static string Localize(string text, string destination)
         {
             if (string.IsNullOrEmpty(text)) return text;
@@ -48,7 +48,14 @@ namespace Qiaopi
             r.notes = new RegionNote[source.notes == null ? 0 : source.notes.Length];
             for (int i = 0; i < r.notes.Length; i++) { var n = source.notes[i]; r.notes[i] = new RegionNote(n.id, Localize(n.title,d), Localize(n.body,d), n.position.x, n.position.z); }
             if (Array.IndexOf(Overseas, source.id) < 0) return r;
-            if (d == "penang")
+            if (d == "semarang")
+            {
+                if (r.id == "port") { r.title="三宝垄 · 糖货仓埠"; r.description="红瓦糖栈、避雨装卸廊、货签交接区与候工茶棚"; Note(r,0,"糖袋上的货签","先看货签，再按收货区安放糖袋与布匹。糖货怕潮，雨前先护货；工数、入栈时间和收货人的签记，都可能成为追讨工钱的凭据。"); }
+                if (r.id == "market") { r.title="三宝垄 · 华埠杂货街"; r.description="糖、米、布匹与街坊赊账的柜台"; Note(r,0,"一把秤，两笔账","街铺给外来雇工留着小额赊账。称货与找零要亲手算清，未收到的钱不能当成已经赚到的盘缠。"); }
+                if (r.id == "quarters") { r.title="三宝垄 · 工友合住院"; r.description="灶间、晒衣院与借住的床铺"; Note(r,0,"一碗饭之后","许生可以介绍另一行，也可以陪你讨账。留下还是换工由你决定；吃饭歇脚、自写一封批，都是谋生的一部分。"); }
+                if (r.id == "postoffice") { r.title="三宝垄 · 银信代办处"; r.description="寄款留底、转递地址与写批桌"; Note(r,1,"写明从哪里寄出","写批时记下三宝垄、收件乡村和实寄款额。船期与经手人按本故事虚构；家人收到回批之前，尚不能把交寄当作已经送达。"); }
+            }
+            else if (d == "penang")
             {
                 if (r.id == "port") { r.title = "槟榔屿 · 海墘货埠"; r.description = "石驳岸、木桩桥、沿海货棚与同乡接应处"; Note(r,0,"木桥外的乡音","海墘一带，木屋立在桩脚上，货物沿木桥接驳。接应的乡亲也在打零工；认识同乡不等于有了稳妥差事。"); }
                 if (r.id == "market") { r.title = "槟榔屿 · 店屋街市"; r.description = "窄面店屋、彩灰山墙、杂货柜台与晒货后院"; Note(r,0,"街铺的生意","布匹、米粮和日用杂货挤在同一条街上。账要核清，赊欠不能只凭乡音；小本生意同样有失手的时候。"); }
@@ -91,6 +98,7 @@ namespace Qiaopi
             if (d == "singapore") return;
             foreach (var renderer in world.GetComponentsInChildren<MeshRenderer>(true))
             {
+                if (renderer.GetComponentInParent<RegionalBuilding>()) continue;
                 Material m = renderer.sharedMaterial; if (!m || renderer.GetComponent<TextMesh>()) continue;
                 string n = m.name.ToLowerInvariant(); string tint = null;
                 if (n.Contains("roof") || n.Contains("tile highlight")) tint = d == "penang" ? "7B5140" : "66564B";
@@ -110,16 +118,17 @@ namespace Qiaopi
 
         static void Town(Geometry g,string region,string d)
         {
-            // Facades sit against the existing northern outer block (front z=54),
-            // beyond all traversable bounds. The street axis through x=0 stays visible.
+            // Keep complete background frontages beyond the enlarged north courts.
+            // Existing shop/courtyard trim below remains at its original address.
+            float northShift=region=="quarters"||region=="postoffice"?16:0;
             if (region == "quarters")
             {
-                foreach (float x in new[] {-25f,25f}) Verandah(g,new Vector3(x,0,52.9f),18,3.15f,d);
+                foreach (float x in new[] {-25f,25f}) Verandah(g,new Vector3(x,0,52.9f+northShift),18,3.15f,d);
             }
             else
             {
                 foreach (float x in new[] {-25.8f,-17.2f,-8.6f,8.6f,17.2f,25.8f})
-                    Facade(g,new Vector3(x,0,53.88f),7.8f,6.25f,d);
+                    Facade(g,new Vector3(x,0,53.88f+northShift),7.8f,6.25f,d);
                 if (region == "market")
                     foreach(float x in new[]{-30f,-21f,-12f,12f,21f,30f})
                         ShopTrim(g,new Vector3(x,0,29.88f),7.7f,d);
@@ -147,7 +156,16 @@ namespace Qiaopi
 
         static void Port(Geometry g,string d)
         {
-            if (d == "penang")
+            if (d == "semarang")
+            {
+                g.Sign("三宝垄 · 糖货仓埠",new Vector3(6.8f,3.55f,-24.1f),.09f);
+                // Keep the newly installed working warehouse free of decorations.
+                Jetty(g,new Vector3(39,-.15f,-13),25,4.2f);
+                RiceStack(g,new Vector3(28,0,-13),3,2);
+                TimberRack(g,new Vector3(31,0,31),3);
+                Verandah(g,new Vector3(-48,0,-24),12,3.0f,d);
+            }
+            else if (d == "penang")
             {
                 // The navigable stone quay ends at x=36. These water-side structures
                 // are all outside that boundary, including their supporting piles.
@@ -165,10 +183,10 @@ namespace Qiaopi
                 RiceStack(g,new Vector3(13.7f,0,-5.5f),4,3);
                 RiceStack(g,new Vector3(-31,0,32),3,2);
                 // This composite mill is scenery on the landward side, not a named factory.
-                g.Box("brick",new Vector3(-49,3.3f,6),new Vector3(13,6.6f,23));
-                Roof(g,new Vector3(-49,6.6f,6),14,25,3.3f);
-                g.Taper("brick",new Vector3(-53,0,17),1.2f,.66f,17,8);
-                g.Taper("stone",new Vector3(-53,16.8f,17),.94f,.94f,.7f,8);
+                g.Box("brick",new Vector3(-146,3.3f,6),new Vector3(13,6.6f,23));
+                Roof(g,new Vector3(-146,6.6f,6),14,25,3.3f);
+                g.Taper("brick",new Vector3(-150,0,17),1.2f,.66f,17,8);
+                g.Taper("stone",new Vector3(-150,16.8f,17),.94f,.94f,.7f,8);
                 Stupa(g,new Vector3(-63,0,127),1);
                 g.Sign("仰光 · 米粮货埠",new Vector3(6.8f,3.55f,-24.1f),.08f);
             }
@@ -181,7 +199,7 @@ namespace Qiaopi
                     g.Box("stone",new Vector3(36.7f,-.23f,z),new Vector3(1.15f,1.9f,1.6f));
                     g.Taper("iron",new Vector3(37.3f,.28f,z),.20f,.31f,.65f,10);
                 }
-                Verandah(g,new Vector3(-46,0,-19),19,5.8f,d);
+                Verandah(g,new Vector3(-98,0,-19),19,5.8f,d);
                 g.Sign("新加坡 · 转口货港",new Vector3(6.8f,3.55f,-24.1f),.08f);
                 ParcelTrolley(g,new Vector3(-32,0,32));
             }

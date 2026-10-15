@@ -42,6 +42,7 @@ namespace Qiaopi
         // Their shallow bevels, narrow joints and wear are merged by material.
         static void HumanScalePaving(string label,float x,float z,float width,float depth,float top,Material stone)
         {
+            pavingSurfaces.Add(new Bounds(new Vector3(x,top+.010f,z),new Vector3(width,0,depth)));
             Box(label+" recessed joint bed",new Vector3(x,top-.003f,z),new Vector3(width,.004f,depth),Mat("paving joints","827D6D"));
             var faces=new[]{new List<Vector3>(),new List<Vector3>(),new List<Vector3>()};
             var indices=new[]{new List<int>(),new List<int>(),new List<int>()};

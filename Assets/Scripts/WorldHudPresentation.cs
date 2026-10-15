@@ -36,6 +36,20 @@ namespace Qiaopi
             Label(r, text, size, color, title, align);
         }
 
+        // A thin ink outline keeps floating header text legible on both sky
+        // and rooftops without putting a dark strip across the scene.
+        void FloatingHudText(Rect r, string text, int size, Color color, bool title = false,
+            TextAnchor align = TextAnchor.UpperLeft)
+        {
+            float edge = MobileControls ? 1.5f : 1.2f;
+            Color inkEdge = new Color(.07f, .12f, .10f, .78f);
+            Label(new Rect(r.x - edge, r.y, r.width, r.height), text, size, inkEdge, title, align);
+            Label(new Rect(r.x + edge, r.y, r.width, r.height), text, size, inkEdge, title, align);
+            Label(new Rect(r.x, r.y - edge, r.width, r.height), text, size, inkEdge, title, align);
+            Label(new Rect(r.x, r.y + edge, r.width, r.height), text, size, inkEdge, title, align);
+            Label(r, text, size, color, title, align);
+        }
+
         bool HudNav(Rect r, string text, string icon, bool selected, int size)
         {
             bool hover = GUI.enabled && r.Contains(Event.current.mousePosition);
@@ -46,7 +60,7 @@ namespace Qiaopi
             float iconX = hasText ? r.x + 12 : r.center.x - side / 2;
             LetterIcon(new Rect(iconX, r.center.y - side / 2, side, side), icon, color);
             if (hasText)
-                HudText(new Rect(r.x + side + 24, r.y, r.width - side - 36, r.height - 3),
+                FloatingHudText(new Rect(r.x + side + 24, r.y, r.width - side - 36, r.height - 3),
                     text, size, color, false, TextAnchor.MiddleLeft);
             if (selected) Box(new Rect(r.x + 14, r.yMax - 4, r.width - 28, 2), hudGold);
             return GUI.Button(r, GUIContent.none, blank);
@@ -74,12 +88,17 @@ namespace Qiaopi
 
         string ShortObjective()
         {
+            if(InInquiryScene)return InquiryObjective();
+            if(InHomeChapter)return HomeChapter.ShortObjective(state);
             if(writingRequested)return WritingObjective;
+            if (InFirstDay) return FirstDayObjective();
+            if(InTrade&&!writingRequested)return TradeObjective();
+            if (NanyangIncident||NanyangRest) return NanyangObjective();
             if (sideCarrying) return "送交帮工货物";
             if (LifeJourney.IsActive(state) && string.IsNullOrEmpty(state.journey.pendingJob)) return "安排下一轮生活";
             if (state.nodeId == "passage" && loadedWorld == "harbor") return "到栈桥登船";
             if (Complete) return LifeJourney.IsActive(state) ? "向" + mission.npcName + "领工钱" : "与" + mission.npcName.Replace("与", "、") + "交谈";
-            if (mission.activity == "inspect") return "核对" + mission.itemName;
+            if (mission.activity == "inspect") return IndoorInspectionObjective();
             if (carrying) return "送交" + mission.itemName;
             if (mission.activity == "collect" || mission.activity == "deliver") return "领取" + mission.itemName;
             return "与" + mission.npcName.Replace("与", "、") + "交谈";
@@ -87,7 +106,14 @@ namespace Qiaopi
 
         string ShortProgress()
         {
+            if(InInquiryScene)return Investigation.IsComplete(state)?"原件已核认 · 处理方式由你决定":"已收录 "+InquiryReadCount+" / 3"+(MobileControls?" · 点查批簿":" · 查批簿 K");
+            if(InHomeChapter)return "泉州日常 · "+HomeChapter.Progress(state)+" / 7";
             if (sideCarrying || writingRequested) return "";
+            if(InTrade)return TradeProgress();
+            if(InFirstDay&&DayStage!="work")return DayStage=="reply"?"回批有时日 · 数周后":"南洋第一天 · 无倒计时";
+            if(InFirstDay&&DayStage=="work"&&string.IsNullOrEmpty(state.firstDay.choice))return Mathf.Min(progress,1)+" / 1 · 先办好这一趟";
+            if(NanyangIncident)return NanyangStage=="tasks"?"应对欠薪 · "+state.nanyang.taskProgress+" / "+NanyangLife.RequiredSteps(state):"银信往来 · 无倒计时";
+            if(NanyangRest)return "歇一日也算一轮生活安排";
             return mission.activity == "inspect" || mission.activity == "deliver"
                 ? Mathf.Min(progress, mission.required) + " / " + mission.required : "";
         }
@@ -95,6 +121,19 @@ namespace Qiaopi
         string ContextActionName(string prompt)
         {
             if (string.IsNullOrEmpty(prompt)) return "互动";
+            if(prompt.Contains("扛起"))return "扛货";
+            if(prompt.Contains("放到"))return "卸货";
+            if(prompt.Contains("结工钱"))return "结工钱";
+            if(prompt.Contains("称米"))return "称货";
+            if(prompt.Contains("回执"))return "收回执";
+            if(prompt.Contains("核认"))return "核认";
+            if(prompt.Contains("找零"))return "找零";
+            if(prompt.Contains("问路"))return "问路";
+            if(prompt.Contains("躺下")||prompt.Contains("床边"))return "歇息";
+            if(prompt.Contains("热饭"))return "吃饭";
+            if(prompt.Contains("接过泉州"))return "收回批";
+            if(prompt.Contains("结清今日"))return "结工钱";
+            if(prompt.Contains("坐下写"))return "写批";
             if (prompt.Contains("落座")) return "落座";
             if (prompt.Contains("安排生活")) return "安排";
             if (prompt.Contains("领取工钱")) return "领工钱";

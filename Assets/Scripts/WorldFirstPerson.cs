@@ -15,20 +15,30 @@ namespace Qiaopi
         {
             // Preserve a human shadow without putting the inside of the head in view.
             hiddenBody=model.GetComponentsInChildren<Renderer>(true);
-            foreach(var renderer in hiddenBody)renderer.shadowCastingMode=ShadowCastingMode.ShadowsOnly;
+            foreach(var renderer in hiddenBody){
+                renderer.shadowCastingMode=ShadowCastingMode.ShadowsOnly;
+                // The first-person body has no ordinary colour pass. Keep its
+                // weighted limbs updating even when only its shadow is visible.
+                if(renderer is SkinnedMeshRenderer skinRenderer)skinRenderer.updateWhenOffscreen=true;
+            }
             var cameraObject=new GameObject("手中物件镜头");cameraObject.transform.SetParent(cam.transform,false);
             heldCamera=cameraObject.AddComponent<Camera>();heldCamera.clearFlags=CameraClearFlags.Depth;
             heldCamera.depth=cam.depth+1;heldCamera.cullingMask=1<<HeldItemLayer;
-            heldCamera.nearClipPlane=.02f;heldCamera.farClipPlane=2;heldCamera.fieldOfView=cam.fieldOfView;
+            heldCamera.nearClipPlane=.02f;heldCamera.farClipPlane=4;heldCamera.fieldOfView=cam.fieldOfView;
             heldRig=new GameObject("第一人称持物");heldRig.transform.SetParent(cam.transform,false);
             heldRig.transform.localPosition=new Vector3(0,-.37f,.66f);
-            heldHands=new GameObject("托住批件的双手");heldHands.transform.SetParent(heldRig.transform,false);
-            for(int side=-1;side<=1;side+=2){
-                var sleeve=Shape(PrimitiveType.Capsule,"布袖",heldHands.transform,new Vector3(side*.23f,-.11f,-.14f),new Vector3(.12f,.16f,.13f),teal);
-                sleeve.transform.localRotation=Quaternion.Euler(58,side*-12,side*18);
-                var hand=Shape(PrimitiveType.Sphere,"手掌",heldHands.transform,new Vector3(side*.185f,-.005f,0),new Vector3(.10f,.065f,.14f),skin);
-                hand.transform.localRotation=Quaternion.Euler(0,side*15,0);
-                Shape(PrimitiveType.Capsule,"拇指",heldHands.transform,new Vector3(side*.148f,.025f,.023f),new Vector3(.028f,.045f,.028f),skin).transform.localRotation=Quaternion.Euler(55,0,side*35);
+            // The authored hands include wrists and cuffs in metres, with fingers
+            // facing +Z. Keep that pose and unit scale relative to the held items.
+            heldHands=ModelLibrary.Spawn("FirstPersonHands",heldRig.transform,Vector3.zero);
+            if(!heldHands){
+                heldHands=new GameObject("托住批件的双手");heldHands.transform.SetParent(heldRig.transform,false);
+                for(int side=-1;side<=1;side+=2){
+                    var sleeve=Shape(PrimitiveType.Capsule,"布袖",heldHands.transform,new Vector3(side*.23f,-.11f,-.14f),new Vector3(.12f,.16f,.13f),teal);
+                    sleeve.transform.localRotation=Quaternion.Euler(58,side*-12,side*18);
+                    var hand=Shape(PrimitiveType.Sphere,"手掌",heldHands.transform,new Vector3(side*.185f,-.005f,0),new Vector3(.10f,.065f,.14f),skin);
+                    hand.transform.localRotation=Quaternion.Euler(0,side*15,0);
+                    Shape(PrimitiveType.Capsule,"拇指",heldHands.transform,new Vector3(side*.148f,.025f,.023f),new Vector3(.028f,.045f,.028f),skin).transform.localRotation=Quaternion.Euler(55,0,side*35);
+                }
             }
             heldLetter=ModelLibrary.Spawn("LetterBundle",heldRig.transform,Vector3.zero);
             if(heldLetter){
@@ -47,25 +57,28 @@ namespace Qiaopi
             Cube("竖扎带",heldBox.transform,new Vector3(0,.025f,.04f),new Vector3(.045f,.25f,.32f),cream);
             foreach(var t in heldRig.GetComponentsInChildren<Transform>(true))t.gameObject.layer=HeldItemLayer;
             foreach(var renderer in heldRig.GetComponentsInChildren<Renderer>(true)){renderer.shadowCastingMode=ShadowCastingMode.Off;renderer.receiveShadows=false;}
-            UpdateFirstPersonProps();
+            SetupWorkHandTools();UpdateFirstPersonProps();
         }
 
         void UpdateFirstPersonProps()
         {
-            if(!heldRig)return;
-            bool hasBox=sideCarrying||(carrying&&state.nodeId=="dock");
-            heldBox.SetActive(hasBox);heldLetter.SetActive(carrying&&!hasBox);
-            heldRig.SetActive((carrying||sideCarrying)&&!Blocked);
+            if(!heldRig||WorkPerformanceBusy||HomePerformanceBusy)return;
+            if(UpdateHomeHeldProps())return;
+            bool hasBox=TradeHeldBox||sideCarrying||(carrying&&TaskNode=="dock");
+            UpdateWorkHeldParcel(hasBox);heldLetter.SetActive((carrying||TradeHeldLetter)&&!hasBox);
+            heldRig.SetActive((carrying||sideCarrying||TradeHeldBox||TradeHeldLetter)&&!Blocked);
         }
 
         void UpdateFirstPersonPresentation()
         {
+            if(ApplyHomeHandPresentation()){if(heldCamera)heldCamera.enabled=true;return;}
+            if(ApplyWorkHandPresentation()){if(heldCamera)heldCamera.enabled=true;return;}
             UpdateFirstPersonProps();
             if(heldRig&&heldRig.activeSelf){
                 float sway=Mathf.Sin(stepTime*.5f)*.009f*walkVisual;
                 heldRig.transform.localPosition=new Vector3(sway,-.37f+Mathf.Abs(sway)*.6f,.66f);
             }
-            if(heldCamera)heldCamera.enabled=!Blocked;
+            if(heldCamera)heldCamera.enabled=!Blocked||WorkPerformanceBusy||HomePerformanceBusy;
         }
 
         void FirstPersonOverlay()

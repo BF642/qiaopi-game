@@ -20,14 +20,14 @@ namespace Qiaopi.Editor
             try {
                 if(!BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.iOS,BuildTarget.iOS))throw new Exception("Unity iOS Build Support is required.");
                 BuildGame.Configure();
-                PlayerSettings.bundleVersion="2.0.4";
+                PlayerSettings.bundleVersion="2.8.0";
                 PlayerSettings.SetApplicationIdentifier(NamedBuildTarget.iOS,BundleId);
                 PlayerSettings.SetScriptingBackend(NamedBuildTarget.iOS,ScriptingImplementation.IL2CPP);
                 PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.iOS,ManagedStrippingLevel.Low);
                 PlayerSettings.iOS.sdkVersion=iOSSdkVersion.DeviceSDK;
                 PlayerSettings.iOS.targetDevice=iOSTargetDevice.iPhoneOnly;
                 PlayerSettings.iOS.targetOSVersionString="16.0";
-                PlayerSettings.iOS.buildNumber="20005";
+                PlayerSettings.iOS.buildNumber="20700";
                 PlayerSettings.iOS.appleEnableAutomaticSigning=true;
                 string team=Environment.GetEnvironmentVariable("QIAOPI_TEAM_ID");
                 if(!string.IsNullOrEmpty(team))PlayerSettings.iOS.appleDeveloperTeamID=team;
@@ -38,7 +38,9 @@ namespace Qiaopi.Editor
                 PlayerSettings.iOS.hideHomeButton=true;
                 PlayerSettings.iOS.allowHTTPDownload=false;
                 PlayerSettings.runInBackground=false;
-                QualitySettings.antiAliasing=2;QualitySettings.shadowDistance=42;QualitySettings.shadowCascades=1;
+                QualitySettings.antiAliasing=4;QualitySettings.shadowDistance=110;QualitySettings.shadowCascades=4;
+                QualitySettings.globalTextureMipmapLimit=0;
+                QualitySettings.anisotropicFiltering=AnisotropicFiltering.ForceEnable;
                 var icon=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Art/AppIcon-1.7.png");
                 foreach(var kind in PlayerSettings.GetSupportedIconKinds(NamedBuildTarget.iOS)){
                     var icons=PlayerSettings.GetPlatformIcons(NamedBuildTarget.iOS,kind);
@@ -46,7 +48,7 @@ namespace Qiaopi.Editor
                     PlayerSettings.SetPlatformIcons(NamedBuildTarget.iOS,kind,icons);
                 }
                 BuildGame.CreateScene();
-                StoryChecks.Run();InspectionChecks.Run();SaveChecks.Run();DialogueChecks.Run();GalleryChecks.Run();PersonalLetterChecks.Run();LifeIntegrationChecks.Run();
+                StoryChecks.Run();InspectionChecks.Run();SaveChecks.Run();DialogueChecks.Run();GalleryChecks.Run();PersonalLetterChecks.Run();LifeIntegrationChecks.Run();FirstDayChecks.Run();NanyangChecks.Run();ExperienceLetterChecks.Run();TradeWorkChecks.Run();WorkEventChecks.Run();WorkRelationshipChecks.Run();CharacterPerformanceChecks.Run();CharacterMaterialChecks.Run();AmbientAppearanceChecks.Run();HomeChapterChecks.Run();ChapterLetterChecks.Run();InvestigationChecks.Run();DistrictChecks.Run();
                 AssetDatabase.SaveAssets();
                 string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../Builds/iOS"));
                 var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Scenes/Qiaopi.unity"},locationPathName=output,target=BuildTarget.iOS,options=BuildOptions.None});

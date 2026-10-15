@@ -1,0 +1,73 @@
+{
+  "repository": "https://github.com/microsoft/Microsoft-Rocketbox",
+  "commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9",
+  "license": "MIT",
+  "license_url": "https://github.com/microsoft/Microsoft-Rocketbox/blob/0943055db6ec570bcef9f2c8b41c9e5467c808f9/LICENSE.md",
+  "selection": "Approved original FBX plus body color, normal and specular only; no modified or generated assets.",
+  "files": [
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Export/Female_Adult_15.fbx",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Export/Female_Adult_15.fbx",
+      "local_path": "Female_Adult_15/Female_Adult_15.fbx",
+      "bytes": 651088,
+      "git_blob_sha1": "4ba89224f99fb8b9139f6c6ed31927238bd1f565",
+      "sha256": "49300e70f72ec0238a17ea583610d41fd34ae78135ee1c0fda5ed9493e49a56a"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_color.tga",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_color.tga",
+      "local_path": "Female_Adult_15/f018_body_color.tga",
+      "bytes": 12582956,
+      "git_blob_sha1": "4636f4dbe6da255187038d7765d8786abdcda393",
+      "sha256": "d3e41b8a2845b2dd546c2ffb166b18541bf2937b8a336d6cadf4d4c725047df5"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_normal.tga",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_normal.tga",
+      "local_path": "Female_Adult_15/f018_body_normal.tga",
+      "bytes": 12582956,
+      "git_blob_sha1": "3619d3a63c2effbc69c1c4e17901003ac091c219",
+      "sha256": "a0e0920403e9c1329d4b41a34444257bfa1861f82f09a2cf8224bdc393c0df32"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_specular.tga",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_specular.tga",
+      "local_path": "Female_Adult_15/f018_body_specular.tga",
+      "bytes": 12582956,
+      "git_blob_sha1": "3f967477865ecbee50f38d80d8bf59d7135940d6",
+      "sha256": "2e1e914cb79b190db4ed6f313d1dbc195a3f016a4ca87672c9e1e6020a97fc0a"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Export/Female_Child_02.fbx",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Export/Female_Child_02.fbx",
+      "local_path": "Female_Child_02/Female_Child_02.fbx",
+      "bytes": 519088,
+      "git_blob_sha1": "505c74be38f823178b0b5fda88a09ba71ee3b1e7",
+      "sha256": "3983f3059878018dbb566d50934d3ab692ea811268a9164c44345411e546c358"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_color.tga",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_color.tga",
+      "local_path": "Female_Child_02/cf011_body_color.tga",
+      "bytes": 12582956,
+      "git_blob_sha1": "8764e6f4749f9c526c909f1130fd2e54b0fef888",
+      "sha256": "0982ad0db8b00ea18a075017c7554617d77f860c56f4b591236c6fde38d1346e"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_normal.tga",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_normal.tga",
+      "local_path": "Female_Child_02/cf011_body_normal.tga",
+      "bytes": 12582956,
+      "git_blob_sha1": "36bc2d7a93ded4b28ca92e27d79a8e954b914a53",
+      "sha256": "97e14195b5fe16d1eab9a9af7c1ec1dfa6c2996e005d15a4b86ec645c0140ab3"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_specular.tga",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_specular.tga",
+      "local_path": "Female_Child_02/cf011_body_specular.tga",
+      "bytes": 12582956,
+      "git_blob_sha1": "b10e8df194d92570667a60bae75f53dd96076aec",
+      "sha256": "ea149b3170757ab729c94bec71ee8ad90fbe05a451eded7159c6fb4dded44354"
+    }
+  ]
+}

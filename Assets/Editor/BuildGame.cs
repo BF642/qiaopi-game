@@ -24,7 +24,7 @@ namespace Qiaopi.Editor
                 MusicChecks.Run();
                 RegionChecks.Run();
                 ProportionChecks.Run();
-                GalleryChecks.Run();PersonalLetterChecks.Run();DestinationChecks.Run();LifeIntegrationChecks.Run();
+                GalleryChecks.Run();PersonalLetterChecks.Run();DestinationChecks.Run();LifeIntegrationChecks.Run();FirstDayChecks.Run();NanyangChecks.Run();ExperienceLetterChecks.Run();TradeWorkChecks.Run();WorkEventChecks.Run();WorkRelationshipChecks.Run();CharacterPerformanceChecks.Run();CharacterMaterialChecks.Run();AmbientAppearanceChecks.Run();HomeChapterChecks.Run();ChapterLetterChecks.Run();InvestigationChecks.Run();DistrictChecks.Run();
                 string root = Path.GetFullPath(Path.Combine(Application.dataPath,"../Builds"));
                 Directory.CreateDirectory(root);
                 string path = Path.Combine(root,"侨批·纸短情长.app");
@@ -41,7 +41,7 @@ namespace Qiaopi.Editor
         {
             PlayerSettings.companyName="QuanzhouLetters";
             PlayerSettings.productName="侨批 · 纸短情长";
-            PlayerSettings.bundleVersion="2.0.4";
+            PlayerSettings.bundleVersion="2.8.0";
             PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Standalone,"studio.quanzhou.qiaopi");
             PlayerSettings.defaultScreenWidth=1440; PlayerSettings.defaultScreenHeight=900;
             PlayerSettings.fullScreenMode=FullScreenMode.Windowed;

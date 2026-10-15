@@ -102,7 +102,10 @@ namespace Qiaopi
             // Long warehouse frontage faces west, parallel to the side waterfront.
             EHTurnedWarehouse(31, -12, 20, 8, 5.2f, 90);
             EHTurnedWarehouse(31, 25, 21, 8, 5.4f, 90);
-            EHTurnedWarehouse(-28, 12, 12, 8, 4.8f, -90);
+            // The Indonesian cargo yard owns one full sugar warehouse. Its doorway
+            // faces the shared loading apron; no Singapore source is reused here.
+            if (!RegionalBuilding.Spawn(buildingDestination,"warehouse",world,new Vector3(-7.5f,0,14),-90))
+                EHTurnedWarehouse(-28, 12, 12, 8, 4.8f, -90);
             EHTurnedWarehouse(24, -27, 20, 6, 4.7f, 0);
             EHOpenShelter("苦力休息长棚", new Vector3(-29, 0, -4), 10, 8, 2.8f, false);
             EHWaitingBench(new Vector3(-29, 0, -5.5f)); EHWaitingBench(new Vector3(-29, 0, -1.5f));

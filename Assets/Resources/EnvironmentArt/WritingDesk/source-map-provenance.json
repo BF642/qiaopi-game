@@ -1,0 +1,17 @@
+{
+  "basecolor": {
+    "filename": "WritingDesk_basecolor.jpg",
+    "sha256": "f1bd50e4b43b8e0c86aa32b39b78801f5f043fb1c2e1ad2c5920b88c033ea731",
+    "sourceBytesCopied": true
+  },
+  "metalrough": {
+    "filename": "WritingDesk_metalrough.jpg",
+    "sha256": "d6ed24cf5419038494e549bfbcd1c78c00d576e5a04749ebaece1282e3aaa465",
+    "sourceBytesCopied": true
+  },
+  "normal": {
+    "filename": "WritingDesk_normal.jpg",
+    "sha256": "63c360d7e1dd576c3781683a8cc89afa751a49acd70f8d12aa538d64006fe5ae",
+    "sourceBytesCopied": true
+  }
+}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4d975f93cb42c5aba46c66383c0af, type: 3}
+  m_Name: NativeMotionSet
+  m_EditorClassIdentifier: Assembly-CSharp::Qiaopi.NativeMotionSet
+  qualificationVersion: 1
+  qualified: 1
+  role: Worker
+  model: {fileID: 919132149155446097, guid: 497da465d630849e4a7e81b741dc460d, type: 3}
+  reviewedSkin: {fileID: 0}
+  reviewedSkinSourceName: 
+  idle: {fileID: 7400000, guid: ecb58dff2f0a8482ab667571c3e46f20, type: 2}
+  walking: {fileID: 7400000, guid: 80839fed36a4f477f89a3a6f472453f5, type: 2}
+  running: {fileID: 7400000, guid: ad09a994ec9634c94b75ba395216be3e, type: 2}
+  seated: {fileID: 7400000, guid: 77aa8e080e3e6465ea20bd258eee49cd, type: 2}
+  fingerAnimationWeight: 0.15
+  fingerAdaptationReview: Source rest / official Idle_4 / relative-rest finger constraint close-ups reviewed; body curves, mesh and original weights preserved.
+  reviewedContactAndWristAdaptation: 1
+  reviewedSeatAndGroundAdaptation: 0
+  walkingReferenceMetresPerSecond: 1.4330018
+  runningReferenceMetresPerSecond: 5.044294
+  sourceAssets:
+  - Assets/Resources/Models/WorkerMeshyMotion/WorkerMeshyMotion.fbx
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Chair_Sit_Idle_M.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Idle_4.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Running.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Walking.anim
+  sourceDependencyHashes:
+  - 1169d7f97ea774af29c235b80e928832
+  - 8eeffa4668d1705cb40c18b4fb1196f5
+  - 634b70c4aa867f7f90b84800f2ffed8d
+  - 72c67a42c06e14231ef9b8fe6f276b52
+  - d36cfd6d8eb4e39237110c2233e57d8d

@@ -1,0 +1,1464 @@
+{
+  "version": 1,
+  "scope": "All 12 Qiaopi character identities; source geometry and runtime texture provenance. This manifest does not indicate an export or release has completed.",
+  "makehuman_core_commit": "a8bc2d54ff0ac92e78ff71431b1023eda42bf482",
+  "makehuman_system_assets_archive": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+  "makehuman_system_assets_versioning": "Upstream archive URL is not commit-pinned; each selected member is identified by SHA256.",
+  "rocketbox_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9",
+  "characters": [
+    {
+      "model": "Wensheng",
+      "display_name": "陈文生",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "young_male",
+      "hair_source": "short02"
+    },
+    {
+      "model": "Mother",
+      "display_name": "母亲",
+      "body_clothing_source": "Female_Adult_15",
+      "skin_texture_variant": "middleage_female",
+      "hair_source": "ponytail01",
+      "hair_adaptation": "Swept-back temples with a low bun and fine grey strands; adapted from the official ponytail cards."
+    },
+    {
+      "model": "Aman",
+      "display_name": "阿满（妹妹）",
+      "body_clothing_source": "Female_Child_02",
+      "skin_texture_variant": "young_female",
+      "hair_source": "ponytail01",
+      "hair_adaptation": "Clear forehead and two short side bundles with cloth ties; rear ponytail cards duplicated and refitted."
+    },
+    {
+      "model": "Wife",
+      "display_name": "妻子",
+      "body_clothing_source": "Female_Adult_15",
+      "skin_texture_variant": "young_female",
+      "hair_source": "braid01",
+      "hair_adaptation": "Light side part above both brows and a long braid; adapted from the official braid cards."
+    },
+    {
+      "model": "Worker",
+      "display_name": "帮工乡亲",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "young_male",
+      "hair_source": "short03"
+    },
+    {
+      "model": "Uncle",
+      "display_name": "族亲",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "middleage_male",
+      "hair_source": "short04"
+    },
+    {
+      "model": "Xusheng",
+      "display_name": "许生",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "young_male",
+      "hair_source": "short01"
+    },
+    {
+      "model": "Guide",
+      "display_name": "接应同乡",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "middleage_male",
+      "hair_source": "short04"
+    },
+    {
+      "model": "Foreman",
+      "display_name": "码头工头",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "middleage_male",
+      "hair_source": "short03"
+    },
+    {
+      "model": "Shopkeeper",
+      "display_name": "陈掌柜",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "middleage_male",
+      "hair_source": "short04"
+    },
+    {
+      "model": "MasterHe",
+      "display_name": "何师傅",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "middleage_male",
+      "hair_source": "short04"
+    },
+    {
+      "model": "Clerk",
+      "display_name": "信局伙计",
+      "body_clothing_source": "Male_Adult_08",
+      "skin_texture_variant": "young_male",
+      "hair_source": "short04"
+    }
+  ],
+  "files": [
+    {
+      "source_path": "LICENSE.ASSETS.md",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/LICENSE.ASSETS.md",
+      "source_bytes": 6962,
+      "source_sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c",
+      "repository_path": "美术源文件/人物基础/LICENSE.ASSETS.md",
+      "repository_sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c"
+    },
+    {
+      "source_path": "makehuman/data/3dobjs/base.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/3dobjs/base.obj",
+      "source_bytes": 1749303,
+      "source_sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c",
+      "repository_path": "美术源文件/人物基础/base.obj",
+      "repository_sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+    },
+    {
+      "source_path": "makehuman/data/eyes/high-poly/high-poly.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes/high-poly/high-poly.obj",
+      "source_bytes": 100882,
+      "source_sha256": "da2493215b708a344c33dc72f2a9a5b8fa985dcc5a70ad3b208995cf871da8e1",
+      "repository_path": "美术源文件/人物基础/makehuman/data/eyes/high-poly/high-poly.obj",
+      "repository_sha256": "da2493215b708a344c33dc72f2a9a5b8fa985dcc5a70ad3b208995cf871da8e1"
+    },
+    {
+      "source_path": "makehuman/data/eyes/high-poly/high-poly.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes/high-poly/high-poly.mhclo",
+      "source_bytes": 72490,
+      "source_sha256": "b183cfe37120ab726f9b3f2ea6cd3a64c44ce7b4bd91a77c841cf70c04f83a0d",
+      "repository_path": "美术源文件/人物基础/makehuman/data/eyes/high-poly/high-poly.mhclo",
+      "repository_sha256": "b183cfe37120ab726f9b3f2ea6cd3a64c44ce7b4bd91a77c841cf70c04f83a0d"
+    },
+    {
+      "source_path": "makehuman/data/eyes/materials/brown.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes/materials/brown.mhmat",
+      "source_bytes": 1247,
+      "source_sha256": "4abad93ce50541c08127721e77bce035640c9f16bed16cd0f5524b1cd5908465",
+      "repository_path": "美术源文件/人物基础/makehuman/data/eyes/materials/brown.mhmat",
+      "repository_sha256": "4abad93ce50541c08127721e77bce035640c9f16bed16cd0f5524b1cd5908465"
+    },
+    {
+      "source_path": "makehuman/data/eyes/materials/brown_eye.png",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/eyes/materials/brown_eye.png",
+      "source_bytes": 610817,
+      "source_sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "runtime_path": "Assets/Resources/CharacterArt/brown_eye.png",
+      "runtime_sha256": "4659691c7295ad6206c78b003e5fd0e5f91dcd53032fa914a229bb48cabe424b",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-bones-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-bones-decr.target",
+      "source_bytes": 2290,
+      "source_sha256": "0da776725aabc2cbc602d805e50d0dfbc98b0519a0d65f21b7e6f133562e56f9",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-bones-decr.target",
+      "repository_sha256": "0da776725aabc2cbc602d805e50d0dfbc98b0519a0d65f21b7e6f133562e56f9"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-bones-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-bones-incr.target",
+      "source_bytes": 1519,
+      "source_sha256": "244ffa39d2d2db94ff15130719346b4cae2236bf2a309c5682eac352da06be50",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-bones-incr.target",
+      "repository_sha256": "244ffa39d2d2db94ff15130719346b4cae2236bf2a309c5682eac352da06be50"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-inner-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-inner-decr.target",
+      "source_bytes": 1480,
+      "source_sha256": "db665941e27c700ca6ccb514efcdf108d4100efcae6e68b0abf3f95333924dd1",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-inner-decr.target",
+      "repository_sha256": "db665941e27c700ca6ccb514efcdf108d4100efcae6e68b0abf3f95333924dd1"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-inner-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-inner-incr.target",
+      "source_bytes": 2373,
+      "source_sha256": "ab5aa2087e0e384f8ca7cc5abe9c03755ed1db1679a59651f8c65aa2788e622f",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-inner-incr.target",
+      "repository_sha256": "ab5aa2087e0e384f8ca7cc5abe9c03755ed1db1679a59651f8c65aa2788e622f"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-trans-down.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-trans-down.target",
+      "source_bytes": 3599,
+      "source_sha256": "66210ebfcb05056429dcce2c34ee366be25e316ea5c26bf4813b87e6d3b9f974",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-trans-down.target",
+      "repository_sha256": "66210ebfcb05056429dcce2c34ee366be25e316ea5c26bf4813b87e6d3b9f974"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-trans-up.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-trans-up.target",
+      "source_bytes": 2277,
+      "source_sha256": "a538a79637616b18f0ba6b0ec749d7b8548791fcb0f9352b37fa82ef4840df39",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-trans-up.target",
+      "repository_sha256": "a538a79637616b18f0ba6b0ec749d7b8548791fcb0f9352b37fa82ef4840df39"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-volume-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-volume-decr.target",
+      "source_bytes": 3619,
+      "source_sha256": "527d19395f33c02caf3b32254e78702156cdf63c17e4c0e3dd79cca004fa27be",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-volume-decr.target",
+      "repository_sha256": "527d19395f33c02caf3b32254e78702156cdf63c17e4c0e3dd79cca004fa27be"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/l-cheek-volume-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/l-cheek-volume-incr.target",
+      "source_bytes": 4754,
+      "source_sha256": "edb0bf9389aa7fd00f9d735603729b687b3899e9a6df0934ca14aa4d44574e27",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/l-cheek-volume-incr.target",
+      "repository_sha256": "edb0bf9389aa7fd00f9d735603729b687b3899e9a6df0934ca14aa4d44574e27"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-bones-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-bones-decr.target",
+      "source_bytes": 2123,
+      "source_sha256": "a336b46fe613d85763fb01ca79758039b15daef1930600e36dc420e799b683d4",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-bones-decr.target",
+      "repository_sha256": "a336b46fe613d85763fb01ca79758039b15daef1930600e36dc420e799b683d4"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-bones-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-bones-incr.target",
+      "source_bytes": 1514,
+      "source_sha256": "a393f67acce21568ab832091daadab267685d464492647cb0c4e8cb5af58c4c9",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-bones-incr.target",
+      "repository_sha256": "a393f67acce21568ab832091daadab267685d464492647cb0c4e8cb5af58c4c9"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-inner-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-inner-decr.target",
+      "source_bytes": 1275,
+      "source_sha256": "931435368577ebb410f2179e7e1ed121f741e6ad18fd7eb92ec96c679db1608f",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-inner-decr.target",
+      "repository_sha256": "931435368577ebb410f2179e7e1ed121f741e6ad18fd7eb92ec96c679db1608f"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-inner-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-inner-incr.target",
+      "source_bytes": 2974,
+      "source_sha256": "83fd5033cca2fcedc470050d87ac75c037ffc2403bb7ea85ae31eb81de62f0c5",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-inner-incr.target",
+      "repository_sha256": "83fd5033cca2fcedc470050d87ac75c037ffc2403bb7ea85ae31eb81de62f0c5"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-trans-down.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-trans-down.target",
+      "source_bytes": 3382,
+      "source_sha256": "27921a4e0920e419f6848a4f08b29a29adc76ce3bae76a44fa5dc5fd1302cddc",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-trans-down.target",
+      "repository_sha256": "27921a4e0920e419f6848a4f08b29a29adc76ce3bae76a44fa5dc5fd1302cddc"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-trans-up.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-trans-up.target",
+      "source_bytes": 2122,
+      "source_sha256": "c776254ff7fc00dc8cae1fb957605291042cbe1b30c519c2079a75a1ca409231",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-trans-up.target",
+      "repository_sha256": "c776254ff7fc00dc8cae1fb957605291042cbe1b30c519c2079a75a1ca409231"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-volume-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-volume-decr.target",
+      "source_bytes": 3274,
+      "source_sha256": "3a356f2f6434ccefa633981dff1b7866ce1feb8427918f35f81b6adffa4599b5",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-volume-decr.target",
+      "repository_sha256": "3a356f2f6434ccefa633981dff1b7866ce1feb8427918f35f81b6adffa4599b5"
+    },
+    {
+      "source_path": "makehuman/data/targets/cheek/r-cheek-volume-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/cheek/r-cheek-volume-incr.target",
+      "source_bytes": 4690,
+      "source_sha256": "dfdde51eb34b3e2c70a4c0c9fe876339dd80ee6ec0fbb3f798e630af556f9695",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/cheek/r-cheek-volume-incr.target",
+      "repository_sha256": "dfdde51eb34b3e2c70a4c0c9fe876339dd80ee6ec0fbb3f798e630af556f9695"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-bones-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-bones-decr.target",
+      "source_bytes": 3902,
+      "source_sha256": "fc54c1572b2562b095e5a5e48882bab16c1b24e64b106b2d54e6be64ce20121c",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-bones-decr.target",
+      "repository_sha256": "fc54c1572b2562b095e5a5e48882bab16c1b24e64b106b2d54e6be64ce20121c"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-bones-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-bones-incr.target",
+      "source_bytes": 11831,
+      "source_sha256": "245b7a9506a10d5828531922ab2ec6da0e813f71bd995dae48c9a4dfad171a49",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-bones-incr.target",
+      "repository_sha256": "245b7a9506a10d5828531922ab2ec6da0e813f71bd995dae48c9a4dfad171a49"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-cleft-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-cleft-decr.target",
+      "source_bytes": 1001,
+      "source_sha256": "1ef80a998633e3905b098c546198ffdc14dd4d8171b93bd337b2e058dcffce1a",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-cleft-decr.target",
+      "repository_sha256": "1ef80a998633e3905b098c546198ffdc14dd4d8171b93bd337b2e058dcffce1a"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-cleft-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-cleft-incr.target",
+      "source_bytes": 1323,
+      "source_sha256": "93f523e952d436094321a5ec8ea38bafcdbe272ada894d3dfa12de7bd4c717d5",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-cleft-incr.target",
+      "repository_sha256": "93f523e952d436094321a5ec8ea38bafcdbe272ada894d3dfa12de7bd4c717d5"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-height-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-height-decr.target",
+      "source_bytes": 4603,
+      "source_sha256": "acf83b5b7f2d6665f19d0d91205472878c23ab78b3f43d48420f75afe8e82818",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-height-decr.target",
+      "repository_sha256": "acf83b5b7f2d6665f19d0d91205472878c23ab78b3f43d48420f75afe8e82818"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-height-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-height-incr.target",
+      "source_bytes": 9131,
+      "source_sha256": "8b13d4a1e0f4b105cb51a346cd8a3618c9349e620d0197cc442905e83de8ae53",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-height-incr.target",
+      "repository_sha256": "8b13d4a1e0f4b105cb51a346cd8a3618c9349e620d0197cc442905e83de8ae53"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-jaw-drop-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-jaw-drop-decr.target",
+      "source_bytes": 1561,
+      "source_sha256": "0174f6e636e7d5b136b09f5e1ebc6b6d68045adceef3e84fb813965e14660299",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-jaw-drop-decr.target",
+      "repository_sha256": "0174f6e636e7d5b136b09f5e1ebc6b6d68045adceef3e84fb813965e14660299"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-jaw-drop-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-jaw-drop-incr.target",
+      "source_bytes": 1415,
+      "source_sha256": "e145bddcf7007a8e4fc56f48202d445e6cf0b3a8f4705b082553f6ead314bbb9",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-jaw-drop-incr.target",
+      "repository_sha256": "e145bddcf7007a8e4fc56f48202d445e6cf0b3a8f4705b082553f6ead314bbb9"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-prognathism-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-prognathism-decr.target",
+      "source_bytes": 7788,
+      "source_sha256": "4dd20d7912e9baf38d5b92e4e3a9f03a7bc0b59578db9d9a80288729ded88885",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-prognathism-decr.target",
+      "repository_sha256": "4dd20d7912e9baf38d5b92e4e3a9f03a7bc0b59578db9d9a80288729ded88885"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-prognathism-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-prognathism-incr.target",
+      "source_bytes": 5360,
+      "source_sha256": "81d086ad10c3e210d9a6ddb69ca0aaf2b3f91c2bcd5c7b49173f1303d017bf66",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-prognathism-incr.target",
+      "repository_sha256": "81d086ad10c3e210d9a6ddb69ca0aaf2b3f91c2bcd5c7b49173f1303d017bf66"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-prominent-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-prominent-decr.target",
+      "source_bytes": 3522,
+      "source_sha256": "071afc623e6feb38afa5dde7abca83710c062bf1281e30a51fa42a6fbacfc00e",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-prominent-decr.target",
+      "repository_sha256": "071afc623e6feb38afa5dde7abca83710c062bf1281e30a51fa42a6fbacfc00e"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-prominent-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-prominent-incr.target",
+      "source_bytes": 2338,
+      "source_sha256": "d2493ca5f69aabeb8557d77a56c49cfcf2062ff90c0cad03073d87990d11448b",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-prominent-incr.target",
+      "repository_sha256": "d2493ca5f69aabeb8557d77a56c49cfcf2062ff90c0cad03073d87990d11448b"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-triangle.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-triangle.target",
+      "source_bytes": 7024,
+      "source_sha256": "bd4f02068b8ea3a35cbbdd38554246d686e3f0fbb3ba395f5432dbac76ed3df5",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-triangle.target",
+      "repository_sha256": "bd4f02068b8ea3a35cbbdd38554246d686e3f0fbb3ba395f5432dbac76ed3df5"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-width-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-width-decr.target",
+      "source_bytes": 2853,
+      "source_sha256": "ac081bd1652c203fc8973f20988a868a423a49f1fe6449cb974727fd46c26af1",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-width-decr.target",
+      "repository_sha256": "ac081bd1652c203fc8973f20988a868a423a49f1fe6449cb974727fd46c26af1"
+    },
+    {
+      "source_path": "makehuman/data/targets/chin/chin-width-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/chin/chin-width-incr.target",
+      "source_bytes": 3706,
+      "source_sha256": "deef506bfe1883d9d4c38667332c9970785226566efbae4724fd3d60c02efcf4",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/chin/chin-width-incr.target",
+      "repository_sha256": "deef506bfe1883d9d4c38667332c9970785226566efbae4724fd3d60c02efcf4"
+    },
+    {
+      "source_path": "makehuman/data/targets/expression/units/asian/eye-left-closure.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eye-left-closure.target",
+      "source_bytes": 3926,
+      "source_sha256": "96d43015f95af63d1d5d64c2d234ac29571d7b05a21e900cf5ee15a246337ebf",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/expression/units/asian/eye-left-closure.target",
+      "repository_sha256": "96d43015f95af63d1d5d64c2d234ac29571d7b05a21e900cf5ee15a246337ebf"
+    },
+    {
+      "source_path": "makehuman/data/targets/expression/units/asian/eye-right-closure.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eye-right-closure.target",
+      "source_bytes": 3756,
+      "source_sha256": "772a8a1c62dac36fa2ed6b0808d167bda298ec1ece956af0561e7324a0c91a6b",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/expression/units/asian/eye-right-closure.target",
+      "repository_sha256": "772a8a1c62dac36fa2ed6b0808d167bda298ec1ece956af0561e7324a0c91a6b"
+    },
+    {
+      "source_path": "makehuman/data/targets/expression/units/asian/mouth-compression.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-compression.target",
+      "source_bytes": 13039,
+      "source_sha256": "b7abd0826708d7e4344559583edd0fc80e098b08b91f3e6d67d83b1eed20ccbe",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/expression/units/asian/mouth-compression.target",
+      "repository_sha256": "b7abd0826708d7e4344559583edd0fc80e098b08b91f3e6d67d83b1eed20ccbe"
+    },
+    {
+      "source_path": "makehuman/data/targets/expression/units/asian/mouth-corner-puller.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-corner-puller.target",
+      "source_bytes": 15163,
+      "source_sha256": "75ec1f2356c381aa44065f2b812daafae85c5a918843b978d04cf6d8bc79dbe4",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/expression/units/asian/mouth-corner-puller.target",
+      "repository_sha256": "75ec1f2356c381aa44065f2b812daafae85c5a918843b978d04cf6d8bc79dbe4"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/l-eye-height1-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/l-eye-height1-decr.target",
+      "source_bytes": 3153,
+      "source_sha256": "d1d9f77ff6efc9ccdfcc88beafc8a3be8170b3ea386b7a44b414df1f41e84daf",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/l-eye-height1-decr.target",
+      "repository_sha256": "d1d9f77ff6efc9ccdfcc88beafc8a3be8170b3ea386b7a44b414df1f41e84daf"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/l-eye-height1-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/l-eye-height1-incr.target",
+      "source_bytes": 4053,
+      "source_sha256": "75ce5285db2e3721ae5434c8a9d27669eb632da7e588000a112d34264216de20",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/l-eye-height1-incr.target",
+      "repository_sha256": "75ce5285db2e3721ae5434c8a9d27669eb632da7e588000a112d34264216de20"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/l-eye-scale-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/l-eye-scale-decr.target",
+      "source_bytes": 12544,
+      "source_sha256": "a66719f1a42badd955fb0c725ac453969d7fda05cc6e4f4770d388b076703dc7",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/l-eye-scale-decr.target",
+      "repository_sha256": "a66719f1a42badd955fb0c725ac453969d7fda05cc6e4f4770d388b076703dc7"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/l-eye-scale-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/l-eye-scale-incr.target",
+      "source_bytes": 13397,
+      "source_sha256": "f35550dc3170ca1c0aacae0b598ca139e4f1f913f2ccea146ec6ea5b4e050dbb",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/l-eye-scale-incr.target",
+      "repository_sha256": "f35550dc3170ca1c0aacae0b598ca139e4f1f913f2ccea146ec6ea5b4e050dbb"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/r-eye-height1-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/r-eye-height1-decr.target",
+      "source_bytes": 2818,
+      "source_sha256": "0e561d96be0453c209ff7cbffdd86cdd73e790a11fc7c0cc8e2e36a1143c46ef",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/r-eye-height1-decr.target",
+      "repository_sha256": "0e561d96be0453c209ff7cbffdd86cdd73e790a11fc7c0cc8e2e36a1143c46ef"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/r-eye-height1-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/r-eye-height1-incr.target",
+      "source_bytes": 3586,
+      "source_sha256": "daab8f4115ade91e776f9bb4622926ddd20cff2ddcfe74e1ff3654132b727933",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/r-eye-height1-incr.target",
+      "repository_sha256": "daab8f4115ade91e776f9bb4622926ddd20cff2ddcfe74e1ff3654132b727933"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/r-eye-scale-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/r-eye-scale-decr.target",
+      "source_bytes": 12118,
+      "source_sha256": "f43ba41146723a192c755330aa8baa77b638bc28f3736c448e5ce72e8a588f32",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/r-eye-scale-decr.target",
+      "repository_sha256": "f43ba41146723a192c755330aa8baa77b638bc28f3736c448e5ce72e8a588f32"
+    },
+    {
+      "source_path": "makehuman/data/targets/eyes/r-eye-scale-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/r-eye-scale-incr.target",
+      "source_bytes": 12192,
+      "source_sha256": "e1f4cb48575b60a46589635b99a8b87587ba82d7524a8ac1445ace0ba002e918",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/eyes/r-eye-scale-incr.target",
+      "repository_sha256": "e1f4cb48575b60a46589635b99a8b87587ba82d7524a8ac1445ace0ba002e918"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-age-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-age-decr.target",
+      "source_bytes": 75981,
+      "source_sha256": "dce4ba0fcd18e7a4e5bc86d98785452ac5ca6d33b993d7c37ffdb339e50ff568",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-age-decr.target",
+      "repository_sha256": "dce4ba0fcd18e7a4e5bc86d98785452ac5ca6d33b993d7c37ffdb339e50ff568"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-age-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-age-incr.target",
+      "source_bytes": 59255,
+      "source_sha256": "ff677345bd81e3f439bdf75496bbee620ca3c3f029955a546837afd283abf73a",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-age-incr.target",
+      "repository_sha256": "ff677345bd81e3f439bdf75496bbee620ca3c3f029955a546837afd283abf73a"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-angle-in.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-angle-in.target",
+      "source_bytes": 68747,
+      "source_sha256": "953fe91e2b7db350c1c932637e48b12d719528bdfdd077b44fc1cf7546a3e0fd",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-angle-in.target",
+      "repository_sha256": "953fe91e2b7db350c1c932637e48b12d719528bdfdd077b44fc1cf7546a3e0fd"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-angle-out.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-angle-out.target",
+      "source_bytes": 72434,
+      "source_sha256": "c0e5eb1f4919d72784d79eeb54082af46061b050bb1c0df29569a752b0ad5e8b",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-angle-out.target",
+      "repository_sha256": "c0e5eb1f4919d72784d79eeb54082af46061b050bb1c0df29569a752b0ad5e8b"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-back-scale-depth-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-back-scale-depth-decr.target",
+      "source_bytes": 8977,
+      "source_sha256": "9f61e5de3594409e491f8ddcf47862b6f81ae54406e277534de23e669853914c",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-back-scale-depth-decr.target",
+      "repository_sha256": "9f61e5de3594409e491f8ddcf47862b6f81ae54406e277534de23e669853914c"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-back-scale-depth-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-back-scale-depth-incr.target",
+      "source_bytes": 9220,
+      "source_sha256": "fccca38488e1f4c431943a8fafc55b0501e820ba1233f7f380507c4d444b8d01",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-back-scale-depth-incr.target",
+      "repository_sha256": "fccca38488e1f4c431943a8fafc55b0501e820ba1233f7f380507c4d444b8d01"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-diamond.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-diamond.target",
+      "source_bytes": 11876,
+      "source_sha256": "7072c718c8476ca38d6758fb7531fd945612d51acdca6555da8a8f770284c41d",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-diamond.target",
+      "repository_sha256": "7072c718c8476ca38d6758fb7531fd945612d51acdca6555da8a8f770284c41d"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-fat-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-fat-decr.target",
+      "source_bytes": 14347,
+      "source_sha256": "00473b6069f9cf6c05a2f1fd0c0bae20bb4ec45e9552bb5695f1d1533f3cc119",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-fat-decr.target",
+      "repository_sha256": "00473b6069f9cf6c05a2f1fd0c0bae20bb4ec45e9552bb5695f1d1533f3cc119"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-fat-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-fat-incr.target",
+      "source_bytes": 14473,
+      "source_sha256": "075d18cdfea9e781ae0152132bfea97ea9b901ffdece8d5e6866cb1744f10056",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-fat-incr.target",
+      "repository_sha256": "075d18cdfea9e781ae0152132bfea97ea9b901ffdece8d5e6866cb1744f10056"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-invertedtriangular.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-invertedtriangular.target",
+      "source_bytes": 32815,
+      "source_sha256": "d236302afe23f2f2d6d753e4b73f91c1220d17dca24417931fe477a232f18116",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-invertedtriangular.target",
+      "repository_sha256": "d236302afe23f2f2d6d753e4b73f91c1220d17dca24417931fe477a232f18116"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-oval.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-oval.target",
+      "source_bytes": 36452,
+      "source_sha256": "a17cd3a600588a344babe520fbd4d4edcb096db3328051fe692dfb997a1a678d",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-oval.target",
+      "repository_sha256": "a17cd3a600588a344babe520fbd4d4edcb096db3328051fe692dfb997a1a678d"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-rectangular.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-rectangular.target",
+      "source_bytes": 10633,
+      "source_sha256": "bbfcbd4d6334df18515e73abb707b8a948adb74e0aba88a728c8e146dd5f4e4b",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-rectangular.target",
+      "repository_sha256": "bbfcbd4d6334df18515e73abb707b8a948adb74e0aba88a728c8e146dd5f4e4b"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-round.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-round.target",
+      "source_bytes": 32961,
+      "source_sha256": "bd96b745b19432ac838f15438aa87e9002f597e59353861721e12e6da0f2c625",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-round.target",
+      "repository_sha256": "bd96b745b19432ac838f15438aa87e9002f597e59353861721e12e6da0f2c625"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-scale-depth-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-scale-depth-decr.target",
+      "source_bytes": 73849,
+      "source_sha256": "3989a6a769fd4ee5b69179f3b8f3281deb882d943e071ef4b808e5faa4040663",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-scale-depth-decr.target",
+      "repository_sha256": "3989a6a769fd4ee5b69179f3b8f3281deb882d943e071ef4b808e5faa4040663"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-scale-depth-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-scale-depth-incr.target",
+      "source_bytes": 69299,
+      "source_sha256": "b31ac0344498d2563d216b568a98eb941f6ebcfd07e034a2b8d1958ccb0b9dec",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-scale-depth-incr.target",
+      "repository_sha256": "b31ac0344498d2563d216b568a98eb941f6ebcfd07e034a2b8d1958ccb0b9dec"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-scale-horiz-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-scale-horiz-decr.target",
+      "source_bytes": 81690,
+      "source_sha256": "cadb55b340cb94e96131860beb68b2e46204fccc7ee8f963f66cc9d22b03af0c",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-scale-horiz-decr.target",
+      "repository_sha256": "cadb55b340cb94e96131860beb68b2e46204fccc7ee8f963f66cc9d22b03af0c"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-scale-horiz-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-scale-horiz-incr.target",
+      "source_bytes": 83156,
+      "source_sha256": "31830f645c194c9451cb5f59cffb8e1d2a1c8fb215afb0c2ab36028b2c24570d",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-scale-horiz-incr.target",
+      "repository_sha256": "31830f645c194c9451cb5f59cffb8e1d2a1c8fb215afb0c2ab36028b2c24570d"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-scale-vert-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-scale-vert-decr.target",
+      "source_bytes": 77948,
+      "source_sha256": "928f8900b8955ec72659156e3153c00cdd2e55ba23eaaab7f8eeee7a5e64f528",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-scale-vert-decr.target",
+      "repository_sha256": "928f8900b8955ec72659156e3153c00cdd2e55ba23eaaab7f8eeee7a5e64f528"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-scale-vert-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-scale-vert-incr.target",
+      "source_bytes": 78317,
+      "source_sha256": "d9560ee80b9125da34cc95ece61192a295ab53c50a314c0084ddb3b0f38cc7d6",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-scale-vert-incr.target",
+      "repository_sha256": "d9560ee80b9125da34cc95ece61192a295ab53c50a314c0084ddb3b0f38cc7d6"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-square.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-square.target",
+      "source_bytes": 12618,
+      "source_sha256": "001d0d135d964daf4ad99ba46a0f77c5bc2378f04e53c2b5a20242ab19cbf265",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-square.target",
+      "repository_sha256": "001d0d135d964daf4ad99ba46a0f77c5bc2378f04e53c2b5a20242ab19cbf265"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-trans-backward.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-trans-backward.target",
+      "source_bytes": 74770,
+      "source_sha256": "32bc8a9c7a7c49331cd6516e7503134deb0ff17a0cc3b36b474723a8b2e8dbb4",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-trans-backward.target",
+      "repository_sha256": "32bc8a9c7a7c49331cd6516e7503134deb0ff17a0cc3b36b474723a8b2e8dbb4"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-trans-down.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-trans-down.target",
+      "source_bytes": 76202,
+      "source_sha256": "1690236b7705f76ea1ff9555c82066158d05278953efbc98df7290147691de5b",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-trans-down.target",
+      "repository_sha256": "1690236b7705f76ea1ff9555c82066158d05278953efbc98df7290147691de5b"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-trans-forward.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-trans-forward.target",
+      "source_bytes": 69655,
+      "source_sha256": "ccf934993718025cc1086ce6981c92bdc9a2ed4f7ea67d6ed74640cd2a8799c3",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-trans-forward.target",
+      "repository_sha256": "ccf934993718025cc1086ce6981c92bdc9a2ed4f7ea67d6ed74640cd2a8799c3"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-trans-in.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-trans-in.target",
+      "source_bytes": 75186,
+      "source_sha256": "587950df2c45ba0dff23ab14a00b4cebd1883d7e216144558326c1f08e84a4af",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-trans-in.target",
+      "repository_sha256": "587950df2c45ba0dff23ab14a00b4cebd1883d7e216144558326c1f08e84a4af"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-trans-out.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-trans-out.target",
+      "source_bytes": 69677,
+      "source_sha256": "da3a8333abfd73e5a28510b3ad44537d867a9c4c8185cf8b538327840cc0a778",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-trans-out.target",
+      "repository_sha256": "da3a8333abfd73e5a28510b3ad44537d867a9c4c8185cf8b538327840cc0a778"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-trans-up.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-trans-up.target",
+      "source_bytes": 69100,
+      "source_sha256": "48060973dba8d8ffa87d7ce4748dd62e54671d602c1e1a084367312636fb8b75",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-trans-up.target",
+      "repository_sha256": "48060973dba8d8ffa87d7ce4748dd62e54671d602c1e1a084367312636fb8b75"
+    },
+    {
+      "source_path": "makehuman/data/targets/head/head-triangular.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/head/head-triangular.target",
+      "source_bytes": 12676,
+      "source_sha256": "09f898db574e636a35b6d39f455e04bfa0bc0248c89d32ad3c959cdb65b8fd1f",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/head/head-triangular.target",
+      "repository_sha256": "09f898db574e636a35b6d39f455e04bfa0bc0248c89d32ad3c959cdb65b8fd1f"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/asian-female-child.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-female-child.target",
+      "source_bytes": 447393,
+      "source_sha256": "a4fffea45a475a24a0a7332dac28a07dfd60a9af9eb50b61ed5abd1178197f75",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/asian-female-child.target",
+      "repository_sha256": "a4fffea45a475a24a0a7332dac28a07dfd60a9af9eb50b61ed5abd1178197f75"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/asian-female-old.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-female-old.target",
+      "source_bytes": 426301,
+      "source_sha256": "1a90cb281df640df55fbce3acd6588f27b28affeb96a7f693f6f038aefc204d8",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/asian-female-old.target",
+      "repository_sha256": "1a90cb281df640df55fbce3acd6588f27b28affeb96a7f693f6f038aefc204d8"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/asian-female-young.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-female-young.target",
+      "source_bytes": 435553,
+      "source_sha256": "095fe79694fa19e1fe98d93009ec116199bd524e081c640351a10eccf2cca1eb",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/asian-female-young.target",
+      "repository_sha256": "095fe79694fa19e1fe98d93009ec116199bd524e081c640351a10eccf2cca1eb"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/asian-male-child.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-male-child.target",
+      "source_bytes": 442344,
+      "source_sha256": "c1b56e9cc549cd7c463f407557d7adceaa217b528c600d34c19df98bc3d6472e",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/asian-male-child.target",
+      "repository_sha256": "c1b56e9cc549cd7c463f407557d7adceaa217b528c600d34c19df98bc3d6472e"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/asian-male-old.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-male-old.target",
+      "source_bytes": 427966,
+      "source_sha256": "36dc5a3a135ded33885e814806b0e3668ca5bf44bddcebdee48ae75ae68bc3d3",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/asian-male-old.target",
+      "repository_sha256": "36dc5a3a135ded33885e814806b0e3668ca5bf44bddcebdee48ae75ae68bc3d3"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/asian-male-young.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-male-young.target",
+      "source_bytes": 421040,
+      "source_sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/asian-male-young.target",
+      "repository_sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/universal-female-child-averagemuscle-averageweight.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-female-child-averagemuscle-averageweight.target",
+      "source_bytes": 604,
+      "source_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/universal-female-child-averagemuscle-averageweight.target",
+      "repository_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/universal-female-old-averagemuscle-averageweight.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-female-old-averagemuscle-averageweight.target",
+      "source_bytes": 604,
+      "source_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/universal-female-old-averagemuscle-averageweight.target",
+      "repository_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target",
+      "source_bytes": 604,
+      "source_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target",
+      "repository_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/universal-male-child-averagemuscle-averageweight.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-child-averagemuscle-averageweight.target",
+      "source_bytes": 604,
+      "source_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/universal-male-child-averagemuscle-averageweight.target",
+      "repository_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-averageweight.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-averageweight.target",
+      "source_bytes": 604,
+      "source_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/universal-male-old-averagemuscle-averageweight.target",
+      "repository_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+    },
+    {
+      "source_path": "makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target",
+      "source_bytes": 604,
+      "source_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target",
+      "repository_sha256": "4ba5396ddabda448ece15650a566fbebfbb10239256ccb201e8f883429e12249"
+    },
+    {
+      "source_path": "makehuman/data/targets/mouth/mouth-angles-up.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/mouth/mouth-angles-up.target",
+      "source_bytes": 6450,
+      "source_sha256": "8ddc2f53f4264742f4e10ddafd128e059e09c6a4268a2722e9495bad0f274898",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/mouth/mouth-angles-up.target",
+      "repository_sha256": "8ddc2f53f4264742f4e10ddafd128e059e09c6a4268a2722e9495bad0f274898"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-point-width-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-point-width-decr.target",
+      "source_bytes": 1796,
+      "source_sha256": "b9abb0a0fa7acf3208acee76ab9e329c89b4e7b6c83fcf8429ffd004aae1a4cc",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-point-width-decr.target",
+      "repository_sha256": "b9abb0a0fa7acf3208acee76ab9e329c89b4e7b6c83fcf8429ffd004aae1a4cc"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-point-width-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-point-width-incr.target",
+      "source_bytes": 1483,
+      "source_sha256": "c6dca10cdc77721b2e90dad9eef5e56f6c69359687de2e9aa2a965cfe598c56f",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-point-width-incr.target",
+      "repository_sha256": "c6dca10cdc77721b2e90dad9eef5e56f6c69359687de2e9aa2a965cfe598c56f"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-scale-depth-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-scale-depth-decr.target",
+      "source_bytes": 5811,
+      "source_sha256": "b46c35046c9c451b7ffe77acc0573bd945d7c6acaefe43d8c21912d4ce1a6e4c",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-scale-depth-decr.target",
+      "repository_sha256": "b46c35046c9c451b7ffe77acc0573bd945d7c6acaefe43d8c21912d4ce1a6e4c"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-scale-depth-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-scale-depth-incr.target",
+      "source_bytes": 5762,
+      "source_sha256": "6bb03c3065e048d6e9abbcfa58961bfbe1753a307be0d3de477cac6aeaf5f750",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-scale-depth-incr.target",
+      "repository_sha256": "6bb03c3065e048d6e9abbcfa58961bfbe1753a307be0d3de477cac6aeaf5f750"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-scale-horiz-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-scale-horiz-decr.target",
+      "source_bytes": 5074,
+      "source_sha256": "1227e6f513d202585e40045fe4234778597bb591ac492e7f9313347cd9a9f2ec",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-scale-horiz-decr.target",
+      "repository_sha256": "1227e6f513d202585e40045fe4234778597bb591ac492e7f9313347cd9a9f2ec"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-scale-horiz-incr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-scale-horiz-incr.target",
+      "source_bytes": 7568,
+      "source_sha256": "cc319e3ddb0523fa2b563dcfc840cf2f915a890abe5612009a0becebecd3c5ae",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-scale-horiz-incr.target",
+      "repository_sha256": "cc319e3ddb0523fa2b563dcfc840cf2f915a890abe5612009a0becebecd3c5ae"
+    },
+    {
+      "source_path": "makehuman/data/targets/nose/nose-scale-vert-decr.target",
+      "license": "CC0-1.0",
+      "source_url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-scale-vert-decr.target",
+      "source_bytes": 5431,
+      "source_sha256": "a154747135740f63f60df812024fcde24df2a6713effa3c6f27797aeee7d3311",
+      "repository_path": "美术源文件/人物基础/makehuman/data/targets/nose/nose-scale-vert-decr.target",
+      "repository_sha256": "a154747135740f63f60df812024fcde24df2a6713effa3c6f27797aeee7d3311"
+    },
+    {
+      "source_path": "skins/young_asian_male/young_asian_male.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1452,
+      "source_sha256": "9fdfc9863cd15d1359311435f2da7de3906f81d6eea549fba6bf14cd82ceb6a0",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/skins/young_asian_male/young_asian_male.mhmat",
+      "repository_sha256": "9fdfc9863cd15d1359311435f2da7de3906f81d6eea549fba6bf14cd82ceb6a0"
+    },
+    {
+      "source_path": "skins/young_asian_male/young_lightskinned_male_diffuse3.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 3593099,
+      "source_sha256": "f50016a5507fc687dc8df06599c8ea48de950cd185de33a71cafc1319ddab4d5",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_SkinTexture_young_male.png",
+      "runtime_sha256": "f50016a5507fc687dc8df06599c8ea48de950cd185de33a71cafc1319ddab4d5",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "skins/middleage_asian_male/middleage_asian_male.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1463,
+      "source_sha256": "341a041eeb9c4bb51133fafb4d61e859a36dbd142c75c7cef4531606143c4e22",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/skins/middleage_asian_male/middleage_asian_male.mhmat",
+      "repository_sha256": "341a041eeb9c4bb51133fafb4d61e859a36dbd142c75c7cef4531606143c4e22"
+    },
+    {
+      "source_path": "skins/middleage_asian_male/middleage_lightskinned_male_diffuse2.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 3730636,
+      "source_sha256": "e897c4cc1b6ad5d10a7d2b2be92402feda4e772e6582dfaf0a1e8fc4621d8097",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_SkinTexture_middleage_male.png",
+      "runtime_sha256": "e897c4cc1b6ad5d10a7d2b2be92402feda4e772e6582dfaf0a1e8fc4621d8097",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "skins/young_asian_female/young_asian_female.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1459,
+      "source_sha256": "2baeded5fdfd31acc187e83b278f9c4e4cbb59a7ffedf50ebcffcc44e4eab220",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/skins/young_asian_female/young_asian_female.mhmat",
+      "repository_sha256": "2baeded5fdfd31acc187e83b278f9c4e4cbb59a7ffedf50ebcffcc44e4eab220"
+    },
+    {
+      "source_path": "skins/young_asian_female/young_lightskinned_female_diffuse3.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 3884420,
+      "source_sha256": "1d82f782b7d2da732229633bd2d14754d873fff53cdb1d088977bcf67ae19dde",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_SkinTexture_young_female.png",
+      "runtime_sha256": "1d82f782b7d2da732229633bd2d14754d873fff53cdb1d088977bcf67ae19dde",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "skins/middleage_asian_female/middleage_asian_female.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1468,
+      "source_sha256": "d002c338239d2aeeeec037e21f9dd22cd484ba8a955aee22aa0fe279ad6a3960",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/skins/middleage_asian_female/middleage_asian_female.mhmat",
+      "repository_sha256": "d002c338239d2aeeeec037e21f9dd22cd484ba8a955aee22aa0fe279ad6a3960"
+    },
+    {
+      "source_path": "skins/middleage_asian_female/middleage_lightskinned_female_diffuse2.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 3810424,
+      "source_sha256": "39c505ca224387bef0b20cd2bf513c3997c27c7e7434447228c9991b87cb8d01",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_SkinTexture_middleage_female.png",
+      "runtime_sha256": "39c505ca224387bef0b20cd2bf513c3997c27c7e7434447228c9991b87cb8d01",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "hair/short01/short01.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 194450,
+      "source_sha256": "d998d8416f9b5d5591f1d756f4d292288d000a6951bc0f4d2e8e72727bbc44fa",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short01/short01.obj",
+      "repository_sha256": "d998d8416f9b5d5591f1d756f4d292288d000a6951bc0f4d2e8e72727bbc44fa"
+    },
+    {
+      "source_path": "hair/short01/short01.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 201588,
+      "source_sha256": "ae1ffaa98da5753b803b3a173bede4895d2215e6bb94763f3765a71f0e984f35",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short01/short01.mhclo",
+      "repository_sha256": "ae1ffaa98da5753b803b3a173bede4895d2215e6bb94763f3765a71f0e984f35"
+    },
+    {
+      "source_path": "hair/short01/short01.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1314,
+      "source_sha256": "01e2e12ce3f3d3c859225456660acadcdd27d4f4b4d888bcbd6f11998cadd975",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short01/short01.mhmat",
+      "repository_sha256": "01e2e12ce3f3d3c859225456660acadcdd27d4f4b4d888bcbd6f11998cadd975"
+    },
+    {
+      "source_path": "hair/short01/short01_diffuse.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 2354146,
+      "source_sha256": "f34a0957184e3d1e911ed59245f874f8d4843f61ee44ff49f43edb4be0196949",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_HairAsset_short01.png",
+      "runtime_sha256": "f34a0957184e3d1e911ed59245f874f8d4843f61ee44ff49f43edb4be0196949",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "hair/short02/short02.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 139742,
+      "source_sha256": "48f979114adfa712165a69cc55c45a70831af1fb3cba8e2a89120f0c87407b64",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short02/short02.obj",
+      "repository_sha256": "48f979114adfa712165a69cc55c45a70831af1fb3cba8e2a89120f0c87407b64"
+    },
+    {
+      "source_path": "hair/short02/short02.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 119240,
+      "source_sha256": "625736cdb73e6d094df6e5a2df18f371781f1d2cd37b0ae15795c5d7051c3ec2",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short02/short02.mhclo",
+      "repository_sha256": "625736cdb73e6d094df6e5a2df18f371781f1d2cd37b0ae15795c5d7051c3ec2"
+    },
+    {
+      "source_path": "hair/short02/short02.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1323,
+      "source_sha256": "2ed04c8aad9c1a35d858ca72091525d32b1da3b61b5a031634dd528fd8530f6d",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short02/short02.mhmat",
+      "repository_sha256": "2ed04c8aad9c1a35d858ca72091525d32b1da3b61b5a031634dd528fd8530f6d"
+    },
+    {
+      "source_path": "hair/short02/short02_diffuse.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 3553543,
+      "source_sha256": "47fe33831a3929567c733356dd66243116e05df2ace1f884ddca0080b728229f",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_HairAsset_short02.png",
+      "runtime_sha256": "47fe33831a3929567c733356dd66243116e05df2ace1f884ddca0080b728229f",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "hair/short03/short03.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 74766,
+      "source_sha256": "4a9fc385718f2c46fb328ab99d33e3a946cecdb717987c8b324cf2466b59bd9c",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short03/short03.obj",
+      "repository_sha256": "4a9fc385718f2c46fb328ab99d33e3a946cecdb717987c8b324cf2466b59bd9c"
+    },
+    {
+      "source_path": "hair/short03/short03.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 69048,
+      "source_sha256": "d80bbb8fd9b06721c481756fb3e1d6dce04fcfc9ca8a379edd4ea3c0d81ed17f",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short03/short03.mhclo",
+      "repository_sha256": "d80bbb8fd9b06721c481756fb3e1d6dce04fcfc9ca8a379edd4ea3c0d81ed17f"
+    },
+    {
+      "source_path": "hair/short03/short03.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1309,
+      "source_sha256": "8dcf42b677301ab6a66f96ff41751ecf88fba6c6cd7c564e6953f9c78e40a8fd",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short03/short03.mhmat",
+      "repository_sha256": "8dcf42b677301ab6a66f96ff41751ecf88fba6c6cd7c564e6953f9c78e40a8fd"
+    },
+    {
+      "source_path": "hair/short03/short03_diffuse.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 2392930,
+      "source_sha256": "fe6ed0bb14498a48a2e8fc07e80e2a6f62c8b67686fcd0a7a570d345faec97da",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_HairAsset_short03.png",
+      "runtime_sha256": "fe6ed0bb14498a48a2e8fc07e80e2a6f62c8b67686fcd0a7a570d345faec97da",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "hair/short04/short04.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 55152,
+      "source_sha256": "676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short04/short04.obj",
+      "repository_sha256": "676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de"
+    },
+    {
+      "source_path": "hair/short04/short04.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 59195,
+      "source_sha256": "d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short04/short04.mhclo",
+      "repository_sha256": "d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157"
+    },
+    {
+      "source_path": "hair/short04/short04.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1316,
+      "source_sha256": "7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/short04/short04.mhmat",
+      "repository_sha256": "7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97"
+    },
+    {
+      "source_path": "hair/short04/short04_diffuse.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 2308132,
+      "source_sha256": "0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_HairAsset_short04.png",
+      "runtime_sha256": "0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "hair/ponytail01/ponytail01.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 264384,
+      "source_sha256": "d9f5fe96fbedbc8006220d87aad0e4a33d15286eb6b21f5929661cdc490ebf5a",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/ponytail01/ponytail01.obj",
+      "repository_sha256": "d9f5fe96fbedbc8006220d87aad0e4a33d15286eb6b21f5929661cdc490ebf5a"
+    },
+    {
+      "source_path": "hair/ponytail01/ponytail01.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 252080,
+      "source_sha256": "97fc50b12bcb3b1c7b33edddd8d427a2604ffb06fe79b31132bf47f82d7afbac",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/ponytail01/ponytail01.mhclo",
+      "repository_sha256": "97fc50b12bcb3b1c7b33edddd8d427a2604ffb06fe79b31132bf47f82d7afbac"
+    },
+    {
+      "source_path": "hair/ponytail01/ponytail01.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1305,
+      "source_sha256": "b145f5a7c9606859ad523f5113482a1cf989cf0e26dccc2ea95c377cb1c2557f",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/ponytail01/ponytail01.mhmat",
+      "repository_sha256": "b145f5a7c9606859ad523f5113482a1cf989cf0e26dccc2ea95c377cb1c2557f"
+    },
+    {
+      "source_path": "hair/ponytail01/ponytail01_diffuse.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 3910782,
+      "source_sha256": "dcb364300cac06ce8bef91b2f7c0970baf310898bbdd06b0c6b884ee9306eb97",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_HairAsset_ponytail01.png",
+      "runtime_sha256": "dcb364300cac06ce8bef91b2f7c0970baf310898bbdd06b0c6b884ee9306eb97",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "hair/braid01/braid01.obj",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 302165,
+      "source_sha256": "ad0b449c80244452bc8d437f5d59c25ec2ac17b2eb35e1ae2d9531fc00b73b0a",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/braid01/braid01.obj",
+      "repository_sha256": "ad0b449c80244452bc8d437f5d59c25ec2ac17b2eb35e1ae2d9531fc00b73b0a"
+    },
+    {
+      "source_path": "hair/braid01/braid01.mhclo",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 305086,
+      "source_sha256": "e350614dab32230c47d67e7747079b89859d36e62a890ca47890f068eca4f7a9",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/braid01/braid01.mhclo",
+      "repository_sha256": "e350614dab32230c47d67e7747079b89859d36e62a890ca47890f068eca4f7a9"
+    },
+    {
+      "source_path": "hair/braid01/braid01.mhmat",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 1299,
+      "source_sha256": "c8fdc8452c94715e9bf8fc194c82dc1e53124475b0665058d31b142bf0f3f762",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "repository_path": "美术源文件/人物基础/makehuman-system/hair/braid01/braid01.mhmat",
+      "repository_sha256": "c8fdc8452c94715e9bf8fc194c82dc1e53124475b0665058d31b142bf0f3f762"
+    },
+    {
+      "source_path": "hair/braid01/braid01_diffuse.png",
+      "license": "CC0-1.0",
+      "source_url": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+      "source_bytes": 2615248,
+      "source_sha256": "24c0d2a639f04704734c3e38af97d110777c1b203e5a10c66a5c89563643a018",
+      "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_HairAsset_braid01.png",
+      "runtime_sha256": "24c0d2a639f04704734c3e38af97d110777c1b203e5a10c66a5c89563643a018",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle."
+    },
+    {
+      "source_path": "LICENSE.md",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/LICENSE.md",
+      "source_bytes": 1066,
+      "source_sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352",
+      "repository_path": "美术源文件/人物基础/rocketbox/LICENSE.md",
+      "repository_sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Male_Adult_08/Export/Male_Adult_08.fbx",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_08/Export/Male_Adult_08.fbx",
+      "source_bytes": 508784,
+      "source_sha256": "e0d979315a5f11050945522f9f084932807af2edeefbdb380a2c9aa36c9f9bb3",
+      "repository_path": "美术源文件/人物基础/rocketbox/Male_Adult_08/Male_Adult_08.fbx",
+      "repository_sha256": "e0d979315a5f11050945522f9f084932807af2edeefbdb380a2c9aa36c9f9bb3",
+      "git_blob_sha1": "2e6936c594c9c65b44916839340be3b4eecd2202",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_color.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_color.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "9b6cef05b86497ffca6f131842950341302fa170e5ce3de1c2446501be774b91",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredCottonAndTwill_color.png",
+      "runtime_sha256": "d91f6ed73af3c5c5c1f49e63d4698c5ff78390edf495afd3d77a253be89667e3",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "c6162d348435623eb44fa0f2114dc9109a0e0a8d",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_normal.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_normal.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "e77af685914352cf75755d45254cdab57d3af3c6fa848a1f2f871250eb87d3ab",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredCottonAndTwill_normal.png",
+      "runtime_sha256": "e471afea1c4f7cd72e5472b6e646ffc161c2c3be566f227a49ebc5ae5acff2a2",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "f2d9f6ea9e075fbd8dba9bbae1a01f57224d4765",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_specular.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_specular.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "16afa1e387ff944626e2399d00de4fb0428ed25d01a1b1288723b41fe807a8d2",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredCottonAndTwill_specular.png",
+      "runtime_sha256": "ccc77a139a3c7bd323b9b3dd10f68fbff97eca5da26fd98ab66eb6c7788fa9c7",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "32e0fac7dd354d0aec2794fb3ccfa8854861d788",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Export/Female_Adult_15.fbx",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Export/Female_Adult_15.fbx",
+      "source_bytes": 651088,
+      "source_sha256": "49300e70f72ec0238a17ea583610d41fd34ae78135ee1c0fda5ed9493e49a56a",
+      "repository_path": "美术源文件/人物基础/rocketbox/Female_Adult_15/Female_Adult_15.fbx",
+      "repository_sha256": "49300e70f72ec0238a17ea583610d41fd34ae78135ee1c0fda5ed9493e49a56a",
+      "git_blob_sha1": "4ba89224f99fb8b9139f6c6ed31927238bd1f565",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_color.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_color.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "d3e41b8a2845b2dd546c2ffb166b18541bf2937b8a336d6cadf4d4c725047df5",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredWomen_f018_color.png",
+      "runtime_sha256": "f557913f9ffa83368ffb1b26f7388864fcdaf201a7b9541a829f94c8c406c94e",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "4636f4dbe6da255187038d7765d8786abdcda393",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_normal.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_normal.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "a0e0920403e9c1329d4b41a34444257bfa1861f82f09a2cf8224bdc393c0df32",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredWomen_f018_normal.png",
+      "runtime_sha256": "d1966cd6e801f3901e02cc77eb0f216379594ba11772a9cae1792e7fb88f83d9",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "3619d3a63c2effbc69c1c4e17901003ac091c219",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_specular.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Female_Adult_15/Textures/f018_body_specular.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "2e1e914cb79b190db4ed6f313d1dbc195a3f016a4ca87672c9e1e6020a97fc0a",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredWomen_f018_specular.png",
+      "runtime_sha256": "25efca1b8c6d9afa9ea9f4695750d6240f01bf7d3af5539041eeac520adad1b9",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "3f967477865ecbee50f38d80d8bf59d7135940d6",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Export/Female_Child_02.fbx",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Export/Female_Child_02.fbx",
+      "source_bytes": 519088,
+      "source_sha256": "3983f3059878018dbb566d50934d3ab692ea811268a9164c44345411e546c358",
+      "repository_path": "美术源文件/人物基础/rocketbox/Female_Child_02/Female_Child_02.fbx",
+      "repository_sha256": "3983f3059878018dbb566d50934d3ab692ea811268a9164c44345411e546c358",
+      "git_blob_sha1": "505c74be38f823178b0b5fda88a09ba71ee3b1e7",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_color.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_color.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "0982ad0db8b00ea18a075017c7554617d77f860c56f4b591236c6fde38d1346e",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredWomen_cf011_color.png",
+      "runtime_sha256": "729e7a7d26866c956a9f2fc0d105cc4f16c4124e977fb2ef561982f98a7328b3",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "8764e6f4749f9c526c909f1130fd2e54b0fef888",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_normal.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_normal.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "97e14195b5fe16d1eab9a9af7c1ec1dfa6c2996e005d15a4b86ec645c0140ab3",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredWomen_cf011_normal.png",
+      "runtime_sha256": "91efdcbabb06f13292935862a666f5f3b250682630bbcee7766b203d0b279fbb",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "36bc2d7a93ded4b28ca92e27d79a8e954b914a53",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    },
+    {
+      "source_path": "Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_specular.tga",
+      "license": "MIT",
+      "source_url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Children/Female_Child_02/Textures/cf011_body_specular.tga",
+      "source_bytes": 12582956,
+      "source_sha256": "ea149b3170757ab729c94bec71ee8ad90fbe05a451eded7159c6fb4dded44354",
+      "runtime_path": "Assets/Resources/CharacterArt/QP2_AuthoredWomen_cf011_specular.png",
+      "runtime_sha256": "3d7e0022df37247de5a21d15898e0e464461dba3e5524bebdb868461ab90fe2e",
+      "pixel_identical": true,
+      "texture_storage": "Original pixels preserved in PNG; no duplicate source image in this bundle.",
+      "git_blob_sha1": "b10e8df194d92570667a60bae75f53dd96076aec",
+      "git_blob_verified_against_commit": "0943055db6ec570bcef9f2c8b41c9e5467c808f9"
+    }
+  ]
+}

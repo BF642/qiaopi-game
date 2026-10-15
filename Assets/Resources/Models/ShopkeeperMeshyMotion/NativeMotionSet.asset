@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4d975f93cb42c5aba46c66383c0af, type: 3}
+  m_Name: NativeMotionSet
+  m_EditorClassIdentifier: Assembly-CSharp::Qiaopi.NativeMotionSet
+  qualificationVersion: 1
+  qualified: 0
+  directImport: 1
+  role: Shopkeeper
+  model: {fileID: -927199367670048503, guid: 88c25b7b60395075b557ad61c88a23fd, type: 3}
+  reviewedSkin: {fileID: 0}
+  reviewedSkinSourceName: 
+  idle: {fileID: 7400000, guid: ecb58dff2f0a8482ab667571c3e46f20, type: 2}
+  walking: {fileID: 7400000, guid: 80839fed36a4f477f89a3a6f472453f5, type: 2}
+  running: {fileID: 7400000, guid: 80839fed36a4f477f89a3a6f472453f5, type: 2}
+  seated: {fileID: 7400000, guid: 77aa8e080e3e6465ea20bd258eee49cd, type: 2}
+  fingerAnimationWeight: 1
+  fingerAdaptationReview: Direct original model with existing stock Meshy clips. No per-character visual qualification or borrowed finger/contact correction.
+  reviewedContactAndWristAdaptation: 0
+  reviewedSeatAndGroundAdaptation: 0
+  walkingReferenceMetresPerSecond: 1.3671166
+  runningReferenceMetresPerSecond: 1.3671166
+  sourceAssets:
+  - Assets/Resources/Models/ShopkeeperMeshyMotion/ShopkeeperMeshyMotion.fbx
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Idle_4.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Walking.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Chair_Sit_Idle_M.anim
+  sourceDependencyHashes:
+  - 8f75a6cf6b6ae39147542eaa84ad63d4
+  - 634b70c4aa867f7f90b84800f2ffed8d
+  - d36cfd6d8eb4e39237110c2233e57d8d
+  - 8eeffa4668d1705cb40c18b4fb1196f5

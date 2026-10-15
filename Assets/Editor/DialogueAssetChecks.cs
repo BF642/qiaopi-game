@@ -9,9 +9,8 @@ namespace Qiaopi.Editor
         [MenuItem("侨批/检查人物与语音资源")]
         public static void Run()
         {
-            var ids=new[]{"wensheng","mother","aman","uncle","xusheng","guide","foreman","shopkeeper","master_he","clerk","worker"};
             var models=new HashSet<string>();
-            foreach(var id in ids){var info=CharacterRoster.Get(id);if(!models.Add(info.model))throw new Exception("Duplicate identity model: "+id);
+            foreach(var info in CharacterRoster.All()){if(info.id=="narrator")continue;if(!models.Add(info.model))throw new Exception("Duplicate identity model: "+info.id);
                 if(!Resources.Load<GameObject>("Models/"+info.model))throw new Exception("Missing model: "+info.model);}
             // The public project supports a complete subtitle-only edition. A partial
             // voice pack must still pass every voiced-line check below.

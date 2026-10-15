@@ -26,7 +26,7 @@ namespace Qiaopi
                 new Vector2(-1250,-1250), new Vector2(-19,-1268),
                 new Vector2(17,-790), new Vector2(20,-365), new Vector2(30,-181),
                 new Vector2(22,-108), new Vector2(28,-58), new Vector2(36,-32),
-                new Vector2(36,38), new Vector2(-36,38), new Vector2(-53,31),
+                new Vector2(36,38), new Vector2(-36,38), new Vector2(-36,23.1f), new Vector2(-70,23.1f),
                 new Vector2(-95,25), new Vector2(-162,29), new Vector2(-324,15),
                 new Vector2(-803,16), new Vector2(-1262,-26), new Vector2(-1270,-650)
             };
@@ -195,8 +195,10 @@ namespace Qiaopi
             HBSChannelMark(b, new Vector3(30,-.66f,106), true);
         }
 
+        static bool hbsLandwardExpansion;
         static void HBSSingaporePort(HBSBatch b)
         {
+            hbsLandwardExpansion=true;
             Material lane = Mat("Straits warehouse road dust", "A9A28A");
             HBSRoad(b, new[] { new Vector2(0,-33),new Vector2(-3,-72),new Vector2(-12,-140),new Vector2(-27,-194) }, 11, lane);
             HBSRoad(b, new[] { new Vector2(-37,-21),new Vector2(-78,-21),new Vector2(-137,-31),new Vector2(-195,-38) }, 9, lane);
@@ -243,6 +245,7 @@ namespace Qiaopi
             HBSChannelMark(b, new Vector3(52,-.66f,51), true);
             HBSChannelMark(b, new Vector3(78,-.66f,76), false);
             HBSChannelMark(b, new Vector3(11,-.66f,70), true);
+            hbsLandwardExpansion=false;
         }
 
         static void HBSRoad(HBSBatch b, Vector2[] points, float width, Material material)
@@ -263,6 +266,9 @@ namespace Qiaopi
 
         static void HBSHouse(HBSBatch b, Vector3 p, float width, float depth, float height, bool warehouse, float yaw)
         {
+            // The west-side workrooms now occupy real land here. Move complete
+            // background masses inland, never leave a facade through a playable lane.
+            if(hbsLandwardExpansion && p.x> -77 && p.x< -35 && p.z> -53 && p.z<35) p.x-=52;
             Quaternion turn = Quaternion.Euler(0,yaw,0);
             Material wall = warehouse ? Mat("surrounding limewashed godown","B3AA8C") : Mat("surrounding old red brick","9A6048");
             Material roof = Mat("surrounding grey clay roofs","585A4D");
@@ -334,6 +340,7 @@ namespace Qiaopi
 
         static void HBSTree(HBSBatch b,Vector3 p,float height,bool palm)
         {
+            if(hbsLandwardExpansion && p.x> -75 && p.x< -35 && p.z> -50 && p.z<35)p.x-=45;
             Vector3 crown=p+new Vector3(palm ? .45f : 0,height,0);
             b.Beam(p,crown,palm ? .29f : .63f,Mat("surrounding worn tree bark","77644C"));
             if(palm)
@@ -362,6 +369,7 @@ namespace Qiaopi
 
         static void HBSCargo(HBSBatch b,Vector3 p,int count,float size)
         {
+            if(hbsLandwardExpansion && p.x> -75 && p.x< -35 && p.z> -50 && p.z<35)p.x-=45;
             for(int i=0;i<count;i++)
             {
                 Vector3 c=p+new Vector3((i-(count-1)*.5f)*(size+.10f),size*.5f,0);
@@ -373,6 +381,7 @@ namespace Qiaopi
 
         static void HBSFishingShore(HBSBatch b,Vector3 p,bool tropical)
         {
+            if(hbsLandwardExpansion && p.x> -75 && p.x< -35 && p.z> -50 && p.z<35)p.x-=45;
             // Low racks, hand-laid nets and pulled-up skiffs make the shore inhabited.
             foreach(float x in new[]{-2.6f,2.6f})b.Beam(p+new Vector3(x,0,-1),p+new Vector3(x,2.8f,-1),.12f,Dark);
             b.Beam(p+new Vector3(-2.6f,2.65f,-1),p+new Vector3(2.6f,2.65f,-1),.10f,Timber);

@@ -29,6 +29,8 @@ namespace Qiaopi
             PostPaving("Packing court floor", 20, 30.5f, 24, 11);
             PostPaving("Packing court side doorway", 6, 29.5f, 4, 6);
 
+            bool nativePenangOffice = RegionalBuilding.Spawn(buildingDestination,"remittance_office",world,new Vector3(-28.4f,0,6.3f));
+
             // Street frontage. The wide gaps line up with the parcel and paper objectives.
             PostWall("Parcel bay west wall", -32, -15.5f, .4f, 9, 1.1f);
             PostWall("Parcel bay east return", -15, -18.5f, .4f, 3, 1.1f);
@@ -61,12 +63,12 @@ namespace Qiaopi
             // The west hall is a long, open collecting and letter-writing room.
             // Its seven-metre-wide working aisle follows x=-22 from the parcel bay.
             PostWall("Writing hall west lower wall", -32, -5, .42f, 10, 1.18f);
-            PostWall("Writing hall west upper wall", -32, 13, .42f, 16, 1.18f);
+            if (!nativePenangOffice) PostWall("Writing hall west upper wall", -32, 13, .42f, 16, 1.18f);
             PostWall("Writing hall east middle return", -7, 3.5f, .42f, 5, 1.18f);
             PostWall("Writing hall east upper return", -7, 17.5f, .42f, 7, 1.18f);
             PostWall("Writing hall front left", -29, -10, 6, .42f, 1.18f);
             PostWall("Writing hall front middle", -14.5f, -10, 7, .42f, 1.18f);
-            PostWall("Writing hall rear left", -28.5f, 21, 7, .42f, 1.18f);
+            if (!nativePenangOffice) PostWall("Writing hall rear left", -28.5f, 21, 7, .42f, 1.18f);
             PostWall("Writing hall rear right", -12, 21, 10, .42f, 1.18f);
             PostDoor("收寄 · 代写", -22, -10, 8);
             PostDoor("账房后院", -21, 21, 8);
@@ -78,9 +80,9 @@ namespace Qiaopi
             PostWritingDesk(-28.4f, 3.4f);
             PostWritingDesk(-28.4f, 11.4f);
             PostWritingDesk(-13.4f, 16.8f);
-            PostBench(-28.5f, 17.8f, 4, false);
+            if (!nativePenangOffice) PostBench(-28.5f, 17.8f, 4, false);
             PostMailRack(-11.5f, -6.2f, 4.8f, 1.75f, "来批");
-            PostRearWindow(-28.5f, 21.03f, 4.2f);
+            if (!nativePenangOffice) PostRearWindow(-28.5f, 21.03f, 4.2f);
             PostRearWindow(-11.8f, 21.03f, 4.2f);
 
             // The east hall links checking, handing over, and packing. It is deliberately
@@ -161,7 +163,10 @@ namespace Qiaopi
             // The perimeter establishes a single large compound, without another ring
             // of tall houses behind the quest characters.
             PostWall("West compound boundary", -35.65f, 7, .45f, 60, 1.08f);
-            PostWall("East compound boundary", 35.65f, 3, .45f, 69, 1.08f);
+            // The existing southern street now continues into the new east lane.
+            PostWall("East compound boundary between side gates", 35.65f, 2.55f, .45f, 38.9f, 1.08f);
+            PostWall("East compound boundary north of mid-block gate", 35.65f, 32.75f, .45f, 9.5f, 1.08f);
+            PostWall("East compound boundary south of side gate", 35.65f, -29.9f, .45f, 3.2f, 1.08f);
             PostWall("Rear compound wall west", -20, 37.65f, 31, .45f, 1.08f);
             PostWall("Rear compound wall east", 20, 37.65f, 31, .45f, 1.08f);
         }
@@ -272,7 +277,10 @@ namespace Qiaopi
 
         static void PostWritingDesk(float x, float z)
         {
-            PostTable("Letter writer's desk", x, z, 1.65f, .76f, false, .78f);
+            if (EnvironmentModelLibrary.TrySpawn(EnvironmentModelLibrary.WritingDesk, world,
+                new Vector3(x, 0, z), Quaternion.identity, out _))
+                PostFurnitureCollider("Letter writer's desk", new Vector3(x, 0, z), new Vector3(1.57f, .78f, .68f));
+            else PostTable("Letter writer's desk", x, z, 1.65f, .76f, false, .78f);
             PostBench(x, z - .88f, .48f, false);
             var v = new List<Vector3>(); var t = new List<int>();
             foreach (float side in new[] { -1f, 1f })

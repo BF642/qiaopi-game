@@ -18,12 +18,12 @@ namespace Qiaopi
             if(!Application.isMobilePlatform)return;
             Screen.sleepTimeout=SleepTimeout.NeverSleep;
             string testMarker=System.IO.Path.Combine(Application.persistentDataPath,"run-mobile-test.txt");
-            mobileTestRequested=System.IO.File.Exists(testMarker);
+            mobileTestRequested=!WritingQA&&!InquiryQA&&!ChapterQA&&!CharacterQA&&!AmbientQA&&!FirstDayQA&&!NanyangQA&&!TradeQA&&!WorkEventQA&&!PerformanceQA&&System.IO.File.Exists(testMarker);
             if(mobileTestRequested)System.IO.File.Delete(testMarker);
             Screen.orientation=ScreenOrientation.AutoRotation;
             Screen.autorotateToLandscapeLeft=Screen.autorotateToLandscapeRight=true;
             Screen.autorotateToPortrait=Screen.autorotateToPortraitUpsideDown=false;
-            if(!PlayerPrefs.HasKey("qiaopi-mobile-initialized")){
+            if(!WritingQA&&!InquiryQA&&!ChapterQA&&!CharacterQA&&!AmbientQA&&!FirstDayQA&&!NanyangQA&&!TradeQA&&!WorkEventQA&&!PerformanceQA&&!PlayerPrefs.HasKey("qiaopi-mobile-initialized")){
                 PlayerPrefs.SetInt("qiaopi-sound-enabled",0);
                 PlayerPrefs.SetInt("qiaopi-voice-enabled",0);
                 PlayerPrefs.SetInt("qiaopi-music-enabled",0);
@@ -53,7 +53,7 @@ namespace Qiaopi
         Rect TouchInteractRect(){Rect r=MobileUiBounds();return new Rect(r.xMax-226,H-320,184,176);}
         Rect TouchRunRect(){Rect r=MobileUiBounds();return new Rect(r.xMin+65,H-413,220,72);}
         Rect TouchResetRect(){Rect r=MobileUiBounds();return new Rect(r.xMax-226,H-436,184,78);}
-        bool UiBlocksTouch(Vector2 p)=>new Rect(MobileUiBounds().xMax-820,22,800,112).Contains(p)||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(p));
+        bool UiBlocksTouch(Vector2 p)=>(InInquiryScene&&InquiryEntryRect().Contains(p))||new Rect(MobileUiBounds().xMax-820,22,800,112).Contains(p)||(LifeJourney.HasReachedOverseas(state)&&LifeEntryRect().Contains(p));
 
         void ResetMobileControls()
         {

@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-15",
+  "gameBuild": "v298 original SemarangWarehouse + four distinct original cast, desktop build successful",
+  "implemented": [
+    "Worker native motions and8K writing desks retained",
+    "Original Wife and Mother sources with own animations built v295",
+    "Original courtyard built v295",
+    "Singapore general store original in Singapore market slot built v296",
+    "Aman original305742-face source restored with own existing rig/motions; v297desktop build succeeded",
+    "Original Penang remittance office replaces western writing-room building; v297desktop build SUCCESS exit0"
+  ],
+  "house": "Original-detail full courtyard restored in v295; production build succeeded. Original 4042234 faces after functional doorway editing; no decimation.",
+  "phone": "Removed from current scope by user; historical settings/files retained, no further mobile build or testing",
+  "notComplete": [
+    "Remaining distinct character original sources and animations",
+    "Regional functional buildings listed in regional-building-queue.json",
+    "Semarang environment and destination-specific livelihood/story before arrival activation",
+    "Story/free-life integration for remaining locations"
+  ],
+  "updatedAt": "2026-10-15T22:52:53.679696+08:00",
+  "latestEvidence": "work/replacement-v297/continuation-state.json",
+  "nextAction": "User is playing. Do not interrupt game. Next integrate already downloaded RangoonWorkerLodging native8K source into Rangoon quarters, then remaining distinct cast/buildings; no regeneration.",
+  "credits": {
+    "account": "yejaspercj",
+    "lastObservedBalance": 4700,
+    "pendingJobs": [],
+    "extraSpendThisTurn": 15
+  },
+  "staging": {
+    "Aman": {
+      "status": "original geometry and own existing rig/motions imported in both projects; desktop build SUCCESS exit0",
+      "log": "work/replacement-v297/aman-build.log"
+    },
+    "PenangRemittanceOffice": {
+      "status": "original geometry/native textures imported in both projects; production desktop build SUCCESS exit0",
+      "log": "work/replacement-v297/penang-build.log",
+      "session": null,
+      "placement": "ONLY penang/postoffice remittance writing room at x=-28.4 front z=6.3; original courtyard writing desk retained"
+    },
+    "SemarangWarehouse": {
+      "status": "original native8K textured GLB downloaded; unchanged-geometry FBX/material conversion complete; NOT yet in playable destination",
+      "route": "not activated; Indonesia needs local livelihood/story/environment integration",
+      "source": "work/environments-v297/SemarangWarehouse/source-original",
+      "conversionLog": "work/replacement-v297/semarang-conversion.log"
+    }
+  },
+  "latestProductionEvidence": {
+    "log": "work/replacement-v298/cache-repair-retry.log",
+    "bytes": 2959215742,
+    "startup": "first-person market scene displayed",
+    "artInspection": false
+  },
+  "developmentPolicy": {
+    "platform": "desktop only",
+    "meshReduction": false,
+    "originalGeometryRequired": true,
+    "source": "Latest user instruction 2026-10-15",
+    "mobileWorkRemoved": true,
+    "qualityInspection": false,
+    "motionInspection": false,
+    "directGeneratedAssetImport": true
+  },
+  "latestWork": {
+    "updatedAt": "2026-10-15T22:52:53.679696+08:00",
+    "scope": "Desktop only; original geometry, no decimation; direct asset import, no art QA",
+    "SemarangWarehouse": {
+      "status": "production_desktop_build_success",
+      "buildLog": "work/replacement-v298/semarang-build.log",
+      "destination": "semarang",
+      "placement": "port west warehouse front(-7.5,0,14), yaw=-90",
+      "content": "Fourth destination with sugar cargo work, local shore dialogue, livelihood labels and wage dispute context",
+      "gameplayChecks": "3966 in-memory assertions,243 save roundtrips; no player saves/preferences touched"
+    },
+    "cast": {
+      "roles": [
+        "Xusheng",
+        "Uncle",
+        "Shopkeeper",
+        "Foreman"
+      ],
+      "status": "all four imported; production desktop build SUCCESS exit0",
+      "buildLog": "work/replacement-v298/cast-build.log",
+      "binding": "Unchanged original GLBs, existing stock Meshy skeleton and clips transferred in Blender; not independently cloud-rigged",
+      "motions": "standing,walking,seated; fast channel uses walking, role-height speed scaling; no borrowed Worker finger/contact corrections"
+    },
+    "RangoonWorkerLodging": {
+      "status": "native8K_original_downloaded_not_integrated",
+      "referenceFolder": "work/environments-v298/RangoonWorkerLodging/references",
+      "geometry": "Meshy7.1 HighDetail Ultra2K Multi-view (Ultra4K disabled), no remesh",
+      "textures": "8K with PBR, all four references",
+      "credits": 40,
+      "submittedOnce": true,
+      "cloudName": "Rustic Stable House",
+      "source": "work/environments-v298/RangoonWorkerLodging/source-original",
+      "cloudJobComplete": true
+    },
+    "creditsLastObserved": 4660,
+    "activeLocalProcesses": [],
+    "activeCloudJobs": [],
+    "nextAction": "User is playing. Do not interrupt game. Next integrate already downloaded RangoonWorkerLodging native8K source into Rangoon quarters, then remaining distinct cast/buildings; no regeneration.",
+    "lastSuccessfulDesktopBuild": {
+      "log": "work/replacement-v298/cache-repair-retry.log",
+      "bytes": 2959215742,
+      "startup": "first-person market scene displayed",
+      "artInspection": false
+    },
+    "gameLaunchedForUser": true,
+    "startupStatus": "SUCCESS: launched rebuilt production app; actual first-person Singapore market scene visible, existing save restored",
+    "cacheRepair": "Old duplicate caches preserved under ~/Library/Caches/Qiaopi-v298-build-repair/prior-*. Final cache directories are ordinary project Library directories, NOT symlinks. BuildOptions.None used after fresh cache recreation."
+  },
+  "latestUserPolicy": "Desktop only, original geometry; direct generated-asset import without art/motion/mesh QA; distinct buildings by destination AND function.",
+  "regionalBuildingQueue": "regional-building-queue.json",
+  "latestContinuation": "work/replacement-v298/continuation-state.json",
+  "v295ReleaseStatus": "Wife, Mother original geometry and original-detail Quanzhou courtyard desktop build succeeded.",
+  "v296ReleaseStatus": "SUCCESS desktop build exit0. One native Singapore general store in destination/function-specific market slot; Mother/Wife originals and original courtyard included. No art quality inspection performed at user request.",
+  "creditsLastObserved": 4660,
+  "historicalVerification": [
+    "Mac production build succeeded",
+    "Dock coworker performance runtime1414checks",
+    "Writing/indoor runtime194checks",
+    "Existing user save bytes unchanged; audio remains muted",
+    "Current house build: continuous family walking and full chapter152checks; all6 writing sites194checks",
+    "Current build: actual native Aman and corrected skin loaded; complete chapter17checkpoints154assertions; saves/audio/settings unchanged",
+    "v289 formal and public source checks; actual chapter17checkpoints158assertions through overseas first reply; native Wife8K/material/skin verified in game; user saves/mute/protected settings unchanged",
+    "v290 actual fullvoice Mac chapter17checkpoints158assertions; family screenshot confirms improved bowl scale and child upper-body clearance; user saves/mute/settings unchanged"
+  ]
+}

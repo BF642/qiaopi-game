@@ -1,0 +1,46 @@
+{
+  "role": "Wife",
+  "source_fbx_copied_byte_for_byte": true,
+  "source_fbx_kind": "explicit character FBX",
+  "basecolor_and_normal_copied_byte_for_byte": true,
+  "source_pixel_dimensions": {
+    "basecolor": [
+      8192,
+      8192
+    ],
+    "normal": [
+      4096,
+      4096
+    ],
+    "roughness": [
+      4096,
+      4096
+    ],
+    "metallic": [
+      4096,
+      4096
+    ]
+  },
+  "packed_map": {
+    "R": "255 (unoccluded)",
+    "G": "original scalar roughness at native data-map resolution",
+    "B": "original scalar metallic at native data-map resolution",
+    "width": 4096,
+    "height": 4096,
+    "A": "255",
+    "resampled": false
+  },
+  "sources": {
+    "Meshy_AI_Serene_Heritage_Figur_biped_Animation_Idle_4_withSkin.fbx": "820a0b73c0f76f849787ca50cff793a9ad5bf06f0386949f74101342625decc4",
+    "Meshy_AI_Serene_Heritage_Figur_biped_texture_0.png": "ee3111ec6f284b0c2dd5be5c7f30187e8824371e35b1389c3e896ce92f9d28cc",
+    "Meshy_AI_Serene_Heritage_Figur_biped_texture_0_normal.png": "b56eaf1b2efb5ffdaaef3b4bad0ae8e09074acf0a4533e5b07dc3f1389d8cd01",
+    "Meshy_AI_Serene_Heritage_Figur_biped_texture_0_roughness.png": "6c3f4a49fc8fb85e6973f4501a7485e8c80a66f56b08c62d64883b7b36a2c389",
+    "Meshy_AI_Serene_Heritage_Figur_biped_texture_0_metallic.png": "b99d70a9049b07505bf0779467b532b9e7861f97a45bdbe22807bd179d9eff71"
+  },
+  "outputs": {
+    "Wife_basecolor.png": "ee3111ec6f284b0c2dd5be5c7f30187e8824371e35b1389c3e896ce92f9d28cc",
+    "Wife_metalrough.png": "80ea9e73ae634dc4abfefc142b3a36f075aebee236a992d0009bb4e998c2d9b5",
+    "Wife_normal.png": "b56eaf1b2efb5ffdaaef3b4bad0ae8e09074acf0a4533e5b07dc3f1389d8cd01",
+    "WifeMeshyMotion.fbx": "820a0b73c0f76f849787ca50cff793a9ad5bf06f0386949f74101342625decc4"
+  }
+}

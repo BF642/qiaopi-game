@@ -17,7 +17,11 @@ namespace Qiaopi
         // While the letter is open, none of its typed letters become game shortcuts.
         bool PersonalLetterTyping { get { return letterEditor; } }
 
-        void OpenPersonalLetter() { RequestWritingDesk(); }
+        void OpenPersonalLetter()
+        {
+            if(InHomeChapter) { journal=false;Toast("先和家人过完今日，再到桌前整理信纸。");return; }
+            RequestWritingDesk();
+        }
 
         void BeginPersonalLetterAtDesk()
         {
@@ -77,7 +81,7 @@ namespace Qiaopi
             string reason = "";
             bool canSend = !personalLetterPreview || PersonalLetters.CanSend(state, out reason);
             string notice = personalLetterNotice;
-            if (string.IsNullOrEmpty(notice)) notice = !canSend ? reason : "原文仅存本机；回批依据所选心意与附银生成。";
+            if (string.IsNullOrEmpty(notice)) notice = !canSend ? reason : "正文原样保留；家人知道哪些事，以这次所选心意为准。";
             Label(new Rect(panel.x + 30, panel.yMax - 143, panel.width - 60, 62), notice, 23, sub);
             if (!personalLetterPreview) {
                 if (LetterButton(new Rect(panel.xMax - 300, panel.yMax - 73, 270, 56), "检查信封", true, 25)) {
@@ -90,7 +94,10 @@ namespace Qiaopi
                 if (LetterButton(new Rect(panel.xMax - 300, panel.yMax - 73, 270, 56), "寄出 · 附银 " + draft.amount, true, 25)) {
                     string result;
                     if (PersonalLetters.TrySend(state, draft.token, out result)) {
-                        Save(); personalLetterDirty = false; ClosePersonalLetter(); journal = true; journalScroll = Vector2.zero; Toast(result);
+                        Save(); personalLetterDirty = false;
+                        if(InFirstDay&&DayStage=="bed")AfterFirstDayLetterSent();
+                        else if(NanyangLife.IsBlocking(state)&&state.nanyang.stage=="waiting")AfterNanyangLetterSent();
+                        else {ClosePersonalLetter(); journal = true; journalScroll = Vector2.zero; Toast(result);}
                     } else personalLetterNotice = result;
                 }
                 GUI.enabled = enabled;
@@ -104,8 +111,10 @@ namespace Qiaopi
             const float fieldWidth = 82, gap = 10, rowHeight = 54;
             float choicesX = x + fieldWidth, choicesWidth = width - fieldWidth;
             Label(new Rect(x, y + 8, 72, 40), "写给", 27, ink, true);
-            if (LetterButton(new Rect(choicesX, y, 136, rowHeight), "母亲", draft.recipient == "mother", 26)) draft.recipient = "mother";
-            if (LetterButton(new Rect(choicesX + 150, y, 176, rowHeight), "妹妹阿满", draft.recipient == "sister", 26)) draft.recipient = "sister";
+            float recipientWidth = (choicesWidth - gap * 2) / 3;
+            if (LetterButton(new Rect(choicesX, y, recipientWidth, rowHeight), "母亲", draft.recipient == "mother", 26)) draft.recipient = "mother";
+            if (LetterButton(new Rect(choicesX + recipientWidth + gap, y, recipientWidth, rowHeight), "妹妹阿满", draft.recipient == "sister", 26)) draft.recipient = "sister";
+            if (LetterButton(new Rect(choicesX + (recipientWidth + gap) * 2, y, recipientWidth, rowHeight), "妻子", draft.recipient == "wife", 26)) draft.recipient = "wife";
             float amountWidth = (choicesWidth - gap * 3) / 4;
             Label(new Rect(x, y + 72, 72, 40), "附银", 27, ink, true);
             for (int i = 0; i < PersonalLetters.Amounts.Length; i++) {
@@ -146,15 +155,16 @@ namespace Qiaopi
         {
             float width = viewport.width - 28;
             float bodyHeight = Mathf.Max(210, Height(draft.body, 28, width - 46, true));
-            float height = bodyHeight + 250;
+            float height = bodyHeight + 305;
             GalleryTouchScroll(viewport, ref personalLetterScroll, height);
             personalLetterScroll = GUI.BeginScrollView(viewport, personalLetterScroll, new Rect(0, 0, width, height), false, true);
             string origin = LifeJourney.HasReachedOverseas(state) ? LifeJourney.DestinationName(state) : "待抵埠后";
             Label(new Rect(0, 0, width, 45), origin + " → 泉州 · 收批人：" + PersonalLetters.RecipientName(draft.recipient), 29, ink, true);
             Label(new Rect(0, 58, width, 47), "心意：" + PersonalLetters.IntentName(draft.intent) + "    附银：" + draft.amount + "    寄出后盘缠：" + (state.money - draft.amount), 26, sub);
-            Box(new Rect(0, 125, width, bodyHeight + 66), new Color(.98f, .95f, .87f, .40f));
-            Label(new Rect(22, 148, width - 46, bodyHeight + 6), string.IsNullOrEmpty(draft.body) ? "（请先填写正文）" : draft.body, 28, ink, true);
-            Label(new Rect(0, bodyHeight + 205, width, 40), "文生 手书 · 回批随后收入侨批匣", 23, sub, false, TextAnchor.MiddleRight);
+            Label(new Rect(0, 114, width, 54), PersonalLetters.IntentEffect(draft.intent), 23, sub);
+            Box(new Rect(0, 180, width, bodyHeight + 66), new Color(.98f, .95f, .87f, .40f));
+            Label(new Rect(22, 203, width - 46, bodyHeight + 6), string.IsNullOrEmpty(draft.body) ? "（请先填写正文）" : draft.body, 28, ink, true);
+            Label(new Rect(0, bodyHeight + 260, width, 40), "文生 手书 · 跨海回批尚需数周", 23, sub, false, TextAnchor.MiddleRight);
             GUI.EndScrollView();
         }
 
@@ -170,6 +180,8 @@ namespace Qiaopi
             if (LetterButton(new Rect(panel.xMax - 426, panel.y + 23, 238, 65), writeLabel, true, 27)) { OpenPersonalLetter(); return; }
             if (LetterButton(new Rect(panel.xMax - 174, panel.y + 23, 142, 65), "收起", false, 26)) { journal = false; return; }
             string journeyNote = LifeJourney.HasReachedOverseas(state) ? "已寄自写侨批 " + state.personalLettersSent + " / " + PersonalLetters.MaxLetters + " 封" : "抵埠后可寄出 · 现在可存稿";
+            if(state.firstDayVersion==FirstDayChapter.CurrentVersion&&state.firstDay!=null&&state.firstDay.replyCollected&&state.personalLettersSent==1)
+                journeyNote="首封回批已到 · 接下来可自主谋生，随时保存";
             Label(new Rect(panel.x + 33, panel.y + 107, panel.width - 66, 38), journeyNote, mobile ? 25 : 23, sub);
             Rect viewport = new Rect(panel.x + 32, panel.y + 163, panel.width - 64, panel.height - 195);
             if (state.letters.Count == 0) {

@@ -288,6 +288,10 @@ namespace Qiaopi
 
         static void SSBuilding(SSGeometry s, Vector3 p, Quaternion r, float w, float d, float h, Material plaster, bool shop, bool office)
         {
+            if(s.ExpandedDistrict) {
+                if(p.x>35 && p.x<74 && p.z> -40 && p.z<64) p.x+=20;
+                else if(p.z>40 && p.z<73 && p.x> -45 && p.x<62) p.z+=16;
+            }
             // Narrow fronts, opaque wooden shutters, a shaded five-foot-way and tiled
             // roofs. No glass, bright stripe awnings, or modern flat-roofed colour blocks.
             SSLocalBox(s, Stone, p, r, new Vector3(0, .15f, 0), new Vector3(w, .34f, d));
@@ -502,8 +506,16 @@ namespace Qiaopi
             readonly System.Random rng;
             readonly string kind;
             public SSGeometry(string place) { kind = place; rng = new System.Random(place == "quanzhou" ? 1501 : place == "market" ? 1502 : place == "quarters" ? 1503 : 1504); }
+            public bool ExpandedDistrict => kind!="market";
             public float Range(float a, float b) => a + (float)rng.NextDouble() * (b - a);
-            static bool Outside(float left, float right, float near, float far) => right <= -39.5f || left >= 39.5f || far <= -35.5f || near >= 41.5f;
+            bool Outside(float left, float right, float near, float far)
+            {
+                // The background must not grow crop banks or facade fragments through
+                // the newly inhabitable north/east streets.
+                float east=kind=="market"?39.5f:57;
+                float north=kind=="market"?41.5f:57;
+                return right<=-39.5f||left>=east||far<=-35.5f||near>=north;
+            }
             Part Get(Material material, int count)
             {
                 if (!meshes.TryGetValue(material, out var parts)) { parts = new List<Part> { new Part() }; meshes.Add(material, parts); }

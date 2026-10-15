@@ -20,21 +20,23 @@ namespace Qiaopi
             ESRoute(0,-22,-24,-22);ESRoute(-23,-22,-23,-5);ESRoute(-23,-13,-26,-13);
             ESRoute(0,8,21,8);ESRoute(21,8,21,18);ESRoute(21,14,23,14);
             ESPaths();
-            ESOpenCourt("陈家院落",-23,-7,18,20,9,false,0,Brick);
-            ESShelterBack(-23,2,17,2.4f,2.85f,false);
+            if (!ChenCourtyardHouse.Spawn(world)) {
+                ESOpenCourt("陈家院落",-23,-7,18,20,9,false,0,Brick);
+                ESShelterBack(-23,2,17,2.4f,2.85f,false);
+            }
             ESHouse(-27,11,13,7,3.6f,Brick);
             ESHouse(-12,11,10,8,3.35f,Mat("village patched plaster","C3B18F"));
             ESHouse(-28,-28,12,5,3.0f,Mat("village work shed plaster","B4A68B"));
             ESHouse(29,-18,11,9,3.1f,Brick);
             ESOpenCourt("族亲堂屋前院",21,21,21,20,11,false,0,Cream);
             ESShelterBack(21,29.4f,20,3.1f,3.6f,true);
-            ESBench(-28.8f,-2.0f);ESJar(-30,-11,.56f);ESJar(-29.6f,-9.6f,.39f);
-            ESWorkTable(-28.5f,-1,1.65f);ESWorkTable(15.1f,26,2.1f);
+            if (!ChenCourtyardHouse.Ready) ESBench(-28.8f,-2.0f);ESJar(-30,-11,.56f);ESJar(-29.6f,-9.6f,.39f);
+            if (!ChenCourtyardHouse.Ready) ESWorkTable(-28.5f,-1,1.65f);ESWorkTable(15.1f,26,2.1f);
             ESBench(25.8f,26.4f);ESJar(29,23.5f,.55f);
             Lantern(new Vector3(15,3.0f,11.0f));Lantern(new Vector3(27,3.0f,11.0f));
             Box("榕溪公所旧木匾",new Vector3(21,3.14f,28),new Vector3(3.8f,.60f,.14f),Dark);
             SignText("榕溪公所",new Vector3(21,3.14f,27.915f),.115f);
-            Clothesline(new Vector3(-30,0,-1.0f),new Vector3(-18,0,-1.0f));
+            Clothesline(new Vector3(-27.2f,0,-14.8f),new Vector3(-27.2f,0,-11.6f));
             ESDryingYard(17,-5,22,15);
             ESField(-25,28,19,17);ESField(25,35,18,6);
             ESWalkStrip(-11,27,3.5f,21,Mat("village field bank","B1A280"));
@@ -54,11 +56,13 @@ namespace Qiaopi
             ESRoute(0,7,21,7);ESRoute(21,7,23,7);ESRoute(23,7,23,14);
             ESPaths();
             // Continuous narrow-fronted shop rows form a northern commercial street.
-            foreach(float x in new[]{-30f,-21f,-12f,12f,21f,30f})
+            foreach(float x in new[]{-30f,-21f,-12f,12f,21f,30f}) {
+                // Only this Singapore general-store slot owns this source model.
+                if(x == -12f && RegionalBuilding.Spawn(buildingDestination,"general_store",world,new Vector3(x,0,29.8f))) continue;
                 ESShop(x,34,7.8f,8,x<0?Mat("market shop limewash","C8BA9C"):Cream);
+            }
             ESWalkStrip(0,27,69,3.4f,Stone);
             ESOpenCourt("掌柜可入账房",-20,18,18,14,9,false,0,Cream);
-            ESShelterBack(-20,24,17.4f,2.5f,3.0f,false);
             ESCounter(-20,23.1f,7.4f);ESPaperBundles(-25.3f,22.9f);
             BambooBlind(new Vector3(-26.8f,2.85f,12),2.1f,.65f);
             Box("杂货铺木匾",new Vector3(-20,2.7f,24.1f),new Vector3(3.2f,.50f,.12f),Dark);
@@ -205,6 +209,7 @@ namespace Qiaopi
         static void ESCourtWall(string label,float x,float z,float w,float d,float h,Material material)
         {
             if(w<.05f||d<.05f)return;
+            if(label.StartsWith("掌柜可入账房"))h=2.80f;
             ESSolid(label,new Vector3(x,h*.5f,z),new Vector3(w,h,d),material);
             Box(label+" worn stone coping",new Vector3(x,h+.025f,z),new Vector3(w+.04f,.07f,d+.04f),Stone);
             // Small granite foundation stones sit within the original wall footprint.

@@ -1,0 +1,11 @@
+{
+  "platform": "desktop only",
+  "meshReduction": false,
+  "nativeGeometryAndTextures": true,
+  "workflow": "select animation then directly import",
+  "assetQualityInspections": false,
+  "requiredOnly": [
+    "rig and format conversion",
+    "compilation and build error handling"
+  ]
+}

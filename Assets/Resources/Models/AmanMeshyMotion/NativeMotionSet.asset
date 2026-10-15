@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4d975f93cb42c5aba46c66383c0af, type: 3}
+  m_Name: NativeMotionSet
+  m_EditorClassIdentifier: Assembly-CSharp::Qiaopi.NativeMotionSet
+  qualificationVersion: 1
+  qualified: 0
+  directImport: 1
+  role: Aman
+  model: {fileID: 919132149155446097, guid: 3478dbd5d40a1456ab6e797e55eb36e0, type: 3}
+  reviewedSkin: {fileID: 0}
+  reviewedSkinSourceName: 
+  idle: {fileID: 7400000, guid: b25be98e501354d67bdecc1efb2b0020, type: 2}
+  walking: {fileID: 7400000, guid: 9488bdd4da568446c8301d114b97dc2c, type: 2}
+  running: {fileID: 7400000, guid: ba2e9261e8e8d4361bbf650aa7b10616, type: 2}
+  seated: {fileID: 7400000, guid: 89c427d304a0b4116844d59550c5828c, type: 2}
+  fingerAnimationWeight: 1
+  fingerAdaptationReview: 
+  reviewedContactAndWristAdaptation: 0
+  reviewedSeatAndGroundAdaptation: 1
+  walkingReferenceMetresPerSecond: 1.023543
+  runningReferenceMetresPerSecond: 3.5226686
+  sourceAssets:
+  - Assets/Resources/Models/AmanMeshyMotion/AmanMeshyMotion.fbx
+  - Assets/Resources/Models/AmanMeshyMotion/Aman_Idle_4.anim
+  - Assets/Resources/Models/AmanMeshyMotion/Aman_Walking.anim
+  - Assets/Resources/Models/AmanMeshyMotion/Aman_Running.anim
+  - Assets/Resources/Models/AmanMeshyMotion/Aman_Chair_Sit_Idle_M.anim
+  sourceDependencyHashes:
+  - 0994e8f2b3d966aa9f87413473b53d09
+  - 14fcea1f50b763baff6f79934474a313
+  - 8e9b4ae0bfef22887f9fec0690917dd2
+  - d59d14136e0b5d149506ff5c3a33b0bb
+  - 6fa480b9c115dadb2022d1b0848fd720

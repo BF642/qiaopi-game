@@ -8,8 +8,19 @@ namespace Qiaopi
     {
         static readonly Dictionary<string, Material> palette = new Dictionary<string, Material>();
         static Transform world;
+        static string buildingDestination = "singapore";
         static Mesh leafMesh;
         static System.Random random;
+        static readonly List<Bounds> pavingSurfaces = new List<Bounds>();
+        public static Vector3 CharacterGroundPosition(Vector3 position)
+        {
+            // Decorative paving has relief above the navigation plane. Match
+            // standing NPC soles to that visible surface, like the player feet.
+            foreach(var surface in pavingSurfaces)
+                if(position.x>=surface.min.x&&position.x<=surface.max.x&&position.z>=surface.min.z&&position.z<=surface.max.z)
+                    position.y=Mathf.Max(position.y,surface.center.y);
+            return position;
+        }
         static Material Brick => Mat("brick", "9D4C36");
         static Material Cream => Mat("plaster", "D4C4A5");
         static Material Stone => Mat("stone", "ACAA98");
@@ -20,11 +31,13 @@ namespace Qiaopi
         static Material Red => Mat("lantern", "A3402D");
         static Material Gold => Mat("brass", "B29155");
 
-        public static GameObject Build(string kind)
+        public static GameObject Build(string kind, string destination = "singapore")
         {
             var root = new GameObject("Place · " + kind);
             world = root.transform;
+            buildingDestination = destination;
             pavingLayer = 0;
+            pavingSurfaces.Clear();
             random = new System.Random(kind == "harbor" ? 27 : kind == "singapore" ? 68 : 12);
             switch(kind){
                 case "quanzhou":ExpandedQuanzhou();break;
@@ -38,6 +51,7 @@ namespace Qiaopi
             if(kind=="harbor"||kind=="port")HarborSurroundings(kind);
             else if(kind!="ship")SettlementSurroundings(kind);
             AddSpatialDepth(kind);
+            AddDistrictExpansion(kind);
             if(Application.isPlaying)BatchScenery(root);
             if(kind=="harbor"||kind=="port"||kind=="ship")SeaEnvironment.Create(root,kind);
             if (Application.isPlaying) WorldAtmosphere.Create(root, kind);
@@ -50,6 +64,7 @@ namespace Qiaopi
             var groups=new Dictionary<string,List<MeshFilter>>();
             foreach(var f in root.GetComponentsInChildren<MeshFilter>()){
                 var r=f.GetComponent<MeshRenderer>();
+                if(f.GetComponentInParent<RegionalBuilding>())continue;
                 if(!r||!r.enabled||!f.sharedMesh||!f.sharedMesh.isReadable||r.sharedMaterials.Length!=1)continue;
                 bool animated=false;
                 for(Transform t=f.transform;t&&t!=root.transform;t=t.parent)

@@ -15,8 +15,8 @@ namespace Qiaopi
     {
         public string id,title,description;public Rect bounds;
         public Vector3 spawn,rest,sidePickup,sideDrop;public RegionZone[] zones;public RegionNote[] notes;
-        public bool IsGround(Vector3 p){return bounds.Contains(new Vector2(p.x,p.z))&&(id!="harbor"||p.z<=21.3f||Mathf.Abs(p.x)<=5.65f);}
-        public Vector3 Clamp(Vector3 p){p.x=Mathf.Clamp(p.x,bounds.xMin,bounds.xMax-.05f);p.z=Mathf.Clamp(p.z,bounds.yMin,bounds.yMax-.05f);if(id=="harbor"&&p.z>21.3f&&Mathf.Abs(p.x)>5.65f)p.z=21.3f;return p;}
+        public bool IsGround(Vector3 p){return bounds.Contains(new Vector2(p.x,p.z))&&(id!="harbor"||p.z<=21.3f||Mathf.Abs(p.x)<=5.65f)&&(id!="port"||p.x>=-35.7f||p.z<=22.7f);}
+        public Vector3 Clamp(Vector3 p){p.x=Mathf.Clamp(p.x,bounds.xMin,bounds.xMax-.05f);p.z=Mathf.Clamp(p.z,bounds.yMin,bounds.yMax-.05f);if(id=="harbor"&&p.z>21.3f&&Mathf.Abs(p.x)>5.65f)p.z=21.3f;if(id=="port"&&p.x< -35.7f&&p.z>22.7f)p.z=22.7f;return p;}
     }
     public static class WorldRegions
     {
@@ -53,6 +53,19 @@ namespace Qiaopi
                     r.id="postoffice";r.title="新加坡 · 侨批局";r.description="纸铺、收寄柜台、写批台、账房与封袋后院";
                     r.zones=new[]{Z("纸铺",12,-26,22,22),Z("收寄与写批",-33,-2,25,25),Z("柜台留底",12,2,22,23),Z("封袋后院",-13,24,26,13)};
                     r.notes=N(r.id,"纸铺的批纸","先把收信人的住处写清，再写要交代的家事。银钱和话语放在一起，才是这趟路上最重的牵挂。","收寄柜台","经手人要核对收信人、款额和来处。一份底单留在这里，让寄出的人日后还有据可查。","回批与留底","收到故乡回信，文生才知道银钱和心意走到了哪里。若家里仍在等款，还要沿经手记录继续追问。");break;
+            }
+            if(id=="quanzhou"||id=="quarters"||id=="postoffice") {
+                r.bounds=new Rect(-35,-31,90,86);
+                var zones=new System.Collections.Generic.List<RegionZone>(r.zones);
+                zones.Add(Z(id=="quanzhou"?"井埕与晒谷巷":id=="quarters"?"读信北巷":"留底北院",-34,38,68,16));
+                zones.Add(Z(id=="quanzhou"?"农具棚与东村巷":id=="quarters"?"同乡后街":"复核东巷",35,-30,19,84));
+                r.zones=zones.ToArray();
+            }
+            else if(id=="port") {
+                r.bounds=new Rect(-69,-43,104,80);
+                var zones=new System.Collections.Generic.List<RegionZone>(r.zones);
+                zones.Add(Z("经手货栈后街",-68,-42,32,64));
+                zones.Add(Z("船期簿与运货南路",-35,-42,69,10));r.zones=zones.ToArray();
             }
             return r;
         }

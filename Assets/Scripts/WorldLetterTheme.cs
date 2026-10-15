@@ -78,11 +78,11 @@ namespace Qiaopi
         }
         void LetterHeading(Rect r,bool mobile)
         {
-            HudSurface(new Rect(r.x-12,r.y-10,r.width+24,r.height+20),.55f);
+            // Keep the scene visible between the separate title, attributes and navigation.
             float seal=mobile?63:42;float pad=mobile?23:14;
             Rect mark=new Rect(r.x+pad,r.y+(r.height-seal)*.5f,seal,seal);
             DrawIllustratedIcon(mark,"brand");
-            HudText(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?220:248,mobile?49:42),"纸短情长",mobile?30:23,hudMuted,true);
+            FloatingHudText(new Rect(r.x+pad+seal+19,r.y+(mobile?12:10),mobile?220:248,mobile?49:42),"纸短情长",mobile?30:23,hudMuted,true);
         }
     }
 }

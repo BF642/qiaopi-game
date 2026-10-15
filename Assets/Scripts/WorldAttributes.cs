@@ -21,8 +21,8 @@ namespace Qiaopi
             int current = Mathf.Clamp(value, 0, 100);
             int size = mobile ? 24 : 18;
             float textHeight = mobile ? 30 : 25;
-            HudText(new Rect(area.x, area.y, area.width * .36f, textHeight), title, size-1, hudMuted);
-            HudText(new Rect(area.x + area.width * .36f, area.y, area.width * .64f, textHeight),
+            FloatingHudText(new Rect(area.x, area.y, area.width * .36f, textHeight), title, size-1, hudMuted);
+            FloatingHudText(new Rect(area.x + area.width * .36f, area.y, area.width * .64f, textHeight),
                 current + " / 100", mobile ? 23 : 17, hudText, false, TextAnchor.UpperRight);
 
             // Only bounded attributes use a percentage. Money remains an amount.

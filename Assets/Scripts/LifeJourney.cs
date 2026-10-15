@@ -46,11 +46,11 @@ namespace Qiaopi
     public static class LifeJourney
     {
         public const int MinTurns = 3, MaxTurns = 6;
-        private static readonly string[] Destinations = { "singapore", "penang", "rangoon" };
+        private static readonly string[] Destinations = { "singapore", "penang", "rangoon", "semarang" };
 
         public static JourneyState Create(int seed)
         {
-            return new JourneyState { seed = seed, destination = Destinations[new Random(seed).Next(3)] };
+            return new JourneyState { seed = seed, destination = Destinations[new Random(seed).Next(Destinations.Length)] };
         }
 
         public static JourneyState Ensure(GameState s)
@@ -72,12 +72,13 @@ namespace Qiaopi
         { return s != null && s.journeyVersion == 1 && s.journey != null ? s.journey.destination : "singapore"; }
         public static string DestinationName(GameState s)
         {
-            switch (DestinationId(s)) { case "penang": return "槟榔屿"; case "rangoon": return "仰光"; default: return "新加坡"; }
+            switch (DestinationId(s)) { case "semarang": return "三宝垄"; case "penang": return "槟榔屿"; case "rangoon": return "仰光"; default: return "新加坡"; }
         }
         public static string DestinationIntro(GameState s)
         {
             switch (DestinationId(s))
             {
+                case "semarang": return "你搭上的转船在爪哇三宝垄靠岸。糖袋从内地运进港口，货栈里混着不同的乡音。许生说，先认清货签和结工钱的柜台；扛货、街铺称货、送批，哪一条路都得自己走。";
                 case "penang": return "转船的空位把你带到槟榔屿。沿海货栈里有米粮、布匹和香料，街头通向一排排骑楼；同乡替你找到床位，却不能替你决定靠什么活下去。";
                 case "rangoon": return "等到的转船把你带到仰光。潮湿的河埠挨着米粮货栈，陌生的话语在船边来往；同乡带你认路，也提醒你把工钱和住处问清再落笔。";
                 default: return "候到的船在新加坡靠泊。河边货栈与街市挤满找工的人，岸上没有现成的金子，只有搬货的哨声、店铺的算盘声与催着送达的乡信。";
@@ -93,27 +94,39 @@ namespace Qiaopi
             { case "peace": case "pressure": case "home": case "funding": case "farewell": case "passage": return false; default: return true; }
         }
         public static bool IsActive(GameState s)
-        { return s != null && s.journeyVersion == 1 && s.nodeId == "first_pay" && !s.awaitingContinue && s.journey != null && !s.journey.completed; }
+        { return s != null && !FirstDayChapter.IsActive(s) && s.journeyVersion == 1 && s.nodeId == "first_pay" && !s.awaitingContinue && s.journey != null && !s.journey.completed; }
         public static bool CanFinish(GameState s)
-        { return IsActive(s) && s.journey.turns >= MinTurns && PendingHardship(s) == null; }
+        { return IsActive(s) && s.journey.turns >= MinTurns && PendingHardship(s) == null &&
+            (!NanyangLife.IsEnrolled(s) || (s.nanyang.stage == "complete" && !NanyangLife.IsBlocking(s) && string.IsNullOrEmpty(s.journey.pendingJob))); }
         public static bool Finish(GameState s)
         { if (!CanFinish(s)) return false; s.journey.completed = true; return true; }
 
         public static List<LivelihoodAction> Actions(GameState s)
         {
             var result = new List<LivelihoodAction>();
-            if (!IsActive(s) || s.journey.turns >= MaxTurns || PendingHardship(s) != null) return result;
-            result.Add(Action("dock", "码头扛货", "收入高，肩膀吃力。接两轮可把码头定为主业。", "port", 10, -10, 0, 1, true));
-            result.Add(Action("shop", "街市理货", "整理货物、核清账目。接两轮可转做柜台经营。", "market", 7, -4, 0, 4, true));
-            result.Add(Action("courier", "信局送批", "核对批封后亲自送达。接两轮可转入侨批行当。", "postoffice", 6, -6, 0, 6, true));
+            if (!IsActive(s) || s.journey.turns >= MaxTurns || PendingHardship(s) != null || NanyangLife.IsBlocking(s)) return result;
+            bool nanyang = NanyangLife.IsEnrolled(s);
+            if (nanyang) {
+                result.Add(NanyangLife.WorkReward(s, "dock"));
+                result.Add(NanyangLife.WorkReward(s, "shop"));
+                result.Add(NanyangLife.WorkReward(s, "courier"));
+            } else {
+                result.Add(Action("dock", "码头扛货", "收入高，肩膀吃力。接两轮可把码头定为主业。", "port", 10, -10, 0, 1, true));
+                result.Add(Action("shop", "街市理货", "整理货物、核清账目。接两轮可转做柜台经营。", "market", 7, -4, 0, 4, true));
+                result.Add(Action("courier", "信局送批", "核对批封后亲自送达。接两轮可转入侨批行当。", "postoffice", 6, -6, 0, 6, true));
+            }
             result.Add(Action("rest", "留一日养身", s.money >= 2 ? "留两份吃热饭、歇肩膀。休息也算一轮生活安排。" : "先到同乡屋里喝粥歇脚，不因身无分文堵住去路。", "quarters", s.money >= 2 ? -2 : 0, 16, 0, 0, false));
             result.Add(Action("remit", "先寄六份家用", "附上简短家书，留下汇出记录；自写长信可去写批桌。", "postoffice", -6, 0, 7, 2, false));
             foreach (LivelihoodAction action in result)
             {
+                var referral = FirstDayChapter.BonusForWork(s, action.id);
+                if(referral.available)action.description = (referral.money > 0 ? "熟人照应：本轮另得两份工钱。" : "熟人照应：本轮信用另加两点。") + action.description;
+                if (NanyangLife.TransferBonusForWork(s, action.id) > 0) action.description = "换工介绍：本轮异职业另得两份工钱（一次）。" + action.description;
                 if (s.money + action.money < 0) Disable(action, "盘缠不足 " + -action.money + " 份");
                 else if (action.physical && s.health < 18) Disable(action, "体力不足 18，先歇一日");
                 else if (action.id == "dock" && s.health < 24) Disable(action, "扛货需要至少 24 体力");
                 else if (Count(s, action.id) >= (action.id == "remit" ? 2 : 3)) Disable(action, "这段日子已做足，试试别的安排");
+                else if (nanyang && !CanStoreAction(s, action)) Disable(action, "行旅记录已满，先整理眼前的安排");
             }
             return result;
         }
@@ -124,7 +137,23 @@ namespace Qiaopi
             if (!StoryEngine.Validate(s)) return false;
             LivelihoodAction action = Actions(s).Find(a => a.id == actionId && a.enabled);
             if (action == null) return false;
-            Apply(s, action); s.journey.turns++; s.journey.pendingJob = "";
+            bool nanyang = NanyangLife.IsEnrolled(s);
+            if (nanyang && !string.IsNullOrEmpty(s.journey.pendingJob) && s.journey.pendingJob != actionId) return false;
+            if (TradeWork.IsActive(s) && (!TradeWork.IsComplete(s) || s.tradeShift.route != actionId)) return false;
+            if (!WorkEvents.CanSettle(s)) return false;
+            WorkEventChoice workEvent = WorkEvents.SettlementEffect(s);
+            bool returned = WorkEvents.Returning(s);
+            if (workEvent != null) {
+                action.money += workEvent.money; action.health += workEvent.health; action.trust += workEvent.trust;
+            }
+            bool withheld = NanyangLife.WillWithhold(s, actionId);
+            int promisedWage = action.money;
+            // Withhold from this job's pay before applying the money cap. Never
+            // confiscate four units of an existing balance at the cap.
+            if (withheld) action.money -= 4;
+            string eventOutcome = WorkEvents.Settle(s);
+            TradeWork.Clear(s);
+            Apply(s, action); action.money = promisedWage; s.journey.turns++; s.journey.pendingJob = "";
             switch (action.id)
             {
                 case "dock": outcome = "货包入栈，你把十份工钱攥在手里，肩膀也添了一层酸痛。明日是否再接这份活，由你决定。"; break;
@@ -135,6 +164,19 @@ namespace Qiaopi
                     outcome = "六份家用与一页短信托往泉州，盘缠少了，家里的等待却有了一个明确的数。凭据已收进信匣。";
                     s.letters.Add(new LetterRecord { title = "谋生日里的六份家用", date = "1906年冬", route = DestinationName(s) + " → 厦门 → 泉州晋江县", body = "母亲、阿满：随批寄家用六份，近来做工与休息都在安排。此款先应家中急需，收妥请回批告知；儿会留足自己的饭钱，量力再寄。", signature = "文生 敬上", amount = 6, incoming = false });
                     Flag(s, "livelihood_remit"); break;
+            }
+            if (nanyang && action.physical)
+                outcome = "你完成这一轮" + action.title + "的活。议定工钱 " + promisedWage + " 份，" +
+                    (withheld ? "结账时只付了 " + (promisedWage - 4) + " 份，四份工钱被扣下。对方催你离开，你把当日工数记住；许生也看见了交接。" : "工钱已按数领到，做过的活与交接都留进生活簿。") ;
+            if (returned) outcome = "你已把未能交付的批原封退局并登记。这轮退批按约领到 " + promisedWage + " 份工钱，往返与登记的经历留在生活簿。";
+            if (!string.IsNullOrEmpty(eventOutcome)) outcome += " " + eventOutcome;
+            if (action.physical) {
+                string referral = FirstDayChapter.ApplyWorkBonus(s, action.id);
+                if (!string.IsNullOrEmpty(referral)) outcome += " " + referral;
+                if (nanyang) {
+                    string transfer = NanyangLife.ApplyTransferBonus(s, action.id);
+                    if (!string.IsNullOrEmpty(transfer)) outcome += " " + transfer;
+                }
             }
             s.journey.log.Add(new JourneyLog { actionId = action.id, title = action.title, outcome = outcome, turn = s.journey.turns });
             if (action.physical && Count(s, action.id) >= 2)
@@ -148,7 +190,8 @@ namespace Qiaopi
                 outcome += " 这两轮经历让你能以这行作为往后的主业。";
                 s.journey.log[s.journey.log.Count - 1].outcome = outcome;
             }
-            if (s.journey.turns == 2)
+            if (withheld) NanyangLife.StartDispute(s, action.id, promisedWage);
+            if (!nanyang && s.journey.turns == 2)
             {
                 s.journey.hardshipId = DestinationId(s);
                 s.money = Math.Max(0, s.money - 4); s.health = Clamp(s.health - 3);
@@ -161,10 +204,14 @@ namespace Qiaopi
 
         public static JourneyHardship PendingHardship(GameState s)
         {
+            if (NanyangLife.IsEnrolled(s)) return null;
             if (!IsActive(s) || string.IsNullOrEmpty(s.journey.hardshipId) || s.journey.hardshipResolved) return null;
             var h = new JourneyHardship();
             switch (s.journey.hardshipId)
             {
+                case "semarang":
+                    h.title = "糖栈门前的扣款";
+                    h.body = "一场急雨后，包工人把一袋糖的受潮损耗算在新来搬工头上，扣下四份工钱。你没有见到入港前的验货单，许生却记得那袋糖卸船时就已潮湿。你可以请他作证、保存卸货记录，也可以先结伴另找差事。这是虚构的工钱纠纷。"; break;
                 case "penang":
                     h.title = "街口的一笔勒索";
                     h.body = "替人搬货经过街口时，收取地头钱的人拦住你，要你交一笔没有收据的费用。你问了一句缘由，便被推搡，连带丢了四份盘缠。一个异乡雇工的名字似乎不值他们停步。旁边店家看见了这件事：你可以留证找见证人，也可以先结伴换路。"; break;
@@ -218,10 +265,11 @@ namespace Qiaopi
             if (j == null) return false;
             if (Array.IndexOf(Destinations, j.destination) < 0 || j.turns < 0 || j.turns > MaxTurns || j.log == null || j.log.Count > MaxTurns + 1) return false;
             if (j.primaryTrade != "" && j.primaryTrade != "dock" && j.primaryTrade != "shop" && j.primaryTrade != "courier") return false;
-            if (!string.IsNullOrEmpty(j.pendingJob) && (j.pendingJob != "dock" && j.pendingJob != "shop" && j.pendingJob != "courier" || !IsActive(s) || PendingHardship(s) != null || j.turns >= MaxTurns)) return false;
+            bool nanyang = NanyangLife.IsEnrolled(s);
+            if (!string.IsNullOrEmpty(j.pendingJob) && (j.pendingJob != "dock" && j.pendingJob != "shop" && j.pendingJob != "courier" && !(nanyang && j.pendingJob == "rest") || !IsActive(s) || PendingHardship(s) != null || NanyangLife.IsBlocking(s) || j.turns >= MaxTurns)) return false;
             if (j.hardshipId != "" && j.hardshipId != j.destination) return false;
-            if (j.turns < 2 && !string.IsNullOrEmpty(j.hardshipId)) return false;
-            if (j.turns >= 2 && string.IsNullOrEmpty(j.hardshipId)) return false;
+            if (!nanyang && j.turns < 2 && !string.IsNullOrEmpty(j.hardshipId)) return false;
+            if (!nanyang && j.turns >= 2 && string.IsNullOrEmpty(j.hardshipId)) return false;
             if (j.hardshipResolved && string.IsNullOrEmpty(j.hardshipId)) return false;
             if (j.completed && !j.legacy && (j.turns < MinTurns || !j.hardshipResolved)) return false;
             int actions = 0, hardships = 0;
@@ -231,6 +279,25 @@ namespace Qiaopi
                 if (item.actionId.StartsWith("hardship_", StringComparison.Ordinal)) hardships++; else actions++;
             }
             return actions == j.turns && hardships == (j.hardshipResolved ? 1 : 0);
+        }
+
+        private static bool CanStoreAction(GameState s, LivelihoodAction action)
+        {
+            if (s.journey.log.Count >= MaxTurns + 1) return false;
+            if (action.id == "remit" && s.letters.Count + NanyangLife.PendingReplyCount(s) >= 40) return false;
+            var additions = new HashSet<string>();
+            if (action.id == "remit") additions.Add("livelihood_remit");
+            if (NanyangLife.WillWithhold(s, action.id)) additions.Add("livelihood_hardship");
+            if (action.physical && Count(s, action.id) + 1 >= 2) {
+                additions.Add("route_" + action.id);
+                additions.Add(action.id == "shop" ? "shop_partner" : action.id == "courier" ? "verified" : "crew_help");
+            }
+            int count = s.flags.Count;
+            if (action.physical && Count(s, action.id) + 1 >= 2)
+                foreach (string route in new[] { "route_dock", "route_shop", "route_courier" }) if (s.flags.Contains(route)) count--;
+            foreach (string flag in additions)
+                if (!s.flags.Contains(flag) || (flag.StartsWith("route_", StringComparison.Ordinal) && action.physical && Count(s, action.id) + 1 >= 2)) count++;
+            return count <= 80;
         }
 
         private static LivelihoodAction Action(string id, string title, string description, string region, int money, int health, int family, int trust, bool physical)

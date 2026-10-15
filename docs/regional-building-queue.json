@@ -1,0 +1,365 @@
+{
+  "schema": 1,
+  "userInstruction": "Distinct complete buildings by region AND function; original geometry, desktop only; direct import, no art inspection.",
+  "regionalAssets": [
+    {
+      "id": "quanzhou_residence",
+      "destination": "quanzhou",
+      "place": "中国 · 泉州",
+      "function": "residence",
+      "designBrief": "红砖民居：陈家院落",
+      "routeStatus": "existing",
+      "status": "original_imported_desktop_build_success",
+      "source": "QuanzhouCourtyardHome",
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "quanzhou_clan_hall",
+      "destination": "quanzhou",
+      "place": "中国 · 泉州",
+      "function": "clan_hall",
+      "designBrief": "家族堂屋：借款与议事",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "quanzhou_remittance_office",
+      "destination": "quanzhou",
+      "place": "中国 · 泉州",
+      "function": "remittance_office",
+      "designBrief": "侨批代写收寄铺：写批和交寄",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "quanzhou_general_store",
+      "destination": "quanzhou",
+      "place": "中国 · 泉州",
+      "function": "general_store",
+      "designBrief": "村中杂货铺：采买与邻里交往",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "quanzhou_farm_shed",
+      "destination": "quanzhou",
+      "place": "中国 · 泉州",
+      "function": "farm_shed",
+      "designBrief": "晒谷农具棚：家中劳动",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "quanzhou_departure_lodge",
+      "destination": "quanzhou",
+      "place": "中国 · 泉州",
+      "function": "departure_lodge",
+      "designBrief": "出洋候船栈：行李与离乡",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "singapore_residence",
+      "destination": "singapore",
+      "place": "新加坡",
+      "function": "residence",
+      "designBrief": "华人家庭住宅：私人与家书空间",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "singapore_general_store",
+      "destination": "singapore",
+      "place": "新加坡",
+      "function": "general_store",
+      "designBrief": "杂货店屋：柜台理货与小本经营",
+      "routeStatus": "existing",
+      "status": "original_imported_desktop_build_success",
+      "source": "SingaporeGeneralStore",
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "singapore_remittance_office",
+      "destination": "singapore",
+      "place": "新加坡",
+      "function": "remittance_office",
+      "designBrief": "侨批局：写批、汇款、留底与查询",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "singapore_guildhall",
+      "destination": "singapore",
+      "place": "新加坡",
+      "function": "guildhall",
+      "designBrief": "同乡会馆：介绍工作与互助",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "singapore_worker_lodging",
+      "destination": "singapore",
+      "place": "新加坡",
+      "function": "worker_lodging",
+      "designBrief": "客工通铺：休息、交往与伙食",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "singapore_warehouse",
+      "destination": "singapore",
+      "place": "新加坡",
+      "function": "warehouse",
+      "designBrief": "码头货栈：装卸与工钱纠纷",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "penang_residence",
+      "destination": "penang",
+      "place": "马来西亚 · 槟城（槟榔屿）",
+      "function": "residence",
+      "designBrief": "木桩桥住宅：海墘生活",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "penang_general_store",
+      "destination": "penang",
+      "place": "马来西亚 · 槟城（槟榔屿）",
+      "function": "general_store",
+      "designBrief": "店屋杂货铺：布匹、粮食与零售",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "penang_remittance_office",
+      "destination": "penang",
+      "place": "马来西亚 · 槟城（槟榔屿）",
+      "function": "remittance_office",
+      "designBrief": "银信铺：写批与跨海寄款",
+      "routeStatus": "existing",
+      "status": "original_imported_desktop_build_success",
+      "source": "PenangRemittanceOffice",
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "penang_guildhall",
+      "destination": "penang",
+      "place": "马来西亚 · 槟城（槟榔屿）",
+      "function": "guildhall",
+      "designBrief": "同乡会馆：互助和介绍差事",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "penang_worker_lodging",
+      "destination": "penang",
+      "place": "马来西亚 · 槟城（槟榔屿）",
+      "function": "worker_lodging",
+      "designBrief": "木廊客寓：合住与共用灶间",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "penang_warehouse",
+      "destination": "penang",
+      "place": "马来西亚 · 槟城（槟榔屿）",
+      "function": "warehouse",
+      "designBrief": "沿海货棚：接驳搬运",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "semarang_residence",
+      "destination": "semarang",
+      "place": "印度尼西亚 · 三宝垄",
+      "function": "residence",
+      "designBrief": "华人街区家庭住宅",
+      "routeStatus": "playable_v298",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "semarang_general_store",
+      "destination": "semarang",
+      "place": "印度尼西亚 · 三宝垄",
+      "function": "general_store",
+      "designBrief": "爪哇港市杂货铺",
+      "routeStatus": "playable_v298",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "semarang_remittance_office",
+      "destination": "semarang",
+      "place": "印度尼西亚 · 三宝垄",
+      "function": "remittance_office",
+      "designBrief": "银信代办处与写信房",
+      "routeStatus": "playable_v298",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "semarang_guildhall",
+      "destination": "semarang",
+      "place": "印度尼西亚 · 三宝垄",
+      "function": "guildhall",
+      "designBrief": "华侨互助会馆",
+      "routeStatus": "playable_v298",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "semarang_worker_lodging",
+      "destination": "semarang",
+      "place": "印度尼西亚 · 三宝垄",
+      "function": "worker_lodging",
+      "designBrief": "深檐合住工舍",
+      "routeStatus": "playable_v298",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "semarang_warehouse",
+      "destination": "semarang",
+      "place": "印度尼西亚 · 三宝垄",
+      "function": "warehouse",
+      "designBrief": "港口糖货仓栈",
+      "routeStatus": "playable_v298",
+      "status": "original_imported_desktop_build_success",
+      "source": "SemarangWarehouse",
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "rangoon_residence",
+      "destination": "rangoon",
+      "place": "缅甸 · 仰光",
+      "function": "residence",
+      "designBrief": "深檐木廊住宅",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "rangoon_general_store",
+      "destination": "rangoon",
+      "place": "缅甸 · 仰光",
+      "function": "general_store",
+      "designBrief": "米粮行：过秤记账",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "rangoon_remittance_office",
+      "destination": "rangoon",
+      "place": "缅甸 · 仰光",
+      "function": "remittance_office",
+      "designBrief": "银信代办处：款项留底与转递",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "rangoon_guildhall",
+      "destination": "rangoon",
+      "place": "缅甸 · 仰光",
+      "function": "guildhall",
+      "designBrief": "同乡互助会馆",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "rangoon_worker_lodging",
+      "destination": "rangoon",
+      "place": "缅甸 · 仰光",
+      "function": "worker_lodging",
+      "designBrief": "江岸客工院：休息与共同生活",
+      "routeStatus": "existing",
+      "status": "native8K_original_downloaded_not_integrated",
+      "source": "RangoonWorkerLodging",
+      "sourceMayBeUsedForOtherFunctions": false
+    },
+    {
+      "id": "rangoon_warehouse",
+      "destination": "rangoon",
+      "place": "缅甸 · 仰光",
+      "function": "warehouse",
+      "designBrief": "米粮和柚木货栈：搬运劳动",
+      "routeStatus": "existing",
+      "status": "not_generated",
+      "source": null,
+      "sourceMayBeUsedForOtherFunctions": false
+    }
+  ],
+  "plannedLaterDestinations": [
+    {
+      "country": "泰国",
+      "city": "曼谷",
+      "status": "backlog_not_generated_not_playable"
+    },
+    {
+      "country": "菲律宾",
+      "city": "马尼拉",
+      "status": "backlog_not_generated_not_playable"
+    }
+  ],
+  "productionOrder": [
+    "Integrate already downloaded RangoonWorkerLodging native original in Rangoon quarters, without regenerating",
+    "Continue remaining original characters and region/function-specific buildings"
+  ],
+  "referenceSources": [
+    {
+      "url": "https://gtwhi.com.my/ms/wp-content/uploads/2024/09/Special-Area-Plan_WHSGT_20160109.pdf",
+      "use": "Penang historic shophouse period/style reference; avoid later Art Deco for the early story."
+    },
+    {
+      "url": "https://www.indonesia.travel/id/en/destination/java/central-java/semarang",
+      "use": "Semarang urban context; fictional buildings, not claims of surveyed reconstruction."
+    }
+  ],
+  "storyPolicy": "New countries require destination-specific jobs, hardship, remittance routing, inhabitants and buildings before enabling random arrival. Never activate a new country by name replacement alone.",
+  "balanceLastObserved": 4660,
+  "newCloudTasks": []
+}

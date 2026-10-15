@@ -16,6 +16,7 @@ namespace Qiaopi
             Person("wensheng", "陈文生", "从泉州晋江远行的青年", "Wensheng"),
             Person("mother", "母亲", "留在故乡照应家人的陈母", "Mother"),
             Person("aman", "阿满", "文生的妹妹", "Aman"),
+            Person("wife", "妻子", "文生的妻子，在泉州经营家中生活，与他以侨批互通近况", "Wife"),
             Person("uncle", "族亲", "替晚辈张罗旅费的长辈", "Uncle"),
             Person("xusheng", "许生", "同渡海路、后来相互照应的同乡", "Xusheng"),
             Person("guide", "接应同乡", "往来码头、替乡人传递消息", "Guide"),

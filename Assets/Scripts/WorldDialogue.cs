@@ -31,7 +31,7 @@ namespace Qiaopi
         Vector2 speechScroll;
         const int PortraitLayer=30;
         bool LastDialogueLine=>spokenLines.Count==0||spokenIndex>=spokenLines.Count-1;
-        bool ConversationVisible=>dialogue&&!journal&&!map&&!help&&!puzzle&&!resetAsk&&!fieldNote&&!gallery&&!letterEditor&&!lifePanel;
+        bool ConversationVisible=>dialogue&&!inquiryPanel&&!HomePerformanceBusy&&!homePanel&&!tradePanel&&!nanyangPanel&&!journal&&!map&&!help&&!puzzle&&!resetAsk&&!fieldNote&&!gallery&&!letterEditor&&!lifePanel;
         DialogueLine CurrentLine=>spokenLines.Count==0?null:spokenLines[Mathf.Clamp(spokenIndex,0,spokenLines.Count-1)];
         AudioClip CurrentVoiceClip
         {
@@ -53,9 +53,18 @@ namespace Qiaopi
             portraitCamera=cameraObject.AddComponent<Camera>();portraitCamera.enabled=false;portraitCamera.cullingMask=1<<PortraitLayer;
             portraitCamera.orthographic=true;portraitCamera.orthographicSize=.82f;portraitCamera.nearClipPlane=.1f;portraitCamera.farClipPlane=12;
             portraitCamera.clearFlags=CameraClearFlags.SolidColor;portraitCamera.backgroundColor=C("D4CBB6");
-            portraitTexture=new RenderTexture(520,640,24,RenderTextureFormat.ARGB32);portraitTexture.name="当前说话人实时特写";portraitTexture.Create();portraitCamera.targetTexture=portraitTexture;
-            var lightObject=new GameObject("人物柔光");lightObject.transform.SetParent(portraitStage.transform,false);lightObject.transform.localRotation=Quaternion.Euler(20,160,0);
-            var portraitLight=lightObject.AddComponent<Light>();portraitLight.type=LightType.Directional;portraitLight.cullingMask=1<<PortraitLayer;portraitLight.intensity=1.1f;portraitLight.color=C("FFF2DA");portraitLight.shadows=LightShadows.None;
+            portraitTexture=new RenderTexture(650,800,24,RenderTextureFormat.ARGB32);portraitTexture.name="当前说话人实时特写";portraitTexture.Create();portraitCamera.targetTexture=portraitTexture;
+            PortraitLight("人物主光",new Vector3(-2.5f,3f,5f),new Color(1,.96f,.90f),.54f);
+            PortraitLight("人物补光",new Vector3(3f,2.1f,5f),new Color(.93f,.96f,1),.36f);
+            PortraitLight("头发轮廓光",new Vector3(1f,3f,-3f),new Color(1,.96f,.90f),.28f);
+        }
+        void PortraitLight(string name,Vector3 position,Color color,float intensity)
+        {
+            var go=new GameObject(name);go.transform.SetParent(portraitStage.transform,false);
+            go.transform.localPosition=position;
+            go.transform.LookAt(portraitStage.transform.position+Vector3.up*1.2f);
+            var light=go.AddComponent<Light>();light.type=LightType.Directional;
+            light.cullingMask=1<<PortraitLayer;light.color=color;light.intensity=intensity;light.shadows=LightShadows.None;
         }
         void ResetConversation()
         {
@@ -98,18 +107,29 @@ namespace Qiaopi
             portraitActor=ModelLibrary.Spawn(character.model,portraitStage.transform,Vector3.zero);
             if(!portraitActor)return;
             foreach(var t in portraitActor.GetComponentsInChildren<Transform>())t.gameObject.layer=PortraitLayer;
-            foreach(var r in portraitActor.GetComponentsInChildren<Renderer>())r.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;
+            foreach(var r in portraitActor.GetComponentsInChildren<Renderer>()){
+                r.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;
+                // This camera renders manually after idle animation and its
+                // actor is outside the gameplay camera's view.
+                if(r is SkinnedMeshRenderer skinRenderer)skinRenderer.updateWhenOffscreen=true;
+            }
             portraitActor.AddComponent<CharacterIdle>();
             float height=ModelLibrary.CharacterHeight(character.model);
-            float head=height*.74f;
+            // A face-and-shoulders frame keeps the eyes readable on the phone.
+            // Keep the separately authored height, headwear and face geometry;
+            // only the camera framing changes.
+            float halfFrame=Mathf.Max(.245f,height*.15f);
+            float head=height-halfFrame*.67f;
+            portraitActor.transform.localRotation=Quaternion.Euler(0,character.model=="Mother"||character.model=="MasterHe"?8f:-7f,0);
+            CharacterPerformance.For(portraitActor).TurnBodyToLook=false;
             portraitCamera.transform.localPosition=new Vector3(.08f,head,3.2f);portraitCamera.transform.LookAt(portraitStage.transform.position+new Vector3(0,head,0));
-            portraitCamera.orthographicSize=height*.39f;
+            portraitCamera.orthographicSize=halfFrame;
         }
         void LateUpdate()
         {
-            if(!ConversationVisible||!portraitActor||!portraitCamera)return;
-            float talking=voiceEnabled&&voiceSource.isPlaying?1:0;
-            portraitActor.transform.localRotation=Quaternion.Euler(0,Mathf.Sin(Time.time*.7f)*1.8f+Mathf.Sin(Time.time*2.4f)*talking,0);
+            if(loginVisible||state==null)return;
+            if((!ConversationVisible&&!firstDayPanel&&!nanyangPanel&&!homePanel)||!portraitActor||!portraitCamera)return;
+            CharacterPerformance.For(portraitActor).LookAt(portraitCamera.transform.position);
             portraitCamera.Render();
         }
         void Dialogue(SceneData scene)

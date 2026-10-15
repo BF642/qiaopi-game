@@ -24,12 +24,16 @@ namespace Qiaopi
         }
         void AppendLifeHistory(List<HistoryRecord> result)
         {
+            if(state.firstDayVersion==1&&state.firstDay!=null&&!string.IsNullOrEmpty(state.firstDay.morningFeedback))
+                result.Add(new HistoryRecord{title="南洋第一天 · 认识的人，留下的事",choice=state.firstDay.letterSent?"晚间写批，等数周后的回音":"把草稿留下，先歇一晚",outcome=state.firstDay.morningFeedback,location=LifeJourney.DestinationName(state)+" · 客工住处",year="1906年秋"});
             if(state.journey==null)return;
             foreach(var item in state.journey.log)result.Add(new HistoryRecord{title=item.title,choice=item.actionId.StartsWith("hardship_")?"应对眼前的欺压":item.title,outcome=item.outcome,location=LifeJourney.DestinationName(state)+" · 自主谋生",year="1906年冬 · 第 "+item.turn+" 轮"});
         }
         Rect LifeEntryRect(){var s=MobileUiBounds();return MobileControls?new Rect(s.xMin+30,310,360,67):new Rect(30,224,238,51);}
         void DrawLifeEntry()
         {
+            if(InFirstDay){DrawFirstDayEntry();return;}
+            if(NanyangIncident||NanyangRest){DrawNanyangEntry();return;}
             if(!LifeJourney.HasReachedOverseas(state))return;
             var r=LifeEntryRect();
             if(writingRequested){if(HudAction(r,"取消前往书桌",false,MobileControls?27:21))CancelWritingWalk();return;}
@@ -42,21 +46,22 @@ namespace Qiaopi
             var action=LifeJourney.Actions(state).Find(a=>a.id==id&&a.enabled);
             if(action==null||!string.IsNullOrEmpty(state.journey.pendingJob))return;
             lifeNotice="";lifeLog=false;
-            if(action.physical){
-                state.journey.pendingJob=id;lifePanel=false;dialogue=false;EnterNode();Save();
-                Toast("完成工作后，找招工人结账。");
+            if(action.physical||InNanyang&&id=="rest"){
+                state.journey.pendingJob=id;if(InNanyang&&action.physical&&!NanyangQA&&!TradeWork.Begin(state,id)){state.journey.pendingJob="";return;}if(!TradeQA&&TradeWork.IsActive(state))WorkEvents.Enroll(state);lifePanel=false;dialogue=false;EnterNode();Save();
+                Toast(id=="rest"?"回通铺床边，留一日吃饭养身。":WorkRelationshipText.Greeting(state,id)+" 完成工作后，找招工人结账。");
             }else if(LifeJourney.CommitAction(state,id,out var outcome)){
                 lifeNotice=outcome;dialogue=false;EnterNode();lifePanel=true;Save();
             }
         }
         bool HandleLifeInteract()
         {
-            if(!LifeJourney.IsActive(state)||Dist(mission.npcPosition)>=2.5f||carrying||sideCarrying)return false;
+            if(NanyangIncident||NanyangRest||!LifeJourney.IsActive(state)||Dist(mission.npcPosition)>=2.5f||carrying||sideCarrying)return false;
             if(string.IsNullOrEmpty(state.journey.pendingJob)){lifePanel=true;lifeLog=false;dialogue=false;return true;}
             if(!Complete)return false;
             string job=state.journey.pendingJob;
             if(LifeJourney.CommitAction(state,job,out var outcome)){
-                dialogue=false;lifeNotice=outcome;EnterNode();lifePanel=true;Save();
+                dialogue=false;lifeNotice=outcome;EnterNode();lifePanel=!NanyangIncident;Save();
+                if(NanyangStage=="choice")OpenNanyangPanel("choice");
             }
             return true;
         }
@@ -67,7 +72,7 @@ namespace Qiaopi
         }
         void DrawLifePanel()
         {
-            if(!LifeJourney.IsActive(state)){lifePanel=false;return;}
+            if(!LifeJourney.IsActive(state)||NanyangIncident){lifePanel=false;return;}
             bool mobile=MobileControls;Rect safe=mobile?MobileUiBounds():new Rect(0,0,W,H);
             Rect r=new Rect(safe.xMin+55,145,safe.width-110,810);int fs=mobile?28:24;
             Box(new Rect(safe.xMin-100,-100,safe.width+200,1200),new Color(.08f,.16f,.13f,.34f));PaperPanel(r);
@@ -82,22 +87,31 @@ namespace Qiaopi
             if(working){
                 Label(new Rect(r.x+255,r.y+163,r.width-520,46),"待结账 · "+mission.itemName,fs,red);
                 if(LetterButton(new Rect(r.xMax-240,r.y+158,210,53),"放弃换工",false,22)){
-                    state.journey.pendingJob="";EnterNode();lifePanel=true;Save();lifeNotice="已放弃工作：不领工钱，不计轮次。";
+                    AbandonTradeJob();
                 }
             }
-            if(lifeLog){DrawLifeLog(new Rect(r.x+30,r.y+228,r.width-60,384),mobile);}
+            if(lifeLog){DrawWorkRelationshipLog(new Rect(r.x+30,r.y+228,r.width-60,384),mobile);}
             else {
                 var actions=LifeJourney.Actions(state);float width=(r.width-76)/2;
                 for(int i=0;i<actions.Count;i++){
                     var a=actions[i];Rect card=new Rect(r.x+30+(i%2)*(width+16),r.y+225+(i/2)*128,width,116);
                     Box(card,new Color(.92f,.87f,.79f,.34f));Box(new Rect(card.x,card.y,3,card.height),letterSeal);
                     Label(new Rect(card.x+17,card.y+9,card.width-34,38),a.title+(a.money>=0?"  ＋":"  ")+a.money+" 盘缠",fs,a.enabled&&!working?ink:sub,true);
-                    Label(new Rect(card.x+17,card.y+52,card.width-34,58),working?"待当前工作结账，或放弃换工。":a.enabled?a.description:a.unavailableReason,mobile?24:21,sub);
+                    string description=a.description;int wageLine=description.IndexOf(" 议定工钱 ",StringComparison.Ordinal);if(InNanyang&&wageLine>=0)description=description.Substring(0,wageLine);
+                    Label(new Rect(card.x+17,card.y+52,card.width-34,58),working?"待当前工作结账，或放弃换工。":a.enabled?description:a.unavailableReason,mobile?24:21,sub);
+                    if(InNanyang&&a.physical){int level=NanyangLife.CareerLevel(state,a.id);float part=(card.width-46)/3;for(int tier=0;tier<3;tier++)Box(new Rect(card.x+17+tier*(part+6),card.yMax-5,part,3),tier<level?letterSeal:line);}
                     bool previous=GUI.enabled;GUI.enabled=previous&&a.enabled&&!working;
                     if(GUI.Button(card,GUIContent.none,blank)){StartLifeAction(a.id);GUI.enabled=previous;return;}GUI.enabled=previous;
                 }
                 if(actions.Count==0)Label(new Rect(r.x+40,r.y+290,r.width-80,150),"已完成六轮谋生\n可以写信，或继续旅程。",32,ink,true);
-                if(actions.Count>0){Rect note=new Rect(r.x+46+width,r.y+481,width,105);Label(note,"可自由换工\n同一行做两轮，将影响往后的主业。",mobile?24:21,sub);}
+                if(InNanyang||actions.Count>0){Rect note=new Rect(r.x+46+width,r.y+481,width,105);
+                    if(InNanyang){
+                        string[] worlds={"quarters","port","market","postoffice"},titles={"回住处 · 吃饭歇脚","去货港","到陈记杂货铺","去批局"};
+                        bool before=GUI.enabled;GUI.enabled=before&&!working;
+                        for(int i=0;i<4;i++){Rect b=new Rect(note.x+(i%2)*(width/2+3),note.y+(i/2)*55,width/2-9,48);if(LetterButton(b,titles[i],false,mobile?23:20)){VisitNanyangPlace(worlds[i]);GUI.enabled=before;return;}}
+                        GUI.enabled=before;
+                    }else Label(note,"可自由换工\n同一行做两轮，将影响往后的主业。",mobile?24:21,sub);
+                }
             }
             string hint=string.IsNullOrEmpty(lifeNotice)?"无倒计时 · 探索与写信不计轮次":lifeNotice;
             var noticeRect=new Rect(r.x+30,r.y+620,r.width-60,86);float noticeH=Height(hint,mobile?25:22,noticeRect.width-26,false);
@@ -107,7 +121,8 @@ namespace Qiaopi
             Label(new Rect(0,0,noticeRect.width-26,noticeH+4),hint,mobile?25:22,sub);GUI.EndScrollView();
             if(LetterButton(new Rect(r.x+30,r.yMax-81,300,57),"去写批处",false,fs)){OpenPersonalLetter();return;}
             bool enabled=GUI.enabled;GUI.enabled=enabled&&LifeJourney.CanFinish(state)&&!working;
-            if(LetterButton(new Rect(r.xMax-450,r.yMax-81,420,57),LifeJourney.CanFinish(state)?"继续旅程":"再过 "+Mathf.Max(0,3-state.journey.turns)+" 轮可继续",true,fs))FinishLifePhase();GUI.enabled=enabled;
+            string nextTitle=LifeJourney.CanFinish(state)?"继续旅程":InNanyang&&state.journey.turns>=3?"先办妥工作与家书":"再过 "+Mathf.Max(0,3-state.journey.turns)+" 轮可继续";
+            if(LetterButton(new Rect(r.xMax-450,r.yMax-81,420,57),nextTitle,true,fs))FinishLifePhase();GUI.enabled=enabled;
         }
         void DrawLifeHardship(Rect r,JourneyHardship h,bool mobile)
         {

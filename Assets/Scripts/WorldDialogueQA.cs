@@ -16,7 +16,7 @@ namespace Qiaopi
                 if(npc.name!=mission.npcName||!npc.transform.Find("BlenderModel"))throw new Exception("DIALOGUE_QA_NPC "+node);
                 if(!voiceSource.clip||!voiceSource.isPlaying)throw new Exception("DIALOGUE_QA_NO_SOUND "+node);
                 if(!portraitActor||portraitId!=CurrentLine.speakerId)throw new Exception("DIALOGUE_QA_WRONG_PORTRAIT "+node);
-                if(portraitTexture.width!=520)throw new Exception("DIALOGUE_QA_PORTRAIT_TEXTURE");
+                if(portraitTexture.width!=650||portraitTexture.height!=800)throw new Exception("DIALOGUE_QA_PORTRAIT_TEXTURE");
                 Debug.Log("DIALOGUE_QA_OK "+node+" npc="+expected+" speaker="+portraitId+" clip="+voiceSource.clip.name+" duration="+voiceSource.clip.length);
                 if(node=="home"||node=="shop"||node=="courier")yield return CaptureWorld("人物对话_"+node);
                 if(node=="farewell"){

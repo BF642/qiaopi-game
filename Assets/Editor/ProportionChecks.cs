@@ -15,14 +15,14 @@ namespace Qiaopi.Editor
                     if(person.id=="narrator")continue;
                     var actor=ModelLibrary.Spawn(person.model,stage.transform,Vector3.zero);
                     if(!actor)throw new Exception("Missing scale reference "+person.model);
-                    var bounds=new Bounds();bool first=true;
-                    foreach(var r in actor.GetComponentsInChildren<Renderer>()) {
-                        if(first){bounds=r.bounds;first=false;}else bounds.Encapsulate(r.bounds);
-                    }
+                    // Measure the current skinned pose, not the importer's
+                    // conservative envelope of all possible bone positions.
+                    var bounds=ModelLibrary.WorldBounds(actor.transform);
                     float expected=ModelLibrary.CharacterHeight(person.model);
                     if(Mathf.Abs(bounds.size.y-expected)>.018f||Mathf.Abs(bounds.min.y)>.018f)
                         throw new Exception("Character unit/foot mismatch "+person.model+" bounds="+bounds+" expected="+expected);
-                    if(!ModelLibrary.Find(actor.transform,"LeftArm")||!ModelLibrary.Find(actor.transform,"RightLeg"))throw new Exception("Missing animated joint "+person.model);
+                    foreach(string joint in new[]{"LeftArm","RightArm","LeftLeg","RightLeg"})
+                        if(!ModelLibrary.Find(actor.transform,joint))throw new Exception("Missing animated joint "+person.model+"/"+joint);
                     Debug.Log("PROPORTION_HEIGHT "+person.model+"="+bounds.size.y.ToString("F3")+" m");
                     UnityEngine.Object.DestroyImmediate(actor);checkedModels++;
                 }

@@ -103,6 +103,7 @@ namespace Qiaopi.Editor
                         Require(indices[i]>=0&&indices[i]<vertices.Length&&indices[i+1]>=0&&indices[i+1]<vertices.Length&&indices[i+2]>=0&&indices[i+2]<vertices.Length,"invalid triangle index");
                         var a=vertices[indices[i]];var b=vertices[indices[i+1]];var c=vertices[indices[i+2]];
                         Require(Vector3.Cross(b-a,c-a).sqrMagnitude>1e-12f,"degenerate destination face");
+                        CheckExpandedGround(a,b,c,destination,region);
                     }
                     triangleCount+=indices.Length/3;
                 }
@@ -123,6 +124,26 @@ namespace Qiaopi.Editor
                 Require(!leaked,"destination meshes survived destruction of their world");
             }
             return triangleCount;
+        }
+
+        static void CheckExpandedGround(Vector3 a,Vector3 b,Vector3 c,string destination,string region)
+        {
+            // These meshes intentionally have no colliders. Inspect individual
+            // rendered faces so a decorative warehouse cannot silently enclose a
+            // new workroom or a column pass through a walking character. Combined
+            // renderer bounds span unrelated buildings and would give false hits.
+            var face=new Bounds();face.SetMinMax(Vector3.Min(a,Vector3.Min(b,c)),Vector3.Max(a,Vector3.Max(b,c)));
+            if(face.max.y<.32f||face.min.y>2.15f)return;
+            if(region=="postoffice"||region=="quarters") {
+                Require(!Touches(face,-35,55,37,55)&&!Touches(face,35,55,-31,37),"renderer-only backdrop intrudes new district: "+destination+"/"+region+" "+face);
+            }
+            else if(region=="port") {
+                Require(!Touches(face,-69,-35,-43,22.7f)&&!Touches(face,-35,35,-43,-31),"renderer-only backdrop intrudes new port roads: "+destination+" "+face);
+            }
+        }
+        static bool Touches(Bounds b,float left,float right,float front,float rear)
+        {
+            return b.max.x>left&&b.min.x<right&&b.max.z>front&&b.min.z<rear;
         }
 
         static void CheckFeatures(Transform decoration,string destination,string region)

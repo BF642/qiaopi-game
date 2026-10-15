@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4d975f93cb42c5aba46c66383c0af, type: 3}
+  m_Name: NativeMotionSet
+  m_EditorClassIdentifier: Assembly-CSharp::Qiaopi.NativeMotionSet
+  qualificationVersion: 1
+  qualified: 1
+  role: Wife
+  model: {fileID: 919132149155446097, guid: 02857a32a232e4248b055d6546e9fabc, type: 3}
+  reviewedSkin: {fileID: 4300000, guid: 812a42a754a2c4c4ab85d1d94350bc44, type: 2}
+  reviewedSkinSourceName: output_unwrapped
+  idle: {fileID: 7400000, guid: 7be9433fbd46b4474a532bf6a51ed14a, type: 2}
+  walking: {fileID: 7400000, guid: 460bf9261fca247c9bd06bf66a116d33, type: 2}
+  running: {fileID: 7400000, guid: 7ee3e710ec93a4391b2357c9ecafaef7, type: 2}
+  seated: {fileID: 7400000, guid: 5eb0f316cb4234a20a89692d4793c445, type: 2}
+  fingerAnimationWeight: 0.45
+  fingerAdaptationReview: Wife 0.45 inspected against native 1.0 in actual Unity front/side/rear idle, walking, running, offer, seated and signing. Reduced finger collapse; original clips preserved. Derived high-detail skin independently qualified.
+  reviewedContactAndWristAdaptation: 0
+  reviewedSeatAndGroundAdaptation: 1
+  walkingReferenceMetresPerSecond: 1.2990029
+  runningReferenceMetresPerSecond: 4.980147
+  sourceAssets:
+  - Assets/Resources/Models/WifeMeshyMotion/ReviewedMaterial.mat
+  - Assets/Resources/Models/WifeMeshyMotion/WifeMeshyMotion.fbx
+  - Assets/Resources/Models/WifeMeshyMotion/WifeOriginalHDReviewed.asset
+  - Assets/Resources/Models/WifeMeshyMotion/Wife_Chair_Sit_Idle_M.anim
+  - Assets/Resources/Models/WifeMeshyMotion/Wife_Idle_4.anim
+  - Assets/Resources/Models/WifeMeshyMotion/Wife_Running.anim
+  - Assets/Resources/Models/WifeMeshyMotion/Wife_Walking.anim
+  sourceDependencyHashes:
+  - 619e8a27baeee79485142e60764d1c43
+  - 3d4d34d52ad85d41694eceb044e075f3
+  - 0bf5bdab193c8d9630c2393f748e67a4
+  - c6a606bcb839cace25ad57636ef9c690
+  - a0a0dcf717061d2fab1f5febf816e96b
+  - b639f7fa12e6623762aa591f0a447993
+  - 33718c9c990f76fd7f2f451dc09059d1

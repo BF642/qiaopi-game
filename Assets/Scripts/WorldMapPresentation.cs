@@ -102,8 +102,14 @@ namespace Qiaopi
                 Vector2 p=MapPoint(note.position,r);Color color=state.flags.Contains("note_"+note.id)?C("76795F"):red;
                 Box(new Rect(p.x-4,p.y-4,8,8),paper);Box(new Rect(p.x-3,p.y-3,6,6),color);
             }
-            if(mission.activity=="inspect")for(int i=0;i<inspectionPositions.Length;i++)if(!inspected.Contains(i)){
+            if(mission.activity=="inspect")for(int i=0;i<Mathf.Min(mission.required,inspectionPositions.Length);i++)if(!inspected.Contains(i)){
                 Vector2 p=MapPoint(inspectionPositions[i],r);Stroke(new Rect(p.x-5,p.y-5,10,10),C("A17C31"));
+            }
+            if(InInquiryScene)for(int i=0;i<3;i++) {
+                Vector2 clue=MapPoint(InquiryPlaces.Evidence(state.nodeId,i),r);
+                bool read=(state.inquiry.evidenceMask&(1<<i))!=0;
+                Box(new Rect(clue.x-7,clue.y-7,14,14),paper);Stroke(new Rect(clue.x-7,clue.y-7,14,14),read?ink:red);
+                Label(new Rect(clue.x-10,clue.y-12,20,24),(i+1).ToString(),17,read?ink:red,true,TextAnchor.MiddleCenter);
             }
             Vector2 target=MapPoint(Target(),r);
             Box(new Rect(target.x-8,target.y-8,16,16),C("B99141"));Stroke(new Rect(target.x-6,target.y-6,12,12),paper);

@@ -1,0 +1,10 @@
+{
+    "schema": 1,
+    "assetId": "WritingDesk",
+    "geometrySha256": "d47d403d7b66347a2e643c6881e08707a18a8b5e4eb6b1154b0491b132294751",
+    "approved": true,
+    "materialsReviewed": true,
+    "groundLevelReviewed": true,
+    "roofJoinReviewed": false,
+    "reviewNote": "8K original GLB maps copied without resampling. Matching 8K mesh UVs. Front/back/three-quarter reviewed; 11 desk-top probes within 8 mm of 0.78 m, knee passage empty. Runtime seat review recorded separately."
+}
