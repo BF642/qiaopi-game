@@ -4538,8 +4538,8 @@
     },
     {
       "path": "docs/supporting-cast-20261016.json",
-      "bytes": 2293,
-      "sha256": "be8a07c428ef773495ad2f8b598338163c71516d510da568d6b60b3776591f5d"
+      "bytes": 2664,
+      "sha256": "0089c79f2fd3906665a8a8c41356237baed341b3551bdc3dd441ab29df2c41f2"
     },
     {
       "path": "tools/import_existing_cast.py",

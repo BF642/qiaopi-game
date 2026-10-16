@@ -42,5 +42,6 @@
   "remaining": ["rice_customer", "tea_neighbour", "all ambient resident identities"],
   "creditsLastObserved": 4584,
   "creditsNote": "Observed balance only, not a spending calculation. No top-up or subscription purchase performed.",
+  "downloadBlocker": "Chrome shows ERR_BLOCKED_BY_CLIENT for the DockAshun file on assets.meshy.ai, including after normal reload. Multiple-download blocking was an unconfirmed earlier guess. Young recipient remains at the download dialog; senior recipient page did not respond. The responsible client component is not identified; no browser protections were disabled.",
   "resume": "Download the three pending existing models by cloudNamePrefix. Do not regenerate. Finish local binding/import, rebuild Windows and check startup, then update manifest and GitHub."
 }
