@@ -19,7 +19,7 @@ namespace Qiaopi
         public string TrackTitle=>currentTrack=="SeaLetter"?"《过海的银信》":currentTrack=="ReturnLetter"?"《灯下回批》":"《厝边的风》";
         void Awake()
         {
-            musicEnabled=PlayerPrefs.GetInt("qiaopi-music-enabled",1)==1;
+            musicEnabled=PlayerPrefs.GetInt("qiaopi-music-enabled",0)==1;
             level=Mathf.Clamp01(PlayerPrefs.GetFloat("qiaopi-music-level",.6f));
             sources=new[]{gameObject.AddComponent<AudioSource>(),gameObject.AddComponent<AudioSource>()};
             foreach(var s in sources){s.playOnAwake=false;s.loop=true;s.spatialBlend=0;s.volume=0;s.priority=180;}

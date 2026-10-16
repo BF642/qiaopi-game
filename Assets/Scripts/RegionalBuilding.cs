@@ -11,6 +11,7 @@ namespace Qiaopi
             if (destination == "singapore" && function == "general_store") asset = "SingaporeGeneralStore";
             if (destination == "penang" && function == "remittance_office") asset = "PenangRemittanceOffice";
             if (destination == "semarang" && function == "warehouse") asset = "SemarangWarehouse";
+            if (destination == "rangoon" && function == "worker_lodging") asset = "RangoonWorkerLodging";
             if (asset == null) return false;
             var prefab = Resources.Load<GameObject>("EnvironmentArt/" + asset + "/Model");
             if (!prefab) return false;

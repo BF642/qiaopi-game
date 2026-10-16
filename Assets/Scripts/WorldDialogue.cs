@@ -46,7 +46,7 @@ namespace Qiaopi
         void SetupConversation()
         {
             voiceAvailable=Resources.LoadAll<AudioClip>("Voice").Length>0;
-            voiceEnabled=voiceAvailable&&PlayerPrefs.GetInt("qiaopi-voice-enabled",1)==1;
+            voiceEnabled=voiceAvailable&&PlayerPrefs.GetInt("qiaopi-voice-enabled",0)==1;
             voiceSource=gameObject.AddComponent<AudioSource>();voiceSource.volume=.92f;voiceSource.spatialBlend=0;voiceSource.playOnAwake=false;
             portraitStage=new GameObject("对话人物摄影棚");portraitStage.transform.position=new Vector3(800,0,800);
             var cameraObject=new GameObject("半身特写镜头");cameraObject.transform.SetParent(portraitStage.transform,false);

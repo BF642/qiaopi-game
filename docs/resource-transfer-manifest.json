@@ -1,5 +1,5 @@
 {
-  "description": "Transfer integrity only; original desktop resources unchanged.",
+  "description": "Transfer integrity after Windows compile fix and original Rangoon worker lodging integration; original desktop geometry retained.",
   "files": [
     {
       "path": "Assets/AppIcon.png",
@@ -63,8 +63,8 @@
     },
     {
       "path": "Assets/Editor/BuildCharacterStudy.cs",
-      "bytes": 5429,
-      "sha256": "96970c569821108f44e421349e764120a6ee8868414d24846969648aaef50ccc"
+      "bytes": 5513,
+      "sha256": "050b45bcf83e63bf50d575e84442bb4840c380b3fac8a35f3c1e0c9248d72b66"
     },
     {
       "path": "Assets/Editor/BuildCharacterStudy.cs.meta",
@@ -73,8 +73,8 @@
     },
     {
       "path": "Assets/Editor/BuildGame.cs",
-      "bytes": 12546,
-      "sha256": "44660d7f789a5322ee8ee9ba8b929ce57e0129325a5b6dfec21d727373f3e451"
+      "bytes": 12574,
+      "sha256": "bb7513f1e4243c5118a6843535e28e6bb98d5015a0ebadec03fab2d177ee27b9"
     },
     {
       "path": "Assets/Editor/BuildGame.cs.meta",
@@ -83,8 +83,8 @@
     },
     {
       "path": "Assets/Editor/BuildMeshyCharacterStudy.cs",
-      "bytes": 8766,
-      "sha256": "f11dfdeaea8745c67260875bcc64a27500a33ef8da2844e194f169d3a2f33fa2"
+      "bytes": 8850,
+      "sha256": "32d818de620b4fd4add201987908696face352bebbe429d332537e87c30c2ca2"
     },
     {
       "path": "Assets/Editor/BuildMeshyCharacterStudy.cs.meta",
@@ -143,8 +143,8 @@
     },
     {
       "path": "Assets/Editor/DesktopHandoffBuild.cs",
-      "bytes": 1050,
-      "sha256": "dc1d7b4dac7c04a52de6acdffe3c9e5a81ebc4373f0e804d8e2e8d426c4d21c4"
+      "bytes": 1405,
+      "sha256": "3f4da0ba98171f5bd325a95d1e54a4d0009522ed926eccb2eb5daeeaf2aae592"
     },
     {
       "path": "Assets/Editor/DesktopHandoffBuild.cs.meta",
@@ -530,6 +530,16 @@
       "path": "Assets/Editor/ProportionChecks.cs.meta",
       "bytes": 59,
       "sha256": "d4b8a95e4a68155c22738a7c9445340c99d9e3a47b697603cf377b4ee474b07f"
+    },
+    {
+      "path": "Assets/Editor/RangoonLodgingImport.cs",
+      "bytes": 5275,
+      "sha256": "eb36fa056d4e5cbcbeb9d034e859d1a461e1ae06d758970373bdd8ba748596db"
+    },
+    {
+      "path": "Assets/Editor/RangoonLodgingImport.cs.meta",
+      "bytes": 59,
+      "sha256": "e4488115aba1bb2ae9e9857c28facab72862c0176b3cf6b9130af73bfdece496"
     },
     {
       "path": "Assets/Editor/RegionChecks.cs",
@@ -1170,6 +1180,81 @@
       "path": "Assets/Resources/EnvironmentArt/QuanzhouCourtyardHome/Walls.asset.meta",
       "bytes": 188,
       "sha256": "f1748c1a46f5810c8e1781a487cbc5fb3211bf1b11da77fa16774d0463410148"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging.meta",
+      "bytes": 172,
+      "sha256": "d957fc73396f2f875f835ed1646f8f893f91a4e4e93101cf183c3f7a7f50f95f"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/BaseColor.jpg",
+      "bytes": 50088890,
+      "sha256": "c6b2acf6d74ec549e7e6154ec532d4297b398325151e9a5dfc87ba33e77e18c4"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/BaseColor.jpg.meta",
+      "bytes": 3427,
+      "sha256": "4e753fd16d92d0447a6fc68f38ea046efce9690d651accba157a9d3e7d7fd2c4"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Building.mat",
+      "bytes": 2438,
+      "sha256": "4032545e463868a2d2a77f509cc386c7e18074f58a88e72b2c5b893b4abeacad"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Building.mat.meta",
+      "bytes": 188,
+      "sha256": "944c28a1969b0fc28e8b2dafd9783461c291d7c7f638a8dd571a541b5bd59fcf"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/MetalSmooth.png",
+      "bytes": 8986580,
+      "sha256": "e821d87fc6dc8efb55ee345fb1ece895d42ec296089759afa9719926e2d71529"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/MetalSmooth.png.meta",
+      "bytes": 3427,
+      "sha256": "64657fe68c5758545e0c6782f280fc030197b4903b8376f652043a6d2e54f130"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Model.prefab",
+      "bytes": 6007,
+      "sha256": "891f6139e03da18ec8f58d428a0de9e03c460fa9a61861f48ada884b80ea4f78"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Model.prefab.meta",
+      "bytes": 154,
+      "sha256": "45814a5fe61702e6ccefd966dcabdfec7a27338cf239e909b927d12e58168ce2"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/NativeMetalRough.jpg",
+      "bytes": 4907408,
+      "sha256": "6c00a997bff5f345f137a3ed8bfe988791e4a9589d298ccab19d00895b01065a"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/NativeMetalRough.jpg.meta",
+      "bytes": 3427,
+      "sha256": "6bcdff26e823d636e3c4fc813a703e9b48274532d0056499dc81cc0ba813fb59"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Normal.jpg",
+      "bytes": 10910539,
+      "sha256": "21d9c24f4c514216635272f7c63fddee206ce6588b0fe976b27c8cd523d90b8d"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Normal.jpg.meta",
+      "bytes": 3427,
+      "sha256": "550e2ba23ce75d217b92ab661eaab69ca922ddb0f2da2e451bd9f68ef33d74dd"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Original.fbx",
+      "bytes": 243806940,
+      "sha256": "9684dc1ad05ada8703d8dce54c909f700e0ff318b9fbf8d11a482a3b2801713d"
+    },
+    {
+      "path": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Original.fbx.meta",
+      "bytes": 3063,
+      "sha256": "fdc6e58adfc9dcb139238db5e7d9d041354e2711047dc1ee33aeac013f536fdc"
     },
     {
       "path": "Assets/Resources/EnvironmentArt/SemarangWarehouse.meta",
@@ -2963,8 +3048,8 @@
     },
     {
       "path": "Assets/Scripts/ExpandedSettlements.cs",
-      "bytes": 29372,
-      "sha256": "b75822aad799915b69aa72c382db76824b941e709768f90aac31b42ebe5e98ae"
+      "bytes": 29735,
+      "sha256": "f491a69809b4f1375c09c2f250b673db3d6c76aaec68896d4ffc0c0f5a568185"
     },
     {
       "path": "Assets/Scripts/ExpandedSettlements.cs.meta",
@@ -3224,7 +3309,7 @@
     {
       "path": "Assets/Scripts/QiaopiMusic.cs",
       "bytes": 3632,
-      "sha256": "ddb277f519f778deea9fa7c50cde879c7b48789d0c5a0489c02e1ee357ef9afc"
+      "sha256": "ae33ce501b573a8076c6e8df42664a82c5398a007e4236cc12f4f4ec1ce76ca3"
     },
     {
       "path": "Assets/Scripts/QiaopiMusic.cs.meta",
@@ -3233,8 +3318,8 @@
     },
     {
       "path": "Assets/Scripts/RegionalBuilding.cs",
-      "bytes": 1216,
-      "sha256": "367deadb88ea6233662a2b6bbaecc335a0207dcee797d6db0f119422dfcdbb37"
+      "bytes": 1322,
+      "sha256": "4de11ec75f592666a0bbfff6054dfa70226a50977508429cdb0683580b0de934"
     },
     {
       "path": "Assets/Scripts/RegionalBuilding.cs.meta",
@@ -3474,7 +3559,7 @@
     {
       "path": "Assets/Scripts/WorldDialogue.cs",
       "bytes": 12570,
-      "sha256": "9d2de5afc5992a5751086689a2019bdef2aab1e032702aace254561d284d7307"
+      "sha256": "4cc79f30482df54e1472283e5047039888ecc20bd1bdefb3119d8f8add36edcf"
     },
     {
       "path": "Assets/Scripts/WorldDialogue.cs.meta",
@@ -3604,7 +3689,7 @@
     {
       "path": "Assets/Scripts/WorldGame.cs",
       "bytes": 53122,
-      "sha256": "572ff90d380a4cb0c12c0cf653db9020db86283c1c28f92745e36b5cfe984e1a"
+      "sha256": "7be7d246b3cb58c2bb3321f16f84f5ebecf38537f6bc1f1fcbcbeb8d27a30cc9"
     },
     {
       "path": "Assets/Scripts/WorldGame.cs.meta",
@@ -4013,13 +4098,13 @@
     },
     {
       "path": "Packages/manifest.json",
-      "bytes": 339,
-      "sha256": "19bca4ed2ebfec7005441d58d7a1b157fc773a5204f3ab7e42596a0c6bc61a54"
+      "bytes": 380,
+      "sha256": "c6f8f47fedddf7437d8c6443bc4c904b3228f8b99c8343d0110fd2f4788ec39d"
     },
     {
       "path": "Packages/packages-lock.json",
-      "bytes": 1217,
-      "sha256": "501910ab746a964275c28fcf317efeefdc64dc6fc616b3156fb550b54b03ec40"
+      "bytes": 3193,
+      "sha256": "674b9f003068e2ca59dc1858f1e91b5f45392e64910670d1564eff30f1614399"
     },
     {
       "path": "ProjectSettings/AudioManager.asset",
@@ -4070,6 +4155,11 @@
       "path": "ProjectSettings/NavMeshAreas.asset",
       "bytes": 1361,
       "sha256": "7ebbf8f53b8033104e1878b95ca07a28d0954092d81c220f14196a42f651e658"
+    },
+    {
+      "path": "ProjectSettings/PackageManagerSettings.asset",
+      "bytes": 1232,
+      "sha256": "a5c6d196ce91ed48a2ebf6505cdd8f213871edc939d50c329609fc9d187aa471"
     },
     {
       "path": "ProjectSettings/Physics2DSettings.asset",
@@ -4775,6 +4865,16 @@
       "path": "美术源文件/半写实人物.blend",
       "bytes": 93282063,
       "sha256": "3865d0b05742fb4a8f3b6a51656a9d541c9461ae90bd5d6c8198d40625718650"
+    },
+    {
+      "path": "美术源文件/地区建筑/RangoonWorkerLodging/Original.glb",
+      "bytes": 243954276,
+      "sha256": "6573358ea91ff9bc6f2e3496c9c13330e1bf7804336611f5b94920d212d54531"
+    },
+    {
+      "path": "美术源文件/地区建筑/RangoonWorkerLodging/provenance.json",
+      "bytes": 815,
+      "sha256": "db75a67bcd92e378996aa6aa565d2478264e3784a558137277ed42ce44695b28"
     },
     {
       "path": "美术源文件/家庭人物-2.0.6.blend",

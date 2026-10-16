@@ -1,0 +1,30 @@
+{
+  "cloudName": "Rustic Stable House",
+  "retrievedDate": "2026-10-16",
+  "service": "Meshy",
+  "originalFile": "Original.glb",
+  "originalSHA256": "6573358ea91ff9bc6f2e3496c9c13330e1bf7804336611f5b94920d212d54531",
+  "creditsSpentOnRetrieval": 0,
+  "observedBalance": 4660,
+  "geometry": "Original Meshy geometry/UVs retained; no decimation, remesh or LOD",
+  "conversion": "Blender glTF import, FBX export; mesh modifiers and animation baking disabled",
+  "nativeTextureDimensions": {
+    "BaseColor": [
+      8192,
+      8192
+    ],
+    "Normal": [
+      4096,
+      4096
+    ],
+    "MetalRough": [
+      4096,
+      4096
+    ]
+  },
+  "unityMaterial": "MetalSmooth packs source metallic B into RGB and 255-roughness G into A",
+  "binding": {
+    "destination": "rangoon",
+    "function": "worker_lodging"
+  }
+}

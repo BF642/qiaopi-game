@@ -92,11 +92,21 @@ namespace Qiaopi
             ESRoute(0,14,22,14);ESRoute(22,14,23,14);
             ESRoute(0,-2,22,-2);ESRoute(22,-2,22,14);
             ESPaths();
-            // Cutaway communal rooms are genuinely empty inside, with separate sleeping bays.
-            ESOpenCourt("乡亲通铺院",-23,8,20,16,9,false,0,Mat("dormitory old limewash","BDAE91"));
-            ESShelterBack(-23,15.1f,19.4f,2.4f,2.75f,false);
-            ESBedRow(-29.7f,4.1f,2);ESBedRow(-16.4f,4.1f,2);
-            ESBench(-28.5f,13);ESJar(-31.0f,9.0f,.43f);
+            bool nativeLodging = RegionalBuilding.Spawn(buildingDestination, "worker_lodging", world,
+                new Vector3(-23, 0, 0));
+            if (nativeLodging)
+            {
+                // Keep the first-pay conversation at (-22,8) and all doorstep delivery routes.
+                ESBedRow(-26,4,2);
+                ESBench(-19.7f,12.7f);ESJar(-19.7f,10.8f,.43f);
+            }
+            else
+            {
+                ESOpenCourt("乡亲通铺院",-23,8,20,16,9,false,0,Mat("dormitory old limewash","BDAE91"));
+                ESShelterBack(-23,15.1f,19.4f,2.4f,2.75f,false);
+                ESBedRow(-29.7f,4.1f,2);ESBedRow(-16.4f,4.1f,2);
+                ESBench(-28.5f,13);ESJar(-31.0f,9.0f,.43f);
+            }
             ESOpenCourt("晾衣与井水后院",23,14,20,22,9,true,14,Cream);
             ESShelterBack(23,24.1f,19.4f,2.4f,2.7f,false);
             Clothesline(new Vector3(16.4f,0,21),new Vector3(30.4f,0,21));

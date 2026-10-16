@@ -24,7 +24,9 @@ namespace Qiaopi.Editor
             FullScreenMode oldFullscreen = PlayerSettings.fullScreenMode;
             bool oldResizable = PlayerSettings.resizableWindow, oldBackground = PlayerSettings.runInBackground;
             var oldBackend = PlayerSettings.GetScriptingBackend(standalone);
+#if UNITY_EDITOR_OSX
             var oldArchitecture = UnityEditor.OSXStandalone.UserBuildSettings.architecture;
+#endif
             Scene previousScene = SceneManager.GetActiveScene();
             Scene createdScene = default(Scene);
             Exception failure = null;
@@ -44,7 +46,9 @@ namespace Qiaopi.Editor
                 PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
                 PlayerSettings.resizableWindow = true; PlayerSettings.runInBackground = true;
                 PlayerSettings.SetScriptingBackend(standalone, ScriptingImplementation.Mono2x);
+#if UNITY_EDITOR_OSX
                 UnityEditor.OSXStandalone.UserBuildSettings.architecture = UnityEditor.Build.OSArchitecture.x64ARM64;
+#endif
                 createdScene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, Application.isBatchMode ? NewSceneMode.Single : NewSceneMode.Additive);
                 SceneManager.SetActiveScene(createdScene);
                 var viewer = new GameObject("Standalone character study").AddComponent<CharacterStudyViewer>();
@@ -73,7 +77,9 @@ namespace Qiaopi.Editor
                 PlayerSettings.fullScreenMode = oldFullscreen;
                 PlayerSettings.resizableWindow = oldResizable; PlayerSettings.runInBackground = oldBackground;
                 PlayerSettings.SetScriptingBackend(standalone, oldBackend);
+#if UNITY_EDITOR_OSX
                 UnityEditor.OSXStandalone.UserBuildSettings.architecture = oldArchitecture;
+#endif
                 if (createdScene.IsValid() && createdScene.isLoaded) EditorSceneManager.CloseScene(createdScene, true);
                 if (previousScene.IsValid() && previousScene.isLoaded) SceneManager.SetActiveScene(previousScene);
             }

@@ -23,7 +23,9 @@ namespace Qiaopi.Editor
             var oldFullscreen = PlayerSettings.fullScreenMode;
             bool oldResizable = PlayerSettings.resizableWindow, oldBackground = PlayerSettings.runInBackground;
             var oldBackend = PlayerSettings.GetScriptingBackend(target);
+#if UNITY_EDITOR_OSX
             var oldArchitecture = UnityEditor.OSXStandalone.UserBuildSettings.architecture;
+#endif
             Scene previousScene = SceneManager.GetActiveScene(), study = default(Scene);
             Exception failure = null;
             try
@@ -41,7 +43,9 @@ namespace Qiaopi.Editor
                 PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
                 PlayerSettings.resizableWindow = true; PlayerSettings.runInBackground = true;
                 PlayerSettings.SetScriptingBackend(target, ScriptingImplementation.Mono2x);
+#if UNITY_EDITOR_OSX
                 UnityEditor.OSXStandalone.UserBuildSettings.architecture = UnityEditor.Build.OSArchitecture.x64ARM64;
+#endif
                 // A fresh batch editor starts with an untitled scene; Unity cannot
                 // add another scene to it. Interactive editors retain their open scene.
                 // BuildPlayer's explicit array leaves the normal build list intact.
@@ -69,7 +73,9 @@ namespace Qiaopi.Editor
                 PlayerSettings.fullScreenMode = oldFullscreen;
                 PlayerSettings.resizableWindow = oldResizable; PlayerSettings.runInBackground = oldBackground;
                 PlayerSettings.SetScriptingBackend(target, oldBackend);
+#if UNITY_EDITOR_OSX
                 UnityEditor.OSXStandalone.UserBuildSettings.architecture = oldArchitecture;
+#endif
                 if (study.IsValid() && study.isLoaded) EditorSceneManager.CloseScene(study, true);
                 if (previousScene.IsValid() && previousScene.isLoaded) SceneManager.SetActiveScene(previousScene);
             }

@@ -80,7 +80,7 @@ namespace Qiaopi
             bool recovered=false;
             if(!QA) {saved=WorldSaveStore.Load(savePath,out recovered);if(saved!=null)state=saved.story;}
             LifeJourney.Ensure(state);
-            soundEnabled=PlayerPrefs.GetInt("qiaopi-sound-enabled",1)==1;
+            soundEnabled=PlayerPrefs.GetInt("qiaopi-sound-enabled",0)==1;
             WorldAtmosphere.SetSoundEnabled(soundEnabled);
             ConfigureCamera(); CreatePlayer(); SetupFirstPersonBody(); SetupAudio(); musicDirector=gameObject.AddComponent<QiaopiMusic>(); SetupConversation();
             EnterNode(true);

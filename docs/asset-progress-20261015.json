@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "gameBuild": "v298 original SemarangWarehouse + four distinct original cast, desktop build successful",
+  "gameBuild": "Windows production build successful; original RangoonWorkerLodging integrated",
   "implemented": [
     "Worker native motions and8K writing desks retained",
     "Original Wife and Mother sources with own animations built v295",
@@ -14,12 +14,11 @@
   "notComplete": [
     "Remaining distinct character original sources and animations",
     "Regional functional buildings listed in regional-building-queue.json",
-    "Semarang environment and destination-specific livelihood/story before arrival activation",
     "Story/free-life integration for remaining locations"
   ],
-  "updatedAt": "2026-10-15T22:52:53.679696+08:00",
+  "updatedAt": "2026-10-16T09:30:00+08:00",
   "latestEvidence": "work/replacement-v297/continuation-state.json",
-  "nextAction": "User is playing. Do not interrupt game. Next integrate already downloaded RangoonWorkerLodging native8K source into Rangoon quarters, then remaining distinct cast/buildings; no regeneration.",
+  "nextAction": "Continue Guide, MasterHe, Clerk, remaining supporting/resident characters and pending region/function-specific buildings.",
   "credits": {
     "account": "yejaspercj",
     "lastObservedBalance": 4700,
@@ -61,7 +60,7 @@
     "directGeneratedAssetImport": true
   },
   "latestWork": {
-    "updatedAt": "2026-10-15T22:52:53.679696+08:00",
+    "updatedAt": "2026-10-16T09:30:00+08:00",
     "scope": "Desktop only; original geometry, no decimation; direct asset import, no art QA",
     "SemarangWarehouse": {
       "status": "production_desktop_build_success",
@@ -84,20 +83,23 @@
       "motions": "standing,walking,seated; fast channel uses walking, role-height speed scaling; no borrowed Worker finger/contact corrections"
     },
     "RangoonWorkerLodging": {
-      "status": "native8K_original_downloaded_not_integrated",
+      "status": "original_imported_windows_build_success",
       "referenceFolder": "work/environments-v298/RangoonWorkerLodging/references",
       "geometry": "Meshy7.1 HighDetail Ultra2K Multi-view (Ultra4K disabled), no remesh",
-      "textures": "8K with PBR, all four references",
+      "textures": "Native 8192x8192 base color; native 4096x4096 normal and metal/roughness; Unity metallic/smoothness packed without resizing",
       "credits": 40,
       "submittedOnce": true,
       "cloudName": "Rustic Stable House",
-      "source": "work/environments-v298/RangoonWorkerLodging/source-original",
-      "cloudJobComplete": true
+      "source": "美术源文件/地区建筑/RangoonWorkerLodging/Original.glb",
+      "cloudJobComplete": true,
+      "historicalSource": "work/environments-v298/RangoonWorkerLodging/source-original",
+      "integrationSpend": 0,
+      "placement": "rangoon / quarters worker_lodging at (-23,0,0), open entrance and first-pay dialogue retained"
     },
     "creditsLastObserved": 4660,
     "activeLocalProcesses": [],
     "activeCloudJobs": [],
-    "nextAction": "User is playing. Do not interrupt game. Next integrate already downloaded RangoonWorkerLodging native8K source into Rangoon quarters, then remaining distinct cast/buildings; no regeneration.",
+    "nextAction": "Continue Guide, MasterHe, Clerk, remaining supporting/resident characters and pending region/function-specific buildings.",
     "lastSuccessfulDesktopBuild": {
       "log": "work/replacement-v298/cache-repair-retry.log",
       "bytes": 2959215742,
@@ -106,7 +108,17 @@
     },
     "gameLaunchedForUser": true,
     "startupStatus": "SUCCESS: launched rebuilt production app; actual first-person Singapore market scene visible, existing save restored",
-    "cacheRepair": "Old duplicate caches preserved under ~/Library/Caches/Qiaopi-v298-build-repair/prior-*. Final cache directories are ordinary project Library directories, NOT symlinks. BuildOptions.None used after fresh cache recreation."
+    "cacheRepair": "Old duplicate caches preserved under ~/Library/Caches/Qiaopi-v298-build-repair/prior-*. Final cache directories are ordinary project Library directories, NOT symlinks. BuildOptions.None used after fresh cache recreation.",
+    "windowsContinuation": {
+      "build": "Builds/Qiaopi-Windows/Qiaopi.exe",
+      "buildBytes": 3326346906,
+      "compilation": "7 OSXStandalone references guarded for macOS Editor; Windows compile succeeded",
+      "startup": "Standalone QIAOPI_LOGIN_READY; Editor login visible and frames advanced 7196 to 8268",
+      "editorErrors": "Search cache regenerated; fresh Editor Console error count 0",
+      "validationBoundary": "No full story playthrough or per-asset art inspection",
+      "saves": "Did not enter journey or load/write player saves",
+      "audio": "New installs default to muted; existing preferences retained"
+    }
   },
   "latestUserPolicy": "Desktop only, original geometry; direct generated-asset import without art/motion/mesh QA; distinct buildings by destination AND function.",
   "regionalBuildingQueue": "regional-building-queue.json",

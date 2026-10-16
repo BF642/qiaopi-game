@@ -50,7 +50,9 @@ namespace Qiaopi.Editor
             PlayerSettings.colorSpace=ColorSpace.Gamma;
             PlayerSettings.useMacAppStoreValidation=false;
             PlayerSettings.SetScriptingBackend(UnityEditor.Build.NamedBuildTarget.Standalone,ScriptingImplementation.Mono2x);
+#if UNITY_EDITOR_OSX
             UnityEditor.OSXStandalone.UserBuildSettings.architecture = UnityEditor.Build.OSArchitecture.x64ARM64;
+#endif
             PlayerSettings.stripEngineCode=false;
             QualitySettings.vSyncCount=1;
             AudioConfiguration cfg=AudioSettings.GetConfiguration(); cfg.speakerMode=AudioSpeakerMode.Stereo; AudioSettings.Reset(cfg);

@@ -317,9 +317,11 @@
       "function": "worker_lodging",
       "designBrief": "江岸客工院：休息与共同生活",
       "routeStatus": "existing",
-      "status": "native8K_original_downloaded_not_integrated",
+      "status": "original_imported_windows_build_success",
       "source": "RangoonWorkerLodging",
-      "sourceMayBeUsedForOtherFunctions": false
+      "sourceMayBeUsedForOtherFunctions": false,
+      "sourcePath": "美术源文件/地区建筑/RangoonWorkerLodging/Original.glb",
+      "runtimePath": "Assets/Resources/EnvironmentArt/RangoonWorkerLodging/Model.prefab"
     },
     {
       "id": "rangoon_warehouse",
@@ -346,8 +348,8 @@
     }
   ],
   "productionOrder": [
-    "Integrate already downloaded RangoonWorkerLodging native original in Rangoon quarters, without regenerating",
-    "Continue remaining original characters and region/function-specific buildings"
+    "Continue Guide, MasterHe, Clerk and remaining distinct supporting/resident characters",
+    "Continue pending region/function-specific buildings; Rangoon worker lodging is integrated"
   ],
   "referenceSources": [
     {
