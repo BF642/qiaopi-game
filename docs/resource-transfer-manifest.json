@@ -1,5 +1,5 @@
 {
-  "description": "Transfer integrity after Windows compile fix and original Rangoon worker lodging integration; original desktop geometry retained.",
+  "description": "Transfer integrity after Windows fixes and original Rangoon lodging / Guide / MasterHe / Clerk integration; desktop original geometry retained.",
   "files": [
     {
       "path": "Assets/AppIcon.png",
@@ -220,6 +220,16 @@
       "path": "Assets/Editor/EnvironmentArtChecks.cs.meta",
       "bytes": 59,
       "sha256": "3fe349111c1ac2796fbd47d8b667c6d7a8a05947c149b0b334d3682102ddbe16"
+    },
+    {
+      "path": "Assets/Editor/ExistingCastImport.cs",
+      "bytes": 5491,
+      "sha256": "e60665db02390c1dcf056ed86d408c04bf606e9559f8c9bf0e3d97716290dc43"
+    },
+    {
+      "path": "Assets/Editor/ExistingCastImport.cs.meta",
+      "bytes": 59,
+      "sha256": "c487acb0308792f2236948a23f45c3ee930442a04eb1033370b30c93d0c7dca5"
     },
     {
       "path": "Assets/Editor/ExperienceLetterChecks.cs",
@@ -1782,6 +1792,81 @@
       "sha256": "f5de137f9f91c58420983b35b4caa9153ce0c3ffacf7ec959f29b596727903db"
     },
     {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion.meta",
+      "bytes": 172,
+      "sha256": "72a7c220707f4c767efae107081ff9138272c5f6c977300924909f9c5e96fe59"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/BaseColor.jpg",
+      "bytes": 13300744,
+      "sha256": "b28e4509f284b30460655a8af13940ae91da0d757711c226eab0732c0ae05a05"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/BaseColor.jpg.meta",
+      "bytes": 3427,
+      "sha256": "7b8aed7cd2614fd6cc7b7639b8050bfebe20abc4d41e2c11da0953fdbdad67c8"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/ClerkMeshyMotion.fbx",
+      "bytes": 11624972,
+      "sha256": "e9f0ddb23a6d5e5652a0f855f07edaad50a77a7d7b1e1415ba58bdd00a3e6a9e"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/ClerkMeshyMotion.fbx.meta",
+      "bytes": 3242,
+      "sha256": "8d3f7c2db09b85d9366704b8e684c1717d98a0e4a4dc4c220d18d6de36271d1b"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/MetalSmooth.png",
+      "bytes": 2093729,
+      "sha256": "00cd97a0cca30c98994a7169bf01d081c4353553c1a3d4a4ca59ced649a81b8c"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/MetalSmooth.png.meta",
+      "bytes": 3427,
+      "sha256": "3184fa623c1a1892db1ec373cf83e103f5f3882edfdfc2fe372bf5c52a02a302"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/NativeMaterial.mat",
+      "bytes": 2407,
+      "sha256": "5105a2a3dd8a0944b750dc1406434783565e5ed556a49d1a4a52bd3766834f72"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/NativeMaterial.mat.meta",
+      "bytes": 188,
+      "sha256": "1e57bbccee71df511b6ef4f33d492cf12c79997c19b4266a55eadbcb62539048"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/NativeMetalRough.jpg",
+      "bytes": 1241704,
+      "sha256": "81a0e9e4121898ea015707d7894c9999d6832c0ba739f610c759b946ccfe3251"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/NativeMetalRough.jpg.meta",
+      "bytes": 3427,
+      "sha256": "1ae1fc165b718a744886dca5275dd96be152d38cce8a57c97d79e9515da762f3"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/NativeMotionSet.asset",
+      "bytes": 1796,
+      "sha256": "9a4cc951c311ef9e12131b0e2c5fdf800efc63bcee298a38a13bd2fcbb43fb01"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/NativeMotionSet.asset.meta",
+      "bytes": 189,
+      "sha256": "7b278e163d2d614b2c1ccbeee1057aa178b82c4f1324c80818ea46839a90983a"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/Normal.jpg",
+      "bytes": 9793026,
+      "sha256": "18e95a4a16f3529582828a6c5058938a5388ec1705d05e5a8c5ec1c764bba500"
+    },
+    {
+      "path": "Assets/Resources/Models/ClerkMeshyMotion/Normal.jpg.meta",
+      "bytes": 3427,
+      "sha256": "0fc5e4691a32d4bbc559722f99327e7c808c25c1efdb9047867f1d529cc37ad2"
+    },
+    {
       "path": "Assets/Resources/Models/FirstPersonHands.fbx",
       "bytes": 844188,
       "sha256": "ac6c356722544cc3a1855e3a0ef32019e4241980c5f3ec0448d29a369b11012e"
@@ -1867,6 +1952,81 @@
       "sha256": "b5da0eb74a8ce4e2369c1a0ab91f1a6cb7a8582bafd178a9b6b34fd7ec9a73bb"
     },
     {
+      "path": "Assets/Resources/Models/GuideMeshyMotion.meta",
+      "bytes": 172,
+      "sha256": "1a0fc6e8c2a3488ef50af49c1cf179404d40224325dd88c29a237096354ba3cd"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/BaseColor.jpg",
+      "bytes": 13809556,
+      "sha256": "45402f1cd75e4229e4593979797409dfaf12d09384e47dab848b047d1b388626"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/BaseColor.jpg.meta",
+      "bytes": 3427,
+      "sha256": "8c9023d7f55caccf08d57c5a282b09c5a64d6c1cbe1732ed93c3599379e9dff8"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/GuideMeshyMotion.fbx",
+      "bytes": 12169964,
+      "sha256": "51a796703adff8cf2e198a8651e2216f264c1a9bb6d61d779d455c36d9d27d5e"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/GuideMeshyMotion.fbx.meta",
+      "bytes": 3242,
+      "sha256": "3dbba101f280cf1a7563c6390fa58de89d776ec8ca7cc08d27e5a8a2c2fa5de8"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/MetalSmooth.png",
+      "bytes": 1918873,
+      "sha256": "05777d19f7a65229cd3f19bcd068da16288ee60ea42dfd62c1b9637231417442"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/MetalSmooth.png.meta",
+      "bytes": 3427,
+      "sha256": "b1bf52a78938827b38d4288a6a949df24199f2ee53bae2238c10a759c4b4e2aa"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/NativeMaterial.mat",
+      "bytes": 2407,
+      "sha256": "04a957455f2051e2c5b7f88668b84c85618622acb44bb4ff1df880364f37eae8"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/NativeMaterial.mat.meta",
+      "bytes": 188,
+      "sha256": "6d3626f687315ce58a4a41bdca062ddb777ee5cf4983fb2a217afcffbf51cf03"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/NativeMetalRough.jpg",
+      "bytes": 1155692,
+      "sha256": "a04d1c4bbb27deb30d826fd7518d26d19372a75a350320869b5d5c341e244fec"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/NativeMetalRough.jpg.meta",
+      "bytes": 3427,
+      "sha256": "4a21b7925d094a57529ee419ee125f160b7f629876d489e0220c6f100a81d85a"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/NativeMotionSet.asset",
+      "bytes": 1796,
+      "sha256": "fbee8ee0b11f1eb08d210edf6661980975611ba7a87d03a624fc4abc780cf8b4"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/NativeMotionSet.asset.meta",
+      "bytes": 189,
+      "sha256": "4d4f6b4b1ded219f25a3ed86940181bb9b820646888b9af3fcff15a3bf4a82c4"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/Normal.jpg",
+      "bytes": 10042235,
+      "sha256": "5b5e1a8b0f1baf1fcde8227e90b559443c471a6726ecfa94d31c4db7667284cc"
+    },
+    {
+      "path": "Assets/Resources/Models/GuideMeshyMotion/Normal.jpg.meta",
+      "bytes": 3427,
+      "sha256": "df48f43150a78c75a1880559edc9ebb21005a0d2fd346817feeb19b8e8a88afb"
+    },
+    {
       "path": "Assets/Resources/Models/LetterBundle.fbx",
       "bytes": 50044,
       "sha256": "13526b9e2432fe0e340f784ecdac4d91603aa6c4f73f430da3399d238674d2e3"
@@ -1885,6 +2045,81 @@
       "path": "Assets/Resources/Models/MasterHe.fbx.meta",
       "bytes": 3063,
       "sha256": "984eaabb44fb097f8c185a5bf53beb2e285212fbc518bed2ff4d4a55c7da3ada"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion.meta",
+      "bytes": 172,
+      "sha256": "0b24f4315959795562779dcf2983473ff4633f92866a862587716437398e0088"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/BaseColor.jpg",
+      "bytes": 14928911,
+      "sha256": "88fb8b674918455175a947e9801a8fa3bb0501e27d78508f53cc48b0550132b2"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/BaseColor.jpg.meta",
+      "bytes": 3427,
+      "sha256": "ab050ee46b3c7d2c4fab97442be4b4ef69c8487984319d18418620bb47c4c611"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/MasterHeMeshyMotion.fbx",
+      "bytes": 9691228,
+      "sha256": "af74def5d424ad919b1c066a8bef796aabf9da142599823ef7e3889212d45449"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/MasterHeMeshyMotion.fbx.meta",
+      "bytes": 3242,
+      "sha256": "020a0712a935622222a10c74fad8360c2971e61b5dda630ace1ad708d16dc78a"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/MetalSmooth.png",
+      "bytes": 2229140,
+      "sha256": "900f1a537ca1900b7189fed81dfd0c82dccad33afbc6b67096083aace9617638"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/MetalSmooth.png.meta",
+      "bytes": 3427,
+      "sha256": "53006af5944e7f2555bdcc4a95cb5c2af0a92c54d67e63a6073174ca156de5b5"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/NativeMaterial.mat",
+      "bytes": 2407,
+      "sha256": "eeb10d52595fc07d65028882a807ed792b075e55f4605242a58814e04d3795ce"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/NativeMaterial.mat.meta",
+      "bytes": 188,
+      "sha256": "bd635362859d6bb0760e6c3360dc2350091e2a422c142b19a5ea859291889e43"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/NativeMetalRough.jpg",
+      "bytes": 1330001,
+      "sha256": "5b8766bc747b5c44e3a5c6284672b08de350dd0e00bc978f62291185a36fc872"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/NativeMetalRough.jpg.meta",
+      "bytes": 3427,
+      "sha256": "37228f3ccfa8a7b17dc013e5cce9ce839522e7bdf9c570722cc040a806939c9e"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/NativeMotionSet.asset",
+      "bytes": 1805,
+      "sha256": "916bd09cbde027c609991b71c6fb6c590c98276349569383df215ab669a435fb"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/NativeMotionSet.asset.meta",
+      "bytes": 189,
+      "sha256": "3f2f3456c43998008342ceaee6bb64043469d88ab10872ff9783db4320a76dc7"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/Normal.jpg",
+      "bytes": 11165692,
+      "sha256": "618d418681c420aaa1a1bbe3cce296a7e5ed7872e3ebe757d7fc721c18cd5365"
+    },
+    {
+      "path": "Assets/Resources/Models/MasterHeMeshyMotion/Normal.jpg.meta",
+      "bytes": 3427,
+      "sha256": "b464ff2df5322cc067f550314a2a1530fce835d58f898fc01997ecb052a0f475"
     },
     {
       "path": "Assets/Resources/Models/Mother.fbx",
@@ -2353,8 +2588,8 @@
     },
     {
       "path": "Assets/Resources/Models/WifeMeshyMotion/NativeMotionSet.asset",
-      "bytes": 2221,
-      "sha256": "55ef76aa27e506c9566da7b70085a65da5abf65bf76626cfbe164f169f15a794"
+      "bytes": 2239,
+      "sha256": "0a01a737789447b443f411e9da098f77091f7f0944a3c2bd3f0ea7ab6a608e15"
     },
     {
       "path": "Assets/Resources/Models/WifeMeshyMotion/NativeMotionSet.asset.meta",
@@ -2528,8 +2763,8 @@
     },
     {
       "path": "Assets/Resources/Models/WorkerMeshyMotion/NativeMotionSet.asset",
-      "bytes": 1871,
-      "sha256": "e6513c900332e814da10ac9294c1f0df9909f6c19de06320c42e077290f57604"
+      "bytes": 1889,
+      "sha256": "a64d1da13186d4d3b3d12e077219dbc3ec576ecda94f69e27efb34c6b85b5912"
     },
     {
       "path": "Assets/Resources/Models/WorkerMeshyMotion/NativeMotionSet.asset.meta",
@@ -3288,8 +3523,8 @@
     },
     {
       "path": "Assets/Scripts/NativeMotionSet.cs",
-      "bytes": 1964,
-      "sha256": "224c275ebfe99dd21d318f68ec32ae9b0b68903a5015b89d3d8eced68f7fdbe4"
+      "bytes": 2268,
+      "sha256": "6b61cda75113811b748af9cce3bdfec766780462a419c403f4076fe3017d5a18"
     },
     {
       "path": "Assets/Scripts/NativeMotionSet.cs.meta",
@@ -4227,9 +4462,49 @@
       "sha256": "e199cdfa6a8f2bf33cfd47e549198f13e3eb2a5099e908fdb4e0f14d939ccc6b"
     },
     {
+      "path": "tools/import_existing_cast.py",
+      "bytes": 4628,
+      "sha256": "406f9359a50022921501c8f1020a726b4e1f24683607243e5ae9918b9d8f83df"
+    },
+    {
+      "path": "tools/pack_native_metallic.py",
+      "bytes": 647,
+      "sha256": "7e477908be5c601340fcbb2be26bd4d52d35d49f7e72482f672434d026445116"
+    },
+    {
       "path": "美术源文件/人物与侨批道具.blend",
       "bytes": 936953,
       "sha256": "0983e5ea186b2a06fc651e377e0852b1aeb7cb85702d94ae316195c7c0ed5a6b"
+    },
+    {
+      "path": "美术源文件/人物原稿/Clerk/Original.glb",
+      "bytes": 31506780,
+      "sha256": "c0a6d4e3d5e18b0c068d34c885b8d1766649f5d10562497e5c720eabd83d6604"
+    },
+    {
+      "path": "美术源文件/人物原稿/Clerk/provenance.json",
+      "bytes": 823,
+      "sha256": "1efd8e3d27c2a8e3b35be5b02b95407f8cbbccae88308ea9158ba97db9bbfb2b"
+    },
+    {
+      "path": "美术源文件/人物原稿/Guide/Original.glb",
+      "bytes": 32585408,
+      "sha256": "173effd355a4187b1e0fbdd2bb1b17a86fb43c7511fba48c7d2e0c519a782c0b"
+    },
+    {
+      "path": "美术源文件/人物原稿/Guide/provenance.json",
+      "bytes": 820,
+      "sha256": "502cd940ae7301675145d9e2aeca7f8bdcdfa77d921788c847c0d8a0b39207c8"
+    },
+    {
+      "path": "美术源文件/人物原稿/MasterHe/Original.glb",
+      "bytes": 33432268,
+      "sha256": "340262d6396f269281ff264077304c2c6c775255111f5025a7c2d71f3c92ef15"
+    },
+    {
+      "path": "美术源文件/人物原稿/MasterHe/provenance.json",
+      "bytes": 825,
+      "sha256": "5618c3f49b7cad2ca66994717ad4b7463ba175f639a0bd6746a0648e36f2fc41"
     },
     {
       "path": "美术源文件/人物基础/LICENSE.ASSETS.md",

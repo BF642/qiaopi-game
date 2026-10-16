@@ -25,6 +25,10 @@ namespace Qiaopi
         public bool IsQualified {
             get {
                 if ((!qualified && !directImport) || qualificationVersion != CurrentVersion || !model || !idle || !walking || !running) return false;
+                // Direct imports deliberately bypass the old art qualification gate.
+                // Unity dependency hashes vary by Editor platform/import settings;
+                // moving the same sources to Windows must not restore old characters.
+                if (directImport) return true;
 #if UNITY_EDITOR
                 // Editing/replacing the source invalidates the old qualification
                 // even when its .meta GUID and take names did not change.

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Qiaopi.NativeMotionSet
   qualificationVersion: 1
   qualified: 1
+  directImport: 1
   role: Wife
   model: {fileID: 919132149155446097, guid: 02857a32a232e4248b055d6546e9fabc, type: 3}
   reviewedSkin: {fileID: 4300000, guid: 812a42a754a2c4c4ab85d1d94350bc44, type: 2}

@@ -1,0 +1,31 @@
+{
+  "role": "MasterHe",
+  "cloudName": "Calm Presence",
+  "retrievedDate": "2026-10-16",
+  "source": "Original.glb",
+  "originalSHA256": "340262d6396f269281ff264077304c2c6c775255111f5025a7c2d71f3c92ef15",
+  "sourceIsDistinctFromExistingCast": true,
+  "creditsSpent": 0,
+  "geometry": "Original geometry and UVs; uniform unit conversion only; no decimation or LOD",
+  "binding": "Local weight transfer to existing Worker Meshy skeleton; not independently cloud-rigged",
+  "motions": [
+    "Existing stock Idle_4",
+    "Existing stock Walking",
+    "Existing stock Chair_Sit_Idle_M"
+  ],
+  "fastMovement": "Walking clip with role speed scaling",
+  "textureDimensions": {
+    "BaseColor": [
+      4096,
+      4096
+    ],
+    "Normal": [
+      4096,
+      4096
+    ],
+    "NativeMetalRough": [
+      2048,
+      2048
+    ]
+  }
+}

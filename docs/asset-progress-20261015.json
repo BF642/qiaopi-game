@@ -1,6 +1,6 @@
 {
   "date": "2026-10-15",
-  "gameBuild": "Windows production build successful; original RangoonWorkerLodging integrated",
+  "gameBuild": "Windows production build successful; Guide, MasterHe and Clerk originals integrated; portable direct character imports fixed",
   "implemented": [
     "Worker native motions and8K writing desks retained",
     "Original Wife and Mother sources with own animations built v295",
@@ -16,14 +16,14 @@
     "Regional functional buildings listed in regional-building-queue.json",
     "Story/free-life integration for remaining locations"
   ],
-  "updatedAt": "2026-10-16T09:30:00+08:00",
+  "updatedAt": "2026-10-16T10:07:19.322624+08:00",
   "latestEvidence": "work/replacement-v297/continuation-state.json",
-  "nextAction": "Continue Guide, MasterHe, Clerk, remaining supporting/resident characters and pending region/function-specific buildings.",
+  "nextAction": "Continue distinct supporting characters and residents, then pending region/function-specific buildings; main-role replacements do not replace supporting cast.",
   "credits": {
     "account": "yejaspercj",
-    "lastObservedBalance": 4700,
+    "lastObservedBalance": 4660,
     "pendingJobs": [],
-    "extraSpendThisTurn": 15
+    "extraSpendThisTurn": 0
   },
   "staging": {
     "Aman": {
@@ -60,7 +60,7 @@
     "directGeneratedAssetImport": true
   },
   "latestWork": {
-    "updatedAt": "2026-10-16T09:30:00+08:00",
+    "updatedAt": "2026-10-16T10:07:19.322624+08:00",
     "scope": "Desktop only; original geometry, no decimation; direct asset import, no art QA",
     "SemarangWarehouse": {
       "status": "production_desktop_build_success",
@@ -99,25 +99,41 @@
     "creditsLastObserved": 4660,
     "activeLocalProcesses": [],
     "activeCloudJobs": [],
-    "nextAction": "Continue Guide, MasterHe, Clerk, remaining supporting/resident characters and pending region/function-specific buildings.",
+    "nextAction": "Continue distinct supporting characters and residents, then pending region/function-specific buildings; main-role replacements do not replace supporting cast.",
     "lastSuccessfulDesktopBuild": {
-      "log": "work/replacement-v298/cache-repair-retry.log",
-      "bytes": 2959215742,
-      "startup": "first-person market scene displayed",
+      "platform": "Windows x64",
+      "path": "Builds/Qiaopi-Windows/Qiaopi.exe",
+      "bytes": 3534338970,
+      "startup": "QIAOPI_LOGIN_READY; no journey entry or save writes",
       "artInspection": false
     },
-    "gameLaunchedForUser": true,
-    "startupStatus": "SUCCESS: launched rebuilt production app; actual first-person Singapore market scene visible, existing save restored",
+    "gameLaunchedForUser": false,
+    "startupStatus": "Windows login startup check passed; test process closed",
     "cacheRepair": "Old duplicate caches preserved under ~/Library/Caches/Qiaopi-v298-build-repair/prior-*. Final cache directories are ordinary project Library directories, NOT symlinks. BuildOptions.None used after fresh cache recreation.",
     "windowsContinuation": {
       "build": "Builds/Qiaopi-Windows/Qiaopi.exe",
-      "buildBytes": 3326346906,
+      "buildBytes": 3534338970,
       "compilation": "7 OSXStandalone references guarded for macOS Editor; Windows compile succeeded",
       "startup": "Standalone QIAOPI_LOGIN_READY; Editor login visible and frames advanced 7196 to 8268",
       "editorErrors": "Search cache regenerated; fresh Editor Console error count 0",
       "validationBoundary": "No full story playthrough or per-asset art inspection",
       "saves": "Did not enter journey or load/write player saves",
-      "audio": "New installs default to muted; existing preferences retained"
+      "audio": "New installs default to muted; existing preferences retained",
+      "cast": "Guide, MasterHe and Clerk native models connected; cross-platform Editor fallback repaired for existing direct imports"
+    },
+    "castContinuation20261016": {
+      "roles": [
+        "Guide",
+        "MasterHe",
+        "Clerk"
+      ],
+      "status": "originals_imported_windows_build_success",
+      "source": "美术源文件/人物原稿",
+      "notes": "docs/人物接续-20261016.md",
+      "binding": "Original skin with existing stock Meshy skeleton and idle/walk/seated clips; local weight transfer, not independent cloud rigging",
+      "creditsSpent": 0,
+      "portableImportFix": "Direct imports skip platform-dependent art qualification hashes; required model/motion references remain mandatory",
+      "remaining": "Supporting cast/residents; Wensheng still lacks standalone WenshengMeshyMotion"
     }
   },
   "latestUserPolicy": "Desktop only, original geometry; direct generated-asset import without art/motion/mesh QA; distinct buildings by destination AND function.",
