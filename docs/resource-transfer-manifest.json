@@ -1,5 +1,5 @@
 {
-  "description": "Transfer integrity after Windows fixes and original Rangoon lodging / Guide / MasterHe / Clerk integration; desktop original geometry retained.",
+  "description": "Transfer integrity after Windows fixes, original Rangoon lodging, Guide/MasterHe/Clerk and HomeVendor integration; three generated supporting models still pending download.",
   "files": [
     {
       "path": "Assets/AppIcon.png",
@@ -223,8 +223,8 @@
     },
     {
       "path": "Assets/Editor/ExistingCastImport.cs",
-      "bytes": 5491,
-      "sha256": "e60665db02390c1dcf056ed86d408c04bf606e9559f8c9bf0e3d97716290dc43"
+      "bytes": 6019,
+      "sha256": "e0b51149d507dfec42c4853cc4ca3b9bf7fc1eec65c1af9f340cabee7f07bd28"
     },
     {
       "path": "Assets/Editor/ExistingCastImport.cs.meta",
@@ -2027,6 +2027,81 @@
       "sha256": "df48f43150a78c75a1880559edc9ebb21005a0d2fd346817feeb19b8e8a88afb"
     },
     {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion.meta",
+      "bytes": 172,
+      "sha256": "92a922cb43d311a4b982b799682296dbb91de1acba77c25a8f3252924cfa0148"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/BaseColor.jpg",
+      "bytes": 3497677,
+      "sha256": "67e44f4cdb0dbb765ac596777d1cf8a27b9f14cf4f886219d01b350b186b3f48"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/BaseColor.jpg.meta",
+      "bytes": 3071,
+      "sha256": "ddfc893efd7ea16cf3f3206acafa36ada00f50493481922a61bdf8839e75d461"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/HomeVendorMeshyMotion.fbx",
+      "bytes": 10360748,
+      "sha256": "f777bede27bd7325cadbd6ce8ea0326ad0a2b28d270fc1314cb7bb9a231fb28c"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/HomeVendorMeshyMotion.fbx.meta",
+      "bytes": 3246,
+      "sha256": "20d74b1beb96d72edff4d9f93a8490895817ad8dcde1113f5a279efa3935b20a"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/MetalSmooth.png",
+      "bytes": 2148824,
+      "sha256": "ad4ac822d8707a079bdbb1510b2d4bc3b7b1bcf36e9d01a03d597e8af266cc44"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/MetalSmooth.png.meta",
+      "bytes": 3071,
+      "sha256": "1f031e2c9827147aad30d8666c260e692a422d94683527059ca657e655886e4c"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/NativeMaterial.mat",
+      "bytes": 2407,
+      "sha256": "2f42dd64c06ecb91241ae5e7b974f1515c1f276df323c50c227388f18cf7cc13"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/NativeMaterial.mat.meta",
+      "bytes": 188,
+      "sha256": "47802cd785be8f54b40cda6e996f033025191803d922fbdf9513e400ce3bc6fc"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/NativeMetalRough.jpg",
+      "bytes": 1343131,
+      "sha256": "028eb872e0ef9b7be10f3c68fcf0ed15d9a37a93465bc1aaf754f95450e97f3c"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/NativeMetalRough.jpg.meta",
+      "bytes": 3071,
+      "sha256": "b44b5ec2659200835a84239c471ef465ce52c3e7f46a35e81355af6a1b87076a"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/NativeMotionSet.asset",
+      "bytes": 1811,
+      "sha256": "9d8679393004f1cad945b943dfdeccdeff757c36a4cfa01383926728a095a88a"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/NativeMotionSet.asset.meta",
+      "bytes": 189,
+      "sha256": "0f6c4df890adfc5f6f3548a7eff87310fff1f30c8ee7d2ca3f4a37db02a8244e"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/Normal.jpg",
+      "bytes": 2435085,
+      "sha256": "529910d457bb8c48ad78fd452e344ca701e66d0e00aa0520e76a3ef31cc53023"
+    },
+    {
+      "path": "Assets/Resources/Models/HomeVendorMeshyMotion/Normal.jpg.meta",
+      "bytes": 3071,
+      "sha256": "6f14d05e5b6915e649457748e1cc2122e995a16f855c160553b0b72071c8282e"
+    },
+    {
       "path": "Assets/Resources/Models/LetterBundle.fbx",
       "bytes": 50044,
       "sha256": "13526b9e2432fe0e340f784ecdac4d91603aa6c4f73f430da3399d238674d2e3"
@@ -3153,8 +3228,8 @@
     },
     {
       "path": "Assets/Scripts/CharacterAppearanceProfiles.cs",
-      "bytes": 4227,
-      "sha256": "522a588bd675509db56ded1c5b4bb9f05e54bc8f837a1697dc5b4272119c9643"
+      "bytes": 4920,
+      "sha256": "f57d116804cf5f3b5cce91b7de4a61ac54b1a10c642439f4a7d8d54986113173"
     },
     {
       "path": "Assets/Scripts/CharacterAppearanceProfiles.cs.meta",
@@ -3453,8 +3528,8 @@
     },
     {
       "path": "Assets/Scripts/ModelLibrary.cs",
-      "bytes": 11321,
-      "sha256": "ec9a2a5f4842a54d768c8e2f308e6556d9dc3767633cf583c5c5657db19c7055"
+      "bytes": 11559,
+      "sha256": "4e211095cacbd59b8c0074e271b2cc747d368d72086ac459efbac8a443354085"
     },
     {
       "path": "Assets/Scripts/ModelLibrary.cs.meta",
@@ -4462,14 +4537,19 @@
       "sha256": "e199cdfa6a8f2bf33cfd47e549198f13e3eb2a5099e908fdb4e0f14d939ccc6b"
     },
     {
+      "path": "docs/supporting-cast-20261016.json",
+      "bytes": 2293,
+      "sha256": "be8a07c428ef773495ad2f8b598338163c71516d510da568d6b60b3776591f5d"
+    },
+    {
       "path": "tools/import_existing_cast.py",
       "bytes": 4628,
       "sha256": "406f9359a50022921501c8f1020a726b4e1f24683607243e5ae9918b9d8f83df"
     },
     {
       "path": "tools/pack_native_metallic.py",
-      "bytes": 647,
-      "sha256": "7e477908be5c601340fcbb2be26bd4d52d35d49f7e72482f672434d026445116"
+      "bytes": 883,
+      "sha256": "421e5ba5d16206e686642a83a22036748b7760fa08ca92fc986946cd84173e29"
     },
     {
       "path": "美术源文件/人物与侨批道具.blend",
@@ -4495,6 +4575,16 @@
       "path": "美术源文件/人物原稿/Guide/provenance.json",
       "bytes": 820,
       "sha256": "502cd940ae7301675145d9e2aeca7f8bdcdfa77d921788c847c0d8a0b39207c8"
+    },
+    {
+      "path": "美术源文件/人物原稿/HomeVendor/Original.glb",
+      "bytes": 13832048,
+      "sha256": "b1d551c0ec62ee6cbf9510a114e17d218b4fcfa88ba0c245be61c436cc99f968"
+    },
+    {
+      "path": "美术源文件/人物原稿/HomeVendor/provenance.json",
+      "bytes": 855,
+      "sha256": "dd98bca98e96a59858b4a9eddf340066ddd6edd11906823cf4c1fb9eeb4b6d0e"
     },
     {
       "path": "美术源文件/人物原稿/MasterHe/Original.glb",

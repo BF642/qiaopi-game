@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,9 @@ namespace Qiaopi.Editor
     {
         public static void Install(string role)
         {
-            if (role != "Guide" && role != "MasterHe" && role != "Clerk")
+            if (role != "Guide" && role != "MasterHe" && role != "Clerk"
+                && role != "HomeVendor" && role != "DockAshun"
+                && role != "RecipientAfuYoung" && role != "RecipientAfuSenior")
                 throw new ArgumentException("Unsupported continuation role: " + role);
             string folder = "Assets/Resources/Models/" + role + "MeshyMotion/";
             string modelPath = folder + role + "MeshyMotion.fbx";
@@ -36,8 +39,8 @@ namespace Qiaopi.Editor
                 material = new Material(Shader.Find("Standard"));
                 AssetDatabase.CreateAsset(material, folder + "NativeMaterial.mat");
             }
-            material.mainTexture = Texture(folder + "BaseColor.jpg", true, false);
-            material.SetTexture("_BumpMap", Texture(folder + "Normal.jpg", false, true));
+            material.mainTexture = Texture(NativeTexturePath(folder, "BaseColor"), true, false);
+            material.SetTexture("_BumpMap", Texture(NativeTexturePath(folder, "Normal"), false, true));
             material.SetTexture("_MetallicGlossMap", Texture(folder + "MetalSmooth.png", false, false));
             material.EnableKeyword("_NORMALMAP");
             material.EnableKeyword("_METALLICGLOSSMAP");
@@ -79,6 +82,13 @@ namespace Qiaopi.Editor
             EditorUtility.SetDirty(set);
             AssetDatabase.SaveAssets();
             Debug.Log("EXISTING_CAST_IMPORTED " + role);
+        }
+
+        static string NativeTexturePath(string folder, string name)
+        {
+            foreach (string extension in new[] { ".jpg", ".png" })
+                if (File.Exists(folder + name + extension)) return folder + name + extension;
+            throw new FileNotFoundException("Original texture missing: " + folder + name);
         }
 
         static Texture2D Texture(string path, bool srgb, bool normal)

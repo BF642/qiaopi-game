@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-16",
+  "generator": "Meshy 7.1 High Detail, original textured model",
+  "referenceGenerator": "Nano Banana Pro, one reference per identity",
+  "policy": "Desktop only; preserve original geometry, UVs and native textures; no decimation or LOD; no art acceptance gates",
+  "binding": "Local skin-weight transfer to existing Worker Meshy skeleton; existing Idle_4, Walking and Chair_Sit_Idle_M clips; no independent cloud rigging",
+  "roles": [
+    {
+      "identity": "home_vendor",
+      "model": "HomeVendor",
+      "title": "村口日用摊主",
+      "cloudNamePrefix": "Qiaopi HomeVendor.",
+      "status": "original_imported_windows_build_and_login_passed",
+      "source": "美术源文件/人物原稿/HomeVendor/Original.glb",
+      "integration": "WorldHomeChapter village stall through CharacterAppearanceProfiles.Spawn"
+    },
+    {
+      "identity": "dock_ashun",
+      "model": "DockAshun",
+      "title": "工友阿顺",
+      "cloudNamePrefix": "Qiaopi DockAshun.",
+      "status": "cloud_model_complete_download_pending",
+      "integration": "WorldInvestigation and WorldWorkEvents share dock_ashun identity"
+    },
+    {
+      "identity": "recipient_afu_young",
+      "model": "RecipientAfuYoung",
+      "title": "陈阿福（年轻收件人）",
+      "cloudNamePrefix": "Qiaopi RecipientAfuYoung.",
+      "status": "cloud_model_complete_download_pending",
+      "integration": "WorldTradeWork recipient; identity follows the person after address relocation"
+    },
+    {
+      "identity": "recipient_afu_senior",
+      "model": "RecipientAfuSenior",
+      "title": "陈阿福（年长收件人）",
+      "cloudNamePrefix": "Qiaopi RecipientAfuSenior.",
+      "status": "cloud_model_complete_download_pending",
+      "integration": "WorldTradeWork recipient; identity follows the person after address relocation"
+    }
+  ],
+  "remaining": ["rice_customer", "tea_neighbour", "all ambient resident identities"],
+  "creditsLastObserved": 4584,
+  "creditsNote": "Observed balance only, not a spending calculation. No top-up or subscription purchase performed.",
+  "resume": "Download the three pending existing models by cloudNamePrefix. Do not regenerate. Finish local binding/import, rebuild Windows and check startup, then update manifest and GitHub."
+}

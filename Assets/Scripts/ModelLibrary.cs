@@ -101,6 +101,10 @@ namespace Qiaopi
                 case "MasterHe":return 1.65f;
                 case "Clerk":return 1.71f;
                 case "Worker":return 1.74f;
+                case "HomeVendor":return 1.66f;
+                case "DockAshun":return 1.75f;
+                case "RecipientAfuYoung":return 1.71f;
+                case "RecipientAfuSenior":return 1.64f;
                 default:return 0;
             }
         }
@@ -184,6 +188,7 @@ namespace Qiaopi
     public sealed class CharacterModelIdentity : MonoBehaviour
     {
         public string modelId;
+        public string personId;
     }
     public sealed class CharacterIdle : MonoBehaviour
     {

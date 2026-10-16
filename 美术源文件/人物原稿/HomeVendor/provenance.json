@@ -1,0 +1,31 @@
+{
+  "role": "HomeVendor",
+  "identity": "home_vendor",
+  "cloudNamePrefix": "Qiaopi HomeVendor.",
+  "createdDate": "2026-10-16",
+  "source": "Original.glb",
+  "originalSHA256": "b1d551c0ec62ee6cbf9510a114e17d218b4fcfa88ba0c245be61c436cc99f968",
+  "generator": "Meshy 7.1 High Detail, native textured original",
+  "geometry": "Original geometry and UVs; uniform unit conversion; no decimation or LOD",
+  "binding": "Local weight transfer to existing Worker Meshy skeleton; not independent cloud rigging",
+  "motions": [
+    "Existing stock Idle_4",
+    "Existing stock Walking",
+    "Existing stock Chair_Sit_Idle_M"
+  ],
+  "fastMovement": "Walking clip with speed scaling",
+  "textureDimensions": {
+    "BaseColor": [
+      2048,
+      2048
+    ],
+    "Normal": [
+      2048,
+      2048
+    ],
+    "NativeMetalRough": [
+      2048,
+      2048
+    ]
+  }
+}

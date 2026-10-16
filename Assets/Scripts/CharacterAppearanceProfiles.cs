@@ -45,11 +45,28 @@ namespace Qiaopi
         public static GameObject Spawn(string identityId, Transform parent, Vector3 position)
         {
             var profile = Get(identityId);
-            var actor = SpawnIndependentBase(profile.model, parent, position);
+            string nativeModel = IndependentModel(identityId);
+            bool hasNative = nativeModel != null && ModelLibrary.MeshyResource(nativeModel) != null;
+            var actor = hasNative ? ModelLibrary.Spawn(nativeModel, parent, position)
+                : SpawnIndependentBase(profile.model, parent, position);
             if (!actor) return null;
             actor.name = profile.title;
-            AmbientAppearance.Apply(actor, identityId, profile.model, profile.face);
+            actor.GetComponent<CharacterModelIdentity>().personId = identityId;
+            // A dedicated native face is already authored for this person.
+            // Legacy sculpting and dyes must never modify its original skin.
+            if (!hasNative) AmbientAppearance.Apply(actor, identityId, profile.model, profile.face);
             return actor;
+        }
+
+        public static string IndependentModel(string identityId)
+        {
+            switch (identityId) {
+                case "home_vendor": return "HomeVendor";
+                case "dock_ashun": return "DockAshun";
+                case "recipient_afu_young": return "RecipientAfuYoung";
+                case "recipient_afu_senior": return "RecipientAfuSenior";
+                default: return null;
+            }
         }
 
         public static GameObject SpawnResident(AmbientSchedule schedule, Transform parent, Vector3 position)
@@ -63,11 +80,8 @@ namespace Qiaopi
 
         public static GameObject SpawnIndependentBase(string model, Transform parent, Vector3 position)
         {
-            // Meshy has a fused skinned surface and no separate eye material.
-            // The old fitted-eye sculpt cannot be inferred from its texture.
-            // Preserve this independent resource until a per-asset head mask,
-            // rigid eye regions, bind-space landmarks and source fingerprint
-            // have been reviewed. Never guess these from whole-body bounds.
+            // Unreplaced identities keep their existing authored legacy face.
+            // Main-cast imports do not implicitly replace supporting residents.
             return ModelLibrary.Spawn(model, parent, position, preferNative: false);
         }
     }

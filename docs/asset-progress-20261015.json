@@ -96,14 +96,14 @@
       "integrationSpend": 0,
       "placement": "rangoon / quarters worker_lodging at (-23,0,0), open entrance and first-pay dialogue retained"
     },
-    "creditsLastObserved": 4660,
+    "creditsLastObserved": 4584,
     "activeLocalProcesses": [],
     "activeCloudJobs": [],
-    "nextAction": "Continue distinct supporting characters and residents, then pending region/function-specific buildings; main-role replacements do not replace supporting cast.",
+    "nextAction": "Retrieve already-generated DockAshun / RecipientAfuYoung / RecipientAfuSenior from Meshy; do not regenerate. Import and rebuild. Then rice_customer, tea_neighbour, residents and distinct region/function buildings.",
     "lastSuccessfulDesktopBuild": {
       "platform": "Windows x64",
       "path": "Builds/Qiaopi-Windows/Qiaopi.exe",
-      "bytes": 3534338970,
+      "bytes": 3611162906,
       "startup": "QIAOPI_LOGIN_READY; no journey entry or save writes",
       "artInspection": false
     },
@@ -112,14 +112,14 @@
     "cacheRepair": "Old duplicate caches preserved under ~/Library/Caches/Qiaopi-v298-build-repair/prior-*. Final cache directories are ordinary project Library directories, NOT symlinks. BuildOptions.None used after fresh cache recreation.",
     "windowsContinuation": {
       "build": "Builds/Qiaopi-Windows/Qiaopi.exe",
-      "buildBytes": 3534338970,
+      "buildBytes": 3611162906,
       "compilation": "7 OSXStandalone references guarded for macOS Editor; Windows compile succeeded",
       "startup": "Standalone QIAOPI_LOGIN_READY; Editor login visible and frames advanced 7196 to 8268",
       "editorErrors": "Search cache regenerated; fresh Editor Console error count 0",
       "validationBoundary": "No full story playthrough or per-asset art inspection",
       "saves": "Did not enter journey or load/write player saves",
       "audio": "New installs default to muted; existing preferences retained",
-      "cast": "Guide, MasterHe and Clerk native models connected; cross-platform Editor fallback repaired for existing direct imports"
+      "cast": "Guide, MasterHe, Clerk and HomeVendor connected. Three additional supporting cloud models await successful local download."
     },
     "castContinuation20261016": {
       "roles": [
@@ -134,6 +134,20 @@
       "creditsSpent": 0,
       "portableImportFix": "Direct imports skip platform-dependent art qualification hashes; required model/motion references remain mandatory",
       "remaining": "Supporting cast/residents; Wensheng still lacks standalone WenshengMeshyMotion"
+    },
+    "supportingCastContinuation20261016": {
+      "imported": [
+        "HomeVendor"
+      ],
+      "cloudCompleteDownloadPending": [
+        "DockAshun",
+        "RecipientAfuYoung",
+        "RecipientAfuSenior"
+      ],
+      "statusFile": "docs/supporting-cast-20261016.json",
+      "windowsBuild": "DESKTOP_HANDOFF_BUILD_SUCCESS",
+      "startup": "QIAOPI_LOGIN_READY; no journey entry or save writes",
+      "binding": "Local stock skeleton weight transfer; existing idle/walk/seated clips; no independent cloud rigging"
     }
   },
   "latestUserPolicy": "Desktop only, original geometry; direct generated-asset import without art/motion/mesh QA; distinct buildings by destination AND function.",
@@ -141,7 +155,7 @@
   "latestContinuation": "work/replacement-v298/continuation-state.json",
   "v295ReleaseStatus": "Wife, Mother original geometry and original-detail Quanzhou courtyard desktop build succeeded.",
   "v296ReleaseStatus": "SUCCESS desktop build exit0. One native Singapore general store in destination/function-specific market slot; Mother/Wife originals and original courtyard included. No art quality inspection performed at user request.",
-  "creditsLastObserved": 4660,
+  "creditsLastObserved": 4584,
   "historicalVerification": [
     "Mac production build succeeded",
     "Dock coworker performance runtime1414checks",
