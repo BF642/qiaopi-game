@@ -1,0 +1,33 @@
+{
+  "role": "DockAshun",
+  "identity": "dock_ashun",
+  "cloudNamePrefix": "Qiaopi DockAshun.",
+  "createdDate": "2026-10-16",
+  "source": "Original.glb",
+  "originalSHA256": "cadc1a66abdb4fafad91d7442e24c0c6032296c0a7bd2600887b2021f430c88e",
+  "generator": "Meshy 7.1 High Detail, native textured original",
+  "geometry": "Original geometry and UVs; uniform unit conversion; no decimation or LOD",
+  "binding": "Local weight transfer to existing Worker Meshy skeleton; not independent cloud rigging",
+  "motions": [
+    "Existing stock Idle_4",
+    "Existing stock Walking",
+    "Existing stock Chair_Sit_Idle_M"
+  ],
+  "fastMovement": "Walking clip with speed scaling",
+  "textureDimensions": {
+    "BaseColor": [
+      2048,
+      2048
+    ],
+    "Normal": [
+      2048,
+      2048
+    ],
+    "NativeMetalRough": [
+      2048,
+      2048
+    ]
+  },
+  "sourceTask": "01a142d3-244e-71cb-8261-e513a5d450dd",
+  "exportTask": "01a142d8-93b3-759b-b78d-3c1d032e3413"
+}

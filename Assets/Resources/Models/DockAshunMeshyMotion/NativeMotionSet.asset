@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4d975f93cb42c5aba46c66383c0af, type: 3}
+  m_Name: NativeMotionSet
+  m_EditorClassIdentifier: Assembly-CSharp::Qiaopi.NativeMotionSet
+  qualificationVersion: 1
+  qualified: 0
+  directImport: 1
+  role: DockAshun
+  model: {fileID: 919132149155446097, guid: 4f8ed891320fe604c8c1154da1623ebb, type: 3}
+  reviewedSkin: {fileID: 0}
+  reviewedSkinSourceName: 
+  idle: {fileID: 7400000, guid: ecb58dff2f0a8482ab667571c3e46f20, type: 2}
+  walking: {fileID: 7400000, guid: 80839fed36a4f477f89a3a6f472453f5, type: 2}
+  running: {fileID: 7400000, guid: 80839fed36a4f477f89a3a6f472453f5, type: 2}
+  seated: {fileID: 7400000, guid: 77aa8e080e3e6465ea20bd258eee49cd, type: 2}
+  fingerAnimationWeight: 1
+  fingerAdaptationReview: Original Meshy skin; existing stock skeleton and idle/walk/seated clips. Local weight transfer, no independent cloud rigging or art acceptance gate.
+  reviewedContactAndWristAdaptation: 0
+  reviewedSeatAndGroundAdaptation: 0
+  walkingReferenceMetresPerSecond: 1.4330018
+  runningReferenceMetresPerSecond: 1.4330018
+  sourceAssets:
+  - Assets/Resources/Models/DockAshunMeshyMotion/DockAshunMeshyMotion.fbx
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Idle_4.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Walking.anim
+  - Assets/Resources/Models/WorkerMeshyMotion/Worker_Chair_Sit_Idle_M.anim
+  sourceDependencyHashes:
+  - a2bdc83ec514e447a7eaa2dc5305e7ff
+  - d3f29da78b843cf4f10d2a058f42c8cd
+  - 71cf7d919a290c5d8f6daca997622e8d
+  - 049677ced749e5e69bf9bbb385d8ff16

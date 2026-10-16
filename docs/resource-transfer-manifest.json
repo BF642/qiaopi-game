@@ -1,5 +1,5 @@
 {
-  "description": "Transfer integrity after Windows fixes, original Rangoon lodging, Guide/MasterHe/Clerk and HomeVendor integration; three generated supporting models still pending download.",
+  "description": "Transfer integrity after Windows fixes, Rangoon lodging, Guide/MasterHe/Clerk, HomeVendor and DockAshun integration; RecipientAfuYoung original included, runtime import pending; RecipientAfuSenior still pending download.",
   "files": [
     {
       "path": "Assets/AppIcon.png",
@@ -1865,6 +1865,81 @@
       "path": "Assets/Resources/Models/ClerkMeshyMotion/Normal.jpg.meta",
       "bytes": 3427,
       "sha256": "0fc5e4691a32d4bbc559722f99327e7c808c25c1efdb9047867f1d529cc37ad2"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion.meta",
+      "bytes": 172,
+      "sha256": "ea6f7c65c8354501dbf05020376dc6b2c9eaff8d79998a5ccf09f1a47f61df12"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/BaseColor.jpg",
+      "bytes": 3330947,
+      "sha256": "33c140182d1c26390370cd6a9db1c4d32f6990295e0873fe9671bc1b54aa28d1"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/BaseColor.jpg.meta",
+      "bytes": 3071,
+      "sha256": "c9e418830eeb5ad5fc6dedcad9696c697f9a2403ae235c5413d60cd2b5a8f49e"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/DockAshunMeshyMotion.fbx",
+      "bytes": 25841996,
+      "sha256": "421ad1878fb660dd5eea663149907492e15eef333de215c62a80f5e5f666e048"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/DockAshunMeshyMotion.fbx.meta",
+      "bytes": 3246,
+      "sha256": "51095920cd2ef1b9b344a7fc780c200f1cc0313d8abdbf906eb082ae5b5edee1"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/MetalSmooth.png",
+      "bytes": 2187374,
+      "sha256": "430b630cf13f3795acdd1cce4a397056aad5bbfc7fdc95ef653c163260be99e2"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/MetalSmooth.png.meta",
+      "bytes": 3071,
+      "sha256": "005e05e205f743259f5e0272ff739fabcfdfa384b6e64ef81684d3b20b448d2b"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/NativeMaterial.mat",
+      "bytes": 2407,
+      "sha256": "c10ddcde6913027cb89719e1ed53521c8bdaad3f27ea2757336369c8d4e48f99"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/NativeMaterial.mat.meta",
+      "bytes": 188,
+      "sha256": "bec8131694fe080b7f9f26d600df3eb1a9956966c05492dca9fa6ce4985de0db"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/NativeMetalRough.jpg",
+      "bytes": 1298444,
+      "sha256": "fa8205e0b7b33161ecc4a6ab260ef3e63d2ee981eefdc24409f7cf8a6ee180d5"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/NativeMetalRough.jpg.meta",
+      "bytes": 3071,
+      "sha256": "b94b5869159f94f39d04e03f726322d2ff78d55fb806fe7f88d30bed3664a607"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/NativeMotionSet.asset",
+      "bytes": 1808,
+      "sha256": "522aa9899fa3d5480bd3a50f2d2c29497aba264ca99c6aabaa419f2fb19dbc51"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/NativeMotionSet.asset.meta",
+      "bytes": 189,
+      "sha256": "9dd50aeda53d3d2d005bc5c16c7799ec8c93ee53e63f6f8a5fee564c868357fc"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/Normal.jpg",
+      "bytes": 2328604,
+      "sha256": "344b0e8f4d4a0157e15a17d69464f23071c10e814d2b4ff6f19d62e28ffa4dd1"
+    },
+    {
+      "path": "Assets/Resources/Models/DockAshunMeshyMotion/Normal.jpg.meta",
+      "bytes": 3071,
+      "sha256": "249537a3525b9051b275ee3620d7a0099c06154d5dde1767a017728b403dd30c"
     },
     {
       "path": "Assets/Resources/Models/FirstPersonHands.fbx",
@@ -4538,8 +4613,8 @@
     },
     {
       "path": "docs/supporting-cast-20261016.json",
-      "bytes": 2664,
-      "sha256": "0089c79f2fd3906665a8a8c41356237baed341b3551bdc3dd441ab29df2c41f2"
+      "bytes": 3096,
+      "sha256": "8f299955197aad2469238a9c2cfb3a130d6dce902a97b2a42fd2f6d8fded5ddf"
     },
     {
       "path": "tools/import_existing_cast.py",
@@ -4565,6 +4640,16 @@
       "path": "美术源文件/人物原稿/Clerk/provenance.json",
       "bytes": 823,
       "sha256": "1efd8e3d27c2a8e3b35be5b02b95407f8cbbccae88308ea9158ba97db9bbfb2b"
+    },
+    {
+      "path": "美术源文件/人物原稿/DockAshun/Original.glb",
+      "bytes": 22485680,
+      "sha256": "cadc1a66abdb4fafad91d7442e24c0c6032296c0a7bd2600887b2021f430c88e"
+    },
+    {
+      "path": "美术源文件/人物原稿/DockAshun/provenance.json",
+      "bytes": 964,
+      "sha256": "1e8ac83f6b63387f916a06c2e33da4e991daf669becf8b520fd0a44d85dcd54e"
     },
     {
       "path": "美术源文件/人物原稿/Guide/Original.glb",
@@ -4595,6 +4680,16 @@
       "path": "美术源文件/人物原稿/MasterHe/provenance.json",
       "bytes": 825,
       "sha256": "5618c3f49b7cad2ca66994717ad4b7463ba175f639a0bd6746a0648e36f2fc41"
+    },
+    {
+      "path": "美术源文件/人物原稿/RecipientAfuYoung/Original.glb",
+      "bytes": 14857416,
+      "sha256": "bcf678c93fa7557df4af640523ab1ef5f1a4295290e1e0199fa2cdabaeae4772"
+    },
+    {
+      "path": "美术源文件/人物原稿/RecipientAfuYoung/provenance.json",
+      "bytes": 736,
+      "sha256": "94d19b575fe7a0705123f74ec0262cbb5b8fab234db8ea06104fca147a2751ed"
     },
     {
       "path": "美术源文件/人物基础/LICENSE.ASSETS.md",

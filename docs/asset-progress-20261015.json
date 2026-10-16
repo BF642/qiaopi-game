@@ -99,11 +99,11 @@
     "creditsLastObserved": 4584,
     "activeLocalProcesses": [],
     "activeCloudJobs": [],
-    "nextAction": "Retrieve already-generated DockAshun / RecipientAfuYoung / RecipientAfuSenior from Meshy; do not regenerate. Import and rebuild. Then rice_customer, tea_neighbour, residents and distinct region/function buildings.",
+    "nextAction": "Bind/import committed RecipientAfuYoung Original.glb; download existing RecipientAfuSenior from Meshy and import, do not regenerate. Rebuild Windows. Then rice_customer, tea_neighbour, residents and distinct region/function buildings.",
     "lastSuccessfulDesktopBuild": {
       "platform": "Windows x64",
       "path": "Builds/Qiaopi-Windows/Qiaopi.exe",
-      "bytes": 3611162906,
+      "bytes": 3705262426,
       "startup": "QIAOPI_LOGIN_READY; no journey entry or save writes",
       "artInspection": false
     },
@@ -112,14 +112,14 @@
     "cacheRepair": "Old duplicate caches preserved under ~/Library/Caches/Qiaopi-v298-build-repair/prior-*. Final cache directories are ordinary project Library directories, NOT symlinks. BuildOptions.None used after fresh cache recreation.",
     "windowsContinuation": {
       "build": "Builds/Qiaopi-Windows/Qiaopi.exe",
-      "buildBytes": 3611162906,
+      "buildBytes": 3705262426,
       "compilation": "7 OSXStandalone references guarded for macOS Editor; Windows compile succeeded",
       "startup": "Standalone QIAOPI_LOGIN_READY; Editor login visible and frames advanced 7196 to 8268",
       "editorErrors": "Search cache regenerated; fresh Editor Console error count 0",
       "validationBoundary": "No full story playthrough or per-asset art inspection",
       "saves": "Did not enter journey or load/write player saves",
       "audio": "New installs default to muted; existing preferences retained",
-      "cast": "Guide, MasterHe, Clerk and HomeVendor connected. Three additional supporting cloud models await successful local download."
+      "cast": "Guide, MasterHe, Clerk, HomeVendor and DockAshun connected. RecipientAfuYoung original committed but not bound/imported. RecipientAfuSenior cloud complete; download pending."
     },
     "castContinuation20261016": {
       "roles": [
@@ -137,17 +137,19 @@
     },
     "supportingCastContinuation20261016": {
       "imported": [
-        "HomeVendor"
+        "HomeVendor",
+        "DockAshun"
       ],
       "cloudCompleteDownloadPending": [
-        "DockAshun",
-        "RecipientAfuYoung",
         "RecipientAfuSenior"
       ],
       "statusFile": "docs/supporting-cast-20261016.json",
       "windowsBuild": "DESKTOP_HANDOFF_BUILD_SUCCESS",
       "startup": "QIAOPI_LOGIN_READY; no journey entry or save writes",
-      "binding": "Local stock skeleton weight transfer; existing idle/walk/seated clips; no independent cloud rigging"
+      "binding": "Local stock skeleton weight transfer; existing idle/walk/seated clips; no independent cloud rigging",
+      "downloadedImportPending": [
+        "RecipientAfuYoung"
+      ]
     }
   },
   "latestUserPolicy": "Desktop only, original geometry; direct generated-asset import without art/motion/mesh QA; distinct buildings by destination AND function.",

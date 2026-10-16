@@ -1,0 +1,14 @@
+{
+  "role": "RecipientAfuYoung",
+  "identity": "recipient_afu_young",
+  "cloudNamePrefix": "Qiaopi RecipientAfuYoung.",
+  "createdDate": "2026-10-16",
+  "source": "Original.glb",
+  "originalSHA256": "bcf678c93fa7557df4af640523ab1ef5f1a4295290e1e0199fa2cdabaeae4772",
+  "sourceTask": "01a142d4-0336-713e-904f-0f1a43b530d4",
+  "exportTask": "01a142da-9c9a-7637-b8e9-d9b26e742fa3",
+  "status": "original_downloaded_binding_and_runtime_import_pending",
+  "generator": "Meshy 7.1 High Detail, native textured original",
+  "geometry": "Unmodified downloaded GLB; no decimation or LOD",
+  "nextAction": "Use tools/import_existing_cast.py, tools/pack_native_metallic.py and ExistingCastImport.Install; then build Windows. Do not regenerate."
+}

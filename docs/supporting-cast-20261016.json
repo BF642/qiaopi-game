@@ -19,16 +19,18 @@
       "model": "DockAshun",
       "title": "工友阿顺",
       "cloudNamePrefix": "Qiaopi DockAshun.",
-      "status": "cloud_model_complete_download_pending",
-      "integration": "WorldInvestigation and WorldWorkEvents share dock_ashun identity"
+      "status": "original_imported_windows_build_and_login_passed",
+      "integration": "WorldInvestigation and WorldWorkEvents share dock_ashun identity",
+      "source": "美术源文件/人物原稿/DockAshun/Original.glb"
     },
     {
       "identity": "recipient_afu_young",
       "model": "RecipientAfuYoung",
       "title": "陈阿福（年轻收件人）",
       "cloudNamePrefix": "Qiaopi RecipientAfuYoung.",
-      "status": "cloud_model_complete_download_pending",
-      "integration": "WorldTradeWork recipient; identity follows the person after address relocation"
+      "status": "original_downloaded_binding_and_runtime_import_pending",
+      "integration": "WorldTradeWork recipient; identity follows the person after address relocation",
+      "source": "美术源文件/人物原稿/RecipientAfuYoung/Original.glb"
     },
     {
       "identity": "recipient_afu_senior",
@@ -39,9 +41,14 @@
       "integration": "WorldTradeWork recipient; identity follows the person after address relocation"
     }
   ],
-  "remaining": ["rice_customer", "tea_neighbour", "all ambient resident identities"],
+  "remaining": [
+    "rice_customer",
+    "tea_neighbour",
+    "all ambient resident identities"
+  ],
   "creditsLastObserved": 4584,
   "creditsNote": "Observed balance only, not a spending calculation. No top-up or subscription purchase performed.",
-  "downloadBlocker": "Chrome shows ERR_BLOCKED_BY_CLIENT for the DockAshun file on assets.meshy.ai, including after normal reload. Multiple-download blocking was an unconfirmed earlier guess. Young recipient remains at the download dialog; senior recipient page did not respond. The responsible client component is not identified; no browser protections were disabled.",
-  "resume": "Download the three pending existing models by cloudNamePrefix. Do not regenerate. Finish local binding/import, rebuild Windows and check startup, then update manifest and GitHub."
+  "downloadBlocker": "Chrome displayed ERR_BLOCKED_BY_CLIENT for official assets.meshy.ai export URLs. Responsible client component is unconfirmed. DockAshun and RecipientAfuYoung originals were downloaded successfully from the exact observed official URLs by a separate file transfer; no browser protections disabled. RecipientAfuSenior still needs downloading from its existing Meshy task.",
+  "resume": "First bind/import the already committed RecipientAfuYoung original; download existing Qiaopi RecipientAfuSenior, bind/import it; rebuild Windows and check startup. Do not regenerate these models. Continue rice_customer, tea_neighbour, residents and distinct region/function buildings.",
+  "browserPreference": "Use the user-opened Google Chrome Meshy tab; do not open duplicate workspace tabs."
 }
