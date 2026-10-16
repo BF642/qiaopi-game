@@ -99,7 +99,7 @@
     "creditsLastObserved": 4584,
     "activeLocalProcesses": [],
     "activeCloudJobs": [],
-    "nextAction": "Bind/import committed RecipientAfuYoung Original.glb; download existing RecipientAfuSenior from Meshy and import, do not regenerate. Rebuild Windows. Then rice_customer, tea_neighbour, residents and distinct region/function buildings.",
+    "nextAction": "Bind/import committed RecipientAfuYoung and RecipientAfuSenior Original.glb files; do not regenerate or redownload. Rebuild Windows. Then rice_customer, tea_neighbour, residents and distinct region/function buildings.",
     "lastSuccessfulDesktopBuild": {
       "platform": "Windows x64",
       "path": "Builds/Qiaopi-Windows/Qiaopi.exe",
@@ -119,7 +119,7 @@
       "validationBoundary": "No full story playthrough or per-asset art inspection",
       "saves": "Did not enter journey or load/write player saves",
       "audio": "New installs default to muted; existing preferences retained",
-      "cast": "Guide, MasterHe, Clerk, HomeVendor and DockAshun connected. RecipientAfuYoung original committed but not bound/imported. RecipientAfuSenior cloud complete; download pending."
+      "cast": "Guide, MasterHe, Clerk, HomeVendor and DockAshun connected. RecipientAfuYoung and RecipientAfuSenior originals committed but not bound/imported."
     },
     "castContinuation20261016": {
       "roles": [
@@ -140,15 +140,14 @@
         "HomeVendor",
         "DockAshun"
       ],
-      "cloudCompleteDownloadPending": [
-        "RecipientAfuSenior"
-      ],
+      "cloudCompleteDownloadPending": [],
       "statusFile": "docs/supporting-cast-20261016.json",
       "windowsBuild": "DESKTOP_HANDOFF_BUILD_SUCCESS",
       "startup": "QIAOPI_LOGIN_READY; no journey entry or save writes",
       "binding": "Local stock skeleton weight transfer; existing idle/walk/seated clips; no independent cloud rigging",
       "downloadedImportPending": [
-        "RecipientAfuYoung"
+        "RecipientAfuYoung",
+        "RecipientAfuSenior"
       ]
     }
   },

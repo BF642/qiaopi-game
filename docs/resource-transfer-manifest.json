@@ -1,5 +1,5 @@
 {
-  "description": "Transfer integrity after Windows fixes, Rangoon lodging, Guide/MasterHe/Clerk, HomeVendor and DockAshun integration; RecipientAfuYoung original included, runtime import pending; RecipientAfuSenior still pending download.",
+  "description": "Transfer integrity after Windows fixes, Rangoon lodging, Guide/MasterHe/Clerk, HomeVendor and DockAshun integration. Both RecipientAfuYoung and RecipientAfuSenior originals included; binding/runtime import pending.",
   "files": [
     {
       "path": "Assets/AppIcon.png",
@@ -4613,8 +4613,8 @@
     },
     {
       "path": "docs/supporting-cast-20261016.json",
-      "bytes": 3096,
-      "sha256": "8f299955197aad2469238a9c2cfb3a130d6dce902a97b2a42fd2f6d8fded5ddf"
+      "bytes": 3151,
+      "sha256": "33214dfe31f994306f57a773027b1016b043ebc733a35a98d628ccaa12d917ce"
     },
     {
       "path": "tools/import_existing_cast.py",
@@ -4680,6 +4680,16 @@
       "path": "美术源文件/人物原稿/MasterHe/provenance.json",
       "bytes": 825,
       "sha256": "5618c3f49b7cad2ca66994717ad4b7463ba175f639a0bd6746a0648e36f2fc41"
+    },
+    {
+      "path": "美术源文件/人物原稿/RecipientAfuSenior/Original.glb",
+      "bytes": 11540228,
+      "sha256": "4b6a8b716afdda8a5270f60cf4795b731c0f2908734910d42f1a6c2f903b9b15"
+    },
+    {
+      "path": "美术源文件/人物原稿/RecipientAfuSenior/provenance.json",
+      "bytes": 759,
+      "sha256": "18b83d13f4a8690fb625c4ad5c524813184566d8c579f275a8f4c7ef764e0cc6"
     },
     {
       "path": "美术源文件/人物原稿/RecipientAfuYoung/Original.glb",

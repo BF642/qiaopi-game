@@ -37,8 +37,9 @@
       "model": "RecipientAfuSenior",
       "title": "陈阿福（年长收件人）",
       "cloudNamePrefix": "Qiaopi RecipientAfuSenior.",
-      "status": "cloud_model_complete_download_pending",
-      "integration": "WorldTradeWork recipient; identity follows the person after address relocation"
+      "status": "original_downloaded_binding_and_runtime_import_pending",
+      "integration": "WorldTradeWork recipient; identity follows the person after address relocation",
+      "source": "美术源文件/人物原稿/RecipientAfuSenior/Original.glb"
     }
   ],
   "remaining": [
@@ -48,7 +49,7 @@
   ],
   "creditsLastObserved": 4584,
   "creditsNote": "Observed balance only, not a spending calculation. No top-up or subscription purchase performed.",
-  "downloadBlocker": "Chrome displayed ERR_BLOCKED_BY_CLIENT for official assets.meshy.ai export URLs. Responsible client component is unconfirmed. DockAshun and RecipientAfuYoung originals were downloaded successfully from the exact observed official URLs by a separate file transfer; no browser protections disabled. RecipientAfuSenior still needs downloading from its existing Meshy task.",
-  "resume": "First bind/import the already committed RecipientAfuYoung original; download existing Qiaopi RecipientAfuSenior, bind/import it; rebuild Windows and check startup. Do not regenerate these models. Continue rice_customer, tea_neighbour, residents and distinct region/function buildings.",
-  "browserPreference": "Use the user-opened Google Chrome Meshy tab; do not open duplicate workspace tabs."
+  "resume": "Bind/import committed RecipientAfuYoung and RecipientAfuSenior originals using existing tools, rebuild Windows and check startup. Do not regenerate or redownload. Then continue rice_customer, tea_neighbour, residents and distinct region/function buildings.",
+  "browserPreference": "Use the user-opened Google Chrome Meshy tab; do not open duplicate workspace tabs.",
+  "downloadRecovery": "All four originals now available in repository. Chrome successfully downloaded RecipientAfuSenior after a download receiver was registered before clicking the export confirmation. Earlier ERR_BLOCKED_BY_CLIENT source is unconfirmed; no browser protections disabled. DockAshun and RecipientAfuYoung were retrieved from exact observed official export URLs."
 }

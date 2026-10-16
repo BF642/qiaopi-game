@@ -1,0 +1,13 @@
+{
+  "role": "RecipientAfuSenior",
+  "identity": "recipient_afu_senior",
+  "cloudNamePrefix": "Qiaopi RecipientAfuSenior.",
+  "createdDate": "2026-10-16",
+  "source": "Original.glb",
+  "originalSHA256": "4b6a8b716afdda8a5270f60cf4795b731c0f2908734910d42f1a6c2f903b9b15",
+  "status": "original_downloaded_binding_and_runtime_import_pending",
+  "generator": "Meshy 7.1 High Detail, native textured original",
+  "geometry": "Unmodified downloaded GLB; no decimation or LOD",
+  "download": "Chrome completed the download after registering a download receiver before clicking; complete GLB length verified.",
+  "nextAction": "Use tools/import_existing_cast.py, tools/pack_native_metallic.py and ExistingCastImport.Install; then build Windows. Do not regenerate."
+}
